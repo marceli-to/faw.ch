@@ -1,0 +1,58 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: views/auth
+ * -----------------------------------------------------------------------------
+ */
+
+section.auth {
+  @include font-size($fs-md);
+
+  h1 {
+    margin-bottom: 20px;
+    @include font-size($fs-lg);
+  }
+
+  // Login form
+  form.auth {
+
+    max-width: 640px;
+
+    input[type=text],
+    input[type=email],
+    input[type=password] {
+      background-color: transparent;
+      padding: 10px;
+      width: 100%;
+    }
+
+    .form-helper {
+      color: $color-white;
+      transition: color .1s ease-in;
+      &:hover {
+        color: $color-black;
+      }
+    }
+  }
+
+  // Recover password
+  form.auth--recover {
+    .form-group {
+      label {
+        @include bp-lg() {
+          flex: 0 0 125px;
+        }
+      }
+    }
+  }
+
+  // Reset password form
+  form.auth--reset {
+    .form-group {
+      label {
+        @include bp-lg() {
+          flex: 0 0 215px;
+        }
+      }
+    }
+  }
+}

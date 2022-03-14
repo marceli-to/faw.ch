@@ -1,0 +1,25 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/menu/global
+ * -----------------------------------------------------------------------------
+ */
+
+nav {
+
+  li {
+    display: block;
+  }
+
+  a {
+    color: $color-black;
+    display: block;
+    transition: color .1s ease-in;
+
+    &.is-touched,
+    &.is-active,
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+}

@@ -1,0 +1,27 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/buttons/submit
+ * -----------------------------------------------------------------------------
+ */
+
+.btn-submit {
+  &:before {
+    transform: translate(0,0);
+  }
+
+  &.is-loading {
+    &:before {
+      animation-fill-mode: both;
+      animation: loading 1s infinite;
+    }
+  }
+}
+
+@keyframes loading {
+  0% { 
+		transform: translate(0,0);
+	}
+  100% { 
+		transform: translate(100px,0);
+	}
+}

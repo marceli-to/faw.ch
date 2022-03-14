@@ -1,0 +1,64 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: form/forms
+ * -----------------------------------------------------------------------------
+ */
+
+
+form.register,
+form.newsletter {
+
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  textarea {
+    background-color: transparent;
+    border: none;
+    color: $color-black;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .form-control {
+    margin-bottom: $space-3x;
+
+    &.is-last {
+      margin-bottom: 0;
+    }
+
+    label {
+      margin-bottom: $space-tiny;
+    }
+    
+    &.is-inline {
+      label {
+        display: block;
+        margin-right: $space-3x;
+        margin-bottom: 0;
+        min-width: 145px;
+      }
+    }
+
+    &.has-error {
+      input[type=text],
+      input[type=email],
+      input[type=number],
+      textarea {
+        color: $color-danger;
+      }
+    }
+  }
+}
+
+form.newsletter {
+  
+  .form-control {
+    margin-bottom: 0;
+    &.is-last {
+      margin-top: $space-3x;
+    }
+  }
+}
+
