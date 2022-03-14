@@ -26,9 +26,6 @@ Vue.use(Notifications);
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-// Vue-Moment
-// Vue.use(require('vue-moment'));
-
 // Loading indicator
 import LoadingIndicator from "@/components/ui/LoadingIndicator";
 Vue.component('LoadingIndicator', LoadingIndicator);
@@ -37,30 +34,24 @@ Vue.component('LoadingIndicator', LoadingIndicator);
 import Separator from "@/components/ui/Separator";
 Vue.component('Separator', Separator);
 
-// Vue-cleave
-// import Cleave from 'cleave.js';
-// Vue.directive('cleave', {
-//   inserted: (el, binding) => {
-//     el.cleave = new Cleave(el, binding.value || {});
-//   },
-//   update: (el) => {
-//     const event = new Event('input', {bubbles: true});
-//     setTimeout(function () {
-//       el.value = el.cleave.properties.result;
-//       el.dispatchEvent(event);
-//     }, 100);
-//   }
-// });
-
-// Global mixins
-// import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // Store
 import store from '@/config/store';
 
 // Routes
-import routes from '@/config/routes';
-const router = new VueRouter({ mode: 'history', routes: routes});
+import baseRoutes from '@/config/routes';
+import homeRoutes from '@/views/pages/home/config/routes';
+
+const router = new VueRouter(
+  { 
+    mode: 'history', 
+    routes: [
+      ...baseRoutes,
+      ...homeRoutes,
+    ]
+  }
+);
+
 
 // App component
 import AppComponent from '@/App.vue';

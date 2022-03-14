@@ -37,7 +37,7 @@ class Media
    */
   public function __construct($opts = array())
   {
-    $this->upload_path = storage_path('app/public/uploads/temp');
+    $this->upload_path = storage_path('app/public/uploads');
 
     if (isset($opts['force_lowercase']))
     {

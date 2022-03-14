@@ -1,19 +1,19 @@
 <template>
   <div v-if="isFetched" class="is-loaded">
     <page-header>
-      <h1>Willkommen <strong>{{user.firstname}} {{user.name}}</strong></h1>
+      <h1><span>Willkommen</span> {{user.firstname}} {{user.name}}</h1>
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
+        <router-link :to="{name: 'dashboard-home'}">
+          <h2>Startseite</h2>
+          <p>Verwaltung der Startseite</p>
+        </router-link>
+      </div>
+      <!-- <div class="card">
         <router-link :to="{name: 'events'}">
           <h2>Edizioni</h2>
           <p>Verwaltung der Edizioni &amp; Mitglieder</p>
-        </router-link>
-      </div>
-      <div class="card">
-        <router-link :to="{name: 'itdv'}">
-          <h2>ITDV</h2>
-          <p>Verwaltung der Inhalte</p>
         </router-link>
       </div>
       <div class="card">
@@ -27,7 +27,7 @@
           <h2>Newsletter</h2>
           <p>Verwaltung der Newsletter &amp; Subscriber</p>
         </router-link>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

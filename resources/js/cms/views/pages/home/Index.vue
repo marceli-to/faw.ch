@@ -1,19 +1,20 @@
 <template>
   <div v-if="isFetched" class="is-loaded">
     <page-header>
-      <h1>Inhalte «Forum Architektur Winterthur»</h1>
+      <h1>Startseite</h1>
     </page-header>
     <div class="content content--wide cards">
+      <div class="card">
+        <router-link :to="{name: 'home-images'}">
+          <h2>Bilder</h2>
+          <p>Verwaltung der Bilder</p>
+        </router-link>
+      </div>
+      <!--
       <div class="card">
         <router-link :to="{name: 'articles'}">
           <h2>Texte</h2>
           <p>Verwaltung der Texte</p>
-        </router-link>
-      </div>
-      <div class="card">
-        <router-link :to="{name: 'images'}">
-          <h2>Bilder</h2>
-          <p>Verwaltung der Bilder</p>
         </router-link>
       </div>
       <div class="card">
@@ -22,6 +23,7 @@
           <p>Verwaltung der Logo-Varianten</p>
         </router-link>
       </div>
+      -->
     </div>
     <page-footer>
       <router-link :to="{ name: 'dashboard' }" class="btn-primary">

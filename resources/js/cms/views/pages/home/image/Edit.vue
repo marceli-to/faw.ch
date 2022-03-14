@@ -136,12 +136,12 @@ export default {
 
     ratioW: {
       type: Number,
-      default: 0
+      default: 3
     },
 
     ratioH: {
       type: Number,
-      default: 0
+      default: 2
     }
   },
 
@@ -175,7 +175,7 @@ export default {
       if (this.debounce) return;
       this.debounce = setTimeout(function(images) {
         this.debounce = false 
-        let uri = `/api/images/order`;
+        let uri = `/api/home/images/order`;
         this.axios.post(uri, {images: images}).then((response) => {
           this.$notify({type: 'success', text: 'Reihenfolge angepasst'});
         });

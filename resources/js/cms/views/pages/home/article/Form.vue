@@ -59,7 +59,7 @@ import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
-import tabsConfig from "@/views/pages/itdv/article/config/tabs.js";
+import tabsConfig from "@/views/pages/home/article/config/tabs.js";
 import tinyConfig from "@/config/tiny.js";
 import TinymceEditor from "@tinymce/tinymce-vue";
 

@@ -2,20 +2,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\ArticleController;
 use App\Http\Controllers\Api\UploadController;
-use App\Http\Controllers\Api\FileController;
-use App\Http\Controllers\Api\BrandController;
-use App\Http\Controllers\Api\ImageController;
+use App\Http\Controllers\Api\HomeImageController;
 use App\Http\Controllers\Api\EventController;
-use App\Http\Controllers\Api\BookingController;
-use App\Http\Controllers\Api\BookingParticipantController;
-use App\Http\Controllers\Api\ParticipantController;
-use App\Http\Controllers\Api\ParticipantSubscriptionController;
-use App\Http\Controllers\Api\NewsletterController;
-use App\Http\Controllers\Api\NewsletterArticleController;
-use App\Http\Controllers\Api\NewsletterArticleImageController;
-use App\Http\Controllers\Api\SubscriberController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +26,17 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('user', [UserController::class, 'find']);
 
   // Uploads
-  Route::post('image/upload', [UploadController::class, 'image']);
-  Route::post('file/upload', [UploadController::class, 'file']);
+  Route::post('image/upload', [UploadController::class, 'store']);
+
+  // Image
+  Route::get('home/images', [HomeImageController::class, 'get']);
+  Route::post('home/images/order', [HomeImageController::class, 'order']);
+  Route::get('home/image/{image}', [HomeImageController::class, 'find']);
+  Route::post('home/image', [HomeImageController::class, 'store']);
+  Route::put('home/image/coords/{image}', [HomeImageController::class, 'coords']);
+  Route::put('home/image/{image}', [HomeImageController::class, 'update']);
+  Route::get('home/image/state/{image}', [HomeImageController::class, 'toggle']);
+  Route::delete('home/image/{image}', [HomeImageController::class, 'destroy']);
 
   // Events
   Route::get('events', [EventController::class, 'get']);

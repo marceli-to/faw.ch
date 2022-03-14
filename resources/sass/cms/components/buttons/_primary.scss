@@ -13,8 +13,10 @@
 	color: $color-white !important;
 	@include font-size($fs-sm);
 	@include font-regular();
+  line-height: 1 !important;
 	padding: 16px 24px;
 	width: auto;
+  text-transform: uppercase;
 	transition: background-color .1s ease-out;
 
 	&.is-sm {

@@ -40,8 +40,8 @@
 // Components
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
-import ImageUpload from "@/views/pages/itdv/brand/Upload.vue";
-import ImageEdit from "@/views/pages/itdv/brand/Edit.vue";
+import ImageUpload from "@/views/pages/home/brand/Upload.vue";
+import ImageEdit from "@/views/pages/home/brand/Edit.vue";
 
 // Mixins
 import ErrorHandling from "@/mixins/ErrorHandling";

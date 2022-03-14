@@ -1,10 +1,10 @@
 <template>
   <div>
-    <article-form type="edit"></article-form>
+    <article-form type="create"></article-form>
   </div>
 </template>
 <script>
-import ArticleForm from '@/views/pages/itdv/article/form.vue';
+import ArticleForm from '@/views/pages/home/article/form.vue';
 export default {
   components: {
     ArticleForm
