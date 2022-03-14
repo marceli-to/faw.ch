@@ -6,8 +6,8 @@
 @endif
 <form method="POST" action="{{ route('login') }}">
   @csrf
-  <x-text-field type="email" name="email" required autocomplete="false" aria-autocomplete="false" placeholder="mail@beispiel.ch" />
-  <x-text-field type="password" name="password" required autocomplete="false" placeholder="passwort" />
+  <x-text-field type="email" name="email" required autocomplete="false" aria-autocomplete="false" label="E-Mail" />
+  <x-text-field type="password" name="password" required autocomplete="false" label="Passwort" />
   <div class="form-action">
     <x-button label="Anmelden" name="register" btnClass="btn-primary" type="submit" />
     @if (Route::has('password.request'))

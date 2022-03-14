@@ -1,4 +1,4 @@
-@extends('layout.guest')
+@extends('layout.web')
 @section('content')
 
 @endsection

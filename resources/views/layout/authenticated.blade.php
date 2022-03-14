@@ -9,16 +9,16 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <meta name="format-detection" content="telephone=no">
-<link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
+<link href="{{ mix('assets/css/cms/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
   <app-component />
 </div>
-<script src="{{ mix('assets/js/app.js') }}" defer></script>
+<script src="{{ mix('assets/js/cms/app.js') }}" defer></script>
 </body>
 </html>

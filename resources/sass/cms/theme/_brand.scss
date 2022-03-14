@@ -7,9 +7,4 @@
 
 .brand {
   color: $color-primary;
-  transition: color .1s ease-in;
-  
-  &:hover {
-    color: $color-secondary;
-  }
 }

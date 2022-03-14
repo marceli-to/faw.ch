@@ -15,8 +15,8 @@ select,
 button {
 	background-color: transparent;
 	border-radius: 0;
-	border: 1px solid $color-primary;
-	color: $color-primary;
+	border: 1px solid $color-black;
+	color: $color-black;
 	display: block;
 	@include font-regular();
 	padding: 0;
@@ -25,6 +25,19 @@ button {
 	z-index: 1;
 	-webkit-appearance: none;
 	-webkit-tap-highlight-color: $color-white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  outline: none !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
 }
  
 input[type=text],
@@ -68,7 +81,7 @@ input[type=submit],
 button {
 	background-color: $color-white;
 	border-radius: 0;
-	color: $color-primary;
+	color: $color-black;
 	display: block;
 	transition: background-color .1s ease-out;
 	width: auto;

@@ -9,8 +9,8 @@ html {
 }
 
 body {
-	background-color: $color-secondary;
-	color: $color-primary;
+	background-color: $color-white;
+	color: $color-black;
 	@include font-smoothing();
 	@include font-regular();
 	@include font-size($fs-sm);

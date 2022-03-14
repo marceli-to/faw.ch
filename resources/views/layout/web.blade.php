@@ -16,13 +16,10 @@
 <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
 <script src="/assets/js/modernizr.js"></script>
 </head>
-<body class="auth">
+<body>
 <main role="main" class="site">
   <div>
-    <section class="mx-auto">
-      @include('partials.logo')
-      @yield('content')
-    </section>
+    @yield('content')
   </div>
 </main>
 <script src="{{ mix('assets/js/app.js') }}" type="text/javascript"></script>

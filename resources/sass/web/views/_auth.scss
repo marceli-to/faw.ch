@@ -4,55 +4,108 @@
  * -----------------------------------------------------------------------------
  */
 
-section.auth {
-  @include font-size($fs-md);
+body.auth {
+  background-color: #f9f9f9;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  h1 {
-    margin-bottom: 20px;
-    @include font-size($fs-lg);
-  }
-
-  // Login form
-  form.auth {
-
-    max-width: 640px;
-
-    input[type=text],
-    input[type=email],
-    input[type=password] {
-      background-color: transparent;
-      padding: 10px;
+  section {
+    background-color: $color-white;
+    border-radius: 5px;
+    max-width: 480px;
+    padding: $space-5x $space-4x;
+    width: 100%;
+    
+    svg {
+      display: block;
+      height: auto;
+      margin-bottom: $space-8x;
+      max-width: 200px;
       width: 100%;
     }
 
+    h1 {
+      @include font-size($fs-md);
+    }
+  
+    .form-group {
+      margin-bottom: $space-6x;
+    }
+  
+    .form-action {
+      align-items: center;
+      display: flex;
+      margin-top: $space-9x;
+      justify-content: space-between;
+    }
+
+    label {
+      display: block;
+      color: $color-black;
+      margin-bottom: $space-2x;
+    }
+
+    // Helpers
     .form-helper {
-      color: $color-white;
-      transition: color .1s ease-in;
+      color: $color-grey;
+      margin-left: $space-2x;
+
       &:hover {
         color: $color-black;
       }
     }
-  }
 
-  // Recover password
-  form.auth--recover {
-    .form-group {
-      label {
-        @include bp-lg() {
-          flex: 0 0 125px;
-        }
+   
+    input[type=text],
+    input[type=email],
+    input[type=password] {
+      background-color: $color-white;
+      border: none;
+      border-bottom: 2px solid $color-light;
+      border-radius: 0 !important;
+      color: $color-black;
+      display: block;
+      @include font-size($fs-md);
+      padding: $space-1x 0 $space-2x 0;
+      width: 100%;
+      -webkit-appearance: none;
+
+      &:focus {
+        border-bottom: 2px solid $color-black;
       }
     }
-  }
-
-  // Reset password form
-  form.auth--reset {
-    .form-group {
-      label {
-        @include bp-lg() {
-          flex: 0 0 215px;
-        }
-      }
+    
+    input[type=email]::-webkit-input-placeholder,
+    input[type=password]::-webkit-input-placeholder {
+      color: $color-white;
+      padding: 0;
+      line-height: 1;
+    }
+    
+    input[type=email]::-moz-placeholder,
+    input[type=password]::-moz-placeholder {
+      color: $color-black;
+      padding: 0;
+      opacity: 1 !important;
+      line-height: 1;
+    }
+    
+    input[type=email]:-ms-input-placeholder,
+    input[type=password]:-ms-input-placeholder {
+      color: $color-black;
+      padding: 0;
+      line-height: 1;
+    }
+    
+    input[type=email]:-moz-placeholder,
+    input[type=password]:-moz-placeholder {
+      color: $color-black;
+      padding: 0;
+      opacity: 1 !important;
+      line-height: 1;
     }
   }
 }
+
