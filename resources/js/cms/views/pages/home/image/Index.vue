@@ -2,11 +2,9 @@
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
   <div v-if="isFetched" class="is-loaded">
-    
     <page-header>
       <h1>Bilder</h1>
     </page-header>
-
     <div>
       <div class="form-row">
         <image-upload
@@ -18,20 +16,18 @@
       </div>
       <div class="form-row">
         <image-edit 
-          :images="images"
+          :images="data"
           :imagePreviewRoute="'cache'"
           :aspectRatioW="3"
           :aspectRatioH="2"
         ></image-edit>
       </div>
     </div>
-   
     <page-footer>
-      <router-link :to="{ name: 'dashboard-home' }" class="btn-primary">
+      <router-link :to="{ name: 'home-dashboard' }" class="btn-primary">
         <span>Zurück</span>
       </router-link>
     </page-footer>
-    
   </div>
 </div>
 </template>
@@ -60,9 +56,30 @@ export default {
 
   data() {
     return {
+
+      // Data
+      data: [],
+
+      // Routes
+      routes: {
+        get: '/api/home/images',
+        store: '/api/home/image',
+        delete: '/api/home/image',
+        toggle: '/api/home/image/state',
+        coords: '/api/home/image/coords',
+      },
+
+      // States
       isLoading: false,
       isFetched: false,
-      images: [],
+
+      // Messages
+      messages: {
+        emptyData: 'Es sind noch keine Daten vorhanden...',
+        saved: 'Bild gespeichert!',
+        updated: 'Änderungen gespeichert!',
+      }
+
     };
   },
 
@@ -73,8 +90,8 @@ export default {
   methods: {
 
     fetch() {
-      this.axios.get(`/api/home/images`).then(response => {
-        this.images = response.data.data;
+      this.axios.get(`${this.routes.get}`).then(response => {
+        this.data = response.data.data;
         this.isFetched = true;
       });
     },
@@ -92,40 +109,37 @@ export default {
         publish: 1,
       }
 
-      this.axios.post('/api/home/image', image).then(response => {
-        this.$notify({ type: "success", text: "Bild gespeichert!" });
+      this.axios.post(`${this.routes.store}`, image).then(response => {
+        this.$notify({ type: "success", text: this.messages.saved });
         image.id = response.data.imageId;
-        this.images.push(image);
+        this.data.push(image);
       });
     },
 
-    destroyImage(image, event) {
+    destroyImage(image) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let uri = `/api/home/image/${image}`;
         this.isLoading = true;
-        this.axios.delete(uri).then(response => {
-          const index = this.images.findIndex(x => x.name === image);
-          this.images.splice(index, 1);
+        this.axios.delete(`${this.routes.delete}/${image}`).then(response => {
+          const index = this.data.findIndex(x => x.name === image);
+          this.data.splice(index, 1);
           this.isLoading = false;
         });
       }
     },
 
-    toggleImage(image, event) {
-      let uri = `/api/home/image/state/${image.id}`;
+    toggleImage(image) {
       this.isLoading = true;
-      this.axios.get(uri).then(response => {
-        const index = this.images.findIndex(x => x.id === image.id);
-        this.images[index].publish = response.data;
+      this.axios.get(`${this.routes.toggle}/${image.id}`).then(response => {
+        const index = this.data.findIndex(x => x.id === image.id);
+        this.data[index].publish = response.data;
         this.isLoading = false;
       });
     },
 
     saveImageCoords(image) {
-      let uri = `/api/home/image/coords/${image.id}`;
       this.isLoading = true;
-      this.axios.put(uri, image).then(response => {
-        this.$notify({ type: "success", text: "Änderungen gespeichert!" });
+      this.axios.put(`${this.routes.coords}/${image.id}`, image).then(response => {
+        this.$notify({ type: "success", text: this.messages.updated });
         this.isLoading = false;
       });
     },

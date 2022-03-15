@@ -5,29 +5,11 @@
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
-        <router-link :to="{name: 'dashboard-home'}">
+        <router-link :to="{name: 'home-dashboard'}">
           <h2>Startseite</h2>
           <p>Verwaltung der Startseite</p>
         </router-link>
       </div>
-      <!-- <div class="card">
-        <router-link :to="{name: 'events'}">
-          <h2>Edizioni</h2>
-          <p>Verwaltung der Edizioni &amp; Mitglieder</p>
-        </router-link>
-      </div>
-      <div class="card">
-        <router-link :to="{name: 'files'}">
-          <h2>Dateien</h2>
-          <p>Verwaltung der Dateien</p>
-        </router-link>
-      </div>
-      <div class="card">
-        <router-link :to="{name: 'newsletters'}">
-          <h2>Newsletter</h2>
-          <p>Verwaltung der Newsletter &amp; Subscriber</p>
-        </router-link>
-      </div> -->
     </div>
   </div>
 </template>

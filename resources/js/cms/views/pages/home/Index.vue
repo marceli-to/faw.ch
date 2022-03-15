@@ -10,20 +10,12 @@
           <p>Verwaltung der Bilder</p>
         </router-link>
       </div>
-      <!--
       <div class="card">
-        <router-link :to="{name: 'articles'}">
-          <h2>Texte</h2>
-          <p>Verwaltung der Texte</p>
+        <router-link :to="{name: 'home-teasers'}">
+          <h2>Teaser</h2>
+          <p>Verwaltung der Teaser</p>
         </router-link>
       </div>
-      <div class="card">
-        <router-link :to="{name: 'brands'}">
-          <h2>Logo</h2>
-          <p>Verwaltung der Logo-Varianten</p>
-        </router-link>
-      </div>
-      -->
     </div>
     <page-footer>
       <router-link :to="{ name: 'dashboard' }" class="btn-primary">
@@ -34,7 +26,6 @@
 </template>
 <script>
 
-// Mixins
 import Helpers from "@/mixins/Helpers";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
@@ -46,13 +37,17 @@ export default {
     PageFooter
   },
 
-
   mixins: [Helpers],
 
   data() {
     return {
       isFetched: false,
       user: {},
+
+      // Routes
+      routes: {
+        get: '/api/user',
+      },
     };
   },
 
@@ -62,7 +57,7 @@ export default {
 
   methods: {
     fetch() {
-      this.axios.get(`/api/user`).then(response => {
+      this.axios.get(`${this.routes.get}`).then(response => {
         this.user = response.data;
         this.isFetched = true;
       });

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\HomeImageController;
+use App\Http\Controllers\Api\HomeTeaserController;
+use App\Http\Controllers\Api\HomeTeaserImageController;
 use App\Http\Controllers\Api\EventController;
 
 
@@ -28,7 +30,7 @@ Route::middleware('auth:sanctum')->group(function() {
   // Uploads
   Route::post('image/upload', [UploadController::class, 'store']);
 
-  // Image
+  // Home - Images
   Route::get('home/images', [HomeImageController::class, 'get']);
   Route::post('home/images/order', [HomeImageController::class, 'order']);
   Route::get('home/image/{image}', [HomeImageController::class, 'find']);
@@ -38,13 +40,30 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('home/image/state/{image}', [HomeImageController::class, 'toggle']);
   Route::delete('home/image/{image}', [HomeImageController::class, 'destroy']);
 
-  // Events
-  Route::get('events', [EventController::class, 'get']);
-  Route::get('event/{event}', [EventController::class, 'find']);
-  Route::post('event', [EventController::class, 'store']);
-  Route::put('event/{event}', [EventController::class, 'update']);
-  Route::get('event/state/{event}', [EventController::class, 'toggle']);
-  Route::delete('event/{event}', [EventController::class, 'destroy']);
+  // Home - Teaser
+  Route::get('home/teasers', [HomeTeaserController::class, 'get']);
+  Route::get('home/teaser/{homeTeaser}', [HomeTeaserController::class, 'find']);
+  Route::post('home/teaser', [HomeTeaserController::class, 'store']);
+  Route::put('home/teaser/{homeTeaser}', [HomeTeaserController::class, 'update']);
+  Route::get('home/teaser/state/{homeTeaser}', [HomeTeaserController::class, 'toggle']);
+  Route::post('home/teasers/order', [HomeTeaserController::class, 'order']);
+  Route::delete('home/teaser/{homeTeaser}', [HomeTeaserController::class, 'destroy']);
+
+  // Home - Teaser images
+  Route::get('home/teaser/image/state/{homeTeaserImage}', [HomeTeaserImageController::class, 'toggle']);
+  Route::put('home/teaser/image/coords/{homeTeaserImage}', [HomeTeaserImageController::class, 'coords']);
+  Route::post('home/teaser/image', [HomeTeaserImageController::class, 'store']);
+  Route::post('home/teaser/image/order', [HomeTeaserImageController::class, 'order']);
+  Route::delete('home/teaser/image/{homeTeaserImage}', [HomeTeaserImageController::class, 'destroy']);
+
+
+  // // Events
+  // Route::get('events', [EventController::class, 'get']);
+  // Route::get('event/{event}', [EventController::class, 'find']);
+  // Route::post('event', [EventController::class, 'store']);
+  // Route::put('event/{event}', [EventController::class, 'update']);
+  // Route::get('event/state/{event}', [EventController::class, 'toggle']);
+  // Route::delete('event/{event}', [EventController::class, 'destroy']);
   
 });
 
