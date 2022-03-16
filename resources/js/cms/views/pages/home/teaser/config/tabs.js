@@ -1,7 +1,7 @@
 export default {
   data: {
     key: 'data',
-    label: 'Daten',
+    label: 'Text',
     active: true,
     error: false
   },

@@ -7,14 +7,12 @@ export default {
       overlayItem: {
         name: '',
         caption: null,
-        shadow: 0,
       },
 
       defaults: {
         item: {
           name: '',
           caption: null,
-          shadow: 0,
         }
       }
     }
@@ -47,7 +45,6 @@ export default {
       this.overlayItem = image;
     },
 
-    
     hideEdit() {
       this.hasOverlayEdit = false;
       this.overlayItem = this.defaults.item;

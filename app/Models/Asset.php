@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Image extends Model
+class Asset extends Model
 {
   use HasFactory, SoftDeletes;
 
@@ -30,6 +30,11 @@ class Image extends Model
     'imageable_id',
     'imageable_type'
   ];
+
+  // public function type()
+	// {
+  //   return $this->hasOne(AssetType::class, 'id', 'type_id');
+  // }
 
   public function imageable()
   {

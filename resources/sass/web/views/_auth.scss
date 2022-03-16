@@ -18,10 +18,10 @@ body.auth {
     padding: $space-5x $space-4x;
     width: 100%;
     
-    svg {
+    > svg {
       display: block;
       height: auto;
-      margin-bottom: $space-8x;
+      margin-bottom: $space-10x;
       max-width: 200px;
       width: 100%;
     }
@@ -31,7 +31,7 @@ body.auth {
     }
   
     .form-group {
-      margin-bottom: $space-6x;
+      margin-bottom: $space-8x;
     }
   
     .form-action {
@@ -43,7 +43,7 @@ body.auth {
 
     label {
       display: block;
-      color: $color-black;
+      color: $color-grey;
       margin-bottom: $space-2x;
     }
 
@@ -51,7 +51,7 @@ body.auth {
     .form-helper {
       color: $color-grey;
       margin-left: $space-2x;
-
+      text-decoration: underline;
       &:hover {
         color: $color-black;
       }

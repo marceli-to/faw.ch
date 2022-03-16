@@ -4,8 +4,8 @@ import HomeDashboard from '@/views/pages/home/Index.vue';
 // Image
 import HomeImageIndex from '@/views/pages/home/image/Index.vue';
 import HomeTeaserIndex from '@/views/pages/home/teaser/Index.vue';
-import HomeTeaserCreate from '@/views/pages/home/teaser/Create.vue';
-import HomeTeaserEdit from '@/views/pages/home/teaser/Edit.vue';
+import HomeTeaserCreate from '@/views/pages/home/teaser/partials/Create.vue';
+import HomeTeaserEdit from '@/views/pages/home/teaser/partials/Edit.vue';
 
 const routes = [
 
@@ -19,7 +19,7 @@ const routes = [
   // Home - Images
   {
     name: 'home-images',
-    path: '/administration/home/images',
+    path: '/administration/home/images/:type',
     component: HomeImageIndex,
   },
 

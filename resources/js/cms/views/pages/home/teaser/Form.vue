@@ -22,7 +22,16 @@
           <textarea v-model="data.text"></textarea>
         </div>
         <div class="form-row">
-          <label>Link</label>
+          <label class="flex justify-between">
+            <span>Link</span>
+            <a 
+              :href="data.link" 
+              class="feather-icon ml-2x"
+              target="_blank"
+              v-if="data.link">
+              <external-link-icon size="1.2x"></external-link-icon>
+            </a>
+          </label>
           <input type="text" v-model="data.link">
         </div>
       </div>
@@ -57,6 +66,7 @@
 </div>
 </template>
 <script>
+import { ExternalLinkIcon } from 'vue-feather-icons';
 import ErrorHandling from "@/mixins/ErrorHandling";
 import RadioButton from "@/components/ui/RadioButton.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
@@ -69,6 +79,7 @@ import tabsConfig from "@/views/pages/home/teaser/config/tabs.js";
 
 export default {
   components: {
+    ExternalLinkIcon,
     RadioButton,
     LabelRequired,
     Tabs,
@@ -93,6 +104,7 @@ export default {
         subtitle: null,
         text: null,
         link: null,
+        publish: 1,
         images: [],
       },
 
@@ -213,17 +225,27 @@ export default {
       this.isLoading = true;
       this.axios.get(`${this.routes.toggleImage}/${image.id}`).then(response => {
         const index = this.data.images.findIndex(x => x.id === image.id);
-        this.data.images[index].publish = response.data;
+        if (index > -1) {
+          this.data.images[index].publish = response.data;
+        }
         this.isLoading = false;
       });
     },
 
     saveImageCoords(image) {
-      this.isLoading = true;
-      this.axios.put(`${this.routes.saveImageCoords}/${image.id}`, image).then(response => {
-        this.$notify({ type: "success", text: this.messages.updated });
-        this.isLoading = false;
-      });
+      if (this.$props.type == "edit") {
+        this.isLoading = true;
+        this.axios.put(`${this.routes.saveImageCoords}/${image.id}`, image).then(response => {
+          this.$notify({ type: "success", text: this.messages.updated });
+          this.isLoading = false;
+        });
+      }
+      else {
+        const index = this.data.images.findIndex(x => x.name === image.name);
+        if (index > -1) {
+          this.data.images[index] = image;
+        }
+      }
     },
 
   },

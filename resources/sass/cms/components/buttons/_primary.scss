@@ -11,8 +11,9 @@
 	border-radius: 2px;
 	border: none;
 	color: $color-white !important;
-	@include font-size($fs-sm);
-	@include font-regular();
+  @include font-size($fs-btn);
+  @include font-bold();
+  letter-spacing: 0.06em;
   line-height: 1 !important;
 	padding: 16px 24px;
 	width: auto;

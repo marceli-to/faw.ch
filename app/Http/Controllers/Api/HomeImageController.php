@@ -20,7 +20,7 @@ class HomeImageController extends Controller
   }
 
   /**
-   * Get a single image for a given image
+   * Get a single image
    * 
    * @param HomeImage $image
    * @return \Illuminate\Http\Response
@@ -32,7 +32,7 @@ class HomeImageController extends Controller
   }
 
   /**
-   * Store a newly added news image
+   * Store a newly added image
    *
    * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response

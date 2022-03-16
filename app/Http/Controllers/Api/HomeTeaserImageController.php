@@ -63,6 +63,7 @@ class HomeTeaserImageController extends Controller
     $image->coords_h = round($request->input('coords_h'), 12);
     $image->coords_x = round($request->input('coords_x'), 12);
     $image->coords_y = round($request->input('coords_y'), 12);
+    $image->orientation = ($image->coords_w > $image->coords_h) ? 'l' : 'p';
     $image->save();
     $this->removeCachedImage($image);
     return response()->json('successfully updated');

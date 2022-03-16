@@ -40,6 +40,7 @@ import store from '@/config/store';
 
 // Routes
 import baseRoutes from '@/config/routes';
+import assetRoutes from '@/modules/assets/config/routes';
 import homeRoutes from '@/views/pages/home/config/routes';
 
 const router = new VueRouter(
@@ -47,6 +48,7 @@ const router = new VueRouter(
     mode: 'history', 
     routes: [
       ...baseRoutes,
+      ...assetRoutes,
       ...homeRoutes,
     ]
   }

@@ -1,7 +1,30 @@
 <template>
   <div>
-    <div class="upload-listing">
-      <div>
+    <div class="upload-listing is-medium">
+      <a href="" class="icon-view" @click.prevent="toggleView()">
+        <span v-if="view == 'grid'">Listen Ansicht</span>
+        <span v-if="view == 'list'">Grid Ansicht</span>
+      </a>
+      <div class="is-list" v-if="view == 'list'">
+        <template>
+          <draggable 
+            :disabled="false"
+            v-model="imageData" 
+            @end="order"
+            ghost-class="draggable-ghost"
+            draggable=".is-draggable">
+            <div class="upload-item-row is-draggable" v-for="(image) in imageData" :key="image.id">
+              <figure>
+                <img :src="getSource(image, 'thumbnail')" height="300" width="300">
+              </figure>
+              <div>
+                <span class="icon-move"></span>
+              </div>
+            </div>
+          </draggable>
+        </template>
+      </div>
+      <div v-if="view == 'grid'">
         <figure
           :class="[image.publish == 0 ? 'is-disabled' : '', 'upload-item']"
           v-for="image in images"
@@ -14,7 +37,6 @@
             <image-actions 
               :image="image" 
               :hasPreview="false"
-              :hasEdit="false"
               :publish="image.publish" 
               :imagePreviewRoute="'cache'">
             </image-actions>
@@ -66,38 +88,64 @@
         </div>
       </div>
     </div>
+
+    <div :class="[hasOverlayEdit ? 'is-visible' : '', 'upload-overlay-edit']">
+      <div class="upload-overlay__close">
+        <a
+          href="javascript:;"
+          class="feather-icon icon-close-overlay"
+          @click.prevent="hideEdit()"
+        >
+          <x-icon size="24"></x-icon>
+        </a>
+      </div>
+      <div class="upload-overlay__grid">
+        <figure v-if="hasOverlayEdit">
+            <img :src="getSource(overlayItem, 'cache')" height="300" width="300">
+            <figcaption v-if="overlayItem.caption">
+              <span v-if="overlayItem.caption">{{overlayItem.caption}}</span>
+            </figcaption>
+          </figure>
+        <div>
+          <div class="form-row">
+            <label>Bildlegende</label>
+            <input type="text" 
+              v-model="overlayItem.caption"
+            />
+          </div>
+          <div class="form-row-button">
+            <a
+              href="javascript:;"
+              class="btn-primary"
+              @click.prevent="hideEdit()"
+            >Schliessen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 <script>
 
-// Radio Button
-import RadioButton from "@/components/ui/RadioButton.vue";
-
-// Image components
+import draggable from 'vuedraggable';
+import { Cropper } from "vue-advanced-cropper";
+import { XIcon } from 'vue-feather-icons';
 import ImageActions from "@/components/images/Actions.vue";
-
-// Image mixins
 import ImageEdit from "@/components/images/mixins/edit";
 import ImageCrop from "@/components/images/mixins/crop";
 import ImageUtils from "@/components/images/mixins/utils";
 
-// Draggable
-import draggable from 'vuedraggable';
-
-// Cropper
-import { Cropper } from "vue-advanced-cropper";
-
-// Icons
-import { XIcon } from 'vue-feather-icons';
 
 export default {
   components: {
     ImageActions,
-    RadioButton,
     XIcon,
     Cropper,
     draggable
   },
+
+  mixins: [ImageUtils, ImageEdit, ImageCrop],
 
   props: {
     images: Array,
@@ -123,7 +171,6 @@ export default {
     }
   },
 
-
   data() {
     return {
       imageData: null,
@@ -136,8 +183,6 @@ export default {
     };
   },
 
-  mixins: [ImageUtils, ImageEdit, ImageCrop],
-
   mounted() {
     this.imageData = this.$props.images;
     this.ratio.w = this.$props.ratioW;
@@ -145,15 +190,18 @@ export default {
   },
 
   methods: {
+
     order() {
       let images = this.imageData.map(function(image, index) {
         image.order = index;
         return image;
       });
+
       if (this.debounce) return;
+
       this.debounce = setTimeout(function(images) {
-        this.debounce = false 
-        let uri = `/api/home/teaser/image/order`;
+        this.debounce = false;
+        let uri = `/api/home/images/order`;
         this.axios.post(uri, {images: images}).then((response) => {
           this.$notify({type: 'success', text: 'Reihenfolge angepasst'});
         });

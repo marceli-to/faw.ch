@@ -28,7 +28,7 @@ class Media
    *  Image file types
    */
 
-  protected $previewable_image_types = [
+  protected $image_types = [
     'png', 'jpg', 'jpeg'
   ];
   
@@ -71,12 +71,20 @@ class Media
     $file->move($this->upload_path, $filename);
     $filetype = File::extension($this->upload_path . $filename);
     $filesize = File::size($this->upload_path . DIRECTORY_SEPARATOR . $filename);
+    $orientation = null;
+
+    if (in_array(strtolower($filetype), $this->image_types))
+    {
+      $img = \Image::make($this->upload_path . DIRECTORY_SEPARATOR . $filename);
+      $orientation = $img->width() >= $img->height() ? 'l' : 'p';
+    }
+
     return [
       'name' => $filename, 
       'original_name' => $name, 
       'extension' => $filetype, 
       'size' => $filesize,
-      'preview' => in_array(strtolower($filetype), $this->previewable_image_types) ? TRUE : FALSE
+      'orientation' => $orientation
     ];
   }
 
@@ -104,8 +112,9 @@ class Media
   }
 
   /**
-   * Copy a file from temp to storage folder
+   * Download a file from outside the public folder
    * 
+   * @param String $folder
    * @param String $filename
    */
   public function download($folder = NULL, $filename = NULL)

@@ -13,20 +13,19 @@
     grid-gap: 15px;
   }
 
+  &.is-medium {
+    > div {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+  }
+
   > .is-list {
     border-top: 2px solid $color-light-grey;
     display: block;
   }
 
-  &.is-files {
-
-    > div {
-      display: block;
-    }
-  }
-
   .upload-item {
-    border: 2px solid $color-light-grey;
+    border: 1px solid $color-light-grey;
     border-radius: 2px;
     display: inline-block;
     position: relative;

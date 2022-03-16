@@ -5,7 +5,7 @@
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
-        <router-link :to="{name: 'home-images'}">
+        <router-link :to="{name: 'home-images', params: { type: 'visual-home' }}">
           <h2>Bilder</h2>
           <p>Verwaltung der Bilder</p>
         </router-link>

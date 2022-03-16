@@ -14,17 +14,42 @@ class HomeTeaser extends Base
     'subtitle',
     'text',
     'link',
+    'target',
     'publish'
   ];
 
+  public function images()
+  {
+    return $this->morphMany(Asset::class, 'imageable');
+  }
 
-	public function images()
-	{
-    return $this->hasMany(HomeTeaserImage::class, 'home_teaser_id', 'id');
-	}
+	// public function images()
+	// {
+  //   return $this->hasMany(HomeTeaserImage::class, 'home_teaser_id', 'id');
+	// }
 
-	public function image()
-	{
-    return $this->hasOne(HomeTeaserImage::class, 'home_teaser_id', 'id');
-	}
+	// public function image()
+	// {
+  //   return $this->hasOne(HomeTeaserImage::class, 'home_teaser_id', 'id');
+	// }
+
+  /**
+   * Accessor for 'link'
+   */
+
+  public function setLinkAttribute($value)
+  {
+    $this->attributes['link'] = (!preg_match("~^(?:f|ht)tps?://~i", $value)) ? "https://" . $value : $value;
+  }
+
+  /**
+   * Accessor for 'target'
+   */
+
+  public function setTargetAttribute()
+  {
+    $this->attributes['target'] = ($this->link && ('forum-architektur.ch' !== '' && mb_strpos($this->link, 'forum-architektur.ch') !== false)) ? '_self' : '_blank'; 
+  }
+
+
 }
