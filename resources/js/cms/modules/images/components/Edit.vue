@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="upload-listing is-medium">
+
+    <!-- listing -->
+    <div class="upload-listing">
       <a href="" class="icon-view" @click.prevent="toggleView()">
         <span v-if="view == 'grid'">Listen Ansicht</span>
         <span v-if="view == 'list'">Grid Ansicht</span>
@@ -44,6 +46,9 @@
         </figure>
       </div>
     </div>
+    <!-- // listing -->
+
+    <!-- cropper -->
     <div :class="[hasOverlayCropper ? 'is-visible' : '', 'upload-overlay-cropper']">
       <div class="upload-overlay__loader" v-if="isLoading">Bild wird geladen...</div>
       <div class="upload-overlay__close" v-if="!isLoading">
@@ -88,7 +93,9 @@
         </div>
       </div>
     </div>
+    <!-- // cropper -->
 
+    <!-- edit -->
     <div :class="[hasOverlayEdit ? 'is-visible' : '', 'upload-overlay-edit']">
       <div class="upload-overlay__close">
         <a
@@ -108,22 +115,29 @@
           </figure>
         <div>
           <div class="form-row">
-            <label>Bildlegende</label>
-            <input type="text" 
-              v-model="overlayItem.caption"
-            />
+            <label>Legende</label>
+            <input type="text" v-model="overlayItem.caption" />
           </div>
-          <div class="form-row-button">
+          <div class="form-row">
+            <label>Beschreibung</label>
+            <textarea v-model="overlayItem.description"></textarea>
+          </div>
+          <div class="form-buttons flex">
             <a
               href="javascript:;"
               class="btn-primary"
+              @click.prevent="update()"
+            >Speichern</a>
+            <a
+              href="javascript:;"
+              class="btn-secondary ml-3x"
               @click.prevent="hideEdit()"
             >Schliessen</a>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- // edit -->
   </div>
 </template>
 <script>
@@ -136,8 +150,8 @@ import ImageEdit from "@/components/images/mixins/edit";
 import ImageCrop from "@/components/images/mixins/crop";
 import ImageUtils from "@/components/images/mixins/utils";
 
-
 export default {
+  
   components: {
     ImageActions,
     XIcon,
@@ -148,11 +162,10 @@ export default {
   mixins: [ImageUtils, ImageEdit, ImageCrop],
 
   props: {
-    images: Array,
 
-    updateOnChange: {
-      type: Boolean,
-      default: false
+    images: {
+      type: Array,
+      default: [],
     },
 
     imagePreviewRoute: {
@@ -173,13 +186,28 @@ export default {
 
   data() {
     return {
+
+      // Data
       imageData: null,
       view: 'grid',
-      isLoading: false,
       ratio: {
         w: null,
         h: null
-      }
+      },
+      
+      // States
+      isFetched: false,
+      isLoading: false,
+
+      // Routes
+      routes: {
+        update: '/api/image',
+      },
+
+      // Messages
+      messages: {
+        updated: 'Daten aktualisiert!',
+      },
     };
   },
 
@@ -191,6 +219,13 @@ export default {
 
   methods: {
 
+    update() {
+      this.axios.put(`${this.routes.update}/${this.overlayItem.id}`, this.overlayItem).then((response) => {
+        this.$notify({type: 'success', text: this.messages.updated});
+        this.hideEdit();
+      });
+    },
+
     order() {
       let images = this.imageData.map(function(image, index) {
         image.order = index;
@@ -201,7 +236,7 @@ export default {
 
       this.debounce = setTimeout(function(images) {
         this.debounce = false;
-        let uri = `/api/home/images/order`;
+        let uri = `/api/images/order`;
         this.axios.post(uri, {images: images}).then((response) => {
           this.$notify({type: 'success', text: 'Reihenfolge angepasst'});
         });

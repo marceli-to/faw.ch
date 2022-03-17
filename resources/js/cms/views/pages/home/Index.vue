@@ -5,13 +5,13 @@
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
-        <router-link :to="{name: 'home-images', params: { type: 'visual-home' }}">
+        <router-link :to="{name: 'home-images'}">
           <h2>Bilder</h2>
           <p>Verwaltung der Bilder</p>
         </router-link>
       </div>
       <div class="card">
-        <router-link :to="{name: 'home-teasers'}">
+        <router-link :to="{name: 'teasers'}">
           <h2>Teaser</h2>
           <p>Verwaltung der Teaser</p>
         </router-link>

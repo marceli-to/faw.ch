@@ -5,7 +5,7 @@ use App\Models\Base;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HomeTeaser extends Base
+class Teaser extends Base
 {
   use HasFactory;
 
@@ -20,18 +20,8 @@ class HomeTeaser extends Base
 
   public function images()
   {
-    return $this->morphMany(Asset::class, 'imageable');
+    return $this->morphMany(Image::class, 'imageable');
   }
-
-	// public function images()
-	// {
-  //   return $this->hasMany(HomeTeaserImage::class, 'home_teaser_id', 'id');
-	// }
-
-	// public function image()
-	// {
-  //   return $this->hasOne(HomeTeaserImage::class, 'home_teaser_id', 'id');
-	// }
 
   /**
    * Accessor for 'link'

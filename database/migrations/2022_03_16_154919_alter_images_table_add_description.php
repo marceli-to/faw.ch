@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterHomeTeasersTableAddTarget extends Migration
+class AlterImagesTableAddDescription extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterHomeTeasersTableAddTarget extends Migration
      */
     public function up()
     {
-      Schema::table('home_teasers', function (Blueprint $table) {
-        $table->string('target', 20)->nullable()->after('link');
+      Schema::table('images', function (Blueprint $table) {
+        $table->text('description')->nullable()->after('caption');
       });
     }
 

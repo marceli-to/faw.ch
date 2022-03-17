@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAssetTypesTable extends Migration
+class AlterImagesTableAddOrder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateAssetTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('asset_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('key');
-            $table->string('description');
-            $table->timestamps();
-        });
+      Schema::table('images', function (Blueprint $table) {
+        $table->tinyInteger('order')->default(-1)->after('coords_y');
+      });
+        // 
     }
 
     /**
@@ -28,6 +26,6 @@ class CreateAssetTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asset_types');
+        //
     }
 }

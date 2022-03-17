@@ -2,67 +2,74 @@
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
   <div v-if="isFetched" class="is-loaded">
-    <page-header>
-      <h1>Bilder</h1>
-    </page-header>
-    <div>
-      <div class="form-row">
-        <image-upload
-          :restrictions="'jpg, png | max. 8 MB'"
-          :maxFiles="99"
-          :maxFilesize="8"
-          :acceptedFiles="'.png,.jpg'"
-        ></image-upload>
-      </div>
-      <div class="form-row">
-        <image-edit 
-          :images="data"
-          :imagePreviewRoute="'cache'"
-          :aspectRatioW="3"
-          :aspectRatioH="2"
-        ></image-edit>
-      </div>
+    <div class="form-row">
+      <image-upload
+        :restrictions="'jpg, png | max. 8 MB'"
+        :maxFiles="99"
+        :maxFilesize="8"
+        :acceptedFiles="'.png,.jpg'"
+      ></image-upload>
     </div>
-    <page-footer>
-      <router-link :to="{ name: 'home-dashboard' }" class="btn-primary">
-        <span>Zurück</span>
-      </router-link>
-    </page-footer>
+    <div class="form-row">
+      <image-edit 
+        :images="data"
+        :imagePreviewRoute="'cache'"
+        :ratioW="this.$props.imageRatioW"
+        :ratioH="this.$props.imageRatioH"
+      ></image-edit>
+    </div>
   </div>
 </div>
 </template>
 <script>
 import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
-import PageFooter from "@/components/ui/PageFooter.vue";
-import PageHeader from "@/components/ui/PageHeader.vue";
-import ImageUpload from "@/modules/assets/components/Upload.vue";
-import ImageEdit from "@/modules/assets/components/Edit.vue";
+// import PageFooter from "@/components/ui/PageFooter.vue";
+// import PageHeader from "@/components/ui/PageHeader.vue";
+import ImageUpload from "@/modules/images/components/Upload.vue";
+import ImageEdit from "@/modules/images/components/Edit.vue";
 
 export default {
 
   components: {
-    PageFooter,
-    PageHeader,
+    // PageFooter,
+    // PageHeader,
     ImageUpload,
     ImageEdit
   },
 
   mixins: [ErrorHandling, Helpers],
 
+  props: {
+    imageRatioW: {
+      type: Number,
+      default: 3
+    },
+
+    imageRatioH: {
+      type: Number,
+      default: 2
+    },
+
+    typeId: null,
+    type: null,
+    images: null,
+
+  },
+
   data() {
     return {
 
       // Data
-      data: [],
+      data: null,
 
       // Routes
       routes: {
-        get: '/api/assets',
-        store: '/api/asset',
-        delete: '/api/asset',
-        toggle: '/api/asset/state',
-        coords: '/api/asset/coords',
+        get: '/api/images',
+        store: '/api/image',
+        delete: '/api/image',
+        toggle: '/api/image/state',
+        coords: '/api/image/coords',
       },
 
       // States
@@ -79,7 +86,13 @@ export default {
   },
 
   created() {
-    this.fetch();
+    if (this.$props.images) {
+      this.data = this.$props.images;
+      this.isFetched = true;
+    }
+    else {
+      this.fetch();
+    }
   },
 
   methods: {
@@ -92,7 +105,7 @@ export default {
     },
 
     store(media) {
-      let asset = {
+      let image = {
         id: null,
         name: media.name,
         original_name: media.original_name,
@@ -104,13 +117,14 @@ export default {
         coords_x: 0,
         coords_y: 0,
         publish: 1,
-        type: this.$route.params.type,
+        imageable_id: this.$props.typeId,
+        imageable_type: this.$props.type,
       }
 
-      this.axios.post(`${this.routes.store}`, asset).then(response => {
+      this.axios.post(`${this.routes.store}`, image).then(response => {
         this.$notify({ type: "success", text: this.messages.saved });
-        asset.id = response.data.assetId;
-        this.data.push(asset);
+        image.id = response.data.imageId;
+        this.data.push(image);
       });
     },
 

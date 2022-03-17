@@ -5,7 +5,7 @@
     
     <page-header>
       <h1>Teaser</h1>
-      <router-link :to="{ name: 'home-teaser-create' }" class="feather-icon feather-icon--prepend">
+      <router-link :to="{ name: 'teaser-create' }" class="feather-icon feather-icon--prepend">
         <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
@@ -23,7 +23,7 @@
         <list-actions 
           :id="d.id" 
           :record="d"
-          :routes="{edit: 'home-teaser-edit'}">
+          :routes="{edit: 'teaser-edit'}">
         </list-actions>
       </div>
     </div>
@@ -70,10 +70,10 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/home/teasers',
-        store: '/api/home/teaser',
-        delete: '/api/home/teaser',
-        toggle: '/api/home/teaser/state',
+        get: '/api/teasers',
+        store: '/api/teaser',
+        delete: '/api/teaser',
+        toggle: '/api/teaser/state',
       },
 
       // States

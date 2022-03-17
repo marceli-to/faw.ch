@@ -37,28 +37,17 @@
       </div>
     </div>
     <div v-show="tabs.image.active">
-      <div>
-        <div class="form-row" v-if="data.images.length == 0">
-          <image-upload
-            :restrictions="'jpg, png | max. 8 MB'"
-            :maxFiles="99"
-            :maxFilesize="8"
-            :acceptedFiles="'.png,.jpg'"
-          ></image-upload>
-        </div>
-        <div class="form-row">
-          <image-edit 
-            :images="data.images"
-            :imagePreviewRoute="'cache'"
-            :aspectRatioW="4"
-            :aspectRatioH="3"
-          ></image-edit>
-        </div>
-      </div>
+      <images 
+        :imageRatioW="3" 
+        :imageRatioH="2"
+        :type="'hero'"
+        :typeId="1"
+        :images="data.images">
+      </images>
     </div>
     <page-footer>
       <button type="submit" class="btn-primary">Speichern</button>
-      <router-link :to="{ name: 'home-teasers' }" class="btn-secondary">
+      <router-link :to="{ name: 'teasers' }" class="btn-secondary">
         <span>Zurück</span>
       </router-link>
     </page-footer>
@@ -73,8 +62,9 @@ import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
-import ImageUpload from "@/components/images/Upload.vue";
-import ImageEdit from "@/views/pages/home/teaser/images/Edit.vue";
+// import ImageUpload from "@/components/images/Upload.vue";
+// import ImageEdit from "@/views/pages/home/teaser/images/Edit.vue";
+import Images from "@/modules/images/Index.vue";
 import tabsConfig from "@/views/pages/home/teaser/config/tabs.js";
 
 export default {
@@ -85,8 +75,9 @@ export default {
     Tabs,
     PageFooter,
     PageHeader,
-    ImageUpload,
-    ImageEdit
+    Images,
+    // ImageUpload,
+    // ImageEdit
   },
 
   mixins: [ErrorHandling],
@@ -115,13 +106,13 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/home/teaser',
-        store: '/api/home/teaser',
-        update: '/api/home/teaser',
-        storeImage: '/api/home/teaser/image',
-        deleteImage: '/api/home/teaser/image',
-        toggleImage: '/api/home/teaser/image/state',
-        saveImageCoords: '/api/home/teaser/image/coords',
+        get: '/api/teaser',
+        store: '/api/teaser',
+        update: '/api/teaser',
+        storeImage: '/api/teaser/image',
+        deleteImage: '/api/teaser/image',
+        toggleImage: '/api/teaser/image/state',
+        saveImageCoords: '/api/teaser/image/coords',
       },
 
       // States
@@ -168,7 +159,7 @@ export default {
     store() {
       this.isLoading = true;
       this.axios.post(this.routes.store, this.data).then(response => {
-        this.$router.push({ name: "home-teasers"});
+        this.$router.push({ name: "teasers"});
         this.$notify({ type: "success", text: this.messages.stored });
         this.isLoading = false;
       });
@@ -177,7 +168,7 @@ export default {
     update() {
       this.isLoading = true;
       this.axios.put(`${this.routes.update}/${this.$route.params.id}`, this.data).then(response => {
-        this.$router.push({ name: "home-teasers"});
+        this.$router.push({ name: "teasers"});
         this.$notify({ type: "success", text: this.messages.updated });
         this.isLoading = false;
       });

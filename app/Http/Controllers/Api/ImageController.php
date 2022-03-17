@@ -1,13 +1,15 @@
 <?php
 namespace App\Http\Controllers\Api;
-use App\Models\HomeImage;
+use App\Models\Image;
+use App\Models\HeroImage;
+use App\Services\Media;
 use App\Http\Resources\DataCollection;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeImageController extends Controller
+class ImageController extends Controller
 {
   /**
    * Get a list of images
@@ -16,18 +18,18 @@ class HomeImageController extends Controller
    */
   public function get()
   {
-    return new DataCollection(HomeImage::orderBy('order')->get());
+    return new DataCollection(Image::orderBy('created_at')->get());
   }
 
   /**
-   * Get a single image
+   * Get a single image for a given image
    * 
-   * @param HomeImage $image
+   * @param Image $image
    * @return \Illuminate\Http\Response
    */
-  public function find(HomeImage $image)
+  public function find(Image $image)
   {
-    $image = HomeImage::findOrFail($image->id);
+    $image = Image::findOrFail($image->id);
     return response()->json($image);
   }
 
@@ -39,8 +41,16 @@ class HomeImageController extends Controller
    */
   public function store(Request $request)
   {
-    // Store product image
-    $image = HomeImage::create($request->all());
+    $data = $request->all();
+
+    // Generate UUID
+    $data['uuid'] = \Str::uuid();
+
+    $data['imageable_id'] = $request->input('imageable_id');
+    $data['imageable_type'] = HeroImage::class;
+
+    // Create image
+    $image = Image::create($data);
     $image->save();
     return response()->json(['imageId' => $image->id]);
   }
@@ -48,24 +58,45 @@ class HomeImageController extends Controller
   /**
    * Update a image for a given image
    *
-   * @param HomeImage $image
+   * @param Image $image
    * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
-  public function update(HomeImage $image, ImageStoreRequest $request)
+  public function update(Image $image, Request $request)
   {
-    $image = HomeImage::findOrFail($image->id);
+    $image = Image::findOrFail($image->id);
     $image->update($request->all());
+    return response()->json('successfully updated');
+  }
+
+  /**
+   * Update the order of the given images
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function order(Request $request)
+  {
+    $images = $request->get('images');
+
+    foreach($images as $image)
+    {
+      $i = Image::find($image['id']);
+      $i->order = $image['order'];
+      $i->save(); 
+    }
+    
     return response()->json('successfully updated');
   }
 
   /**
    * Toggle the status a given image
    *
-   * @param  HomeImage $image
+   * @param  Image $image
    * @return \Illuminate\Http\Response
    */
-  public function toggle(HomeImage $image)
+  public function toggle(Image $image)
   {
     $image->publish = $image->publish == 0 ? 1 : 0;
     $image->save();
@@ -73,15 +104,15 @@ class HomeImageController extends Controller
   }
 
   /**
-   * Update the cropping coords of the specified resource.
+   * Update the cropping coords of the specified image
    *
-   * @param HomeImage $image
+   * @param Image $image
    * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
-  public function coords(HomeImage $image, Request $request)
+  public function coords(Image $image, Request $request)
   {
-    $image = HomeImage::findOrFail($image->id);
+    $image = Image::findOrFail($image->id);
     $image->coords_w = round($request->input('coords_w'), 12);
     $image->coords_h = round($request->input('coords_h'), 12);
     $image->coords_x = round($request->input('coords_x'), 12);
@@ -102,26 +133,7 @@ class HomeImageController extends Controller
   }
 
   /**
-   * Update the order of the given images
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-
-  public function order(Request $request)
-  {
-    $images = $request->get('images');
-    foreach($images as $image)
-    {
-      $i = HomeImage::find($image['id']);
-      $i->order = $image['order'];
-      $i->save(); 
-    }
-    return response()->json('successfully updated');
-  }
-
-  /**
-   * Remove the specified resource from storage.
+   * Remove the specified image from storage
    *
    * @param  string $image
    * @return \Illuminate\Http\Response
@@ -130,7 +142,7 @@ class HomeImageController extends Controller
   public function destroy($image)
   {
     // Delete from database
-    $record = HomeImage::where('name', '=', $image)->first();
+    $record = Image::where('name', '=', $image)->first();
     
     if ($record)
     {
@@ -148,19 +160,45 @@ class HomeImageController extends Controller
   }
 
   /**
+   * Upload an image
+   * 
+   * @param  Request $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function upload(Request $request)
+  { 
+    $media = (new Media(['force_lowercase' => false]))->store($request);
+    return response()->json($media);
+  }
+
+  /**
+   * Delete an image
+   * 
+   * @param  String $image
+   * @return \Illuminate\Http\Response
+   */
+
+  public function delete($image)
+  { 
+    $media = (new Media())->remove($image, TRUE);
+    return response()->json($media);
+  }
+
+  /**
    * Remove cached version of the image
    *
-   * @param HomeImage $image
+   * @param Image $image
    * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
-  private function removeCachedImage(HomeImage $image)
+  private function removeCachedImage(Image $image)
   {
     // Get an instance of the ImageCache class
-    $imageCache = new \Intervention\Image\ImageCache();
+    $cache = new \Intervention\Image\ImageCache();
 
     // Get a cached image from it and apply all of your templates / methods
-    $image = $imageCache->make(storage_path('app/public/uploads/') . $image->name)->filter(new \App\Filters\Image\Template\Cache);
+    $image = $cache->make(storage_path('app/public/uploads/') . $image->name)->filter(new \App\Filters\Image\Template\Cache);
 
     // Remove the image from the cache by using its internal checksum
     Cache::forget($image->checksum());

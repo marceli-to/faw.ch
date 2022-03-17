@@ -4,12 +4,16 @@ use App\Models\Base;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AssetType extends Base
+class HeroImage extends Base
 {
   use HasFactory;
 
 	protected $fillable = [
-    'key',
-    'description',
+    'slug',
   ];
+
+  public function images()
+  {
+    return $this->morphMany(Image::class, 'imageable');
+  }
 }

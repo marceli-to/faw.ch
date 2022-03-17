@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterAssetsTableAddPolymorphic extends Migration
+class CreateHeroImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AlterAssetsTableAddPolymorphic extends Migration
      */
     public function up()
     {
-      Schema::table('assets', function (Blueprint $table) {
-        $table->integer('imageable_id')->after('locked');
-        $table->string('imageable_type')->after('imageable_id');
-      });
+        Schema::create('hero_images', function (Blueprint $table) {
+            $table->id();
+            $table->string('slug', 255);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -26,6 +27,6 @@ class AlterAssetsTableAddPolymorphic extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('hero_images');
     }
 }

@@ -24,11 +24,12 @@
       </a>
     </header>
     <ul>
-      <!-- <li>
-        <router-link :to="{name: 'events'}">
-          <span>Edizione</span>
+      <li>
+        <router-link :to="{name: 'home-dashboard'}">
+          <span>Startseite</span>
         </router-link>
       </li>
+      <!--
       <li>
         <router-link :to="{name: 'itdv'}">
           <span>ITDV</span>

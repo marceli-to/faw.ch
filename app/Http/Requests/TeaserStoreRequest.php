@@ -2,7 +2,7 @@
 namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventStoreRequest extends FormRequest
+class TeaserStoreRequest extends FormRequest
 {
   /**
    * Determine if the user is authorized to make this request.
@@ -22,8 +22,7 @@ class EventStoreRequest extends FormRequest
   public function rules()
   {
     return [
-      'number' => 'required',
-      'date' => 'required',
+      'title' => 'required',
     ];
   }
 
@@ -35,13 +34,9 @@ class EventStoreRequest extends FormRequest
   public function messages()
   {
     return [
-      'number.required' => [
-        'field' => 'name',
-        'error' => 'Nummer wird benötigt!'
-      ],
-      'date.required' => [
-        'field' => 'date',
-        'error' => 'Datum wird benötigt!'
+      'title.required' => [
+        'field' => 'title',
+        'error' => 'Titel wird benötigt!'
       ],
     ];
   }

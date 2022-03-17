@@ -11,7 +11,7 @@
 </template>
 <script>
 import vue2Dropzone from "vue2-dropzone";
-import config from "@/modules/assets/config/upload.js";
+import config from "@/modules/images/config/upload.js";
 
 export default {
 
