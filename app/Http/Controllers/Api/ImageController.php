@@ -46,8 +46,9 @@ class ImageController extends Controller
     // Generate UUID
     $data['uuid'] = \Str::uuid();
 
-    $data['imageable_id'] = $request->input('imageable_id');
-    $data['imageable_type'] = HeroImage::class;
+    // Add imagable id & type
+    $data['imageable_id']   = $request->input('imageable_id') ? $request->input('imageable_id') : NULL;
+    $data['imageable_type'] = $request->input('imageable_type') ? "App\Models\\" . $request->input('imageable_type') : NULL;
 
     // Create image
     $image = Image::create($data);

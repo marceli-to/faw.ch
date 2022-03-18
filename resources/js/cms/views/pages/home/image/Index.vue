@@ -5,9 +5,10 @@
       <h1>Bilder</h1>
     </page-header>
     <images 
+      :autosave="true"
       :imageRatioW="3" 
       :imageRatioH="2"
-      :type="'hero'"
+      :type="'HeroImage'"
       :typeId="1"
       :images="data.images">
     </images>

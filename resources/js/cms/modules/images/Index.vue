@@ -24,16 +24,12 @@
 <script>
 import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
-// import PageFooter from "@/components/ui/PageFooter.vue";
-// import PageHeader from "@/components/ui/PageHeader.vue";
 import ImageUpload from "@/modules/images/components/Upload.vue";
 import ImageEdit from "@/modules/images/components/Edit.vue";
 
 export default {
 
   components: {
-    // PageFooter,
-    // PageHeader,
     ImageUpload,
     ImageEdit
   },
@@ -52,8 +48,12 @@ export default {
     },
 
     typeId: null,
+
     type: null,
+    
     images: null,
+
+    autosave: true,
 
   },
 
@@ -119,12 +119,13 @@ export default {
         publish: 1,
         imageable_id: this.$props.typeId,
         imageable_type: this.$props.type,
-      }
+      };
 
       this.axios.post(`${this.routes.store}`, image).then(response => {
         this.$notify({ type: "success", text: this.messages.saved });
         image.id = response.data.imageId;
         this.data.push(image);
+        //this.$emit('imageUploaded', image);
       });
     },
 
@@ -135,6 +136,7 @@ export default {
           const index = this.data.findIndex(x => x.name === image);
           this.data.splice(index, 1);
           this.isLoading = false;
+          this.$emit('imageDeleted', image);
         });
       }
     },

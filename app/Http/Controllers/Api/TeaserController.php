@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Teaser;
+use App\Models\Image;
 use App\Http\Requests\TeaserStoreRequest;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,7 @@ class TeaserController extends Controller
   {
     $teaser = Teaser::create($request->all());
     $teaser->save();
+    $this->handleImages($teaser, $request->input('images'));
     return response()->json(['teaserId' => $teaser->id]);
   }
 
@@ -55,6 +57,7 @@ class TeaserController extends Controller
     $teaser = Teaser::findOrFail($teaser->id);
     $teaser->update($request->all());
     $teaser->save();
+    $this->handleImages($teaser, $request->input('images'));
     return response()->json('successfully updated');
   }
 
@@ -82,5 +85,24 @@ class TeaserController extends Controller
   {
     $teaser->delete();
     return response()->json('successfully deleted');
+  }
+
+  /**
+   * Handle associated images
+   *
+   * @param Teaser $teaser
+   * @param Array $images
+   * @return void
+   */  
+
+  protected function handleImages(Teaser $teaser, $images = NULL)
+  {
+    foreach($images as $image)
+    {
+      $img = Image::findOrFail($image['id']);
+      $img->imageable_id = $teaser->id;
+      $img->imageable_type = Teaser::class;
+      $img->save();
+    }
   }
 }

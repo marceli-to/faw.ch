@@ -10,12 +10,6 @@
           <p>Verwaltung der Startseite</p>
         </router-link>
       </div>
-      <!-- <div class="card">
-        <router-link :to="{name: 'assets', params: { section: '' }}">
-          <h2>Dateiverwaltung</h2>
-          <p>Verwaltung von Bildern und Dateien</p>
-        </router-link>
-      </div> -->
     </div>
   </div>
 </template>

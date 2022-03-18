@@ -38,11 +38,12 @@
     </div>
     <div v-show="tabs.image.active">
       <images 
+        :autosave="false"
         :imageRatioW="3" 
         :imageRatioH="2"
-        :type="'hero'"
-        :typeId="1"
-        :images="data.images">
+        :images="data.images"
+        @imageUploaded="imageUploaded"
+        @imageDeleted="imageDeleted">
       </images>
     </div>
     <page-footer>
@@ -174,71 +175,16 @@ export default {
       });
     },
 
-    // Store uploaded image
-    storeImage(upload) {
-      let image = {
-        id: null,
-        name: upload.name,
-        orientation: upload.orientation,
-        coords_w: 0,
-        coords_h: 0,
-        coords_x: 0,
-        coords_y: 0,
-        publish: 1,
-        home_teaser_id: null
-      }
-
-      if (this.$props.type == "edit") {
-        image.home_teaser_id = this.$route.params.id;
-        this.axios.post(`${this.routes.storeImage}`, image).then(response => {
-          this.$notify({ type: "success", text: this.messages.imageStored });
-          image.id = response.data.homeTeaserId;
-          this.data.images.push(image);
-        });
-      }
-      else {
-        this.data.images.push(image);
-      }
+    imageUploaded(image) {
+      this.data.images.push(image);
     },
 
-    destroyImage(image, event) {
-      if (confirm(this.messages.confirmDeletion)) {
-        this.isLoading = true;
-        this.axios.delete(`${this.routes.deleteImage}/${image}`).then(response => {
-          const index = this.data.images.findIndex(x => x.name === image);
-          this.data.images.splice(index, 1);
-          this.isLoading = false;
-        });
+    imageDeleted(image) {
+      const index = this.data.images.findIndex(x => x.name === image);
+      if (index > -1) {
+        this.data.images.splice(index, 1);
       }
     },
-
-    toggleImage(image, event) {
-      this.isLoading = true;
-      this.axios.get(`${this.routes.toggleImage}/${image.id}`).then(response => {
-        const index = this.data.images.findIndex(x => x.id === image.id);
-        if (index > -1) {
-          this.data.images[index].publish = response.data;
-        }
-        this.isLoading = false;
-      });
-    },
-
-    saveImageCoords(image) {
-      if (this.$props.type == "edit") {
-        this.isLoading = true;
-        this.axios.put(`${this.routes.saveImageCoords}/${image.id}`, image).then(response => {
-          this.$notify({ type: "success", text: this.messages.updated });
-          this.isLoading = false;
-        });
-      }
-      else {
-        const index = this.data.images.findIndex(x => x.name === image.name);
-        if (index > -1) {
-          this.data.images[index] = image;
-        }
-      }
-    },
-
   },
 
   computed: {

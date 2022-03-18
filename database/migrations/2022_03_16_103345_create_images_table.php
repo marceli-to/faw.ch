@@ -28,7 +28,7 @@ class CreateImagesTable extends Migration
           $table->double('coords_y', 16, 12)->nullable();
           $table->tinyInteger('publish')->default(0);
           $table->tinyInteger('locked')->default(0);
-          $table->morphs('imageable');
+          $table->nullableMorphs('imageable');
           $table->softDeletes();
           $table->timestamps();
         });
