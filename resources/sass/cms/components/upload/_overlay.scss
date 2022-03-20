@@ -49,6 +49,10 @@
     grid-gap: 35px;
     padding-top: 60px;
     position: relative;
+
+    &.is-files {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   label {

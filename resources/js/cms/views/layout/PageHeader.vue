@@ -29,37 +29,16 @@
           <span>Startseite</span>
         </router-link>
       </li>
-      <!--
-      <li>
-        <router-link :to="{name: 'itdv'}">
-          <span>ITDV</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link :to="{name: 'files'}">
-          <span>Dateien</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link :to="{name: 'newsletters'}">
-          <span>Newsletter</span>
-        </router-link>
-      </li> -->
     </ul>
   </nav>
 </div>
 </template>
 <script>
 
-// Icons
 import { ArrowRightIcon, MenuIcon, LogOutIcon } from 'vue-feather-icons';
-
-// Theme
-import Logo from '@/components/theme/Logo.vue';
 
 export default {
   components: {
-    Logo,
     ArrowRightIcon,
     MenuIcon,
     LogOutIcon,

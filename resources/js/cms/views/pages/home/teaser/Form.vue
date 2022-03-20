@@ -38,13 +38,13 @@
     </div>
     <div v-show="tabs.image.active">
       <images 
-        :autosave="false"
         :imageRatioW="3" 
         :imageRatioH="2"
-        :images="data.images"
-        @imageUploaded="imageUploaded"
-        @imageDeleted="imageDeleted">
+        :images="data.images">
       </images>
+    </div>
+    <div v-show="tabs.file.active">
+      <files :files="data.files"></files>
     </div>
     <page-footer>
       <button type="submit" class="btn-primary">Speichern</button>
@@ -61,12 +61,11 @@ import ErrorHandling from "@/mixins/ErrorHandling";
 import RadioButton from "@/components/ui/RadioButton.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";
+import tabsConfig from "@/views/pages/home/teaser/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
-// import ImageUpload from "@/components/images/Upload.vue";
-// import ImageEdit from "@/views/pages/home/teaser/images/Edit.vue";
 import Images from "@/modules/images/Index.vue";
-import tabsConfig from "@/views/pages/home/teaser/config/tabs.js";
+import Files from "@/modules/files/Index.vue";
 
 export default {
   components: {
@@ -77,8 +76,7 @@ export default {
     PageFooter,
     PageHeader,
     Images,
-    // ImageUpload,
-    // ImageEdit
+    Files,
   },
 
   mixins: [ErrorHandling],
@@ -98,6 +96,7 @@ export default {
         link: null,
         publish: 1,
         images: [],
+        files: [],
       },
 
       // Validation
@@ -110,10 +109,6 @@ export default {
         get: '/api/teaser',
         store: '/api/teaser',
         update: '/api/teaser',
-        storeImage: '/api/teaser/image',
-        deleteImage: '/api/teaser/image',
-        toggleImage: '/api/teaser/image/state',
-        saveImageCoords: '/api/teaser/image/coords',
       },
 
       // States
@@ -125,8 +120,6 @@ export default {
         emptyData: 'Es sind noch keine Daten vorhanden...',
         stored: 'Daten erfasst!',
         updated: 'Daten aktualisiert!',
-        imageStored: 'Bild gespeichert!',
-        confirmDeletion: 'Bitte löschen bestätigen!',
       },
 
       // Tabs config
@@ -173,17 +166,6 @@ export default {
         this.$notify({ type: "success", text: this.messages.updated });
         this.isLoading = false;
       });
-    },
-
-    imageUploaded(image) {
-      this.data.images.push(image);
-    },
-
-    imageDeleted(image) {
-      const index = this.data.images.findIndex(x => x.name === image);
-      if (index > -1) {
-        this.data.images.splice(index, 1);
-      }
     },
   },
 

@@ -4,9 +4,9 @@
   <div v-if="isFetched" class="is-loaded">
     <div class="form-row">
       <image-upload
-        :restrictions="'jpg, png | max. 8 MB'"
+        :restrictions="'jpg, png | max. 16 MB'"
         :maxFiles="99"
-        :maxFilesize="8"
+        :maxFilesize="32"
         :acceptedFiles="'.png,.jpg'"
       ></image-upload>
     </div>
@@ -53,7 +53,6 @@ export default {
     
     images: null,
 
-    autosave: true,
 
   },
 
@@ -125,7 +124,6 @@ export default {
         this.$notify({ type: "success", text: this.messages.saved });
         image.id = response.data.imageId;
         this.data.push(image);
-        //this.$emit('imageUploaded', image);
       });
     },
 
@@ -136,7 +134,6 @@ export default {
           const index = this.data.findIndex(x => x.name === image);
           this.data.splice(index, 1);
           this.isLoading = false;
-          this.$emit('imageDeleted', image);
         });
       }
     },

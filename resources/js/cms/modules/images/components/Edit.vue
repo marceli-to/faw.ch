@@ -145,10 +145,10 @@
 import draggable from 'vuedraggable';
 import { Cropper } from "vue-advanced-cropper";
 import { XIcon } from 'vue-feather-icons';
-import ImageActions from "@/components/images/Actions.vue";
-import ImageEdit from "@/components/images/mixins/edit";
-import ImageCrop from "@/components/images/mixins/crop";
-import ImageUtils from "@/components/images/mixins/utils";
+import ImageActions from "@/modules/images/components/Actions.vue";
+import ImageEdit from "@/modules/images/mixins/edit";
+import ImageCrop from "@/modules/images/mixins/crop";
+import ImageUtils from "@/modules/images//mixins/utils";
 
 export default {
   

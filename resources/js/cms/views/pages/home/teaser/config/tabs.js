@@ -11,4 +11,10 @@ export default {
     active: false,
     error: false
   },
+  file: {
+    key: 'file',
+    label: 'Datei',
+    active: false,
+    error: false
+  },
 };

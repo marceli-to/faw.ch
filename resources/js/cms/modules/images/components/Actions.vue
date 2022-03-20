@@ -60,7 +60,7 @@ import {
   ImageIcon,
 } from 'vue-feather-icons';
 
-import ImageUtils from "@/components/images/mixins/utils";
+import ImageUtils from "@/modules/images/mixins/utils";
 export default {
 
   components: {
@@ -112,6 +112,7 @@ export default {
     },
 
     destroy(image, $event) {
+      console.log('destroy image');
       this.$parent.destroy(image.name,$event);
     },
 

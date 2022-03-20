@@ -27,7 +27,7 @@ class TeaserController extends Controller
    */
   public function find(Teaser $teaser)
   {
-    $teaser = Teaser::with('images')->find($teaser->id);
+    $teaser = Teaser::with('images', 'files')->find($teaser->id);
     return response()->json($teaser);
   }
 

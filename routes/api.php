@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\TeaserController;
 use App\Http\Controllers\Api\HeroImageController;
 use App\Http\Controllers\Api\ImageController;
+use App\Http\Controllers\Api\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,16 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::put('image/{image}', [ImageController::class, 'update']);
   Route::get('image/state/{image}', [ImageController::class, 'toggle']);
   Route::delete('image/{image}', [ImageController::class, 'destroy']);
+
+  // Files
+  Route::get('files', [FileController::class, 'get']);
+  Route::post('files/order', [FileController::class, 'order']);
+  Route::get('file/{file}', [FileController::class, 'find']);
+  Route::post('file/upload', [FileController::class, 'upload']);
+  Route::post('file', [FileController::class, 'store']);
+  Route::put('file/{file}', [FileController::class, 'update']);
+  Route::get('file/state/{file}', [FileController::class, 'toggle']);
+  Route::delete('file/{file}', [FileController::class, 'destroy']);
 
   // Hero images
   Route::get('hero/images/{heroImage:slug}', [HeroImageController::class, 'get']);

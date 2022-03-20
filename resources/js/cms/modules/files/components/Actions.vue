@@ -51,6 +51,10 @@ export default {
 
   methods: {
 
+    toggle(file, $event) {
+      this.$parent.toggle(file,$event);
+    },
+
     destroy(file, $event) {
       this.$parent.destroy(file.name,$event);
     },

@@ -13,6 +13,12 @@
     grid-gap: 15px;
   }
 
+  &.is-files {
+    > div {
+      display: block;
+    }
+  }
+
   > .is-list {
     border-top: 2px solid $color-light-grey;
     display: block;
@@ -82,7 +88,7 @@
     border-top: 2px solid $color-light-grey;
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
     width: 100%;
 
