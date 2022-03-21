@@ -14,8 +14,12 @@ class TeaserController extends Controller
    * 
    * @return \Illuminate\Http\Response
    */
-  public function get()
+  public function get($constraint = NULL)
   {
+    if ($constraint == 'publish')
+    {
+      return new DataCollection(Teaser::with('image')->published()->orderBy('created_at')->get());
+    }
     return new DataCollection(Teaser::get());
   }
 

@@ -12,15 +12,16 @@
 @mixin scrollbar($width: 6px, $color: #000000, $bgColor: #eeeeee) {
 	::-webkit-scrollbar {
 		height: $width;
-	    width: $width;
+	  width: $width;
 	}
 	::-webkit-scrollbar-track {
-		background-color: $bgColor;
-	    -webkit-border-radius: 0;
-	    border-radius: 0;
+		background-color: #f9f9f9;
 	}
 	::-webkit-scrollbar-thumb {
 		background-color: $color;
+		border-radius: 7px;
+		opacity: .5;
+
 	}
 	::-webkit-scrollbar-thumb:window-inactive {
 		background-color: $color;

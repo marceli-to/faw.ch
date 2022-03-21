@@ -1,41 +1,79 @@
 <template>
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
-  <div v-if="isFetched" class="is-loaded">
+  <div v-if="isFetched" class="content content--wide is-loaded">
     <page-header>
       <h1>Layout Startseite</h1>
     </page-header>
-
+    <page-header>
+      <h2>Bilder</h2>
+    </page-header>
+    <p>Aus dem <router-link :to="{name: 'home-images'}">Bilderpool</router-link> wird beim Laden der Seite eines zufällig ausgewählt.</p>
     <div class="grid-items">
-      <figure class="grid-item__hero">
-        <router-link class="btn-primary is-tiny" :to="{name: 'home-images'}">
+      <figure class="grid-item grid-item__hero">
+        <router-link class="btn-edit" :to="{name: 'home-images'}">
           Bearbeiten
         </router-link>
         <img :src="getImageSrc(data.hero, 'cache')" height="300" width="300">
       </figure>
-      <hr>
-      <h1>Veranstaltungen</h1>
-      <div class="grid-cols-12">
-        <div class="span-6">Item 1</div>
-        <div class="span-6">Item 2</div>
-      </div>
-      <hr>
-      <h1>Teaser</h1>
-      <div class="grid-cols-12">
+      <page-header>
+        <h2>Veranstaltungen</h2>
+        <a href="javascript:;" @click="$refs.eventSelector.show();" class="btn-add has-icon">
+          <plus-icon size="16"></plus-icon>
+          <span>Hinzufügen</span>
+        </a>
+      </page-header>
+      <draggable 
+        :disabled="false"
+        v-model="data.grid.events" 
+        @end="order(data.grid.events)"
+        ghost-class="draggable-ghost"
+        draggable=".grid-item"
+        class="grid-cols-12"
+        v-if="data.grid.events.length">
         <div 
-          class="span-4 grid-item"
+          class="span-6 grid-item draggable"
+          v-for="item in data.grid.events"
+          :key="item.id">
+          <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
+          <figure>
+            <img :src="getImageSrc(item.event.image, 'cache')" height="300" width="200" v-if="item.event.image">
+            <img src="/assets/img/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
+            <h2>{{item.event.title}}</h2>
+            <p v-html="item.event.text"></p>
+          </figure>
+        </div>
+      </draggable>
+      <page-header>
+        <h2>Teaser</h2>
+        <a href="javascript:;" @click="$refs.teaserSelector.show();" class="btn-add has-icon">
+          <plus-icon size="16"></plus-icon>
+          <span>Hinzufügen</span>
+        </a>
+      </page-header>
+      <draggable 
+        :disabled="false"
+        v-model="data.grid.teasers" 
+        @end="order(data.grid.teasers)"
+        ghost-class="draggable-ghost"
+        draggable=".grid-item"
+        class="grid-cols-12"
+        v-if="data.grid.teasers.length">
+        <div 
+          class="span-4 grid-item draggable"
           v-for="item in data.grid.teasers"
           :key="item.id">
-          <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-primary is-tiny">Löschen</a>
+          <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
           <figure>
-            <img :src="getImageSrc(item.teaser.image, 'cache')" height="300" width="300">
+            <img :src="getImageSrc(item.teaser.image, 'cache')" height="300" width="200">
             <h2>{{item.teaser.title}}</h2>
             <p v-html="item.teaser.text"></p>
           </figure>
         </div>
-
-      </div>
+      </draggable>
     </div>
+    <event-selector ref="eventSelector"></event-selector>
+    <teaser-selector ref="teaserSelector"></teaser-selector>
     <page-footer>
       <router-link :to="{ name: 'home-dashboard' }" class="btn-primary">
         <span>Zurück</span>
@@ -45,18 +83,25 @@
 </div>
 </template>
 <script>
-import { EditIcon } from 'vue-feather-icons';
+import { EditIcon, PlusIcon } from 'vue-feather-icons';
 import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
+import draggable from "vuedraggable";
+import EventSelector from "@/views/pages/home/layout/components/Events.vue";
+import TeaserSelector from "@/views/pages/home/layout/components/Teasers.vue";
 
 export default {
 
   components: {
     EditIcon,
+    PlusIcon,
     PageFooter,
     PageHeader,
+    draggable,
+    EventSelector,
+    TeaserSelector
   },
 
   mixins: [ErrorHandling, Helpers],
@@ -73,6 +118,9 @@ export default {
       routes: {
         getHero: '/api/hero/image/home',
         get: '/api/grid/items',
+        storeEvent: '/api/grid/item/store/event',
+        storeTeaser: '/api/grid/item/store/teaser',
+        order: '/api/grid/item/order',
         delete: '/api/grid/item',
       },
 
@@ -108,7 +156,7 @@ export default {
       }));
     },
 
-    destroy(id, event) {
+    destroy(id) {
       if (confirm(this.messages.confirm)) {
         this.isLoading = true;
         this.axios.delete(`${this.routes.delete}/${id}`).then(response => {
@@ -117,6 +165,40 @@ export default {
         });
       }
     },
+
+    order(data) {
+      let events = data.map(function(event, index) {
+        event.order = index;
+        return event;
+      });
+      if (this.debounce) return;
+      this.debounce = setTimeout(function() {
+        this.debounce = false;
+        this.axios.post(`${this.routes.order}`, {items: events}).then((response) => {
+          this.$notify({type: 'success', text: this.messages.updated});
+        });
+      }.bind(this, events), 500);
+    },
+
+    addEvent(event) {
+      this.isLoading = true;
+      this.axios.post(this.routes.storeEvent, {id: event.id}).then(response => {
+        this.fetch();
+        this.$refs.eventSelector.hide();
+        this.isLoading = false;
+      });
+    },
+
+    addTeaser(teaser) {
+      this.isLoading = true;
+      this.axios.post(this.routes.storeTeaser, {id: teaser.id}).then(response => {
+        this.fetch();
+        this.$refs.teaserSelector.hide();
+        this.isLoading = false;
+      });
+    },
+
+
   }
 }
 </script>

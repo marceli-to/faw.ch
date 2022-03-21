@@ -10,6 +10,12 @@
           <p>Verwaltung der Startseite</p>
         </router-link>
       </div>
+      <div class="card">
+        <router-link :to="{name: 'events'}">
+          <h2>Veranstaltungen</h2>
+          <p>Verwaltung der Veranstaltungen</p>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

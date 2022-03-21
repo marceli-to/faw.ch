@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\TeaserController;
+use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\HeroImageController;
 use App\Http\Controllers\Api\GridItemController;
 use App\Http\Controllers\Api\ImageController;
@@ -50,14 +51,17 @@ Route::middleware('auth:sanctum')->group(function() {
 
   // Grid items
   Route::get('grid/items', [GridItemController::class, 'get']);
+  Route::post('grid/item/store/event', [GridItemController::class, 'storeEvent']);
+  Route::post('grid/item/store/teaser', [GridItemController::class, 'storeTeaser']);
   Route::delete('grid/item/{gridItem}', [GridItemController::class, 'destroy']);
+  Route::post('grid/item/order', [GridItemController::class, 'order']);
 
   // Hero images
   Route::get('hero/images/{heroImage:slug}', [HeroImageController::class, 'get']);
   Route::get('hero/image/{heroImage:slug}', [HeroImageController::class, 'getOne']);
   
   // Teaser
-  Route::get('teasers', [TeaserController::class, 'get']);
+  Route::get('teasers/{constraint?}', [TeaserController::class, 'get']);
   Route::get('teaser/{teaser}', [TeaserController::class, 'find']);
   Route::post('teaser', [TeaserController::class, 'store']);
   Route::put('teaser/{teaser}', [TeaserController::class, 'update']);
@@ -65,8 +69,13 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::post('teasers/order', [TeaserController::class, 'order']);
   Route::delete('teaser/{teaser}', [TeaserController::class, 'destroy']);
   
-  // Uploads
-  // Route::post('image/upload', [UploadController::class, 'store']);
+  // Event
+  Route::get('events/{constraint?}', [EventController::class, 'get']);
+  Route::get('event/{event}', [EventController::class, 'find']);
+  Route::post('event', [EventController::class, 'store']);
+  Route::put('event/{event}', [EventController::class, 'update']);
+  Route::get('event/state/{event}', [EventController::class, 'toggle']);
+  Route::delete('event/{event}', [EventController::class, 'destroy']);
 
 });
 

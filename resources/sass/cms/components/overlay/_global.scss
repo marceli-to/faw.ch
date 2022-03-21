@@ -61,4 +61,13 @@ html.has-overlay {
       width: 480px;
     }
   }
+
+  &.overlay--widget {
+    align-items: center;
+    display: flex;
+
+    > div {
+      max-width: 480px;
+    }
+  }
 }

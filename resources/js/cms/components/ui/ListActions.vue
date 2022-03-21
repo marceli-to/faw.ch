@@ -1,57 +1,6 @@
 <template>
   <div class="listing__item-action">
 
-    <div v-if="hasClearQueue">
-      <a
-        href="javascript:;"
-        @click.prevent="clearQueue(id,$event)"
-        title="Queue leeren"
-      >
-        <x-circle-icon size="18" class="feather-icon"></x-circle-icon>
-      </a>
-    </div>
-
-    <div v-if="hasMail">
-      <a
-        href="javascript:;"
-        @click.prevent="mail(id,$event)"
-      >
-        <mail-icon size="18" class="feather-icon"></mail-icon>
-      </a>
-    </div>
-
-    <div v-if="hasBilling">
-      <a
-        href="javascript:;"
-        @click.prevent="updateBilling(id,$event)"
-      >
-        <span v-if="record.is_paid" class="feather-icon is-ok">
-          <dollar-sign-icon size="18"></dollar-sign-icon>
-        </span>
-        <span v-else>
-          <dollar-sign-icon size="18" class="feather-icon"></dollar-sign-icon>
-        </span>
-      </a>
-    </div>
-
-    <div v-if="hasParticipants">
-      <router-link
-        :to="{name: routes.participants, params: { id: id }}"
-        class="feather-icon"
-      >
-        <users-icon size="18"></users-icon>
-      </router-link>
-    </div>
-
-    <div v-if="hasBookings">
-      <router-link
-        :to="{name: routes.bookings, params: { id: id }}"
-        class="feather-icon"
-      >
-        <clipboard-icon size="18"></clipboard-icon>
-      </router-link>
-    </div>
-
     <div v-if="hasDownload">
       <a
         :href="'/storage/uploads/' + record.file"
@@ -164,21 +113,6 @@ export default {
       default: true
     },
     
-    hasCatalog: {
-      type: Boolean,
-      default: false
-    },
-
-    hasCatalogItems: {
-      type: Boolean,
-      default: false
-    },
-
-    hasSettings: {
-      type: Boolean,
-      default: false
-    },
-
     hasToggle: {
       type: Boolean,
       default: true
@@ -196,32 +130,7 @@ export default {
 
     hasDraggable: {
       type: Boolean,
-      default: false,
-    },
-
-    hasParticipants: {
-      type: Boolean,
-      default: false,
-    },
-
-    hasMail: {
-      type: Boolean,
-      default: false,
-    },
-
-    hasBookings: {
-      type: Boolean,
-      default: false,
-    },
-
-    hasBilling: {
-      type: Boolean,
-      default: false,
-    },
-
-    hasClearQueue: {
-      type: Boolean,
-      default: false,
+      default: false
     },
 
     isCollapsible: {
@@ -261,17 +170,6 @@ export default {
       this.$parent.copy(id,$event,this.model);
     },
 
-    updateBilling(id) {
-      this.$parent.updateBilling(id);
-    },
-
-    mail(id) {
-      this.$parent.maildialog(id);
-    },
-
-    clearQueue(id) {
-      this.$parent.clearQueue(id)
-    }
   },
 }
 </script>

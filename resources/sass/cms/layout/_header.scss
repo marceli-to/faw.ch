@@ -34,6 +34,7 @@ header.content-header {
   }
 
   h2 {
-    color: $color-medium-grey;
+    @include font-size($fs-lg);
+    @include responsive-prop('margin-bottom', 0);
   }
 }

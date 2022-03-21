@@ -6,7 +6,7 @@
 
 .widget {
   align-items: center;
-  background-color: rgba(255, 255, 255, .96);
+  background-color: rgba(240,240,240,.8);
   display: flex;
   justify-content: center;
   height: 100%;
@@ -17,22 +17,61 @@
   z-index: 401;
 
   > div {
-    border: 2px solid $color-light-grey;
-    max-width: 480px;
+    background-color: $color-white;
+    border-radius: 4px;
     @include responsive-prop('padding', $space-sm);
     position: relative;
-    width: 100%;
+    width: 560px;
   }
 
   h1 {
+    border-bottom: 2px solid $color-light;
     color: $color-primary;
+    margin-bottom: $space-5x;
+    padding-bottom: $space-2x;
   }
 
   .btn-close {
     color: $color-light-grey;
-    right: 10px;
+    right: 20px;
     position: absolute;
-    top: 10px;
+    top: 20px;
+  }
+
+  .widget__inner {
+    position: relative;
+  }
+  
+  .widget-content {
+    max-height: 400px;
+    overflow-y: scroll;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  h1 + .widget-item {
+    border-top: 2px solid $color-light;
+  }
+
+  .widget-item {
+    border-bottom: 2px solid $color-light;
+    display: grid;
+    grid-template-columns: 50px auto;
+    grid-column-gap: $space-3x;
+    margin-right: $space-1x;
+    padding: $space-3x $space-1x;
+
+    &:hover {
+      background-color: $color-light;
+    }
+
+    img {
+      @extend %is-responsive;
+    }
+
+    p {
+      margin-bottom: 0 !important;
+    }
   }
 
 }
