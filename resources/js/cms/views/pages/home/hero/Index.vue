@@ -58,7 +58,6 @@ export default {
         saved: 'Bild gespeichert!',
         updated: 'Änderungen gespeichert!',
       }
-
     };
   },
 

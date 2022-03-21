@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\TeaserController;
 use App\Http\Controllers\Api\HeroImageController;
+use App\Http\Controllers\Api\GridItemController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 
@@ -47,9 +48,14 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('file/state/{file}', [FileController::class, 'toggle']);
   Route::delete('file/{file}', [FileController::class, 'destroy']);
 
+  // Grid items
+  Route::get('grid/items', [GridItemController::class, 'get']);
+  Route::delete('grid/item/{gridItem}', [GridItemController::class, 'destroy']);
+
   // Hero images
   Route::get('hero/images/{heroImage:slug}', [HeroImageController::class, 'get']);
-
+  Route::get('hero/image/{heroImage:slug}', [HeroImageController::class, 'getOne']);
+  
   // Teaser
   Route::get('teasers', [TeaserController::class, 'get']);
   Route::get('teaser/{teaser}', [TeaserController::class, 'find']);

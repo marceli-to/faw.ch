@@ -1,5 +1,5 @@
 <template>
-<div class="form-row">
+<div>
   <loading-indicator v-if="isLoading"></loading-indicator>
   <div v-if="isFetched" class="is-loaded">
     

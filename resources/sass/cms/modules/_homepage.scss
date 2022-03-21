@@ -1,0 +1,47 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: modules/homepage
+ * -----------------------------------------------------------------------------
+ */
+
+.grid-items {
+
+  img {
+    @extend %is-responsive;
+  }
+
+  .btn-primary {
+    right: $space-2x;
+    position: absolute;
+    top: $space-2x;
+  }
+
+  .grid-item__hero,
+  .grid-item {
+    position: relative;
+  }
+
+  .grid-item {
+    border: 2px dashed $color-light-grey;
+    padding: $space-2x;
+
+    .btn-primary  {
+      right: $space-3x;
+      top: $space-3x;
+    }
+
+    h2 {
+      text-transform: uppercase;
+    }
+
+    img {
+      @include responsive-prop('margin-bottom', $space-xs);
+    }
+
+    p {
+      @extend %word-break;
+      color: $color-black;
+      margin: 0;
+    }
+  }
+}

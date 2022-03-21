@@ -12,7 +12,7 @@ hr,
   display: block;
   line-height: 1;
   width: 100%;
-  @include responsive-prop('margin-bottom', $space-md);
+  @include responsive-prop('margin-bottom', $space-sm);
   @include responsive-prop('margin-top', $space-sm);
 
 }

@@ -2,57 +2,65 @@
  * -----------------------------------------------------------------------------
  * File: layout/grid
  * -----------------------------------------------------------------------------
+ *
  */
 
-.grid-main-sidebar {
-
-  @include bp-md() {
+ @for $i from 1 through 12 {
+  %grid-cols-#{$i},
+  .grid-cols-#{$i} {
     display: grid;
-    grid-template-columns: auto 200px;
-    @include responsive-prop('grid-column-gap', $space-md);
+    grid-template-columns: repeat($i, minmax(0, 1fr));
+    grid-gap: $space-4x;
   }
 }
 
-.grid-column-sidebar {
-  > div {
-    border: 2px solid $color-light-grey;
-    background-color: $color-light;
-    border-radius: 2px;
-    @include responsive-prop('padding', $space-xs);
-    margin-top: 30px;
-    max-width: 200px;
+%grid-cols-none,
+.grid-cols-none {
+  grid-template-columns: none;
+}
+
+%grid-gap,
+.grid-gap {
+  grid-gap: $space-4x;
+}
+
+%grid-column-gap,
+.grid-column-gap {
+  grid-column-gap: $space-4x;
+}
+
+%grid-row-gap,
+.grid-row-gap {
+  grid-row-gap: $space-4x;
+}
+
+%grid-gap-none,
+.grid-gap-none {
+  grid-column-gap: 0;
+}
+
+@for $i from 1 through 12 {
+  %span-#{$i},
+  .span-#{$i} {
+    grid-column: span $i / span $i;
   }
 }
 
-.grid {
+%span-full,
+.span-full	{
+  grid-column: 1 / -1;
+}
 
-  @include bp-md() {
-    display: grid;
-    grid-column-gap: 15px;
-
-    &.grid-1-1 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    &.grid-1-1-1 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    &.grid-2-1 {
-      grid-template-columns: 2fr 1fr;
-    }
-    
-    &.grid-1-2 {
-      grid-template-columns: 1fr 2fr;
-    }
-    
-    &.grid-3-1 {
-      grid-template-columns: 2fr 1fr;
-    }
-    
-    &.grid-1-3 {
-      grid-template-columns: 1fr 2fr;
-    }
+@for $i from 1 through 12 {
+  %start-#{$i},
+  .start-#{$i} {
+    grid-column-start: $i !important;
   }
 }
 
+@for $i from 1 through 12 {
+  %end-#{$i},
+  .end-#{$i} {
+    grid-column-end: $i;
+  }
+}

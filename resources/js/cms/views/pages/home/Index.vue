@@ -5,6 +5,12 @@
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
+        <router-link :to="{name: 'home-layout'}">
+          <h2>Layout</h2>
+          <p>Verwaltung der Startseite</p>
+        </router-link>
+      </div>
+      <div class="card">
         <router-link :to="{name: 'home-images'}">
           <h2>Bilder</h2>
           <p>Verwaltung der Bilder</p>

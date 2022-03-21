@@ -23,6 +23,11 @@ class Teaser extends Base
     return $this->morphMany(Image::class, 'imageable');
   }
 
+  public function image()
+  {
+    return $this->morphOne(Image::class, 'imageable');
+  }
+
   public function files()
   {
     return $this->morphMany(File::class, 'fileable');

@@ -36,16 +36,6 @@
   &:hover {
     border: 2px solid $color-primary;
   }
-
-  &.card__newsletter {
-    border: 1px dashed $color-light-grey;
-    color: $color-dark;
-    @include responsive-prop('padding', $space-xs);
-
-    &.is-draggable {
-      cursor: move;
-    }
-  }
   
   a {
     color: $color-primary;
