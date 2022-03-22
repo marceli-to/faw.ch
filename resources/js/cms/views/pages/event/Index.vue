@@ -5,7 +5,7 @@
     
     <page-header>
       <h1>Veranstaltungen</h1>
-      <router-link :to="{ name: 'event-create' }" class="feather-icon feather-icon--prepend">
+      <router-link :to="{ name: 'event-create' }" class="btn-add has-icon">
         <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
@@ -43,7 +43,6 @@
 </template>
 <script>
 import { PlusIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
-import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 import ListActions from "@/components/ui/ListActions.vue";
 import Separator from "@/components/ui/Separator.vue";
@@ -65,7 +64,7 @@ export default {
     draggable,
   },
 
-  mixins: [ErrorHandling, Helpers],
+  mixins: [Helpers],
 
   data() {
     return {

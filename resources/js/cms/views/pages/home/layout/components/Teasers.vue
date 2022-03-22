@@ -2,10 +2,12 @@
 <div class="widget" v-if="isOpen">
   <div class="widget__inner" v-if="isFetched">
     <div>
-      <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
-        <x-icon size="24"></x-icon>
-      </a>
-      <h1>Teaser</h1>
+      <header>
+        <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
+          <x-icon size="24"></x-icon>
+        </a>
+        <h1>Teaser</h1>
+      </header>
       <div class="widget-content">
         <a 
           href="javascript:;" 
@@ -29,7 +31,6 @@
 </template>
 <script>
 import { PlusIcon, XIcon } from 'vue-feather-icons'
-import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 
 export default {
@@ -39,7 +40,7 @@ export default {
     XIcon
   },
 
-  mixins: [ErrorHandling, Helpers],
+  mixins: [Helpers],
 
   data() {
     return {

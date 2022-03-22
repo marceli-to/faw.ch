@@ -19,16 +19,18 @@
   > div {
     background-color: $color-white;
     border-radius: 4px;
-    @include responsive-prop('padding', $space-sm);
     position: relative;
     width: 560px;
   }
 
-  h1 {
+  header {
     border-bottom: 2px solid $color-light;
+    @include responsive-prop('padding', $space-sm);
+  }
+
+  h1 {
     color: $color-primary;
-    margin-bottom: $space-5x;
-    padding-bottom: $space-2x;
+    margin-bottom: 0;
   }
 
   .btn-close {
@@ -44,13 +46,10 @@
   
   .widget-content {
     max-height: 400px;
+    @include responsive-prop('padding', $space-sm);
     overflow-y: scroll;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
-  }
-
-  h1 + .widget-item {
-    border-top: 2px solid $color-light;
   }
 
   .widget-item {
@@ -58,11 +57,14 @@
     display: grid;
     grid-template-columns: 50px auto;
     grid-column-gap: $space-3x;
-    margin-right: $space-1x;
-    padding: $space-3x $space-1x;
+    padding: $space-2x $space-1x;
 
     &:hover {
       background-color: $color-light;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
     }
 
     img {

@@ -91,9 +91,9 @@
 <script>
 import { ExternalLinkIcon } from 'vue-feather-icons';
 import { TheMask } from "vue-the-mask";
-import ErrorHandling from "@/mixins/ErrorHandling";
 import TinymceEditor from "@tinymce/tinymce-vue";
 import tinyConfig from "@/config/tiny.js";
+import ErrorHandling from "@/mixins/ErrorHandling";
 import RadioButton from "@/components/ui/RadioButton.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";

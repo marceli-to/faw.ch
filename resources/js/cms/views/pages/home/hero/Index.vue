@@ -20,7 +20,6 @@
 </div>
 </template>
 <script>
-import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
@@ -35,7 +34,7 @@ export default {
     Images
   },
 
-  mixins: [ErrorHandling, Helpers],
+  mixins: [Helpers],
 
   data() {
     return {

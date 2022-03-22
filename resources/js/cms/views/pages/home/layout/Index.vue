@@ -14,7 +14,7 @@
         <router-link class="btn-edit" :to="{name: 'home-images'}">
           Bearbeiten
         </router-link>
-        <img :src="getImageSrc(data.hero, 'cache')" height="300" width="300">
+        <img :src="getImageSrc(data.hero, 'cache')" height="300" width="300" v-if="data.hero">
       </figure>
       <page-header>
         <h2>Veranstaltungen</h2>
@@ -65,7 +65,8 @@
           :key="item.id">
           <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
           <figure>
-            <img :src="getImageSrc(item.teaser.image, 'cache')" height="300" width="200">
+            <img :src="getImageSrc(item.teaser.image, 'cache')" height="300" width="200" v-if="item.teaser.image">
+            <img src="/assets/img/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
             <h2>{{item.teaser.title}}</h2>
             <p v-html="item.teaser.text"></p>
           </figure>
@@ -84,7 +85,6 @@
 </template>
 <script>
 import { EditIcon, PlusIcon } from 'vue-feather-icons';
-import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
@@ -104,7 +104,7 @@ export default {
     TeaserSelector
   },
 
-  mixins: [ErrorHandling, Helpers],
+  mixins: [Helpers],
 
   data() {
     return {

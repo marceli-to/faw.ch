@@ -14,22 +14,8 @@
     @extend %is-responsive;
   }
 
-  .btn-add,
   .btn-edit,
   .btn-delete {
-    @extend %btn-primary;
-    @include font-size($fs-xs);
-    padding: 8px 10px;
-    line-height: 1 !important;
-  }
-
-  .btn-add {
-    background-color: $color-blue;
-  }
-
-  .btn-edit,
-  .btn-delete {
-    background-color: $color-grey;
     right: $space-4x;
     position: absolute;
     top: $space-4x;

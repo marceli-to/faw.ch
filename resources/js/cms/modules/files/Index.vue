@@ -17,7 +17,6 @@
 </div>
 </template>
 <script>
-import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 import FileUpload from "@/modules/files/components/Upload.vue";
 import FileEdit from "@/modules/files/components/Edit.vue";
@@ -29,7 +28,7 @@ export default {
     FileEdit
   },
 
-  mixins: [ErrorHandling, Helpers],
+  mixins: [Helpers],
 
   props: {
     typeId: null,

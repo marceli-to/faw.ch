@@ -56,7 +56,6 @@ const router = new VueRouter(
   }
 );
 
-
 // App component
 import AppComponent from '@/App.vue';
 

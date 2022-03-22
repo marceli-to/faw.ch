@@ -22,7 +22,6 @@
 </div>
 </template>
 <script>
-import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 import ImageUpload from "@/modules/images/components/Upload.vue";
 import ImageEdit from "@/modules/images/components/Edit.vue";
@@ -34,7 +33,7 @@ export default {
     ImageEdit
   },
 
-  mixins: [ErrorHandling, Helpers],
+  mixins: [Helpers],
 
   props: {
     imageRatioW: {

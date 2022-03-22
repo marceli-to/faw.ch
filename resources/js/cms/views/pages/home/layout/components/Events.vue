@@ -2,35 +2,38 @@
 <div class="widget" v-if="isOpen">
   <div class="widget__inner" v-if="isFetched">
     <div>
-      <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
-        <x-icon size="24"></x-icon>
-      </a>
-      <h1>Veranstaltungen</h1>
-      <a 
-        href="javascript:;" 
-        v-for="d in data" 
-        :key="d.id" 
-        class="widget-item"
-        @click="add(d)">
-        <figure>
-          <img :src="`/img/tiny/${d.image.name}`" height="100" width="100" v-if="d.image">
-          <img src="/assets/img/placeholder.png" height="100" width="100" v-else>
-        </figure>
-        <div class="flex flex-columns justify-center">
-          <h2>{{ d.title | truncate(40, '...') }}</h2>
-          <div>
-            <span v-if="d.date">{{d.date}}</span>
-            <span v-if="d.time"> – {{d.time}}</span>
+      <header>
+        <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
+          <x-icon size="24"></x-icon>
+        </a>
+        <h1>Veranstaltungen</h1>
+      </header>
+      <div class="widget-content">
+        <a 
+          href="javascript:;" 
+          v-for="d in data" 
+          :key="d.id" 
+          class="widget-item"
+          @click="add(d)">
+          <figure>
+            <img :src="`/img/tiny/${d.image.name}`" height="100" width="100" v-if="d.image">
+            <img src="/assets/img/placeholder.png" height="100" width="100" v-else>
+          </figure>
+          <div class="flex flex-columns justify-center">
+            <h2>{{ d.title | truncate(40, '...') }}</h2>
+            <div>
+              <span v-if="d.date">{{d.date}}</span>
+              <span v-if="d.time"> – {{d.time}}</span>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </div>
 </template>
 <script>
 import { PlusIcon, XIcon } from 'vue-feather-icons'
-import ErrorHandling from "@/mixins/ErrorHandling";
 import Helpers from "@/mixins/Helpers";
 
 export default {
@@ -40,7 +43,7 @@ export default {
     XIcon
   },
 
-  mixins: [ErrorHandling, Helpers],
+  mixins: [Helpers],
 
   data() {
     return {
