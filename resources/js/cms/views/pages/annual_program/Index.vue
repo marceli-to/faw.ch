@@ -4,8 +4,8 @@
   <div v-if="isFetched" class="is-loaded">
     
     <page-header>
-      <h1>Teaser</h1>
-      <router-link :to="{ name: 'teaser-create' }" class="btn-add has-icon">
+      <h1>Jahresprogramme</h1>
+      <router-link :to="{ name: 'annual-program-create'}" class="btn-add has-icon">
         <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
@@ -23,7 +23,7 @@
         <list-actions 
           :id="d.id" 
           :record="d"
-          :routes="{edit: 'teaser-edit'}">
+          :routes="{edit: 'annual-program-edit'}">
         </list-actions>
       </div>
     </div>
@@ -31,13 +31,13 @@
       <p class="no-records">{{messages.emptyData}}</p>
     </div>
     <page-footer>
-      <button-back :route="'home-dashboard'">Zurück</button-back>
+      <button-back :route="'dashboard'">Zurück</button-back>
     </page-footer>
   </div>
 </div>
 </template>
 <script>
-import { PlusIcon, EditIcon, Trash2Icon } from 'vue-feather-icons';
+import { PlusIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
 import ButtonBack from "@/components/ui/ButtonBack.vue";
 import Helpers from "@/mixins/Helpers";
 import ListActions from "@/components/ui/ListActions.vue";
@@ -53,6 +53,7 @@ export default {
     Separator,
     PlusIcon,
     EditIcon,
+    StarIcon,
     Trash2Icon,
     ButtonBack,
     PageFooter,
@@ -69,10 +70,10 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/teasers',
-        store: '/api/teaser',
-        delete: '/api/teaser',
-        toggle: '/api/teaser/state',
+        get: '/api/annual-programs',
+        store: '/api/annual-program',
+        delete: '/api/annual-program',
+        toggle: '/api/annual-program/state',
       },
 
       // States

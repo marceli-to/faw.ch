@@ -18,21 +18,34 @@
           <input type="text" v-model="data.subtitle">
         </div>
         <div class="form-row">
-          <label>Text</label>
-          <textarea v-model="data.text"></textarea>
+          <label>Lead</label>
+          <tinymce-editor
+            :api-key="tinyApiKey"
+            :init="tinyConfig"
+            v-model="data.text"
+          ></tinymce-editor>
         </div>
-        <div class="form-row">
-          <label class="flex justify-between">
-            <span>Link</span>
-            <a 
-              :href="data.link" 
-              class="feather-icon ml-2x"
-              target="_blank"
-              v-if="data.link">
-              <external-link-icon size="1.2x"></external-link-icon>
-            </a>
-          </label>
-          <input type="text" v-model="data.link">
+        <div class="grid-cols-12">
+          <div class="span-6">
+            <label>Jahr (Start)</label>
+            <the-mask
+              type="text"
+              mask="####"
+              :masked="true"
+              name="periode_start"
+              v-model="data.periode_start"
+            ></the-mask>
+          </div>
+          <div class="span-6">
+            <label>Jahr (Ende)</label>
+            <the-mask
+              type="text"
+              mask="####"
+              :masked="true"
+              name="periode_end"
+              v-model="data.periode_end"
+            ></the-mask>
+          </div>
         </div>
       </div>
     </div>
@@ -46,8 +59,20 @@
     <div v-show="tabs.file.active">
       <files :files="data.files"></files>
     </div>
+    <div v-show="tabs.settings.active">
+      <div>
+        <div class="form-row">
+          <radio-button 
+            :label="'Publizieren?'"
+            v-bind:publish.sync="data.publish"
+            :model="data.publish"
+            :name="'publish'">
+          </radio-button>
+        </div>
+      </div>
+    </div>
     <page-footer>
-      <button-back :route="'teasers'">Zurück</button-back>
+      <button-back :route="'annual-programs'">Zurück</button-back>
       <button-submit>Speichern</button-submit>
     </page-footer>
   </form>
@@ -55,13 +80,16 @@
 </template>
 <script>
 import { ExternalLinkIcon } from 'vue-feather-icons';
+import { TheMask } from "vue-the-mask";
+import TinymceEditor from "@tinymce/tinymce-vue";
+import tinyConfig from "@/config/tiny.js";
 import ErrorHandling from "@/mixins/ErrorHandling";
 import RadioButton from "@/components/ui/RadioButton.vue";
 import ButtonBack from "@/components/ui/ButtonBack.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";
-import tabsConfig from "@/views/pages/home/teaser/config/tabs.js";
+import tabsConfig from "@/views/pages/event/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import Images from "@/modules/images/Index.vue";
@@ -78,7 +106,9 @@ export default {
     PageFooter,
     PageHeader,
     Images,
-    Files
+    Files,
+    TinymceEditor,
+    TheMask
   },
 
   mixins: [ErrorHandling],
@@ -95,7 +125,8 @@ export default {
         title: null,
         subtitle: null,
         text: null,
-        link: null,
+        periode_start: null,
+        periode_end: null,
         publish: 1,
         images: [],
         files: [],
@@ -108,9 +139,9 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/teaser',
-        store: '/api/teaser',
-        update: '/api/teaser',
+        get: '/api/annual-program',
+        store: '/api/annual-program',
+        update: '/api/annual-program',
       },
 
       // States
@@ -126,6 +157,10 @@ export default {
 
       // Tabs config
       tabs: tabsConfig,
+
+      // TinyMCE
+      tinyConfig: tinyConfig,
+      tinyApiKey: 'vuaywur9klvlt3excnrd9xki1a5lj25v18b2j0d0nu5tbwro',
     };
   },
 
@@ -155,7 +190,7 @@ export default {
     store() {
       this.isLoading = true;
       this.axios.post(this.routes.store, this.data).then(response => {
-        this.$router.push({ name: "teasers"});
+        this.$router.push({ name: "annual-programs"});
         this.$notify({ type: "success", text: this.messages.stored });
         this.isLoading = false;
       });
@@ -164,7 +199,7 @@ export default {
     update() {
       this.isLoading = true;
       this.axios.put(`${this.routes.update}/${this.$route.params.id}`, this.data).then(response => {
-        this.$router.push({ name: "teasers"});
+        this.$router.push({ name: "annual-programs"});
         this.$notify({ type: "success", text: this.messages.updated });
         this.isLoading = false;
       });
@@ -174,8 +209,8 @@ export default {
   computed: {
     title() {
       return this.$props.type == "edit" 
-        ? "Teaser bearbeiten" 
-        : "Teaser hinzufügen";
+        ? "Jahresprogramm bearbeiten" 
+        : "Jahresprogramm hinzufügen";
     }
   }
 };

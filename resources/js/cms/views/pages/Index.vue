@@ -16,6 +16,12 @@
           <p>Verwaltung der Veranstaltungen</p>
         </router-link>
       </div>
+      <div class="card">
+        <router-link :to="{name: 'annual-programs'}">
+          <h2>Jahresprogramm</h2>
+          <p>Verwaltung des Jahresprogramms</p>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

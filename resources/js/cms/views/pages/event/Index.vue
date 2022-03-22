@@ -34,9 +34,7 @@
       <p class="no-records">{{messages.emptyData}}</p>
     </div>
     <page-footer>
-      <router-link :to="{ name: 'dashboard' }" class="btn-primary">
-        <span>Zurück</span>
-      </router-link>
+      <button-back :route="'dashboard'">Zurück</button-back>
     </page-footer>
   </div>
 </div>
@@ -44,6 +42,7 @@
 <script>
 import { PlusIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
 import Helpers from "@/mixins/Helpers";
+import ButtonBack from "@/components/ui/ButtonBack.vue";
 import ListActions from "@/components/ui/ListActions.vue";
 import Separator from "@/components/ui/Separator.vue";
 import draggable from "vuedraggable";
@@ -59,6 +58,7 @@ export default {
     EditIcon,
     StarIcon,
     Trash2Icon,
+    ButtonBack,
     PageFooter,
     PageHeader,
     draggable,

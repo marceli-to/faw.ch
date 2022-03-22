@@ -24,15 +24,14 @@
       </div>
     </div>
     <page-footer>
-      <router-link :to="{ name: 'dashboard' }" class="btn-primary">
-        <span>Zurück</span>
-      </router-link>
+      <button-back :route="'dashboard'">Zurück</button-back>
     </page-footer>
   </div>
 </template>
 <script>
 
 import Helpers from "@/mixins/Helpers";
+import ButtonBack from "@/components/ui/ButtonBack.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
 
@@ -40,7 +39,8 @@ export default {
 
   components: {
     PageHeader,
-    PageFooter
+    PageFooter,
+    ButtonBack
   },
 
   mixins: [Helpers],

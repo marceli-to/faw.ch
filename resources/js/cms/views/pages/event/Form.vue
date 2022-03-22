@@ -80,10 +80,8 @@
       </div>
     </div>
     <page-footer>
-      <button type="submit" class="btn-primary">Speichern</button>
-      <router-link :to="{ name: 'events' }" class="btn-secondary">
-        <span>Zurück</span>
-      </router-link>
+      <button-back :route="'events'">Zurück</button-back>
+      <button-submit>Speichern</button-submit>
     </page-footer>
   </form>
 </div>
@@ -95,12 +93,13 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 import tinyConfig from "@/config/tiny.js";
 import ErrorHandling from "@/mixins/ErrorHandling";
 import RadioButton from "@/components/ui/RadioButton.vue";
+import ButtonBack from "@/components/ui/ButtonBack.vue";
+import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";
 import tabsConfig from "@/views/pages/event/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
-
 import Images from "@/modules/images/Index.vue";
 import Files from "@/modules/files/Index.vue";
 
@@ -108,6 +107,8 @@ export default {
   components: {
     ExternalLinkIcon,
     RadioButton,
+    ButtonBack,
+    ButtonSubmit,
     LabelRequired,
     Tabs,
     PageFooter,
@@ -115,7 +116,7 @@ export default {
     Images,
     Files,
     TinymceEditor,
-    TheMask
+    TheMask,
   },
 
   mixins: [ErrorHandling],

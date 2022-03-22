@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\TeaserController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\HeroImageController;
 use App\Http\Controllers\Api\GridItemController;
+use App\Http\Controllers\Api\AnnualProgramController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 
@@ -76,6 +77,14 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::put('event/{event}', [EventController::class, 'update']);
   Route::get('event/state/{event}', [EventController::class, 'toggle']);
   Route::delete('event/{event}', [EventController::class, 'destroy']);
+
+  // Annual Program
+  Route::get('annual-programs/{constraint?}', [AnnualProgramController::class, 'get']);
+  Route::get('annual-program/{program}', [AnnualProgramController::class, 'find']);
+  Route::post('annual-program', [AnnualProgramController::class, 'store']);
+  Route::put('annual-program/{program}', [AnnualProgramController::class, 'update']);
+  Route::get('annual-program/state/{program}', [AnnualProgramController::class, 'toggle']);
+  Route::delete('annual-program/{program}', [AnnualProgramController::class, 'destroy']);
 
 });
 

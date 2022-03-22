@@ -12,15 +12,14 @@
       :images="data.images">
     </images>
     <page-footer>
-      <router-link :to="{ name: 'home-dashboard' }" class="btn-primary">
-        <span>Zurück</span>
-      </router-link>
+      <button-back :route="'home-dashboard'">Zurück</button-back>
     </page-footer>
   </div>
 </div>
 </template>
 <script>
 import Helpers from "@/mixins/Helpers";
+import ButtonBack from "@/components/ui/ButtonBack.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import Images from "@/modules/images/Index.vue";
@@ -31,6 +30,7 @@ export default {
   components: {
     PageFooter,
     PageHeader,
+    ButtonBack,
     Images
   },
 

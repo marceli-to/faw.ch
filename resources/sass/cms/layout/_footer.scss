@@ -84,7 +84,7 @@ footer.content-footer {
     align-items: center;
     display: flex;
     line-height: 1;
-    justify-content: flex-start;
+    justify-content: space-between;
     @include responsive-prop('height', $footer-heights);
 
     button, a {

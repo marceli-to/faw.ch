@@ -43,6 +43,7 @@ import baseRoutes from '@/config/routes';
 import imageRoutes from '@/modules/images/config/routes';
 import homeRoutes from '@/views/pages/home/config/routes';
 import eventRoutes from '@/views/pages/event/config/routes';
+import programRoutes from '@/views/pages/annual_program/config/routes';
 
 const router = new VueRouter(
   { 
@@ -51,7 +52,8 @@ const router = new VueRouter(
       ...baseRoutes,
       ...imageRoutes,
       ...homeRoutes,
-      ...eventRoutes
+      ...eventRoutes,
+      ...programRoutes
     ]
   }
 );
