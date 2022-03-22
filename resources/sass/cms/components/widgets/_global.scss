@@ -47,7 +47,7 @@
   .widget-content {
     max-height: 400px;
     @include responsive-prop('padding', $space-sm);
-    overflow-y: scroll;
+    overflow-y: auto;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
   }
