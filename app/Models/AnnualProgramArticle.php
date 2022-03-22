@@ -13,6 +13,8 @@ class AnnualProgramArticle extends Base
     'subtitle',
     'text',
     'publish',
+    'special',
+    'order',
     'annual_program_id'
   ];
 

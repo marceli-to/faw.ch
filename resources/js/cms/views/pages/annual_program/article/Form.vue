@@ -11,16 +11,16 @@
       <div class="widget-content is-large">
         <form @submit.prevent="submit">
           <div>
-            <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
+            <div :class="[this.errors.title ? 'has-error' : '', 'form-row is-narrow']">
               <label>Titel *</label>
               <input type="text" v-model="data.title">
               <label-required />
             </div>
-            <div class="form-row">
+            <div class="form-row is-narrow">
               <label>Subtitel</label>
               <input type="text" v-model="data.subtitle">
             </div>
-            <div class="form-row">
+            <div class="form-row is-narrow">
               <label>Text</label>
               <textarea name="text" v-model="data.text"></textarea>
               <!-- <tinymce-editor
@@ -29,7 +29,17 @@
                 v-model="data.text"
               ></tinymce-editor> -->
             </div>
-            <button-submit>Speichern</button-submit>
+            <div class="form-row is-narrow">
+              <radio-button 
+                :label="'Forum spezial?'"
+                v-bind:special.sync="data.special"
+                :model="data.special"
+                :name="'special'">
+              </radio-button>
+            </div>
+            <div class="sb-md">
+              <button-submit>Speichern</button-submit>
+            </div>
           </div>
         </form>
       </div>
@@ -41,7 +51,7 @@
 import { PlusIcon, XIcon } from 'vue-feather-icons'
 import TinymceEditor from "@tinymce/tinymce-vue";
 import tinyConfig from "@/config/tiny.js";
-import ErrorHandling from "@/mixins/ErrorHandling";
+import RadioButton from "@/components/ui/RadioButton.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
 
@@ -49,12 +59,13 @@ export default {
   components: {
     PlusIcon,
     XIcon,
+    RadioButton,
     LabelRequired,
     TinymceEditor,
     ButtonSubmit
   },
 
-  mixins: [ErrorHandling],
+  mixins: [],
 
   props: {
     type: String,
@@ -71,6 +82,7 @@ export default {
         subtitle: null,
         text: null,
         publish: 1,
+        special: 0,
         annual_program_id: this.$props.programId
       },
 
@@ -116,6 +128,13 @@ export default {
   methods: {
 
     submit() {
+
+      if (!this.data.title)
+      {
+        this.errors.title = true;
+        return;
+      }
+
       if (this.$props.type == "edit") {
         this.update();
       }
@@ -129,7 +148,13 @@ export default {
       this.isLoading = true;
       this.axios.post(this.routes.store, this.data).then(response => {
         this.data.id = response.data.articleId;
-        this.$parent.data.articles.push(this.data);
+
+        if (this.data.special == 0) {
+          this.$parent.data.articles.push(this.data);
+        }
+        if (this.data.special == 1) {
+          this.$parent.data.articles_special.push(this.data);
+        }
         this.$notify({ type: "success", text: this.messages.stored });
         this.hide();
         this.isLoading = false;
@@ -164,8 +189,10 @@ export default {
         subtitle: null,
         text: null,
         publish: 1,
+        special: 0,
         annual_program_id: this.$props.programId
       };
+      this.errors.title = false;
     }
   },
 

@@ -1,7 +1,14 @@
 <template>
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
-  <div class="listing" v-if="data.articles.length">
+  <draggable 
+    :disabled="false"
+    v-model="data.articles" 
+    @end="order(data.articles)"
+    ghost-class="draggable-ghost"
+    draggable=".listing__item"
+    class="listing"
+    v-if="data.articles.length">
     <div
       :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
       v-for="d in data.articles"
@@ -9,8 +16,10 @@
     >
       <div class="listing__item-body">
         {{d.title}}
+        <span class="feather-icon is-sticky" v-if="d.special">
+          <star-icon size="16"></star-icon>
+        </span>
       </div>
-
       <div class="listing__item-action">
         <div>
           <a href="javascript:;" @click="edit(d)">
@@ -41,19 +50,18 @@
         </div>
       </div>
     </div>
-  </div>
-  <div v-else>
-    <p class="no-records">{{messages.emptyData}}</p>
-  </div>
+  </draggable>
+
   <annual-program-article-form :type="'edit'" ref="programArticleForm"></annual-program-article-form>
 </div>
 </template>
 <script>
 // Icons
-import { EyeIcon, EyeOffIcon, EditIcon, Trash2Icon } from 'vue-feather-icons';
+import { EyeIcon, EyeOffIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
 import Helpers from "@/mixins/Helpers";
 import Separator from "@/components/ui/Separator.vue";
 import AnnualProgramArticleForm from "@/views/pages/annual_program/article/Form.vue";
+import draggable from "vuedraggable";
 
 export default {
 
@@ -62,8 +70,10 @@ export default {
     EyeOffIcon,
     EditIcon,
     Trash2Icon,
+    StarIcon,
     Separator,
-    AnnualProgramArticleForm
+    AnnualProgramArticleForm,
+    draggable
   },
 
   props: {
@@ -90,6 +100,7 @@ export default {
         get: '/api/annual-program-articles',
         toggle: '/api/annual-program-article/state',
         delete: '/api/annual-program-article',
+        order: '/api/annual-program-article/order',
       },
 
       // States
@@ -130,12 +141,28 @@ export default {
       if (confirm(this.messages.confirm)) {
         this.isLoading = true;
         this.axios.delete(`${this.routes.delete}/${id}`).then(response => {
-          const index = this.data.articles.findIndex(x => x.id === id);
-          this.data.articles.splice(index, 1);
+          const idx = this.data.articles.findIndex(x => x.id === id);
+          if (idx > -1) {
+            this.data.articles.splice(idx, 1);
+          }
           this.$notify({ type: "success", text: this.messages.deleted });
           this.isLoading = false;
         });
       }
+    },
+
+    order(data) {
+      let articles = data.map(function(article, index) {
+        article.order = index;
+        return article;
+      });
+      if (this.debounce) return;
+      this.debounce = setTimeout(function() {
+        this.debounce = false;
+        this.axios.post(`${this.routes.order}`, {items: articles}).then((response) => {
+          this.$notify({type: 'success', text: this.messages.updated});
+        });
+      }.bind(this, articles), 500);
     },
   }
 }

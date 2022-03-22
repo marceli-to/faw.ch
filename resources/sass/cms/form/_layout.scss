@@ -10,7 +10,7 @@
 	position: relative;
 
 	&.is-narrow {
-		@include responsive-prop('margin-bottom', $space-xs);
+		@include responsive-prop('margin-bottom', $space-sm);
 	}
 
 	&.is-last {

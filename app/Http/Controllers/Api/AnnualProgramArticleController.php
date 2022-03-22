@@ -79,6 +79,26 @@ class AnnualProgramArticleController extends Controller
   }
 
   /**
+   * Update the order of the given grid item
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function order(Request $request)
+  {
+    $items = $request->get('items');
+    foreach($items as $item)
+    {
+      $i = AnnualProgramArticle::find($item['id']);
+      $i->order = $item['order'];
+      $i->save(); 
+    }
+    return response()->json('successfully updated');
+  }
+
+
+  /**
    * Remove a article
    *
    * @param  AnnualProgramArticle $article

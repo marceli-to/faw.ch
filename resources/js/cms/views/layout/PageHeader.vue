@@ -28,6 +28,12 @@
         <router-link :to="{name: 'home-dashboard'}">
           <span>Startseite</span>
         </router-link>
+        <router-link :to="{name: 'events'}">
+          <span>Veranstaltungen</span>
+        </router-link>
+        <router-link :to="{name: 'annual-programs'}">
+          <span>Jahresprogramm</span>
+        </router-link>
       </li>
     </ul>
   </nav>

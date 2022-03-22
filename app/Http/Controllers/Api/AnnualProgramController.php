@@ -33,7 +33,7 @@ class AnnualProgramController extends Controller
    */
   public function find(AnnualProgram $program)
   {
-    $program = AnnualProgram::with('images', 'files', 'articles')->find($program->id);
+    $program = AnnualProgram::with('images', 'files', 'articles', 'articlesSpecial')->find($program->id);
     return response()->json($program);
   }
 

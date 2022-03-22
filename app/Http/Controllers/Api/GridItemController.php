@@ -66,7 +66,6 @@ class GridItemController extends Controller
     return response()->json('successfully updated');
   }
 
-
   /**
    * Remove a grid item
    *

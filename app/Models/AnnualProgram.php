@@ -34,6 +34,15 @@ class AnnualProgram extends Base
 
   public function articles()
   {
-    return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id');
+    return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id')
+                ->orderBy('order', 'ASC')
+                ->where('special', 0);
+  }
+
+  public function articlesSpecial()
+  {
+    return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id')
+                ->orderBy('order', 'ASC')
+                ->where('special', 1);
   }
 }

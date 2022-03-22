@@ -49,17 +49,28 @@
             <label-required />
           </div>
         </div>
-        <div class="form-row sb-lg">
-          <page-header>
-            <h2>Programmartikel</h2>
-            <a href="javascript:;" @click="$refs.programArticleForm.show();" class="btn-add has-icon">
-              <plus-icon size="16"></plus-icon>
-              <span>Hinzufügen</span>
-            </a>
-          </page-header>
-          <annual-program-articles :articles="data.articles" :programId="data.id"></annual-program-articles>
+        <template v-if="$props.type == 'edit'">
+          <div class="form-row sb-lg">
+            <page-header>
+              <h2>Artikel</h2>
+              <a href="javascript:;" @click="$refs.programArticleForm.show();" class="btn-add has-icon">
+                <plus-icon size="16"></plus-icon>
+                <span>Hinzufügen</span>
+              </a>
+            </page-header>
+            <annual-program-articles :articles="data.articles" :programId="data.id"></annual-program-articles>
+          </div>
+          <div class="form-row sb-lg" v-if="data.articles_special.length">
+            <page-header>
+              <h2>Forum Spezial</h2>
+            </page-header>
+            <annual-program-articles :articles="data.articles_special" :programId="data.id"></annual-program-articles>
+          </div>
           <annual-program-article-form :type="'create'" :programId="data.id" ref="programArticleForm"></annual-program-article-form>
-        </div>
+        </template>
+        <template v-else>
+          <div class="sb-lg"><strong>Artikel können erst nach dem Speichern hinzugefügt werden.</strong></div>
+        </template>
       </div>
     </div>
     <div v-show="tabs.image.active">
@@ -146,6 +157,7 @@ export default {
         periode_end: null,
         publish: 1,
         articles: [],
+        articlesSpecial: [],
         images: [],
         files: [],
       },

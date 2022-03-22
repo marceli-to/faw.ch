@@ -93,6 +93,7 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::post('annual-program-article', [AnnualProgramArticleController::class, 'store']);
   Route::put('annual-program-article/{article}', [AnnualProgramArticleController::class, 'update']);
   Route::get('annual-program-article/state/{article}', [AnnualProgramArticleController::class, 'toggle']);
+  Route::post('annual-program-article/order', [AnnualProgramArticleController::class, 'order']);
   Route::delete('annual-program-article/{article}', [AnnualProgramArticleController::class, 'destroy']);
 
 });
