@@ -25,7 +25,7 @@
             v-model="data.text"
           ></tinymce-editor>
         </div>
-        <div class="grid-cols-12">
+        <div class="grid-cols-12 sa-md">
           <div :class="[this.errors.periode_start ? 'has-error' : '', 'span-6']" style="position: relative">
             <label>Jahr (Start)</label>
             <the-mask
@@ -48,6 +48,17 @@
             ></the-mask>
             <label-required />
           </div>
+        </div>
+        <div class="form-row sb-lg">
+          <page-header>
+            <h2>Programmartikel</h2>
+            <a href="javascript:;" @click="$refs.programArticleForm.show();" class="btn-add has-icon">
+              <plus-icon size="16"></plus-icon>
+              <span>Hinzufügen</span>
+            </a>
+          </page-header>
+          <annual-program-articles :articles="data.articles" :programId="data.id"></annual-program-articles>
+          <annual-program-article-form :type="'create'" :programId="data.id" ref="programArticleForm"></annual-program-article-form>
         </div>
       </div>
     </div>
@@ -81,7 +92,7 @@
 </div>
 </template>
 <script>
-import { ExternalLinkIcon } from 'vue-feather-icons';
+import { PlusIcon } from 'vue-feather-icons';
 import { TheMask } from "vue-the-mask";
 import TinymceEditor from "@tinymce/tinymce-vue";
 import tinyConfig from "@/config/tiny.js";
@@ -91,15 +102,17 @@ import ButtonBack from "@/components/ui/ButtonBack.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";
-import tabsConfig from "@/views/pages/event/config/tabs.js";
+import tabsConfig from "@/views/pages/annual_program/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import Images from "@/modules/images/Index.vue";
 import Files from "@/modules/files/Index.vue";
+import AnnualProgramArticles from "@/views/pages/annual_program/article/Index.vue";
+import AnnualProgramArticleForm from "@/views/pages/annual_program/article/Form.vue";
 
 export default {
   components: {
-    ExternalLinkIcon,
+    PlusIcon,
     RadioButton,
     ButtonBack,
     ButtonSubmit,
@@ -110,7 +123,9 @@ export default {
     Images,
     Files,
     TinymceEditor,
-    TheMask
+    TheMask,
+    AnnualProgramArticles,
+    AnnualProgramArticleForm
   },
 
   mixins: [ErrorHandling],
@@ -130,6 +145,7 @@ export default {
         periode_start: null,
         periode_end: null,
         publish: 1,
+        articles: [],
         images: [],
         files: [],
       },

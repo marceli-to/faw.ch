@@ -33,7 +33,7 @@ class AnnualProgramController extends Controller
    */
   public function find(AnnualProgram $program)
   {
-    $program = AnnualProgram::with('images', 'files')->find($program->id);
+    $program = AnnualProgram::with('images', 'files', 'articles')->find($program->id);
     return response()->json($program);
   }
 
@@ -68,7 +68,6 @@ class AnnualProgramController extends Controller
     $this->handleFiles($program, $request->input('files'));
     return response()->json('successfully updated');
   }
-
 
   /**
    * Toggle the status a given program

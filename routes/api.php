@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\HeroImageController;
 use App\Http\Controllers\Api\GridItemController;
 use App\Http\Controllers\Api\AnnualProgramController;
+use App\Http\Controllers\Api\AnnualProgramArticleController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 
@@ -85,6 +86,14 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::put('annual-program/{program}', [AnnualProgramController::class, 'update']);
   Route::get('annual-program/state/{program}', [AnnualProgramController::class, 'toggle']);
   Route::delete('annual-program/{program}', [AnnualProgramController::class, 'destroy']);
+
+  // Annual Program Articles
+  Route::get('annual-program-articles/{program}/{constraint?}', [AnnualProgramArticleController::class, 'get']);
+  Route::get('annual-program-article/{article}', [AnnualProgramArticleController::class, 'find']);
+  Route::post('annual-program-article', [AnnualProgramArticleController::class, 'store']);
+  Route::put('annual-program-article/{article}', [AnnualProgramArticleController::class, 'update']);
+  Route::get('annual-program-article/state/{article}', [AnnualProgramArticleController::class, 'toggle']);
+  Route::delete('annual-program-article/{article}', [AnnualProgramArticleController::class, 'destroy']);
 
 });
 

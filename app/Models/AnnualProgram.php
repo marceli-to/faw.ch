@@ -31,4 +31,9 @@ class AnnualProgram extends Base
   {
     return $this->morphMany(File::class, 'fileable');
   }
+
+  public function articles()
+  {
+    return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id');
+  }
 }

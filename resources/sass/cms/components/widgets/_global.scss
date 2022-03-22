@@ -50,6 +50,10 @@
     overflow-y: auto;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
+
+    &.is-large {
+      max-height: 600px;
+    }
   }
 
   .widget-item {

@@ -111,5 +111,9 @@
     display: flex;
     justify-content: center;
     width: 28px;
+
+    a {
+      line-height: 1 !important;
+    }
   }
 }
