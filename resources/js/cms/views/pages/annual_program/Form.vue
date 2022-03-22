@@ -26,7 +26,7 @@
           ></tinymce-editor>
         </div>
         <div class="grid-cols-12">
-          <div class="span-6">
+          <div :class="[this.errors.periode_start ? 'has-error' : '', 'span-6']" style="position: relative">
             <label>Jahr (Start)</label>
             <the-mask
               type="text"
@@ -35,8 +35,9 @@
               name="periode_start"
               v-model="data.periode_start"
             ></the-mask>
+            <label-required />
           </div>
-          <div class="span-6">
+          <div :class="[this.errors.periode_end ? 'has-error' : '', 'span-6']" style="position: relative">
             <label>Jahr (Ende)</label>
             <the-mask
               type="text"
@@ -45,6 +46,7 @@
               name="periode_end"
               v-model="data.periode_end"
             ></the-mask>
+            <label-required />
           </div>
         </div>
       </div>
@@ -135,6 +137,8 @@ export default {
       // Validation
       errors: {
         title: false,
+        periode_start: false,
+        periode_end: false,
       },
 
       // Routes

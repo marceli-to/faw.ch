@@ -22,7 +22,7 @@ class AnnualProgramController extends Controller
     {
       return new DataCollection(AnnualProgram::with('images')->published()->get());
     }
-    return new DataCollection(AnnualProgram::get());
+    return new DataCollection(AnnualProgram::orderBy('periode_start', 'DESC')->get());
   }
 
   /**

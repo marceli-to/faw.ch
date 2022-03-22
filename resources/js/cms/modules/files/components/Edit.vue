@@ -7,7 +7,12 @@
           v-for="file in files"
           :key="file.id"
         >
-          <div>{{file.name}}</div>
+          <div>
+            {{file.name}}
+            <separator />
+            <span v-if="file.caption">{{file.caption}}</span>
+          </div>
+          
           <div class="upload__actions">
             <file-actions :file="file" :publish="file.publish" :hasEdit="true"></file-actions>
           </div>
@@ -62,11 +67,13 @@ import { XIcon } from 'vue-feather-icons';
 import FileActions from "@/modules/files/components/Actions.vue";
 import FileEdit from "@/modules/files/mixins/edit";
 import FileUtils from "@/modules/files/mixins/utils";
+import Separator from "@/components/ui/Separator.vue";
 
 export default {
   components: {
     FileActions,
-    XIcon
+    XIcon,
+    Separator
   },
 
   props: {
