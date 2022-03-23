@@ -8,6 +8,10 @@ nav.tabs {
   @include responsive-prop('margin-bottom', $space-md);
   @include responsive-prop('margin-top', $space-sm);
 
+  &.is-widget {
+    margin-top: -20px !important;
+  }
+
   ul {
     align-items: stretch;
     display: flex;

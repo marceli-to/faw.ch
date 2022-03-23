@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Activity;
 use App\Models\ActivityArticle;
+use App\Models\File;
 use App\Http\Requests\ActivityArticleStoreRequest;
 use Illuminate\Http\Request;
 

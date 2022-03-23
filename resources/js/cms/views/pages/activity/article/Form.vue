@@ -9,21 +9,27 @@
         <h1>{{title}}</h1>
       </header>
       <div class="widget-content is-large">
+        <tabs :tabs="tabs" class="is-widget" :errors="errors"></tabs>
         <form @submit.prevent="submit">
           <div>
-            <div :class="[this.errors.title ? 'has-error' : '', 'form-row is-narrow']">
-              <label>Titel *</label>
-              <input type="text" v-model="data.title">
-              <label-required />
+            <div v-show="tabs.data.active">
+              <div :class="[this.errors.title ? 'has-error' : '', 'form-row is-narrow']">
+                <label>Titel *</label>
+                <input type="text" v-model="data.title">
+                <label-required />
+              </div>
+              <div class="form-row is-narrow">
+                <label>Text</label>
+                <textarea name="text" v-model="data.text"></textarea>
+                <!-- <tinymce-editor
+                  :api-key="tinyApiKey"
+                  :init="tinyConfig"
+                  v-model="data.text"
+                ></tinymce-editor> -->
+              </div>
             </div>
-            <div class="form-row is-narrow">
-              <label>Text</label>
-              <textarea name="text" v-model="data.text"></textarea>
-              <!-- <tinymce-editor
-                :api-key="tinyApiKey"
-                :init="tinyConfig"
-                v-model="data.text"
-              ></tinymce-editor> -->
+            <div v-show="tabs.files.active">
+              <files :files="data.files"></files>
             </div>
             <div class="sb-md">
               <button-submit>Speichern</button-submit>
@@ -41,6 +47,9 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 import tinyConfig from "@/config/tiny.js";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
+import Files from "@/modules/files/Index.vue";
+import Tabs from "@/components/ui/Tabs.vue";
+import tabsConfig from "@/views/pages/activity/article/config/tabs.js";
 
 export default {
   components: {
@@ -48,7 +57,9 @@ export default {
     XIcon,
     LabelRequired,
     TinymceEditor,
-    ButtonSubmit
+    ButtonSubmit,
+    Files,
+    Tabs
   },
 
   mixins: [],
@@ -66,6 +77,7 @@ export default {
         id: null,
         title: null,
         text: null,
+        files: [],
         publish: 1,
         activity_id: this.$props.activityId
       },
@@ -97,6 +109,8 @@ export default {
       // TinyMCE
       tinyConfig: tinyConfig,
       tinyApiKey: 'vuaywur9klvlt3excnrd9xki1a5lj25v18b2j0d0nu5tbwro',
+
+      tabs: tabsConfig,
     };
   },
 

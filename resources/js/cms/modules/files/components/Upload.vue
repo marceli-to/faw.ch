@@ -4,6 +4,7 @@
       ref="dropzone"
       id="dropzone"
       :options="dropzoneConfig"
+      :class="$props.buttonClass"
       @vdropzone-complete="complete"
     ></vue-dropzone-file>
     <span class="bubble is-restriction">{{restrictions}}</span>
@@ -24,6 +25,7 @@ export default {
     acceptedFiles: String,
     maxFiles: Number,
     maxFilesize: Number,
+    buttonClass: String,
   },
 
   data() {

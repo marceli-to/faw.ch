@@ -32,7 +32,7 @@ class ActivityController extends Controller
    */
   public function find(Activity $activity)
   {
-    $activity = Activity::with('articles')->find($activity->id);
+    $activity = Activity::with('articles.files')->find($activity->id);
     return response()->json($activity);
   }
 

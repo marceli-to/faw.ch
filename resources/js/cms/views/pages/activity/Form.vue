@@ -40,11 +40,6 @@
         <activity-article-form :type="'create'" :activityId="data.id" ref="activityArticleForm"></activity-article-form>
       </div>
     </div>
-    <!--
-    <div v-show="tabs.file.active">
-      <files :files="data.files"></files>
-    </div>
-    -->
     <div v-show="tabs.settings.active">
       <div>
         <div class="form-row">
@@ -77,7 +72,6 @@ import Tabs from "@/components/ui/Tabs.vue";
 import tabsConfig from "@/views/pages/activity/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
-// import Files from "@/modules/files/Index.vue";
 import ActivityArticles from "@/views/pages/activity/article/Index.vue";
 import ActivityArticleForm from "@/views/pages/activity/article/Form.vue";
 
@@ -91,7 +85,6 @@ export default {
     Tabs,
     PageFooter,
     PageHeader,
-    // Files,
     TinymceEditor,
     ActivityArticles,
     ActivityArticleForm
@@ -112,7 +105,6 @@ export default {
         text: null,
         publish: 1,
         articles: [],
-        // files: [],
       },
 
       // Validation
