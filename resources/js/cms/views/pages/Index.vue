@@ -22,6 +22,12 @@
           <p>Verwaltung des Jahresprogramms</p>
         </router-link>
       </div>
+      <div class="card">
+        <router-link :to="{name: 'activities'}">
+          <h2>Aktivitäten</h2>
+          <p>Verwaltung der Aktivitäten</p>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

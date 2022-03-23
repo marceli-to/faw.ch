@@ -1,0 +1,29 @@
+<?php
+namespace App\Models;
+use App\Models\Base;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ActivityArticle extends Base
+{
+  use HasFactory;
+
+	protected $fillable = [
+    'title',
+    'text',
+    'publish',
+    'order',
+    'activity_id'
+  ];
+
+  public function activity()
+  {
+    return $this->belongsTo(Activity::class, 'activity_id', 'id');
+  }
+
+  public function files()
+  {
+    return $this->morphMany(File::class, 'fileable');
+  }
+
+}

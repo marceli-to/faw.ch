@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\HeroImageController;
 use App\Http\Controllers\Api\GridItemController;
 use App\Http\Controllers\Api\AnnualProgramController;
 use App\Http\Controllers\Api\AnnualProgramArticleController;
+use App\Http\Controllers\Api\ActivityController;
+use App\Http\Controllers\Api\ActivityArticleController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 
@@ -95,6 +97,23 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('annual-program-article/state/{article}', [AnnualProgramArticleController::class, 'toggle']);
   Route::post('annual-program-article/order', [AnnualProgramArticleController::class, 'order']);
   Route::delete('annual-program-article/{article}', [AnnualProgramArticleController::class, 'destroy']);
+
+  // Activity
+  Route::get('activities/{constraint?}', [ActivityController::class, 'get']);
+  Route::get('activity/{activity}', [ActivityController::class, 'find']);
+  Route::post('activity', [ActivityController::class, 'store']);
+  Route::put('activity/{activity}', [ActivityController::class, 'update']);
+  Route::get('activity/state/{activity}', [ActivityController::class, 'toggle']);
+  Route::delete('activity/{activity}', [ActivityController::class, 'destroy']);
+
+  // Activity Articles
+  Route::get('activity-articles/{activity}/{constraint?}', [ActivityArticleController::class, 'get']);
+  Route::get('activity-article/{article}', [ActivityArticleController::class, 'find']);
+  Route::post('activity-article', [ActivityArticleController::class, 'store']);
+  Route::put('activity-article/{article}', [ActivityArticleController::class, 'update']);
+  Route::get('activity-article/state/{article}', [ActivityArticleController::class, 'toggle']);
+  Route::post('activity-article/order', [ActivityArticleController::class, 'order']);
+  Route::delete('activity-article/{article}', [ActivityArticleController::class, 'destroy']);
 
 });
 

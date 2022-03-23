@@ -97,7 +97,6 @@ class AnnualProgramArticleController extends Controller
     return response()->json('successfully updated');
   }
 
-
   /**
    * Remove a article
    *

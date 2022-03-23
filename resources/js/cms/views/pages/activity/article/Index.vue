@@ -51,8 +51,7 @@
       </div>
     </div>
   </draggable>
-
-  <annual-program-article-form :type="'edit'" ref="programArticleForm"></annual-program-article-form>
+  <activity-article-form :type="'edit'" ref="activityArticleForm"></activity-article-form>
 </div>
 </template>
 <script>
@@ -60,7 +59,7 @@
 import { EyeIcon, EyeOffIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
 import Helpers from "@/mixins/Helpers";
 import Separator from "@/components/ui/Separator.vue";
-import AnnualProgramArticleForm from "@/views/pages/annual_program/article/Form.vue";
+import ActivityArticleForm from "@/views/pages/activity/article/Form.vue";
 import draggable from "vuedraggable";
 
 export default {
@@ -72,7 +71,7 @@ export default {
     Trash2Icon,
     StarIcon,
     Separator,
-    AnnualProgramArticleForm,
+    ActivityArticleForm,
     draggable
   },
 
@@ -97,10 +96,10 @@ export default {
 
       // Routes
       routes: {
-        // get: '/api/annual-program-articles',
-        toggle: '/api/annual-program-article/state',
-        delete: '/api/annual-program-article',
-        order: '/api/annual-program-article/order',
+        // get: '/api/activity-articles',
+        toggle: '/api/activity-article/state',
+        delete: '/api/activity-article',
+        order: '/api/activity-article/order',
       },
 
       // States
@@ -124,7 +123,7 @@ export default {
   methods: {
 
     edit(article) {
-      this.$refs.programArticleForm.show(article);
+      this.$refs.activityArticleForm.show(article);
     },
 
     toggle(id) {

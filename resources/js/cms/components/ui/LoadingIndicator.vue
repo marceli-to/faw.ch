@@ -1,13 +1,13 @@
 <template>
   <div :class="'loading-indicator ' + classNames">
-    <loader-icon :size="iconSize" class="loading-indicator__icon"></loader-icon>
+    <chrome-icon :size="iconSize" class="loading-indicator__icon"></chrome-icon>
   </div>
 </template>
 <script>
-import { LoaderIcon } from 'vue-feather-icons';
+import { ChromeIcon } from 'vue-feather-icons';
 export default {
   components: {
-    LoaderIcon
+    ChromeIcon
   },
   props: {
     classNames: {
@@ -16,7 +16,7 @@ export default {
     },
     iconSize: {
       type: String,
-      default: '36',
+      default: '24',
     }
   }
 }
@@ -41,8 +41,8 @@ export default {
 }
 
 .loading-indicator__icon {
-  animation: rotation 2s infinite linear;
-  color: #000000;
+  animation: rotation 1s infinite linear;
+  color: #222222;
 }
 
 @keyframes rotation {
