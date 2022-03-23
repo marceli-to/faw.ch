@@ -1,5 +1,5 @@
 <template>
-<div class="widget" v-if="isOpen">
+<div :class="[isOpen ? 'is-open' : '', 'widget is-wide']" v-if="isOpen">
   <div class="widget__inner" v-if="isFetched">
     <div>
       <header>
@@ -31,6 +31,9 @@
             <div v-show="tabs.files.active">
               <files :files="data.files"></files>
             </div>
+            <div v-show="tabs.links.active">
+              <links :links="data.links"></links>
+            </div>
             <div class="sb-md">
               <button-submit>Speichern</button-submit>
             </div>
@@ -48,6 +51,7 @@ import tinyConfig from "@/config/tiny.js";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
 import Files from "@/modules/files/Index.vue";
+import Links from "@/modules/links/Index.vue";
 import Tabs from "@/components/ui/Tabs.vue";
 import tabsConfig from "@/views/pages/activity/article/config/tabs.js";
 
@@ -59,6 +63,7 @@ export default {
     TinymceEditor,
     ButtonSubmit,
     Files,
+    Links,
     Tabs
   },
 
@@ -78,6 +83,7 @@ export default {
         title: null,
         text: null,
         files: [],
+        links: [],
         publish: 1,
         activity_id: this.$props.activityId
       },
@@ -179,6 +185,8 @@ export default {
         id: null,
         title: null,
         text: null,
+        files: null,
+        links: null,
         publish: 1,
         activity_id: this.$props.activityId
       };

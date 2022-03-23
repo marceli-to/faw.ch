@@ -1,5 +1,5 @@
 <template>
-<div class="widget" v-if="isOpen">
+<div :class="[isOpen ? 'is-open' : '', 'widget is-wide']" v-if="isOpen">
   <div class="widget__inner" v-if="isFetched">
     <div>
       <header>

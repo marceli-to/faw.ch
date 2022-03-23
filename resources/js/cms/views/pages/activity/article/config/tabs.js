@@ -11,4 +11,10 @@ export default {
     active: false,
     error: false
   },
+  links: {
+    key: 'links',
+    label: 'Links',
+    active: false,
+    error: false
+  },
 };

@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\ActivityController;
 use App\Http\Controllers\Api\ActivityArticleController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
+use App\Http\Controllers\Api\LinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,15 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::put('file/{file}', [FileController::class, 'update']);
   Route::get('file/state/{file}', [FileController::class, 'toggle']);
   Route::delete('file/{file}', [FileController::class, 'destroy']);
+
+  // Links
+  Route::get('links', [LinkController::class, 'get']);
+  Route::post('link/order', [LinkController::class, 'order']);
+  Route::get('link/{file}', [LinkController::class, 'find']);
+  Route::post('link', [LinkController::class, 'store']);
+  Route::put('link/{file}', [LinkController::class, 'update']);
+  Route::get('link/state/{file}', [LinkController::class, 'toggle']);
+  Route::delete('link/{file}', [LinkController::class, 'destroy']);
 
   // Grid items
   Route::get('grid/items', [GridItemController::class, 'get']);

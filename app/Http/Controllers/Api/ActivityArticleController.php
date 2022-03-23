@@ -34,7 +34,7 @@ class ActivityArticleController extends Controller
    */
   public function find(ActivityArticle $article)
   {
-    $article = ActivityArticle::with('files')->find($article->id);
+    $article = ActivityArticle::with('files', 'links')->find($article->id);
     return response()->json($article);
   }
 
@@ -49,6 +49,7 @@ class ActivityArticleController extends Controller
     $article = ActivityArticle::create($request->all());
     $article->save();
     $this->handleFiles($article, $request->input('files'));
+    $this->handleLinks($article, $request->input('links'));
     return response()->json(['articleId' => $article->id]);
   }
 
@@ -65,6 +66,7 @@ class ActivityArticleController extends Controller
     $article->update($request->all());
     $article->save();
     $this->handleFiles($article, $request->input('files'));
+    $this->handleLinks($article, $request->input('links'));
     return response()->json('successfully updated');
   }
 
@@ -130,6 +132,28 @@ class ActivityArticleController extends Controller
         $img->fileable_id = $article->id;
         $img->fileable_type = ActivityArticle::class;
         $img->save();
+      }
+    }
+  }
+
+  /**
+   * Handle associated links
+   *
+   * @param ActivityArticle $article
+   * @param Array $links
+   * @return void
+   */  
+
+  protected function handleLinks(ActivityArticle $article, $links = NULL)
+  {
+    if ($links)
+    {
+      foreach($links as $link)
+      {
+        $l = File::findOrFail($link['id']);
+        $l->linkable_id = $link->id;
+        $l->linkable_type = ActivityArticle::class;
+        $l->save();
       }
     }
   }
