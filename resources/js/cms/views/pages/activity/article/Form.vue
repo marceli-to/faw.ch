@@ -1,24 +1,24 @@
 <template>
-<div :class="[isOpen ? 'is-open' : '', 'widget is-wide']" v-if="isOpen">
+<div :class="[isOpen ? 'is-open' : '', 'widget']" v-if="isOpen">
   <div class="widget__inner" v-if="isFetched">
     <div>
       <header>
+        <h1>{{title}}</h1>
         <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
           <x-icon size="24"></x-icon>
         </a>
-        <h1>{{title}}</h1>
       </header>
-      <div class="widget-content is-large">
+      <div class="widget-content">
         <tabs :tabs="tabs" class="is-widget" :errors="errors"></tabs>
         <form @submit.prevent="submit">
           <div>
             <div v-show="tabs.data.active">
-              <div :class="[this.errors.title ? 'has-error' : '', 'form-row is-narrow']">
+              <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
                 <label>Titel *</label>
                 <input type="text" v-model="data.title">
                 <label-required />
               </div>
-              <div class="form-row is-narrow">
+              <div class="form-row">
                 <label>Text</label>
                 <textarea name="text" v-model="data.text"></textarea>
                 <!-- <tinymce-editor
@@ -34,10 +34,10 @@
             <div v-show="tabs.links.active">
               <links :links="data.links"></links>
             </div>
-            <div class="sb-md">
-              <button-submit>Speichern</button-submit>
-            </div>
           </div>
+          <footer>
+            <button-submit>Speichern</button-submit>
+          </footer>
         </form>
       </div>
     </div>
@@ -45,7 +45,7 @@
 </div>
 </template>
 <script>
-import { PlusIcon, XIcon } from 'vue-feather-icons'
+import { PlusIcon, XIcon } from 'vue-feather-icons';
 import TinymceEditor from "@tinymce/tinymce-vue";
 import tinyConfig from "@/config/tiny.js";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
@@ -133,12 +133,6 @@ export default {
 
     submit() {
 
-      if (!this.data.title)
-      {
-        this.errors.title = true;
-        return;
-      }
-
       if (this.$props.type == "edit") {
         this.update();
       }
@@ -185,8 +179,8 @@ export default {
         id: null,
         title: null,
         text: null,
-        files: null,
-        links: null,
+        files: [],
+        links: [],
         publish: 1,
         activity_id: this.$props.activityId
       };

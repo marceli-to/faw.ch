@@ -1,12 +1,12 @@
 <template>
-<div class="widget" v-if="isOpen">
+<div :class="[isOpen ? 'is-open' : '', 'widget']" v-if="isOpen">
   <div class="widget__inner" v-if="isFetched">
     <div>
       <header>
+        <h1>Veranstaltungen</h1>
         <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
           <x-icon size="24"></x-icon>
         </a>
-        <h1>Veranstaltungen</h1>
       </header>
       <div class="widget-content">
         <a 

@@ -4,6 +4,7 @@ use App\Models\Link;
 use App\Http\Resources\DataCollection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\LinkStoreRequest;
 
 class LinkController extends Controller
 {
@@ -32,10 +33,10 @@ class LinkController extends Controller
   /**
    * Store a newly added link
    *
-   * @param  \Illuminate\Http\Request $request
+   * @param  \Illuminate\Http\LinkStoreRequest $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(LinkStoreRequest $request)
   {
     $data = $request->all();
 
@@ -56,10 +57,10 @@ class LinkController extends Controller
    * Update a link for a given link
    *
    * @param Link $link
-   * @param  \Illuminate\Http\Request $request
+   * @param  \Illuminate\Http\LinkStoreRequest $request
    * @return \Illuminate\Http\Response
    */
-  public function update(Link $link, Request $request)
+  public function update(Link $link, LinkStoreRequest $request)
   {
     $link = Link::findOrFail($link->id);
     $link->update($request->all());
@@ -107,10 +108,9 @@ class LinkController extends Controller
    * @return \Illuminate\Http\Response
    */
   
-  public function destroy($link)
+  public function destroy(Link $link)
   {
-    $record = Link::where('name', '=', $link)->first();
-    $record->delete();
+    $link->delete();
     return response()->json('successfully deleted');
   }
 

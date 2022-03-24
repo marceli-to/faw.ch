@@ -78,17 +78,22 @@
             }"
             @change="change"
           ></cropper>
-          <div class="form-buttons">
+          <div class="form-buttons flex justify-between">
             <a
               href="javascript:;"
-              class="btn-primary"
-              @click.prevent="saveCoords(overlayItem)"
-            >Speichern</a>
-            <a href="javascript:;"
-                class="btn-secondary"
-                @click.prevent="hideCropper()">
-              Abbrechen
+              class="btn-secondary has-icon"
+              @click.prevent="hideCropper()">
+              <x-icon size="18"></x-icon>
+              <span>Schliessen</span>
             </a>
+            <a
+              href="javascript:;"
+              class="btn-primary has-icon"
+              @click.prevent="saveCoords(overlayItem)">
+              <download-icon size="18"></download-icon>
+              <span>Speichern</span>
+            </a>
+
           </div>
         </div>
       </div>
@@ -122,17 +127,21 @@
             <label>Beschreibung</label>
             <textarea v-model="overlayItem.description"></textarea>
           </div>
-          <div class="form-buttons flex">
+          <div class="form-buttons flex justify-between">
             <a
               href="javascript:;"
-              class="btn-primary"
-              @click.prevent="update()"
-            >Speichern</a>
+              class="btn-secondary has-icon"
+              @click.prevent="hideEdit()">
+              <x-icon size="18"></x-icon>
+              <span>Schliessen</span>
+            </a>
             <a
               href="javascript:;"
-              class="btn-secondary ml-3x"
-              @click.prevent="hideEdit()"
-            >Schliessen</a>
+              class="btn-primary has-icon"
+              @click.prevent="update()">
+              <download-icon size="18"></download-icon>
+              <span>Speichern</span>
+            </a>
           </div>
         </div>
       </div>
@@ -144,7 +153,7 @@
 
 import draggable from 'vuedraggable';
 import { Cropper } from "vue-advanced-cropper";
-import { XIcon } from 'vue-feather-icons';
+import { XIcon,DownloadIcon } from 'vue-feather-icons';
 import ImageActions from "@/modules/images/components/Actions.vue";
 import ImageEdit from "@/modules/images/mixins/edit";
 import ImageCrop from "@/modules/images/mixins/crop";
@@ -155,6 +164,7 @@ export default {
   components: {
     ImageActions,
     XIcon,
+    DownloadIcon,
     Cropper,
     draggable
   },

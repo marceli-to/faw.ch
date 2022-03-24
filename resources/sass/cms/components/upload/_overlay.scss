@@ -15,20 +15,16 @@
   padding: 40px;
   position: fixed;
   pointer-events: none;
-  transition: opacity .16s ease-out;
+  //transition: opacity .16s ease-out;
   top: 0;
   width: 100%;
   z-index: -1;
 
   &.is-visible {
     opacity: 1;
-    pointer-events: all;
-    transition: opacity .16s ease-out;
+    // pointer-events: all;
+    // transition: opacity .16s ease-out;
     z-index: 301;
-  }
-
-  * {
-    color: $color-primary;
   }
 
   .btn-secondary {
@@ -45,7 +41,7 @@
 
   .upload-overlay__grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.75fr 1fr;
     grid-gap: 35px;
     padding-top: 60px;
     position: relative;
@@ -79,10 +75,6 @@
       width: 100% !important;
     }
   }
-
-  .form-row-button {
-    //@include responsive-prop('margin-top', $space-lg);
-  }
 }
 
 .upload-overlay-cropper {
@@ -113,9 +105,5 @@
   .form-buttons {
     display: flex;
     padding-top: 40px;
-
-    a {
-      @include responsive-prop('margin-right', $space-sm);
-    }
   }
 }

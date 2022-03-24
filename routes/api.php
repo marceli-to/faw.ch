@@ -57,11 +57,11 @@ Route::middleware('auth:sanctum')->group(function() {
   // Links
   Route::get('links', [LinkController::class, 'get']);
   Route::post('link/order', [LinkController::class, 'order']);
-  Route::get('link/{file}', [LinkController::class, 'find']);
+  Route::get('link/{link}', [LinkController::class, 'find']);
   Route::post('link', [LinkController::class, 'store']);
-  Route::put('link/{file}', [LinkController::class, 'update']);
-  Route::get('link/state/{file}', [LinkController::class, 'toggle']);
-  Route::delete('link/{file}', [LinkController::class, 'destroy']);
+  Route::put('link/{link}', [LinkController::class, 'update']);
+  Route::get('link/state/{link}', [LinkController::class, 'toggle']);
+  Route::delete('link/{link}', [LinkController::class, 'destroy']);
 
   // Grid items
   Route::get('grid/items', [GridItemController::class, 'get']);

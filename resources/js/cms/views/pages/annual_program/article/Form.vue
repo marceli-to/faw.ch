@@ -1,26 +1,26 @@
 <template>
-<div :class="[isOpen ? 'is-open' : '', 'widget is-wide']" v-if="isOpen">
+<div :class="[isOpen ? 'is-open' : '', 'widget']" v-if="isOpen">
   <div class="widget__inner" v-if="isFetched">
     <div>
       <header>
+        <h1>{{title}}</h1>
         <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
           <x-icon size="24"></x-icon>
         </a>
-        <h1>{{title}}</h1>
       </header>
-      <div class="widget-content is-large">
+      <div class="widget-content">
         <form @submit.prevent="submit">
           <div>
-            <div :class="[this.errors.title ? 'has-error' : '', 'form-row is-narrow']">
+            <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
               <label>Titel *</label>
               <input type="text" v-model="data.title">
               <label-required />
             </div>
-            <div class="form-row is-narrow">
+            <div class="form-row">
               <label>Subtitel</label>
               <input type="text" v-model="data.subtitle">
             </div>
-            <div class="form-row is-narrow">
+            <div class="form-row">
               <label>Text</label>
               <textarea name="text" v-model="data.text"></textarea>
               <!-- <tinymce-editor
@@ -29,7 +29,7 @@
                 v-model="data.text"
               ></tinymce-editor> -->
             </div>
-            <div class="form-row is-narrow">
+            <div class="form-row">
               <radio-button 
                 :label="'Forum spezial?'"
                 v-bind:special.sync="data.special"
@@ -37,10 +37,10 @@
                 :name="'special'">
               </radio-button>
             </div>
-            <div class="sb-md">
-              <button-submit>Speichern</button-submit>
-            </div>
           </div>
+          <footer>
+            <button-submit>Speichern</button-submit>
+          </footer>
         </form>
       </div>
     </div>
@@ -166,6 +166,7 @@ export default {
       this.axios.put(`${this.routes.update}/${this.data.id}`, this.data).then(response => {
         this.$notify({ type: "success", text: this.messages.updated });
         this.hide();
+        this.$parent.$parent.get();
         this.isLoading = false;
       });
     },

@@ -5,6 +5,7 @@ use App\Http\Resources\DataCollection;
 use App\Models\Activity;
 use App\Models\ActivityArticle;
 use App\Models\File;
+use App\Models\Link;
 use App\Http\Requests\ActivityArticleStoreRequest;
 use Illuminate\Http\Request;
 
@@ -150,8 +151,8 @@ class ActivityArticleController extends Controller
     {
       foreach($links as $link)
       {
-        $l = File::findOrFail($link['id']);
-        $l->linkable_id = $link->id;
+        $l = Link::findOrFail($link['id']);
+        $l->linkable_id = $article->id;
         $l->linkable_type = ActivityArticle::class;
         $l->save();
       }

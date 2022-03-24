@@ -198,11 +198,7 @@ export default {
 
   created() {
     if (this.$props.type == "edit") {
-      this.isFetched = false;
-      this.axios.get(`${this.routes.get}/${this.$route.params.id}`).then(response => {
-        this.data = response.data;
-        this.isFetched = true;
-      });
+      this.get();
     }
   },
 
@@ -217,6 +213,14 @@ export default {
       if (this.$props.type == "create") {
         this.store();
       }
+    },
+
+    get() {
+      this.isFetched = false;
+      this.axios.get(`${this.routes.get}/${this.$route.params.id}`).then(response => {
+        this.data = response.data;
+        this.isFetched = true;
+      });
     },
 
     store() {
