@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\ActivityController;
 use App\Http\Controllers\Api\ActivityArticleController;
 use App\Http\Controllers\Api\BackerController;
 use App\Http\Controllers\Api\BackerTypeController;
+use App\Http\Controllers\Api\PartnerController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\LinkController;
@@ -137,6 +138,14 @@ Route::middleware('auth:sanctum')->group(function() {
 
   // Backer types
   Route::get('backer-types', [BackerTypeController::class, 'get']);
+
+  // Partner
+  Route::get('partners/{constraint?}', [PartnerController::class, 'get']);
+  Route::get('partner/{partner}', [PartnerController::class, 'find']);
+  Route::post('partner', [PartnerController::class, 'store']);
+  Route::put('partner/{partner}', [PartnerController::class, 'update']);
+  Route::get('partner/state/{partner}', [PartnerController::class, 'toggle']);
+  Route::delete('partner/{partner}', [PartnerController::class, 'destroy']);
 
 });
 

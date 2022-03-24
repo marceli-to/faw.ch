@@ -10,6 +10,12 @@
           <p>Verwaltung der Gönner</p>
         </router-link>
       </div>
+      <div class="card">
+        <router-link :to="{name: 'partners'}">
+          <h2>Netzwerk</h2>
+          <p>Verwaltung der Netzwerkpartner</p>
+        </router-link>
+      </div>
       <!--
       <div class="card">
         <router-link :to="{name: 'home-images'}">

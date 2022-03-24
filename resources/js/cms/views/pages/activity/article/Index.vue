@@ -118,6 +118,7 @@ export default {
 
   created() {
     this.data.articles = this.$props.articles;
+    console.log(this.data.articles);
   },
 
   methods: {
