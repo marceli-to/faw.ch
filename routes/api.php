@@ -11,6 +11,8 @@ use App\Http\Controllers\Api\AnnualProgramController;
 use App\Http\Controllers\Api\AnnualProgramArticleController;
 use App\Http\Controllers\Api\ActivityController;
 use App\Http\Controllers\Api\ActivityArticleController;
+use App\Http\Controllers\Api\BackerController;
+use App\Http\Controllers\Api\BackerTypeController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\LinkController;
@@ -124,6 +126,17 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('activity-article/state/{article}', [ActivityArticleController::class, 'toggle']);
   Route::post('activity-article/order', [ActivityArticleController::class, 'order']);
   Route::delete('activity-article/{article}', [ActivityArticleController::class, 'destroy']);
+
+  // Backer
+  Route::get('backers/{constraint?}', [BackerController::class, 'get']);
+  Route::get('backer/{backer}', [BackerController::class, 'find']);
+  Route::post('backer', [BackerController::class, 'store']);
+  Route::put('backer/{backer}', [BackerController::class, 'update']);
+  Route::get('backer/state/{backer}', [BackerController::class, 'toggle']);
+  Route::delete('backer/{backer}', [BackerController::class, 'destroy']);
+
+  // Backer types
+  Route::get('backer-types', [BackerTypeController::class, 'get']);
 
 });
 

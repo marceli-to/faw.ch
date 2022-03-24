@@ -1,15 +1,16 @@
 <template>
   <div class="is-loaded">
     <page-header>
-      <h1>Startseite</h1>
+      <h1>Über uns</h1>
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
-        <router-link :to="{name: 'home-layout'}">
-          <h2>Layout</h2>
-          <p>Verwaltung der Startseite</p>
+        <router-link :to="{name: 'backers'}">
+          <h2>Gönner</h2>
+          <p>Verwaltung der Gönner</p>
         </router-link>
       </div>
+      <!--
       <div class="card">
         <router-link :to="{name: 'home-images'}">
           <h2>Bilder</h2>
@@ -21,7 +22,7 @@
           <h2>Teaser</h2>
           <p>Verwaltung der Teaser</p>
         </router-link>
-      </div>
+      </div> -->
     </div>
     <page-footer>
       <button-back :route="'dashboard'">Zurück</button-back>
@@ -29,6 +30,7 @@
   </div>
 </template>
 <script>
+
 import Helpers from "@/mixins/Helpers";
 import ButtonBack from "@/components/ui/ButtonBack.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
@@ -41,7 +43,6 @@ export default {
     PageFooter,
     ButtonBack
   },
-
   mixins: [Helpers],
 }
 </script>

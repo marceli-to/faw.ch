@@ -28,6 +28,12 @@
           <p>Verwaltung der Aktivitäten</p>
         </router-link>
       </div>
+      <div class="card">
+        <router-link :to="{name: 'about'}">
+          <h2>Über uns</h2>
+          <p>Verwaltung von Über uns</p>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
