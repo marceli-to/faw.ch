@@ -1,13 +1,12 @@
 /**
  * -----------------------------------------------------------------------------
- * File: layout/section
+ * File: icons/dash
  * -----------------------------------------------------------------------------
+ *
  */
-
-section.content {
-  @extend %inner-block;
-}
-
-section.content-visual {
-  @extend %visual-block;
+.dash {
+  bottom: 6px;
+  display: inline-block;
+  margin-right: 2px;
+  position: relative;
 }

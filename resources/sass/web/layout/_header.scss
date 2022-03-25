@@ -6,4 +6,15 @@
 
 header.site-header {
 
+  > div {
+    @extend %outer-block;
+    height: $header-height;
+    padding-top: 16px;
+    position: relative;
+
+    @include bp-lg() {
+      height: $header-height-lg;
+      padding-top: 18px;
+    }
+  }
 }

@@ -7,5 +7,27 @@
 
 %anchor,
 .anchor {
+  color: $color-black;
 
+  &.anchor--icon {
+    align-items: center;
+    display: flex;
+    line-height: 1 !important;
+    transition: transform .1s ease-in;
+    span {
+      transform: translateX(0);
+      transition: transform .1s ease-in;
+    }
+
+    svg {
+      display: inline-block;
+      margin-right: $space-1x;
+    }
+
+    &:hover {
+      span {
+        transform: translateX(4px);
+      }
+    }
+  }
 }

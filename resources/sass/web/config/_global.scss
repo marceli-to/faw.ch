@@ -27,21 +27,30 @@ $url-svg:    '../img/svg/';
 /* Breakpoints
  * -------------------- */
 
-$bp-sm:  900px;
-$bp-md: 1024px;
-$bp-lg: 1440px;
+$bp-sm:  480px;
+$bp-md:  700px;
+$bp-lg: 1000px;
+$bp-xl: 1200px;
 
 $breakpoints: (
   sm: $bp-sm,
   md: $bp-md,
-  lg: $bp-lg  
+  lg: $bp-lg
 );
 
 /* Site
  * -------------------- */
 
-$site-max-width: 1440px;
+$page-max-width:     1200px;
+$content-max-width:  1068px;
+$lightbox-max-width:  968px;
 
+/* Header
+ * -------------------- */
+
+$header-height:    58px;
+$header-height-lg: 82px;
+ 
 /* Grids
  * -------------------- */
 

@@ -260,20 +260,6 @@
 
 /**
  * Media Queries
- * -----------------------------------------------------------------------------
- * A simple mixin for using media queries. Change the values to
- * fit your sites needs.
- * 
- * Usage:
- *
- *      header {
- *          @include bp-small() {
- *              display: none;
- *          }
- *          @include bp-huge() {
- *              display: block;
- *          }
- *      }
  */
 
 @mixin bp-sm {
@@ -290,6 +276,12 @@
 
 @mixin bp-lg {
 	@media only screen and (min-width: $bp-lg) {
+		@content;
+	}
+}
+
+@mixin bp-xl {
+	@media only screen and (min-width: $bp-xl) {
 		@content;
 	}
 }

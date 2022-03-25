@@ -13,3 +13,25 @@
   max-width: 100%;
   width: 100%;
 }
+
+.visual {
+  height: calc(100vh - #{$header-height});
+
+  @include bp-md {
+    height: auto
+  }
+
+  img, 
+  svg {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    width: 100%;
+
+    @include bp-md() {
+      height: auto;
+      object-fit: none;
+    }
+  }
+}

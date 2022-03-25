@@ -7,8 +7,16 @@
  *
  */
 
-.uc { text-transform: uppercase;}
-.lc { text-transform: lowercase; }
+%uppercase,
+.uppercase { 
+  text-transform: uppercase;
+}
+
+%lowercase,
+.lowercase { 
+  text-transform: lowercase;
+}
+
 .cap { text-transform: capitalize; }
 .align-center { text-align: center; }
 .align-justify { text-align: justify; }
@@ -16,6 +24,13 @@
 .align-right { text-align: right; }
 .nobr { white-space: nowrap; }
 
+.text-bold {
+  @include font-bold();
+}
+
+.text-regular {
+  @include font-regular();
+}
 
 /**
  * Typography - Generic elements
@@ -23,16 +38,16 @@
  */
 
 strong, b {
-	@include font-regular();
+	@include font-bold();
 }
 
 p {
-	margin-bottom: $space-3x;
+	margin-bottom: $space-4x;
 	&:last-child {
 		margin-bottom: 0 !important;
 	}
 }
 
-i {
+i, em {
 	@include font-regular();
 }

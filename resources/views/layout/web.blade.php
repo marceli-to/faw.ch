@@ -17,10 +17,10 @@
 <script src="/assets/js/modernizr.js"></script>
 </head>
 <body>
+@include('partials.header')
+@include('partials.menu')
 <main role="main" class="site">
-  <div>
-    @yield('content')
-  </div>
+  <div>@yield('content')</div>
 </main>
 <script src="{{ mix('assets/js/app.js') }}" type="text/javascript"></script>
 </body>

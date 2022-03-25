@@ -4,16 +4,16 @@
  * -----------------------------------------------------------------------------
  */
 
-.hide-sm {
+.is-desktop {
 	display: none;
-	@include bp-md() {
+	@include bp-lg() {
 		display: block;
 	}
 }
 
-.hide-md {
+.is-mobile {
 	display: block;
-	@include bp-md() {
+	@include bp-lg() {
 		display: none;
 	}
 }

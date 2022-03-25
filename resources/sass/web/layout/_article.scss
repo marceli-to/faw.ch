@@ -4,6 +4,21 @@
  * -----------------------------------------------------------------------------
  */
 
-article {
- 
+article.text-media {
+  margin-top: $space-6x;
+
+  figure {
+    margin-bottom: $space-2x;
+    img {
+      @extend %is-responsive;
+    }
+  }
+
+  .topic {
+    @extend %uppercase;
+    display: block;
+    @include font-size($fs-xs);
+    @include font-bold();
+    margin-bottom: $space-tiny;
+  }
 }

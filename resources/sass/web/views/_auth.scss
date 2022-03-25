@@ -11,6 +11,20 @@ body.auth {
   flex-direction: column;
   justify-content: center;
 
+
+  main.site-auth {
+    min-height: 100vh;
+  
+    > div {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      height: inherit;
+      min-height: inherit;
+      width: 100%;
+    }
+  }
+
   section {
     background-color: $color-white;
     border-radius: 5px;

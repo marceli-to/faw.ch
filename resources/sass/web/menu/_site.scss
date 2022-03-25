@@ -5,5 +5,57 @@
  */
 
 nav.site {
+  background-color: $color-white;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  padding: $header-height $space-6x $space-6x $space-6x;
+  top: 0;
+  width: 100%;
+  z-index: 501;
 
+  > div {
+    margin-top: $space-10x;
+  }
+
+  @include bp-md() {
+    left: auto;
+    right: 0;
+    padding-left: $space-9x;
+    width: 50%;
+
+    > div {
+      margin-top: -4px;
+    }
+  }
+
+  @include bp-lg() {
+    padding-top: $header-height-lg;
+    max-width: 435px;
+  }
+
+  ul {
+    a {
+      color: $color-black;
+      @include font-bold();
+      @include font-size($fs-nav-lg);
+      padding: $space-tiny 0;
+      text-decoration: none;
+    }
+
+    ul {
+      margin: $space-2x 0 $space-2x $space-4x;
+      a {
+        @include font-size($fs-nav-md);
+      }
+    }
+
+    &.is-meta {
+      margin-top: $space-4x;
+
+      a {
+        @include font-size($fs-nav-sm);
+      }
+    }
+  }
 }
