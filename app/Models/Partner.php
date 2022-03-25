@@ -14,4 +14,15 @@ class Partner extends Base
     'publish',
 	];
 
+  /**
+   * Mutator for url
+   * -> fix missung protocol for urls
+   * 
+   * @param String $value
+   */
+
+  public function setUrlAttribute($value)
+  {
+    $this->attributes['url'] = (!preg_match("~^(?:f|ht)tps?://~i", $value) && $value) ? "https://" . $value : $value;
+  }
 }

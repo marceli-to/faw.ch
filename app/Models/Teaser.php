@@ -34,7 +34,10 @@ class Teaser extends Base
   }
 
   /**
-   * Accessor for 'link'
+   * Mutator for 'link'
+   * -> fix missung protocol for links
+   * 
+   * @param String $value
    */
 
   public function setLinkAttribute($value)
@@ -43,13 +46,13 @@ class Teaser extends Base
   }
 
   /**
-   * Accessor for 'target'
+   * Mutator for 'target'
+   * -> automatically add '_blank' for external links
    */
 
   public function setTargetAttribute()
   {
     $this->attributes['target'] = ($this->link && ('forum-architektur.ch' !== '' && mb_strpos($this->link, 'forum-architektur.ch') !== false)) ? '_self' : '_blank'; 
   }
-
 
 }

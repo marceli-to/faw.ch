@@ -38,7 +38,7 @@
           <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
           <figure>
             <img :src="getImageSrc(item.event.image, 'cache')" height="300" width="200" v-if="item.event.image">
-            <img src="/assets/img/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
+            <img src="/assets/img/cms/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
             <h2>{{item.event.title}}</h2>
             <p v-html="item.event.text"></p>
           </figure>
@@ -66,7 +66,7 @@
           <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
           <figure>
             <img :src="getImageSrc(item.teaser.image, 'cache')" height="300" width="200" v-if="item.teaser.image">
-            <img src="/assets/img/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
+            <img src="/assets/img/cms/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
             <h2>{{item.teaser.title}}</h2>
             <p v-html="item.teaser.text"></p>
           </figure>

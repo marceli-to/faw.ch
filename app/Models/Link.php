@@ -46,4 +46,21 @@ class Link extends Base
 	{
 		return $query->where('locked', 1);
 	}
+
+  /**
+   * Mutator for url
+   * -> fix missung protocol for urls
+   * 
+   * @param String $value
+   */
+
+  public function setUrlAttribute($value)
+  {
+    $this->attributes['url'] = (!preg_match("~^(?:f|ht)tps?://~i", $value) && $value) ? "https://" . $value : $value;
+  }
+
+  public function getUrlAttribute()
+  {
+    return (!preg_match("~^(?:f|ht)tps?://~i", $this->attributes['url']) && $this->attributes['url']) ? "https://" . $this->attributes['url'] : $this->attributes['url'];
+  }
 }

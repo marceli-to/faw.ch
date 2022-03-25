@@ -31,7 +31,7 @@
       </div>
       <div class="upload-overlay__grid is-files">
         <figure v-if="hasOverlayEdit">
-          <img src="/assets/img/icons/file.svg" height="100" width="100">
+          <img src="/assets/img/cms/icons/file.svg" height="100" width="100">
           <figcaption v-if="overlayItem.caption">
             <span v-if="overlayItem.caption">{{overlayItem.caption}}</span>
           </figcaption>

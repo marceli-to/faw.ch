@@ -17,7 +17,7 @@
           @click="add(d)">
           <figure>
             <img :src="`/img/tiny/${d.image.name}`" height="100" width="100" v-if="d.image">
-            <img src="/assets/img/placeholder.png" height="100" width="100" v-else>
+            <img src="/assets/img/cms/placeholder.png" height="100" width="100" v-else>
           </figure>
           <div class="flex flex-columns justify-center">
             <h2>{{ d.title | truncate(40, '...') }}</h2>
