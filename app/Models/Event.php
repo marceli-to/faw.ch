@@ -28,6 +28,12 @@ class Event extends Base
     return $this->morphOne(Image::class, 'imageable');
   }
 
+  public function publishedImage()
+  {
+    return $this->morphOne(Image::class, 'imageable')->where('publish', 1);
+  }
+
+
   public function files()
   {
     return $this->morphMany(File::class, 'fileable');
@@ -73,7 +79,6 @@ class Event extends Base
     $this->attributes['time'] = $value ? $value : NULL;
   }
 
-
   /**
    * Mutator for date (formated date)
    * @param Date $value
@@ -92,6 +97,16 @@ class Event extends Base
   public function getDateSlugAttribute($value)
   {
     return date('Y.m.d', strtotime($value));
+  }
+
+  /**
+   * Mutator for date (slug)
+   * @param Date $value
+   */
+
+  public function getDateFullAttribute()
+  {
+    return strtotime($this->date);
   }
 
 }

@@ -1,9 +1,8 @@
 <?php
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\ImageController;
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +16,7 @@ Auth::routes(['verify' => true, 'register' => false]);
 Route::get('/logout', 'Auth\LoginController@logout');
 
 // Frontend
-Route::get('/', [PageController::class, 'index'])->name('page.index');
+Route::get('/', [HomeController::class, 'index'])->name('page.index');
 
 
 // Url based images

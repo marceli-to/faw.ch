@@ -31,7 +31,7 @@
 
     @include bp-md() {
       height: auto;
-      object-fit: none;
+      object-fit: unset;
     }
   }
 }
