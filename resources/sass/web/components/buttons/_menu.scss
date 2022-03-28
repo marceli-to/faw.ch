@@ -6,13 +6,82 @@
 
 .btn-menu {
   @extend %btn;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  line-height: 1 !important;
+  height: 29px;
   right: 16px;
   position: fixed;
   top: 16px;
+  text-align: center;
+  width: 39px;
   z-index: 601;
   
+  @include bp-lg() {
+    height: 43px;
+    width: 48px;
+  }
+
   @include bp-xl() {
     right: calc(((100% - 1200px) / 2) + 18px);
     top: 18px;
   }
+
+  .is-cross-mobile,
+  .is-cross-desktop,
+  .is-burger-desktop {
+    display: none;
+  }
+
+  .is-burger-mobile {
+    display: inline-block;
+  }
+
+  @include bp-lg() {
+    .is-burger-mobile {
+      display: none;
+    }
+    .is-burger-desktop {
+      display: inline-block;
+    }
+  }
+
+  &.is-active {
+    .is-burger-mobile,
+    .is-burger-desktop,
+    .is-cross-mobile,
+    .is-cross-desktop {
+      display: none;
+    }
+
+    .is-cross-mobile {
+      display: inline-block;
+    }
+
+    @include bp-lg() {
+      .is-cross-mobile {
+        display: none;
+      }
+      .is-cross-desktop {
+        display: inline-block;
+      }
+    }
+
+  }
+
+  // .is-desktop {
+  //   display: none;
+  //   @include bp-lg() {
+  //     display: block;
+  //   }
+  // }
+  
+  // .is-mobile {
+  //   display: block;
+  //   @include bp-lg() {
+  //     display: none;
+  //   }
+  // }
+
 }

@@ -1,6 +1,6 @@
-<nav class="site">
+<nav class="site js-menu">
   <div>
-    <ul>
+    <ul class="is-main">
       <li>
         <a href="">Veranstaltungen</a>
         <ul>
@@ -23,6 +23,18 @@
       <li><a href="">Mitgliedschaft</a></li>
       <li><a href="">Kontakt</a></li>
       <li><a href="">Newsletter</a></li>
+    </ul>
+    <ul class="is-social">
+      <li>
+        <a href="" title="Forum Architektur Winterthur auf Facebook">
+          <x-icon type="facebook" />
+        </a>
+      </li>
+      <li>
+        <a href="" title="Forum Architektur Winterthur auf Instagram">
+          <x-icon type="instagram" />
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
