@@ -20,7 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('page.index');
 
 
 // Url based images
-Route::get('/img/{template}/{filename}/{maxW?}/{maxH?}/{coords?}', [ImageController::class, 'getResponse']);
+Route::get('/img/{template}/{filename}/{maxW?}/{maxH?}/{coords?}/{ratio?}', [ImageController::class, 'getResponse']);
 
 /*
 |--------------------------------------------------------------------------

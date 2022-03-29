@@ -11,12 +11,6 @@
         </router-link>
       </div>
       <div class="card">
-        <router-link :to="{name: 'home-images'}">
-          <h2>Bilder</h2>
-          <p>Verwaltung der Bilder</p>
-        </router-link>
-      </div>
-      <div class="card">
         <router-link :to="{name: 'teasers'}">
           <h2>Teaser</h2>
           <p>Verwaltung der Teaser</p>

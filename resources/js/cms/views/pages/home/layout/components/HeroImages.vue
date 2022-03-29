@@ -1,33 +1,39 @@
 <template>
-<div>
-  <div v-if="isFetched" class="is-loaded">
-    <page-header>
-      <h1>Bilder</h1>
-    </page-header>
-    <images 
-      :imageRatioW="3" 
-      :imageRatioH="2"
-      :type="'HeroImage'"
-      :typeId="1"
-      :images="data.images">
-    </images>
-    <page-footer>
-      <button-back :route="'home-dashboard'">Zurück</button-back>
-    </page-footer>
+
+<div :class="[isOpen ? 'is-open' : '', 'widget']" v-if="isOpen">
+  <div class="widget__inner" v-if="isFetched">
+    <div>
+      <header>
+        <h1>Bilder</h1>
+        <a href="javascript:;" class="feather-icon btn-close" @click.prevent="hide()">
+          <x-icon size="24"></x-icon>
+        </a>
+      </header>
+      <div class="widget-content">
+        <images 
+          :imageRatioW="3" 
+          :imageRatioH="2"
+          :type="'HeroImage'"
+          :typeId="1"
+          :images="data.images">
+        </images>
+      </div>
+    </div>
   </div>
 </div>
 </template>
 <script>
+import { XIcon } from 'vue-feather-icons'
 import Helpers from "@/mixins/Helpers";
 import ButtonBack from "@/components/ui/ButtonBack.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import Images from "@/modules/images/Index.vue";
 
-
 export default {
 
   components: {
+    XIcon,
     PageFooter,
     PageHeader,
     ButtonBack,
@@ -50,6 +56,7 @@ export default {
       // States
       isLoading: false,
       isFetched: false,
+      isOpen: false,
 
       // Messages
       messages: {
@@ -61,6 +68,12 @@ export default {
   },
 
   created() {
+    const onEscape = (e) => {
+      if (this.isOpen && e.keyCode === 27) {
+        this.hide();
+      }
+    }
+    document.addEventListener('keydown', onEscape);
     this.fetch();
   },
 
@@ -71,6 +84,13 @@ export default {
         this.isFetched = true;
       });
     },
+    show() {
+      this.isOpen = true;
+    },
+
+    hide() {
+      this.isOpen = false;
+    }
   }
 }
 </script>

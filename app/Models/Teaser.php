@@ -13,8 +13,6 @@ class Teaser extends Base
     'title',
     'subtitle',
     'text',
-    'link',
-    'target',
     'publish'
   ];
 
@@ -33,26 +31,8 @@ class Teaser extends Base
     return $this->morphMany(File::class, 'fileable');
   }
 
-  /**
-   * Mutator for 'link'
-   * -> fix missung protocol for links
-   * 
-   * @param String $value
-   */
-
-  public function setLinkAttribute($value)
+  public function links()
   {
-    $this->attributes['link'] = (!preg_match("~^(?:f|ht)tps?://~i", $value)) ? "https://" . $value : $value;
+    return $this->morphMany(Link::class, 'linkable');
   }
-
-  /**
-   * Mutator for 'target'
-   * -> automatically add '_blank' for external links
-   */
-
-  public function setTargetAttribute()
-  {
-    $this->attributes['target'] = ($this->link && ('forum-architektur.ch' !== '' && mb_strpos($this->link, 'forum-architektur.ch') !== false)) ? '_self' : '_blank'; 
-  }
-
 }

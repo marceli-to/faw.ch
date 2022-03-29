@@ -17,4 +17,10 @@ export default {
     active: false,
     error: false
   },
+  links: {
+    key: 'links',
+    label: 'Link',
+    active: false,
+    error: false
+  },
 };

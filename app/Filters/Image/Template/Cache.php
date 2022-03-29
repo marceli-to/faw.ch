@@ -8,13 +8,15 @@ class Cache implements FilterInterface
   protected $maxWidth;   
   protected $maxHeight;
   protected $coords = FALSE;
+  protected $ratio;
   protected $orientation = 'landscape';
 
-  public function __construct($maxWidth = null, $maxHeight = null, $coords = FALSE)
+  public function __construct($maxWidth = null, $maxHeight = null, $coords = FALSE, $ratio = NULL)
   {
     $this->maxWidth  = $maxWidth ? $maxWidth : 2000;
     $this->maxHeight = $maxHeight ? $maxHeight : 1500;
     $this->coords    = $coords;
+    $this->ratio     = $ratio;
   }
 
   public function applyFilter(Image $image)
@@ -41,6 +43,13 @@ class Cache implements FilterInterface
     }
     else
     {
+      if ($this->ratio)
+      {
+        return $image->resize($this->maxWidth, $this->maxHeight, function ($constraint) {
+          $constraint->upsize();
+        });
+      }
+
       return $image->resize($this->maxWidth, $this->maxHeight, function ($constraint) {
         $constraint->aspectRatio();
         $constraint->upsize();

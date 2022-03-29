@@ -11,6 +11,7 @@ class Event extends Base
 	protected $fillable = [
     'title',
     'subtitle',
+    'abstract',
     'text',
     'date',
 		'time',
@@ -100,13 +101,23 @@ class Event extends Base
   }
 
   /**
-   * Mutator for date (slug)
+   * Mutator for date
    * @param Date $value
    */
 
   public function getDateFullAttribute()
   {
-    return strtotime($this->date);
+    return date('D d.m.Y', strtotime($this->date));
+  }
+
+  /**
+   * Mutator for time
+   * @param Date $value
+   */
+
+  public function getTimeFullAttribute()
+  {
+    return date('H.i', strtotime($this->time));
   }
 
 }

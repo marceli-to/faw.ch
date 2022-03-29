@@ -19,7 +19,7 @@ class GridItems
     }
     if ($type == 'teaser')
     {
-      return GridItem::with('teaser.image')->orderBy('order')->whereNotNull('teaser_id')->get();
+      return GridItem::with('teaser.image', 'teaser.links')->orderBy('order')->whereNotNull('teaser_id')->get();
     }
   }
 }

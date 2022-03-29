@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Teaser;
 use App\Models\Image;
+use App\Models\Link;
 use App\Http\Requests\TeaserStoreRequest;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class TeaserController extends Controller
    */
   public function find(Teaser $teaser)
   {
-    $teaser = Teaser::with('images', 'files')->find($teaser->id);
+    $teaser = Teaser::with('images', 'files', 'links')->find($teaser->id);
     return response()->json($teaser);
   }
 
@@ -46,6 +47,7 @@ class TeaserController extends Controller
     $teaser = Teaser::create($request->all());
     $teaser->save();
     $this->handleImages($teaser, $request->input('images'));
+    $this->handleLinks($teaser, $request->input('links'));
     return response()->json(['teaserId' => $teaser->id]);
   }
 
@@ -62,6 +64,7 @@ class TeaserController extends Controller
     $teaser->update($request->all());
     $teaser->save();
     $this->handleImages($teaser, $request->input('images'));
+    $this->handleLinks($teaser, $request->input('links'));
     return response()->json('successfully updated');
   }
 
@@ -107,6 +110,28 @@ class TeaserController extends Controller
       $img->imageable_id = $teaser->id;
       $img->imageable_type = Teaser::class;
       $img->save();
+    }
+  }
+
+  /**
+   * Handle associated links
+   *
+   * @param Teaser $teaser
+   * @param Array $links
+   * @return void
+   */  
+
+  protected function handleLinks(Teaser $teaser, $links = NULL)
+  {
+    if ($links)
+    {
+      foreach($links as $link)
+      {
+        $l = Link::findOrFail($link['id']);
+        $l->linkable_id = $teaser->id;
+        $l->linkable_type = Teaser::class;
+        $l->save();
+      }
     }
   }
 }

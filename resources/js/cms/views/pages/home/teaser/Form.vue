@@ -21,19 +21,6 @@
           <label>Text</label>
           <textarea v-model="data.text"></textarea>
         </div>
-        <div class="form-row">
-          <label class="flex justify-between">
-            <span>Link</span>
-            <a 
-              :href="data.link" 
-              class="feather-icon ml-2x"
-              target="_blank"
-              v-if="data.link">
-              <external-link-icon size="1.2x"></external-link-icon>
-            </a>
-          </label>
-          <input type="text" v-model="data.link">
-        </div>
       </div>
     </div>
     <div v-show="tabs.image.active">
@@ -45,6 +32,9 @@
     </div>
     <div v-show="tabs.file.active">
       <files :files="data.files"></files>
+    </div>
+    <div v-show="tabs.links.active">
+      <links :links="data.links"></links>
     </div>
     <page-footer>
       <button-back :route="'teasers'">Zurück</button-back>
@@ -66,6 +56,7 @@ import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import Images from "@/modules/images/Index.vue";
 import Files from "@/modules/files/Index.vue";
+import Links from "@/modules/links/Index.vue";
 
 export default {
   components: {
@@ -78,7 +69,8 @@ export default {
     PageFooter,
     PageHeader,
     Images,
-    Files
+    Files,
+    Links
   },
 
   mixins: [ErrorHandling],
@@ -95,10 +87,10 @@ export default {
         title: null,
         subtitle: null,
         text: null,
-        link: null,
         publish: 1,
         images: [],
         files: [],
+        links: [],
       },
 
       // Validation

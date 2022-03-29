@@ -7,6 +7,10 @@
 article.text-media {
   margin-top: $space-6x;
 
+  @include bp-lg() {
+    margin-top: 36px;
+  }
+
   figure {
     margin-bottom: $space-2x;
     img {

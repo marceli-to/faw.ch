@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
    */
   public function boot()
   {
-    setLocale(LC_ALL, 'de_CH.UTF-8');
-    \Carbon\Carbon::setLocale('de_CH.UTF-8');
+    setLocale(LC_ALL, 'de_CH');
+    \Carbon\Carbon::setLocale('de_CH');
   }
 }

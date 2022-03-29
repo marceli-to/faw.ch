@@ -10,7 +10,8 @@ class ImageController extends ImageCacheController
   protected $maxWidth;
   protected $maxHeight;
   protected $coords;
-
+  protected $ratio;
+  
   /**
    * Get HTTP response of either original image file or
    * template applied file.
@@ -20,11 +21,12 @@ class ImageController extends ImageCacheController
    * @return Illuminate\Http\Response
    */
 
-  public function getResponse($template, $filename, $maxWidth = NULL, $maxHeight = NULL, $coords = NULL)
+  public function getResponse($template, $filename, $maxWidth = NULL, $maxHeight = NULL, $coords = NULL, $ratio = FALSE)
   {
     $this->maxWidth  = $maxWidth;
     $this->maxHeight = $maxHeight;
     $this->coords    = $coords;
+    $this->ratio     = $ratio;
 
     switch (strtolower($template)) {
       case 'original':
@@ -55,7 +57,7 @@ class ImageController extends ImageCacheController
 
     // filter template found
     case class_exists($template):
-      return new $template($this->maxWidth, $this->maxHeight, $this->coords);
+      return new $template($this->maxWidth, $this->maxHeight, $this->coords, $this->ratio);
 
     default:
       // template not found

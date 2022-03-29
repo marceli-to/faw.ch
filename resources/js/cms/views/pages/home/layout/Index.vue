@@ -7,13 +7,14 @@
     </page-header>
     <page-header>
       <h2>Bilder</h2>
+      <a href="javascript:;" @click="$refs.heroSelector.show();" class="btn-add has-icon">
+        <plus-icon size="16"></plus-icon>
+        <span>Bearbeiten</span>
+      </a>
     </page-header>
-    <p>Aus dem <router-link :to="{name: 'home-images'}">Bilderpool</router-link> wird beim Laden der Seite eines zufällig ausgewählt.</p>
+    <!-- <p>Aus dem <router-link :to="{name: 'home-images'}">Bilderpool</router-link> wird beim Laden der Seite eines zufällig ausgewählt.</p> -->
     <div class="grid-items">
       <figure class="grid-item grid-item__hero">
-        <router-link class="btn-edit" :to="{name: 'home-images'}">
-          Bearbeiten
-        </router-link>
         <img :src="getImageSrc(data.hero, 'cache')" height="300" width="300" v-if="data.hero">
       </figure>
       <page-header>
@@ -40,7 +41,7 @@
             <img :src="getImageSrc(item.event.image, 'cache')" height="300" width="200" v-if="item.event.image">
             <img src="/assets/img/cms/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
             <h2>{{item.event.title}}</h2>
-            <p v-html="item.event.text"></p>
+            <p v-html="item.event.abstract"></p>
           </figure>
         </div>
       </draggable>
@@ -73,6 +74,7 @@
         </div>
       </draggable>
     </div>
+    <hero-selector ref="heroSelector"></hero-selector>
     <event-selector ref="eventSelector"></event-selector>
     <teaser-selector ref="teaserSelector"></teaser-selector>
     <page-footer>
@@ -88,6 +90,7 @@ import ButtonBack from "@/components/ui/ButtonBack.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import draggable from "vuedraggable";
+import HeroSelector from "@/views/pages/home/layout/components/HeroImages.vue";
 import EventSelector from "@/views/pages/home/layout/components/Events.vue";
 import TeaserSelector from "@/views/pages/home/layout/components/Teasers.vue";
 
@@ -100,6 +103,7 @@ export default {
     PageFooter,
     PageHeader,
     draggable,
+    HeroSelector,
     EventSelector,
     TeaserSelector
   },
@@ -197,8 +201,6 @@ export default {
         this.isLoading = false;
       });
     },
-
-
   }
 }
 </script>

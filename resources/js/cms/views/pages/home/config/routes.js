@@ -1,6 +1,5 @@
 import Dashboard from '@/views/pages/home/Index.vue';
 import Layout from '@/views/pages/home/layout/Index.vue';
-import HeroImages from '@/views/pages/home/hero/Index.vue';
 import TeaserIndex from '@/views/pages/home/teaser/Index.vue';
 import TeaserCreate from '@/views/pages/home/teaser/partials/Create.vue';
 import TeaserEdit from '@/views/pages/home/teaser/partials/Edit.vue';
@@ -19,13 +18,6 @@ const routes = [
     name: 'home-layout',
     path: '/administration/home/layout',
     component: Layout,
-  },
-
-  // Home: Images
-  {
-    name: 'home-images',
-    path: '/administration/home/hero-images',
-    component: HeroImages,
   },
 
   // Home: Teasers

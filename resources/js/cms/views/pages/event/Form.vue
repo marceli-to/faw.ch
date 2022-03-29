@@ -18,6 +18,10 @@
           <input type="text" v-model="data.subtitle">
         </div>
         <div class="form-row">
+          <label>Abstract</label>
+          <textarea v-model="data.abstract"></textarea>
+        </div>
+        <div class="form-row">
           <label>Text</label>
           <tinymce-editor
             :api-key="tinyApiKey"
@@ -132,6 +136,7 @@ export default {
       data: {
         title: null,
         subtitle: null,
+        abstract: null,
         text: null,
         date: null,
         time: null,
