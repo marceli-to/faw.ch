@@ -7,27 +7,46 @@
 
 %anchor,
 .anchor {
+  align-items: center;
   color: $color-black;
+  display: inline-flex;
 
-  &.anchor--icon {
-    align-items: center;
+  svg {
+    display: inline-block;
+  }
+
+  &.anchor--arrow {
+    align-items: unset;
     display: flex;
-    line-height: 1 !important;
     transition: transform .1s ease-in;
+    
     span {
       transform: translateX(0);
       transition: transform .1s ease-in;
     }
-
+    
     svg {
-      display: inline-block;
       margin-right: $space-1x;
     }
-
+    
     &:hover {
       span {
         transform: translateX(4px);
       }
+    }
+  }
+
+  &.anchor--chevron {
+    margin-top: $space-1x;
+    svg {
+      margin-left: $space-1x;
+    }
+  }
+
+  &.anchor--file {
+    align-items: unset;
+    svg {
+      margin-right: $space-1x;
     }
   }
 }

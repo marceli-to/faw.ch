@@ -3,6 +3,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,11 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 // Frontend
 Route::get('/', [HomeController::class, 'index'])->name('page.index');
+Route::get('/veranstaltungen/kalender', [EventController::class, 'calendar'])->name('page.event.calendar');
+Route::get('/veranstaltungen/jahresprogramm', [EventController::class, 'activities'])->name('page.event.activities');
+Route::get('/veranstaltungen/unser-bahnhof-winterthur', [EventController::class, 'station'])->name('page.event.station');
+Route::get('/veranstaltungen/stadtwerkstatt', [EventController::class, 'workshop'])->name('page.event.workshop');
+Route::get('/veranstaltungen/archiv', [EventController::class, 'archive'])->name('page.event.archive');
 
 
 // Url based images

@@ -33,11 +33,33 @@ body {
   color: #333333;
 }
 
+strong,
+.text-bold {
+  font-family: 'Gotham' !important;
+}
+
+.text-uc {
+  text-transform: uppercase;
+}
+
+.text-xs {
+  font-size: 14px;
+}
+
+h1, h2, h3 {
+  font-family: 'Gotham' !important;
+  margin: 0;
+}
+
 h1 {
   font-size: 22px !important;
 }
 
 h2 {
   font-size: 18px !important;
+}
+
+h3 {
+  display: inline-block !important;
 }
 /*# sourceMappingURL=content.min.css.map */

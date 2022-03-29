@@ -1,33 +1,25 @@
 <?php
 namespace App\View\Components;
 use Illuminate\View\Component;
-use App\Models\Teaser;
+use App\Models\File;
 
-class CardTeaser extends Component
+class LinkFile extends Component
 {
   /**
-   * Teaser
+   * File
    *
    * @var Object
    */
-  public $teaser;
-
-  /**
-   * Css class
-   *
-   * @var Boolean
-   */
-  public $cssClass;
+  public $file;
 
   /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct(Teaser $teaser, $cssClass = 'md:span-6')
+  public function __construct(File $file)
   {
-    $this->teaser = $teaser;
-    $this->cssClass = $cssClass;
+    $this->file = $file;
   }
 
   /**
@@ -37,6 +29,6 @@ class CardTeaser extends Component
    */
   public function render()
   {
-    return view('components.card-teaser');
+    return view('components.link-file');
   }
 }

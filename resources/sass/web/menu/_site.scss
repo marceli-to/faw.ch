@@ -62,6 +62,7 @@ nav.site {
     &.is-main,
     &.is-meta {
       a {
+        &.is-active,
         &:hover {
           &:before {
             background-color: $color-black;

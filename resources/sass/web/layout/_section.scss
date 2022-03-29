@@ -6,6 +6,28 @@
 
 section.content {
   @extend %inner-block;
+
+  &.is-first {
+
+    > div {
+      @extend %line;
+      margin-top: 45px;
+      
+  
+      @include bp-lg() {
+        margin-top: 70px;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  + section.content {
+    margin-top: $space-9x;
+
+    @include bp-lg() {
+      margin-top: $space-11x;
+    }
+  }
 }
 
 section.content-visual {

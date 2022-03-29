@@ -8,13 +8,21 @@
 @for $i from 1 through 12 {
   %grid-cols-#{$i},
   .grid-cols-#{$i} {
+    margin-bottom: 24px;
+
+    &.is-last {
+      margin-bottom: 0 !important;
+    }
+
     @include bp-md() {
       display: grid;
       grid-template-columns: repeat($i, minmax(0, 1fr));
       grid-column-gap: 16px;
     }
+    
     @include bp-lg() {
       grid-column-gap: 18px;
+      margin-bottom: 36px;
     }
   }
 }

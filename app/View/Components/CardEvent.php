@@ -13,6 +13,13 @@ class CardEvent extends Component
   public $event;
 
   /**
+   * Css class
+   *
+   * @var Boolean
+   */
+  public $cssClass;
+
+  /**
    * Preview?
    *
    * @var Boolean
@@ -24,9 +31,10 @@ class CardEvent extends Component
    *
    * @return void
    */
-  public function __construct(Event $event, $preview = FALSE)
+  public function __construct(Event $event, $cssClass = 'md:span-6', $preview = FALSE)
   {
     $this->event = $event;
+    $this->cssClass = $cssClass;
     $this->preview = $preview;
   }
 

@@ -1,4 +1,4 @@
-<article class="text-media md:span-6 lg:span-4">
+<article class="card {{ $cssClass ?? ''}}">
   @if ($teaser->image)
     <x-image :image="$teaser->image" maxWidth="900" maxHeight="600" ratio="3:2" />
   @endif

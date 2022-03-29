@@ -5,21 +5,18 @@
 @endif
 <section class="content">
   <div>
-    @if ($grid_items['events'])
-      <div class="grid-cols-12">
+    <div class="grid-cols-12">
+      @if ($grid_items['events'])
         @foreach($grid_items['events'] as $item)
-          <x-card-event :event="$item->event" preview="TRUE" />
+          <x-card-event :event="$item->event" preview="TRUE" cssClass="card--grid md:span-6" />
         @endforeach
-      </div>
-    @endif
-
-    @if ($grid_items['teasers'])
-      <div class="grid-cols-12">
+      @endif
+      @if ($grid_items['teasers'])
         @foreach($grid_items['teasers'] as $item)
-          <x-card-teaser :teaser="$item->teaser" />
+          <x-card-teaser :teaser="$item->teaser" cssClass="card--grid md:span-6 lg:span-4" />
         @endforeach
-      </div>
-    @endif
+      @endif
+    </div>
   </div>
 </section>
 @endsection

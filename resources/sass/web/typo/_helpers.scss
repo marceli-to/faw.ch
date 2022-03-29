@@ -8,12 +8,12 @@
  */
 
 %uppercase,
-.uppercase { 
+.text-uc { 
   text-transform: uppercase;
 }
 
 %lowercase,
-.lowercase { 
+.text-lc { 
   text-transform: lowercase;
 }
 
@@ -30,6 +30,10 @@
 
 .text-regular {
   @include font-regular();
+}
+
+.text-xs {
+  @include font-size($fs-xs);
 }
 
 /**

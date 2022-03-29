@@ -1,11 +1,11 @@
-/**
+/**→
  * -----------------------------------------------------------------------------
- * File: component/headings/h1
+ * File: components/line
  * -----------------------------------------------------------------------------
  */
 
-h1 {
-  @include font-bold();
-  @include font-size($fs-lg);
-  text-transform: uppercase;
+%line,
+.line {
+  border-top: 2px solid $color-black;
+  padding-top: 8px;
 }

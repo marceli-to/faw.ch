@@ -13,7 +13,11 @@
 @endif
 
 @if ($type == 'chevron-down')
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9"><path fill="currentColor" d="M14.7 0l-7 7-7-7-.7.7 7.7 7.7L15.4.7z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9"><path fill="currentColor" d="M15 .3l-7 7-7-7-.7.7L8 8.7 15.7 1 15 .3z"/></svg>
+@endif
+
+@if ($type == 'chevron-up')
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9"><path fill="currentColor" d="M15.7 8L8 .3.3 8l.7.7 7-7 7 7 .7-.7z"/></svg>
 @endif
 
 @if ($type == 'chevron-left')

@@ -7,6 +7,8 @@ var Utils = (function() {
     html:     'html',
     body:     'body',
     btnTouch: '[data-touch]',
+    btnMore:  '[data-more]',
+    btnLess:  '[data-less]',
   };
 
   var classes = {
@@ -29,7 +31,19 @@ var Utils = (function() {
       $(this).removeClass(classes.touched);
     });
 
-    var lazyLoadInstance = new LazyLoad();
+    $(selectors.btnMore).on('click', function(e) {
+      $(this).hide();
+      $(this).prev('div').hide();
+      $(this).next('div').show();
+    });
+
+    $(selectors.btnLess).on('click', function(e) {
+      $(this).parent('div').hide();
+      $(this).parent('div').prev('a').show();
+      $(this).parent('div').prev('a').prev('div').show();
+    });
+
+    // var lazyLoadInstance = new LazyLoad();
   };
 
 

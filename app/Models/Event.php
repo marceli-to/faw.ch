@@ -34,7 +34,6 @@ class Event extends Base
     return $this->morphOne(Image::class, 'imageable')->where('publish', 1);
   }
 
-
   public function files()
   {
     return $this->morphMany(File::class, 'fileable');
@@ -48,6 +47,15 @@ class Event extends Base
 	{
 		$constraint = date('Y-m-d', time());
 		return $query->where('date', '>=', $constraint)->where('publish', 1);
+	}
+
+	/**
+   * Scope for sticky events
+   */
+
+	public function scopeSticky($query)
+	{
+		return $query->where('sticky', 1)->where('publish', 1);
 	}
 
 	/**
