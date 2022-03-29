@@ -6,30 +6,23 @@
 
 section.content {
   @extend %inner-block;
+  @extend %mb-22x;
+  @extend %md\:mb-25x;
+  @extend %lg\:mb-28x;
 
   &.is-first {
-
     > div {
       @extend %line;
-      margin-top: 45px;
-      
-  
-      @include bp-lg() {
-        margin-top: 70px;
-        padding-top: 10px;
-      }
-    }
-  }
-
-  + section.content {
-    margin-top: $space-9x;
-
-    @include bp-lg() {
-      margin-top: $space-11x;
+      @extend %mt-22x;
+      @extend %lg\:mt-35x;
+      @extend %pt-4x;
+      @extend %lg\:pt-5x;
     }
   }
 }
 
 section.content-visual {
   @extend %visual-block;
+  @extend %mb-15x;
+  @extend %lg\:mb-18x;
 }

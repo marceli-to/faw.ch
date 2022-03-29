@@ -5,16 +5,14 @@
  */
 
 header.site-header {
-
   > div {
     @extend %outer-block;
+    @extend %pt-8x;
+    @extend %lg\:pt-9x;
     height: $header-height;
-    padding-top: 16px;
     position: relative;
-
     @include bp-lg() {
       height: $header-height-lg;
-      padding-top: 18px;
     }
   }
 }

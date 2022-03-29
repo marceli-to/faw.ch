@@ -46,7 +46,7 @@ strong, b {
 }
 
 p {
-	margin-bottom: $space-4x;
+  @extend %mb-10x;
 	&:last-child {
 		margin-bottom: 0 !important;
 	}

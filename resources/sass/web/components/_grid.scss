@@ -5,25 +5,26 @@
  *
  */
 
+.grid-home {
+  @include bp-md() {
+    grid-row-gap: $space-15x !important;
+  }
+}
+
 @for $i from 1 through 12 {
   %grid-cols-#{$i},
   .grid-cols-#{$i} {
-    margin-bottom: 24px;
-
-    &.is-last {
-      margin-bottom: 0 !important;
-    }
 
     @include bp-md() {
       display: grid;
       grid-template-columns: repeat($i, minmax(0, 1fr));
-      grid-column-gap: 16px;
+      grid-gap: $space-8x;
     }
     
     @include bp-lg() {
-      grid-column-gap: 18px;
-      margin-bottom: 36px;
+      grid-gap: $space-9x;
     }
+
   }
 }
 
@@ -63,6 +64,7 @@
 }
 
 @for $i from 1 through 12 {
+  %md\:span-#{$i},
   .md\:span-#{$i} {
     @include bp-md() {
       grid-column: span $i / span $i;
@@ -71,6 +73,7 @@
 }
 
 @for $i from 1 through 12 {
+  %lg\:span-#{$i},
   .lg\:span-#{$i} {
     @include bp-lg() {
       grid-column: span $i / span $i;

@@ -5,12 +5,15 @@
  */
 
 nav.site {
+  @extend %pb-15x;
+  @extend %px-15x;
+  @extend %md\:pl-22x;
   background-color: $color-white;
   height: 100%;
   left: 0;
   opacity: 0;
+  padding-top: $header-height;
   position: fixed;
-  padding: $header-height $space-6x $space-6x $space-6x;
   transform: translateX(100%);
   transition: transform .16s ease-out;
   top: 0;
@@ -25,13 +28,12 @@ nav.site {
   }
 
   > div {
-    margin-top: $space-10x;
+    @extend %mt-25x;
   }
 
   @include bp-md() {
     left: auto;
     right: 0;
-    padding-left: $space-9x;
     width: 50%;
 
     > div {
@@ -50,17 +52,18 @@ nav.site {
 
   ul {
     a {
+      @extend %py-1x;
       color: $color-black;
       @include font-bold();
       @include font-size($fs-nav-lg);
       line-height: 1 !important;
-      padding: $space-tiny 0;
       position: relative;
       text-decoration: none;
     }
 
     &.is-main,
     &.is-meta {
+
       a {
         &.is-active,
         &:hover {
@@ -72,7 +75,7 @@ nav.site {
             left: -24px;
             line-height: 1 !important;
             top: 50%;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
             position: absolute;
             width: 19px;
           }
@@ -81,26 +84,29 @@ nav.site {
     }
 
     ul {
-      margin: $space-2x 0 $space-2x $space-5x;
+      @extend %mb-5x;
+      @extend %mt-5x;
+      @extend %ml-12x;
+
       a {
         @include font-size($fs-nav-md);
       }
     }
 
     &.is-meta {
-      margin-top: $space-4x;
+      @extend %mt-10x;
       a {
         @include font-size($fs-nav-sm);
       }
     }
 
     &.is-social {
+      @extend %mt-10x;
       display: flex;
-      margin-top: $space-4x;
 
       li {
         &:first-of-type {
-          margin-right: $space-1x;
+          @extend %mr-3x;
         }
       }
 

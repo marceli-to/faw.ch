@@ -5,8 +5,6 @@
  */
 
 main.site {
-  padding-bottom: 32px;
-  @include bp-lg() {
-    padding-bottom: 36px;
-  }
+  @extend %pb-16x;
+  @extend %lg\:pb-18x;
 }

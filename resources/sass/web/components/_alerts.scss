@@ -6,12 +6,9 @@
  */
 
 .alert {
-  margin-bottom: $space-3x;
-  margin-top: $space-3x;
   max-width: 480px;
 
   &.alert--danger {
-    //border-color: $color-danger;
     color: $color-danger;
   }
 
@@ -26,7 +23,6 @@
 
   ul {
     @include font-regular();
-    margin-top: $space-2x;
     margin-bottom: 0;
   }
 }
@@ -35,9 +31,6 @@
   border: 2px solid $color-black;
   color: $color-black;
   @include font-regular();
-  margin-bottom: $space-4x;
-  margin-top: $space-4x;
-  padding: $space-1x;
 
   a {
     color: $color-black;

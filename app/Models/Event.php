@@ -19,6 +19,10 @@ class Event extends Base
     'sticky'
 	];
 
+  protected $appends = [
+    'is_past'
+  ];
+
   public function images()
   {
     return $this->morphMany(Image::class, 'imageable');
@@ -47,6 +51,16 @@ class Event extends Base
 	{
 		$constraint = date('Y-m-d', time());
 		return $query->where('date', '>=', $constraint)->where('publish', 1);
+	}
+
+	/**
+   * Scope for past events
+   */
+
+	public function scopePast($query)
+	{
+		$constraint = date('Y-m-d', time());
+		return $query->where('date', '<', $constraint)->where('publish', 1);
 	}
 
 	/**
@@ -126,6 +140,16 @@ class Event extends Base
   public function getTimeFullAttribute()
   {
     return date('H.i', strtotime($this->time));
+  }
+
+  public function past()
+  {
+    return time() > strtotime($this->date);
+  }
+
+  public function getPastAttribute($value)
+  {
+    return $this->past();
   }
 
 }

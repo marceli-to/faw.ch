@@ -6,8 +6,8 @@
 
 h2 {
   @extend %uppercase;
+  @extend %mb-1x;
   @include font-size($fs-md);
   @include font-bold();
-  margin-bottom: $space-tiny;
   position: relative;
 }

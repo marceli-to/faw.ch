@@ -26,16 +26,17 @@ body.auth {
   }
 
   section {
+    @extend %py-12x;
+    @extend %px-10x;
     background-color: $color-white;
     border-radius: 5px;
     max-width: 480px;
-    padding: $space-5x $space-4x;
     width: 100%;
     
     > svg {
+      @extend %mb-25x;
       display: block;
       height: auto;
-      margin-bottom: $space-10x;
       max-width: 200px;
       width: 100%;
     }
@@ -45,26 +46,26 @@ body.auth {
     }
   
     .form-group {
-      margin-bottom: $space-8x;
+      @extend %mb-20x;
     }
   
     .form-action {
+      @extend %mt-22x;
       align-items: center;
       display: flex;
-      margin-top: $space-9x;
       justify-content: space-between;
     }
 
     label {
+      @extend %mb-5x;
       display: block;
       color: $color-grey;
-      margin-bottom: $space-2x;
     }
 
     // Helpers
     .form-helper {
+      @extend %ml-5x;
       color: $color-grey;
-      margin-left: $space-2x;
       text-decoration: underline;
       &:hover {
         color: $color-black;
@@ -75,6 +76,10 @@ body.auth {
     input[type=text],
     input[type=email],
     input[type=password] {
+      @extend %pt-2x;
+      @extend %pb-5x;
+      padding-left: 0;
+      padding-right: 0;
       background-color: $color-white;
       border: none;
       border-bottom: 2px solid $color-medium;
@@ -82,7 +87,6 @@ body.auth {
       color: $color-black;
       display: block;
       @include font-size($fs-md);
-      padding: $space-1x 0 $space-2x 0;
       width: 100%;
       -webkit-appearance: none;
 

@@ -26,7 +26,7 @@
     }
     
     svg {
-      margin-right: $space-1x;
+      @extend %mr-3x;
     }
     
     &:hover {
@@ -37,16 +37,16 @@
   }
 
   &.anchor--chevron {
-    margin-top: $space-1x;
+    @extend %mt-3x;
     svg {
-      margin-left: $space-1x;
+      @extend %ml-3x; 
     }
   }
 
   &.anchor--file {
     align-items: unset;
     svg {
-      margin-right: $space-1x;
+      @extend %mr-3x;
     }
   }
 }

@@ -17,7 +17,8 @@ class EventController extends BaseController
   {
     $events = [
       'upcoming' => Event::with('image', 'files')->upcoming()->orderBy('date', 'ASC')->get(),
-      'sticky' => Event::with('image', 'files')->sticky()->get()
+      'sticky' => Event::with('image', 'files')->sticky()->get(),
+      'past' => Event::with('files')->past()->orderBy('date', 'ASC')->get(),
     ];
     return view($this->viewPath . 'calendar', ['events' => $events]);
   }
