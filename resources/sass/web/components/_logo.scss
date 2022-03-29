@@ -8,7 +8,7 @@
   display: block;
   width: 155px;
   left: 16px;
-  position: fixed;
+  position: absolute;
   top: 16px;
   z-index: 601;
 
@@ -24,5 +24,14 @@
   svg {
     height: auto;
     width: 100%;
+  }
+}
+
+.has-menu {
+  .logo {
+    position: fixed;
+    @include bp-md() {
+      position: absolute;
+    }
   }
 }

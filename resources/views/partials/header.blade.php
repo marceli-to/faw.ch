@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header js-site-header">
   <div>
     <a href="{{ route('page.index') }}" class="logo">
       <x-icon type="logo" />
