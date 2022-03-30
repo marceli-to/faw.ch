@@ -23,6 +23,7 @@
         <list-actions 
           :id="d.id" 
           :record="d"
+          :hasCopy="true"
           :routes="{edit: 'annual-program-edit'}">
         </list-actions>
       </div>
@@ -74,6 +75,7 @@ export default {
         store: '/api/annual-program',
         delete: '/api/annual-program',
         toggle: '/api/annual-program/state',
+        copy: '/api/annual-program/copy',
       },
 
       // States
@@ -121,6 +123,14 @@ export default {
         });
       }
     },
+
+    copy(id) {
+      this.isLoading = true;
+      this.axios.get(`${this.routes.copy}/${id}`).then(response => {
+        this.fetch();
+        this.isLoading = false;
+      });
+    }
   }
 }
 </script>

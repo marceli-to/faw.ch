@@ -100,6 +100,7 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::post('annual-program', [AnnualProgramController::class, 'store']);
   Route::put('annual-program/{program}', [AnnualProgramController::class, 'update']);
   Route::get('annual-program/state/{program}', [AnnualProgramController::class, 'toggle']);
+  Route::get('annual-program/copy/{program}', [AnnualProgramController::class, 'clone']);
   Route::delete('annual-program/{program}', [AnnualProgramController::class, 'destroy']);
 
   // Annual Program Articles

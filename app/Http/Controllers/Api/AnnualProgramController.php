@@ -83,6 +83,21 @@ class AnnualProgramController extends Controller
   }
 
   /**
+   * Clone a given program
+   *
+   * @param  AnnualProgram $program
+   * @return \Illuminate\Http\Response
+   */
+  public function clone(AnnualProgram $program)
+  {
+    $program = AnnualProgram::with('articles', 'articlesSpecial')->find($program->id);
+    $clone = $program->replicate();
+    $clone->title = $clone->title . ' [Kopie]';
+    $clone->save();
+    return response()->json('successfully cloned');
+  }
+
+  /**
    * Remove a program
    *
    * @param  AnnualProgram $program
@@ -90,6 +105,11 @@ class AnnualProgramController extends Controller
    */
   public function destroy(AnnualProgram $program)
   {
+    $program = AnnualProgram::with('images', 'files', 'articles', 'articlesSpecial')->find($program->id);
+    $program->images()->delete();
+    $program->files()->delete();
+    $program->articles()->delete();
+    $program->articlesSpecial()->delete();
     $program->delete();
     return response()->json('successfully deleted');
   }
