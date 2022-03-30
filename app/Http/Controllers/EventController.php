@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\Event;
+use App\Models\AnnualProgram;
 use Illuminate\Http\Request;
 
 class EventController extends BaseController
@@ -20,7 +21,13 @@ class EventController extends BaseController
       'sticky' => Event::with('image', 'files')->sticky()->get(),
       'past' => Event::with('files')->past()->orderBy('date', 'ASC')->get(),
     ];
-    return view($this->viewPath . 'calendar', ['events' => $events]);
+
+    $annual_program = AnnualProgram::published()
+      ->with('publishedImages', 'publishedFiles', 'publishedArticles', 'publishedArticlesSpecial')
+      ->get()
+      ->first();
+
+    return view($this->viewPath . 'calendar', ['events' => $events, 'annual_program' => $annual_program]);
   }
 
   public function activities()
@@ -36,5 +43,10 @@ class EventController extends BaseController
   public function workshop()
   {
     
+  }
+
+  public function archive()
+  {
+    return view($this->viewPath . 'archive');
   }
 }

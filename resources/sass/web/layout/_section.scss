@@ -16,7 +16,7 @@ section.content {
       @extend %mt-22x;
       @extend %lg\:mt-35x;
       @extend %pt-4x;
-      @extend %lg\:pt-5x;
+      @extend %lg\:pt-6x;
     }
   }
 }
@@ -25,4 +25,16 @@ section.content-visual {
   @extend %visual-block;
   @extend %mb-15x;
   @extend %lg\:mb-18x;
+
+  @include bp-md() {
+    padding-left: $space-8x;
+    padding-right: $space-8x;
+  }
+
+  &.is-hero {
+    @include bp-md() {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }

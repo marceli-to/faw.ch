@@ -39,4 +39,25 @@
     </div>
   </div>
 </section>
+<section class="content-visual">
+  <x-gallery :images="$annual_program->publishedImages" limit="true" />
+</section>
+<section class="content">
+  <div>
+    <h1>Jahresprogramm</h1>
+    <h2>
+      {{$annual_program->title}}
+      @if($annual_program->subtitle)
+        <br><x-icon type="dash" />{{ $annual_program->subtitle }}
+      @endif
+    </h2>
+    @if ($annual_program->text)
+    <article class="lead">
+      <x-truncated-text preview="{!! Str::words($annual_program->text, 100, '...') !!}">
+        {!! $annual_program->text !!}
+      </x-truncated-text>
+    </article>
+    @endif
+  </div>
+</section>
 @endsection

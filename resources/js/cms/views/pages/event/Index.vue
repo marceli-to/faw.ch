@@ -18,10 +18,10 @@
         :key="d.id"
       >
         <div class="listing__item-body">
-          {{d.title}}
           <span class="feather-icon is-sticky" v-if="d.sticky">
             <star-icon size="16"></star-icon>
           </span>
+          <span v-if="d.date">{{d.date}}<separator /></span>{{d.title}}
         </div>
         <list-actions 
           :id="d.id" 
@@ -61,7 +61,7 @@ export default {
     ButtonBack,
     PageFooter,
     PageHeader,
-    draggable,
+    draggable
   },
 
   mixins: [Helpers],

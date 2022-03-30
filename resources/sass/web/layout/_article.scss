@@ -7,3 +7,14 @@
 article.card {
   @extend %card;
 }
+
+article.lead {
+  @extend %columns;
+  @include font-bold();
+  @include font-size($fs-md);
+
+  p {
+    margin-bottom: 0;
+    text-indent: $space-12x;
+  }
+}

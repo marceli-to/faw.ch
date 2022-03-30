@@ -22,7 +22,7 @@ class EventController extends Controller
     {
       return new DataCollection(Event::with('image')->published()->orderBy('date', 'DESC')->orderBy('created_at')->get());
     }
-    return new DataCollection(Event::get());
+    return new DataCollection(Event::orderBy('sticky', 'DESC')->orderBy('date', 'DESC')->get());
   }
 
   /**

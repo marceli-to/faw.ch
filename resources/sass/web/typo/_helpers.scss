@@ -36,6 +36,18 @@
   @include font-size($fs-xs);
 }
 
+.text-sm {
+  @include font-size($fs-sm);
+}
+
+.text-md {
+  @include font-size($fs-md);
+}
+
+.text-lead {
+  @include font-bold();
+}
+
 /**
  * Typography - Generic elements
  * -----------------------------------------------------------------------------

@@ -20,7 +20,7 @@ class Event extends Base
 	];
 
   protected $appends = [
-    'is_past'
+    'past'
   ];
 
   public function images()
@@ -129,7 +129,7 @@ class Event extends Base
 
   public function getDateFullAttribute()
   {
-    return date('D d.m.Y', strtotime($this->date));
+    return date('D j.n.Y', strtotime($this->date));
   }
 
   /**
@@ -142,10 +142,18 @@ class Event extends Base
     return date('H.i', strtotime($this->time));
   }
 
+  /**
+   * Add attribute for past events
+   */
   public function past()
   {
     return time() > strtotime($this->date);
   }
+
+  /**
+   * Mutator for past attribure
+   * @param Date $value
+   */
 
   public function getPastAttribute($value)
   {

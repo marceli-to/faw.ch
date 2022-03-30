@@ -22,6 +22,11 @@ class AnnualProgram extends Base
     return $this->morphMany(Image::class, 'imageable');
   }
 
+  public function publishedImages()
+  {
+    return $this->morphMany(Image::class, 'imageable')->where('publish', 1);
+  }
+
   public function image()
   {
     return $this->morphOne(Image::class, 'imageable');
@@ -32,6 +37,11 @@ class AnnualProgram extends Base
     return $this->morphMany(File::class, 'fileable');
   }
 
+  public function publishedFiles()
+  {
+    return $this->morphMany(File::class, 'fileable')->where('publish', 1);
+  }
+
   public function articles()
   {
     return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id')
@@ -39,10 +49,26 @@ class AnnualProgram extends Base
                 ->where('special', 0);
   }
 
+  public function publishedArticles()
+  {
+    return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id')
+                ->orderBy('order', 'ASC')
+                ->where('special', 0)
+                ->where('publish', 1);
+  }
+
   public function articlesSpecial()
   {
     return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id')
                 ->orderBy('order', 'ASC')
                 ->where('special', 1);
+  }
+
+  public function publishedArticlesSpecial()
+  {
+    return $this->hasMany(AnnualProgramArticle::class, 'annual_program_id','id')
+                ->orderBy('order', 'ASC')
+                ->where('special', 1)
+                ->where('publish', 1);
   }
 }

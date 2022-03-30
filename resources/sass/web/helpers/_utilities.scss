@@ -4,14 +4,14 @@
  * -----------------------------------------------------------------------------
  */
 
-.is-desktop {
+.desktop-only {
 	display: none;
 	@include bp-lg() {
 		display: block;
 	}
 }
 
-.is-mobile {
+.mobile-only {
 	display: block;
 	@include bp-lg() {
 		display: none;
