@@ -21,12 +21,27 @@ var Menu = (function() {
   // Init
   var _initialize = function() {
     _bind();
+
+    // check for hash
+    let hash = window.location.hash;
+    if (hash) {
+      hash = hash.substring(1,hash.length);
+      _jumpTo(hash);
+    }
   };
 
   // Bind events
   var _bind = function() {
     $(selectors.body).on('click', selectors.menuBtn, function(){
       _toggle($(this));
+    });
+
+    $(window).on('hashchange', function(e) {
+      let hash = window.location.hash;
+      if (hash) {
+        hash = hash.substring(1,hash.length);
+        _jumpTo(hash);
+      }
     });
   };
 
@@ -42,6 +57,25 @@ var Menu = (function() {
     $(selectors.header).removeClass(classes.hasMenu);
   };
 
+  var _jumpTo = function(hash) {
+    var el = document.getElementById(hash);
+    _hide();
+    _activate(hash);
+    el.scrollIntoView({block: "start", behavior: "auto"});
+  };
+
+  var _activate = function(hash) {
+    if (hash.length) {
+      const current = document.querySelector('.js-menu a.is-active');
+      if (current) {
+        current.classList.remove(classes.active);
+      }
+      const selected = document.querySelector('.js-menu a[href*="'+hash+'"]');
+      if (selected) {
+        selected.classList.add(classes.active);
+      }
+    }
+  };
 
   /* --------------------------------------------------------------
     * RETURN PUBLIC METHODS

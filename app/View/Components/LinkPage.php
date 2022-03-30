@@ -34,16 +34,24 @@ class LinkPage extends Component
   public $title;
 
   /**
+   * Css class
+   *
+   * @var String
+   */
+  public $cssClass;
+
+  /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct($url = NULL, $target = '_self', $text = NULL, $title = NULL)
+  public function __construct($url = NULL, $target = '_self', $text = NULL, $title = NULL, $cssClass = NULL)
   {
     $this->url = $url;
     $this->target = $target;
     $this->text = $text;
     $this->title = $title;
+    $this->cssClass = $cssClass;
   }
 
   /**

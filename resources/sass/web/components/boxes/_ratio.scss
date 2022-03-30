@@ -6,11 +6,23 @@
 
 .ratio-container {
   position: relative; 
-  padding-bottom: 56.25%; /* ratio 16x9 */
+  padding-bottom: 56.25%;
   height: 0; 
   overflow: hidden; 
   width: 100%;
   height: auto;
+
+  &.is-3x2 {
+    padding-bottom: 66.66666%;
+  }
+  
+  &.is-4x3 {
+    padding-bottom: 75%;
+  }
+  
+  &.is-16x9 {
+    padding-bottom: 56.25%;
+  }
 }
 
 .ratio-container iframe,
@@ -20,14 +32,4 @@
   left: 0; 
   width: 100%; 
   height: 100%; 
-}
-
-/* ratio 4x3 */
-.ratio-container--4x3 {
-  padding-bottom: 75%;
-}
-
-/* ratio 4x3 */
-.ratio-container--16x9 {
-  padding-bottom: 56.25%;
 }

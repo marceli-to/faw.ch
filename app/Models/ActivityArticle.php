@@ -26,7 +26,17 @@ class ActivityArticle extends Base
     return $this->morphMany(File::class, 'fileable');
   }
 
+  public function publishedFiles()
+  {
+    return $this->morphMany(File::class, 'fileable');
+  }
+
   public function links()
+  {
+    return $this->morphMany(Link::class, 'linkable');
+  }
+
+  public function publishedLinks()
   {
     return $this->morphMany(Link::class, 'linkable');
   }

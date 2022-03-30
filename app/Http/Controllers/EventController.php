@@ -20,7 +20,7 @@ class EventController extends BaseController
     $events = [
       'upcoming' => Event::with('image', 'files')->upcoming()->orderBy('date', 'ASC')->get(),
       'sticky' => Event::with('image', 'files')->sticky()->get(),
-      'past' => Event::with('files')->past()->orderBy('date', 'DESC')->limit(9)->get(),
+      'past' => Event::with('files')->past()->orderBy('date', 'DESC')->limit(6)->get(),
     ];
 
     $annual_program = AnnualProgram::published()

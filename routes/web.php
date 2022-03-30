@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\DebateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/veranstaltungen/jahresprogramm', [EventController::class, 'activiti
 Route::get('/veranstaltungen/unser-bahnhof-winterthur', [EventController::class, 'station'])->name('page.event.station');
 Route::get('/veranstaltungen/stadtwerkstatt', [EventController::class, 'workshop'])->name('page.event.workshop');
 Route::get('/veranstaltungen/archiv', [EventController::class, 'archive'])->name('page.event.archive');
+Route::get('/debatten', [DebateController::class, 'index'])->name('page.debate');
 
 
 // Url based images

@@ -10,5 +10,6 @@ h2 {
   @extend %lg\:mb-6x;
   @include font-size($fs-md);
   @include font-bold();
+  max-width: 560px;
   position: relative;
 }

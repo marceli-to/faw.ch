@@ -5,14 +5,14 @@
         <a href="">Veranstaltungen</a>
         <ul>
           <li><a href="{{ route('page.event.calendar') }}" class="{{ request()->routeIs('page.event.calendar') ? 'is-active' : '' }}" title="Kalender">Kalender</a></li>
-          <li><a href="{{ route('page.event.activities') }}" class="{{ request()->routeIs('page.event.activities') ? 'is-active' : '' }}" title="Jahresprogramm">Jahresprogramm</a></li>
+          <li><a href="{{ route('page.event.calendar') . '/#jahresprogramm' }}" class="{{ request()->routeIs('page.event.activities') ? 'is-active' : '' }}" title="Jahresprogramm">Jahresprogramm</a></li>
           <li><a href="{{ route('page.event.station') }}" class="{{ request()->routeIs('page.event.station') ? 'is-active' : '' }}" title="Unser Bahnhof Winterthur">Unser Bahnhof Winterthur</a></li>
           <li><a href="{{ route('page.event.workshop') }}" class="{{ request()->routeIs('page.event.workshop') ? 'is-active' : '' }}" title="Stadtwerkstatt">Stadtwerkstatt</a></li>
           <li><a href="{{ route('page.event.archive') }}" class="{{ request()->routeIs('page.event.archive') ? 'is-active' : '' }}" title="Archiv">Archiv</a></li>
         </ul>
       </li>
       <li>
-        <a href="">Debatten</a>
+        <a href="{{ route('page.debate') }}" class="{{ request()->routeIs('page.debate') ? 'is-active' : '' }}">Debatten</a>
       </li>
       <li>
         <a href="">Winterthur im Bild</a>

@@ -13,13 +13,21 @@ class LinkFile extends Component
   public $file;
 
   /**
+   * Css class
+   *
+   * @var String
+   */
+  public $cssClass;
+
+  /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct(File $file)
+  public function __construct(File $file, $cssClass = NULL)
   {
     $this->file = $file;
+    $this->cssClass = $cssClass;
   }
 
   /**

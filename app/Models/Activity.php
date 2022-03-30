@@ -18,4 +18,9 @@ class Activity extends Base
   {
     return $this->hasMany(ActivityArticle::class, 'activity_id','id')->orderBy('order', 'ASC');
   }
+
+  public function publishedArticles()
+  {
+    return $this->hasMany(ActivityArticle::class, 'activity_id','id')->orderBy('order', 'ASC')->where('publish', 1);
+  }
 }

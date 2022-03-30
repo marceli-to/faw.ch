@@ -17,24 +17,21 @@
     display: inline-block;
   }
 
+  &.is-grid {
+    display: grid !important;
+    grid-template-columns: 30px auto;
+
+    svg {
+      @extend %mt-1x;
+    }
+  }
+
   &.anchor--arrow {
     align-items: unset;
     display: flex;
     transition: transform .1s ease-in;
-    
-    span {
-      transform: translateX(0);
-      transition: transform .1s ease-in;
-    }
-    
     svg {
       @extend %mr-3x;
-    }
-    
-    &:hover {
-      span {
-        transform: translateX(4px);
-      }
     }
   }
 
