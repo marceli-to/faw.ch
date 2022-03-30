@@ -5,7 +5,7 @@
 @endif
 <section class="content">
   <div>
-    <div class="grid-cols-12 grid-home">
+    <div class="grid grid-home grid-cols-12">
       @if ($grid_items['events'])
         @foreach($grid_items['events'] as $item)
           <x-card-event :event="$item->event" preview="TRUE" cssClass="is-home md:span-6" />

@@ -10,11 +10,29 @@ article.card {
 
 article.lead {
   @extend %columns;
+  @extend %mb-12x;
+  @extend %md\:mb-18x;
+  @extend %lg\:mb-14x;
   @include font-bold();
   @include font-size($fs-md);
 
   p {
-    margin-bottom: 0;
-    text-indent: $space-12x;
+    @extend %text-indent;
   }
+}
+
+article.text {
+  @extend %mb-12x;
+  
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  p {
+    @extend %text-indent;
+  }
+}
+
+article.teaser {
+  @extend %card-small;
 }

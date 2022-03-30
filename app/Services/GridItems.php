@@ -15,7 +15,7 @@ class GridItems
   {
     if ($type == 'event')
     {
-      return GridItem::with('event.publishedImage')->orderBy('order')->whereNotNull('event_id')->get();
+      return GridItem::with('event.image')->orderBy('order')->whereNotNull('event_id')->get();
     }
     if ($type == 'teaser')
     {

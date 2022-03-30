@@ -7,16 +7,12 @@
   @if ($event->subtitle)
     <span class="card__topic">{{$event->subtitle}}</span>
   @endif
-  @if ($event->past)
-    <h3>
-      @if ($event->date) {{ DateHelper::format($event->dateFull) }}<br> <x-icon type="dash" />@endif
-      {{$event->title}}
-    </h3>
+  @if ($event->past && !$event->sticky)
+    <x-heading type="h3" title="{{ $event->date ? DateHelper::format($event->dateFull) : '' }}" subtitle="{{ $event->title }}" />
+  @elseif ($event->sticky)
+    <x-heading type="h2" title="{{ $event->title }}" />
   @else
-    <h2>
-      @if ($event->date) {{ DateHelper::format($event->dateFull) }}@if ($event->time), {{$event->timeFull}} Uhr<br> <x-icon type="dash" />@endif @endif
-      {{$event->title}}
-    </h2>
+    <x-heading type="h2" title="{{ $event->date ? DateHelper::format($event->dateTime) : '' }}" subtitle="{{ $event->title }}" />
   @endif
   @if ($preview && !$event->past)
     @if ($event->abstract)
@@ -29,6 +25,10 @@
     @if ($event->past && !$event->sticky)
       @if ($event->text)
         <x-truncated-text>
+            @if ($event->image)
+              <x-image :image="$event->image" maxWidth="900" maxHeight="600" ratio="3:2" wrapperClass="mt-3x" />
+            @endif
+
             {!! $event->text !!}
             @if ($event->files)
               @foreach($event->files as $file)

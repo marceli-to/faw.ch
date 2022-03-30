@@ -26,8 +26,10 @@ body.auth {
   }
 
   section {
-    @extend %py-12x;
-    @extend %px-10x;
+    @extend %pb-12x;
+    @extend %pt-12x;
+    @extend %pl-10x;
+    @extend %pr-10x;
     background-color: $color-white;
     border-radius: 5px;
     max-width: 480px;

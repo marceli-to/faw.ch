@@ -20,7 +20,9 @@ class Event extends Base
 	];
 
   protected $appends = [
-    'past'
+    'past',
+    'year',
+    'periode',
   ];
 
   public function images()
@@ -30,17 +32,17 @@ class Event extends Base
 
   public function image()
   {
-    return $this->morphOne(Image::class, 'imageable');
-  }
-
-  public function publishedImage()
-  {
     return $this->morphOne(Image::class, 'imageable')->where('publish', 1);
   }
 
   public function files()
   {
     return $this->morphMany(File::class, 'fileable');
+  }
+
+  public function file()
+  {
+    return $this->morphMany(File::class, 'fileable')->where('publish', 1);
   }
 
 	/**
@@ -113,6 +115,47 @@ class Event extends Base
   }
 
   /**
+   * Mutator for year
+   * @param Date $value
+   */
+
+  public function getYearAttribute()
+  {
+    return $this->date ? strftime('%Y', strtotime($this->date)) : NULL;
+  }
+
+  /**
+   * Mutator for periode
+   * @param Date $value
+   */
+
+  public function getPeriodeAttribute()
+  {
+    if ($this->date)
+    {
+      $break = 8;
+      $month = date('n', strtotime($this->date));
+      $periode = [];
+
+      if ($month < $break)
+      {
+        $periode['start'] = (int) date('Y', strtotime($this->date)) - 1;
+        $periode['end']   = (int) date('Y', strtotime($this->date));
+      }
+      else
+      {
+        $periode['start'] = (int) date('Y', strtotime($this->date));
+        $periode['end']   = (int) date('Y', strtotime($this->date)) + 1;
+      }
+
+      return implode('/', $periode);
+    }
+
+   return NULL;
+  }
+
+
+  /**
    * Mutator for date (slug)
    * @param Date $value
    */
@@ -124,7 +167,7 @@ class Event extends Base
 
   /**
    * Mutator for date
-   * @param Date $value
+   * 
    */
 
   public function getDateFullAttribute()
@@ -134,12 +177,38 @@ class Event extends Base
 
   /**
    * Mutator for time
-   * @param Date $value
+   * 
    */
 
   public function getTimeFullAttribute()
   {
     return date('H.i', strtotime($this->time));
+  }
+
+  /**
+   * Mutator for date and time
+   * 
+   */
+
+  public function getDateTimeAttribute()
+  { 
+    if (!$this->date)
+    {
+      return NULL;
+    }
+
+    if (!$this->past)
+    {
+      if ($this->time)
+      {
+        return date('D j.n.Y', strtotime($this->date)) . ', ' . date('H.i', strtotime($this->time)) . ' Uhr';
+      }
+      return date('D j.n.Y', strtotime($this->date));
+    }
+    else
+    {
+      return date('D j.n.Y', strtotime($this->date));
+    }
   }
 
   /**

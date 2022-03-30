@@ -17,6 +17,14 @@
   text-transform: lowercase;
 }
 
+%text-indent,
+.text-indent {
+  margin-bottom: 0;
+  &:not(:first-of-type) {
+    text-indent: $space-12x;
+  }
+}
+
 .cap { text-transform: capitalize; }
 .align-center { text-align: center; }
 .align-justify { text-align: justify; }

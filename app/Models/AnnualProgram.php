@@ -17,6 +17,10 @@ class AnnualProgram extends Base
     'publish'
   ];
 
+  protected $appends = [
+    'periode',
+  ];
+
   public function images()
   {
     return $this->morphMany(Image::class, 'imageable');
@@ -70,5 +74,19 @@ class AnnualProgram extends Base
                 ->orderBy('order', 'ASC')
                 ->where('special', 1)
                 ->where('publish', 1);
+  }
+
+  /**
+   * Mutator for periode
+   * @param Date $value
+   */
+
+  public function getPeriodeAttribute()
+  {
+    if ($this->periode_start && $this->periode_end)
+    {
+      return $this->periode_start . '/' . $this->periode_end;
+    }
+    return NULL;
   }
 }

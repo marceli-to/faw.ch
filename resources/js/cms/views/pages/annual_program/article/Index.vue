@@ -10,15 +10,12 @@
     class="listing"
     v-if="data.articles.length">
     <div
-      :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+      :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item is-draggable']"
       v-for="d in data.articles"
       :key="d.id"
     >
       <div class="listing__item-body">
         {{d.title}}
-        <span class="feather-icon is-sticky" v-if="d.special">
-          <star-icon size="16"></star-icon>
-        </span>
       </div>
       <div class="listing__item-action">
         <div>

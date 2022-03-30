@@ -3,7 +3,7 @@
     <x-image :image="$teaser->image" maxWidth="900" maxHeight="600" ratio="3:2" />
   @endif
   @if ($teaser->title)
-    <h2>{{$teaser->title}} @if ($teaser->subtitle)<br><x-icon type="dash" /> {{ $teaser->subtitle}}@endif</h2>
+    <x-heading type="h2" title="{{ $teaser->title }}" subtitle="{{ $teaser->subtitle }}" />
   @endif
   @if ($teaser->text)
     <div>{{nl2br($teaser->text)}}</div>

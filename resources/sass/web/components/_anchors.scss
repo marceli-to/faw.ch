@@ -9,6 +9,8 @@
 .anchor {
   align-items: center;
   color: $color-black;
+  @include font-regular();
+  @include font-size($fs-sm);
   display: inline-flex;
 
   svg {
@@ -37,7 +39,8 @@
   }
 
   &.anchor--chevron {
-    @extend %mt-3x;
+    @extend %mt-2x;
+   
     svg {
       @extend %ml-3x; 
     }

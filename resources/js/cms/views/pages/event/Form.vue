@@ -29,7 +29,7 @@
             v-model="data.text"
           ></tinymce-editor>
         </div>
-        <div class="grid-cols-12">
+        <div class="grid grid-cols-12">
           <div class="span-6">
             <label>Datum</label>
             <the-mask

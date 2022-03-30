@@ -5,6 +5,12 @@
  *
  */
 
+.grid + .grid {
+  @extend %mt-16x;
+  @extend %md\:mt-12x;
+  @extend %lg\:mt-18x;
+}
+
 .grid-home {
   @include bp-md() {
     grid-row-gap: $space-15x !important;

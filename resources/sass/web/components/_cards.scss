@@ -29,8 +29,24 @@
     }
   }
 
+  h2 {
+    @extend %mb-1x;
+    @extend %lg\:mb-1x;
+  }
+
   p {
     @extend %mb-7x;
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .anchor--file {
+    @extend %mt-7x;
+  }
+
+  .anchor--chevron {
+    @extend %mt-2x;
   }
 }
 
@@ -40,10 +56,6 @@
   @extend %pt-4x;
   @extend %md\:span-6;
   @extend %lg\:span-4;
-
-  .anchor--chevron {
-    margin-top: 0;
-  }
 }
 
 .card__topic {

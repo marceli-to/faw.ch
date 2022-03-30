@@ -30,7 +30,7 @@
         @end="order(data.grid.events)"
         ghost-class="draggable-ghost"
         draggable=".grid-item"
-        class="grid-cols-12"
+        class="grid grid-cols-12"
         v-if="data.grid.events.length">
         <div 
           class="span-6 grid-item draggable"
@@ -58,7 +58,7 @@
         @end="order(data.grid.teasers)"
         ghost-class="draggable-ghost"
         draggable=".grid-item"
-        class="grid-cols-12"
+        class="grid grid-cols-12"
         v-if="data.grid.teasers.length">
         <div 
           class="span-4 grid-item draggable"

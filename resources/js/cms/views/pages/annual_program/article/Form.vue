@@ -22,12 +22,11 @@
             </div>
             <div class="form-row">
               <label>Text</label>
-              <textarea name="text" v-model="data.text"></textarea>
-              <!-- <tinymce-editor
+              <tinymce-editor
                 :api-key="tinyApiKey"
                 :init="tinyConfig"
                 v-model="data.text"
-              ></tinymce-editor> -->
+              ></tinymce-editor>
             </div>
             <div class="form-row">
               <radio-button 

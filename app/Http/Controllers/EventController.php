@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\Event;
 use App\Models\AnnualProgram;
+use App\Services\AnnualPrograms;
 use Illuminate\Http\Request;
 
 class EventController extends BaseController
@@ -19,11 +20,12 @@ class EventController extends BaseController
     $events = [
       'upcoming' => Event::with('image', 'files')->upcoming()->orderBy('date', 'ASC')->get(),
       'sticky' => Event::with('image', 'files')->sticky()->get(),
-      'past' => Event::with('files')->past()->orderBy('date', 'ASC')->get(),
+      'past' => Event::with('files')->past()->orderBy('date', 'DESC')->limit(9)->get(),
     ];
 
     $annual_program = AnnualProgram::published()
       ->with('publishedImages', 'publishedFiles', 'publishedArticles', 'publishedArticlesSpecial')
+      ->orderBy('periode_end', 'DESC')
       ->get()
       ->first();
 
@@ -47,6 +49,13 @@ class EventController extends BaseController
 
   public function archive()
   {
-    return view($this->viewPath . 'archive');
+    // Get events & group by periode
+    $events = Event::with('image', 'files')->past()->orderBy('date', 'DESC')->get();
+    $eventsGrouped = $events->groupBy('periode');
+
+    // Get annual program files & group by periode
+    $programFiles = (new AnnualPrograms())->filesByPeriode();
+
+    return view($this->viewPath . 'archive', ['events' => $eventsGrouped->all(), 'programFiles' => $programFiles]);
   }
 }
