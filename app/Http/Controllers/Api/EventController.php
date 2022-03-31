@@ -91,6 +91,10 @@ class EventController extends Controller
    */
   public function destroy(Event $event)
   {
+    $event = Event::with('images', 'files', 'gridItem')->find($event->id);
+    $event->gridItem()->delete();    
+    $event->images()->delete();
+    $event->files()->delete();
     $event->delete();
     return response()->json('successfully deleted');
   }

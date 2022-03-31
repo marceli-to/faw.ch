@@ -35,4 +35,9 @@ class Teaser extends Base
   {
     return $this->morphMany(Link::class, 'linkable');
   }
+
+  public function gridItem()
+  {
+    return $this->belongsTo(GridItem::class, 'id', 'teaser_id');
+  }
 }

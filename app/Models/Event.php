@@ -45,6 +45,11 @@ class Event extends Base
     return $this->morphMany(File::class, 'fileable')->where('publish', 1);
   }
 
+  public function gridItem()
+  {
+    return $this->belongsTo(GridItem::class, 'id', 'event_id');
+  }
+
 	/**
    * Scope for upcoming events
    */

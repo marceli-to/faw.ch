@@ -90,6 +90,11 @@ class TeaserController extends Controller
    */
   public function destroy(Teaser $teaser)
   {
+    $teaser = Teaser::with('images', 'files', 'links', 'gridItem')->find($teaser->id);
+    $teaser->gridItem()->delete();    
+    $teaser->images()->delete();
+    $teaser->files()->delete();
+    $teaser->links()->delete();
     $teaser->delete();
     return response()->json('successfully deleted');
   }

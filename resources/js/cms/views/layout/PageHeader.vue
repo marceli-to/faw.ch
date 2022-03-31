@@ -34,6 +34,12 @@
         <router-link :to="{name: 'annual-programs'}">
           <span>Jahresprogramm</span>
         </router-link>
+        <router-link :to="{name: 'activities'}">
+          <span>Aktivitäten</span>
+        </router-link>
+        <router-link :to="{name: 'about'}">
+          <span>Über uns</span>
+        </router-link>
       </li>
     </ul>
   </nav>

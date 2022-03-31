@@ -85,6 +85,8 @@ class ActivityController extends Controller
    */
   public function destroy(Activity $activity)
   {
+    $activity = Activity::with('articles.files', 'articles.links')->find($activity->id);
+    $activity->articles()->delete();
     $activity->delete();
     return response()->json('successfully deleted');
   }
