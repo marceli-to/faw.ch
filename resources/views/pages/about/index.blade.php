@@ -15,13 +15,12 @@
   </div>
 </section>
 
-@if ($history->publishedImages)
-<section class="content-visual">
-  <x-gallery :images="$history->publishedImages" limit="true" />
-</section>
-@endif
-
 @if ($history)
+  @if ($history->publishedImages)
+    <section class="content-visual">
+      <x-gallery :images="$history->publishedImages" limit="true" />
+    </section>
+  @endif
   <section class="content">
     <div>
       <h1>{{ $history->title }}</h1>
@@ -37,7 +36,6 @@
           @endforeach
         </div>
       @endif
-      
       @if ($history->publishedFiles)
         <x-toggle-text title="Download Jahresberichte" cssClass="mt-6x" class="mt-8x md:mt-0">
           <div class="columns-3" style="max-width: 640px">
@@ -47,10 +45,7 @@
           </div>
         </x-toggle-text>
       @endif
-
-
     </div>
   </section>
 @endif
-
 @endsection
