@@ -25,7 +25,7 @@
         <template v-if="$props.type == 'edit'">
           <div class="form-row sb-lg">
             <page-header>
-              <h2>Artikel</h2>
+              <h3>Artikel</h3>
               <a href="javascript:;" @click="$refs.activityArticleForm.show();" class="btn-add has-icon">
                 <plus-icon size="16"></plus-icon>
                 <span>Hinzufügen</span>

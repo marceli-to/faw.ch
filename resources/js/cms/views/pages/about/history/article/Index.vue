@@ -16,9 +16,6 @@
     >
       <div class="listing__item-body">
         {{d.title}}
-        <span class="feather-icon is-sticky" v-if="d.special">
-          <star-icon size="16"></star-icon>
-        </span>
       </div>
       <div class="listing__item-action">
         <div>
@@ -51,14 +48,14 @@
       </div>
     </div>
   </draggable>
-  <activity-article-form :type="'edit'" ref="activityArticleForm"></activity-article-form>
+  <history-article-form :type="'edit'" ref="historyArticleForm"></history-article-form>
 </div>
 </template>
 <script>
-import { EyeIcon, EyeOffIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
+import { EyeIcon, EyeOffIcon, EditIcon, Trash2Icon } from 'vue-feather-icons';
 import Helpers from "@/mixins/Helpers";
 import Separator from "@/components/ui/Separator.vue";
-import ActivityArticleForm from "@/views/pages/activity/article/Form.vue";
+import HistoryArticleForm from "@/views/pages/about/history/article/Form.vue";
 import draggable from "vuedraggable";
 
 export default {
@@ -68,14 +65,13 @@ export default {
     EyeOffIcon,
     EditIcon,
     Trash2Icon,
-    StarIcon,
     Separator,
-    ActivityArticleForm,
+    HistoryArticleForm,
     draggable
   },
 
   props: {
-    programId: null,
+    historyId: null,
 
     articles: {
       type: Array,
@@ -95,10 +91,9 @@ export default {
 
       // Routes
       routes: {
-        // get: '/api/activity-articles',
-        toggle: '/api/activity-article/state',
-        delete: '/api/activity-article',
-        order: '/api/activity-article/order',
+        toggle: '/api/history-article/state',
+        delete: '/api/history-article',
+        order: '/api/history-article/order',
       },
 
       // States
@@ -122,7 +117,7 @@ export default {
   methods: {
 
     edit(article) {
-      this.$refs.activityArticleForm.show(article);
+      this.$refs.historyArticleForm.show(article);
     },
 
     toggle(id) {

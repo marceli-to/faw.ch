@@ -50,7 +50,6 @@
 </template>
 <script>
 
-// Icons
 import { 
   EyeIcon,
   EyeOffIcon,
@@ -112,7 +111,6 @@ export default {
     },
 
     destroy(image, $event) {
-      console.log('destroy image');
       this.$parent.destroy(image.name,$event);
     },
 

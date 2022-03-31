@@ -16,13 +16,13 @@
           <p>Verwaltung der Netzwerkpartner</p>
         </router-link>
       </div>
-      <!--
       <div class="card">
-        <router-link :to="{name: 'home-images'}">
-          <h2>Bilder</h2>
-          <p>Verwaltung der Bilder</p>
+        <router-link :to="{name: 'history'}">
+          <h2>Geschichte</h2>
+          <p>Verwaltung der Geschichte</p>
         </router-link>
       </div>
+      <!--
       <div class="card">
         <router-link :to="{name: 'teasers'}">
           <h2>Teaser</h2>

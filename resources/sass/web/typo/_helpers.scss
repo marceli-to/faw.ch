@@ -56,6 +56,10 @@
   @include font-bold();
 }
 
+.text-max-width {
+  max-width: 720px;
+}
+
 /**
  * Typography - Generic elements
  * -----------------------------------------------------------------------------

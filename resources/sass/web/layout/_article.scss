@@ -23,7 +23,9 @@ article.lead {
 
 article.text {
   @extend %mb-12x;
-  
+  @extend %md\:span-6;
+  @extend %lg\:span-4;
+
   &:last-of-type {
     margin-bottom: 0;
   }

@@ -58,7 +58,6 @@
 </template>
 <script>
 
-// Icons
 import { 
   EyeIcon,
   EyeOffIcon,

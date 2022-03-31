@@ -53,7 +53,6 @@
 </div>
 </template>
 <script>
-// Icons
 import { EyeIcon, EyeOffIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
 import Helpers from "@/mixins/Helpers";
 import Separator from "@/components/ui/Separator.vue";

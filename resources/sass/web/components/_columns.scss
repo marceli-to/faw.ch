@@ -12,3 +12,11 @@
     column-gap: $space-12x;
   }
 }
+
+%columns-3,
+.columns-3 {
+  @extend %columns;
+  @include bp-md() {
+    columns: 3 auto;
+  }
+}

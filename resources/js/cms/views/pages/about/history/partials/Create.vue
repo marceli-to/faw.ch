@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import DataForm from '@/views/pages/annual_program/form.vue';
+import DataForm from '@/views/pages/about/history/form.vue';
 export default {
   components: {
     DataForm

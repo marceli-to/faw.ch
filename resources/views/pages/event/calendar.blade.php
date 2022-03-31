@@ -61,7 +61,7 @@
     @if ($annual_program->publishedArticles)
       <div class="grid grid-cols-12">
         @foreach($annual_program->publishedArticles as $article)
-          <article class="text md:span-6 lg:span-4">
+          <article class="text">
             <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
             <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
               {!! $article->text !!}
@@ -79,7 +79,7 @@
     @if ($annual_program->publishedArticlesSpecial)
       <div class="grid grid-cols-12">
         @foreach($annual_program->publishedArticlesSpecial as $article)
-          <article class="text md:span-6 lg:span-4">
+          <article class="text">
             <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
             <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
               {!! $article->text !!}

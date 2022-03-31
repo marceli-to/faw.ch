@@ -49,4 +49,22 @@
       @extend %mr-3x;
     }
   }
+
+  &.anchor--toggle {
+    svg:first-of-type {
+      display: inline-block;
+    }
+    svg:last-of-type {
+      display: none;
+    }
+
+    &.is-active {
+      svg:first-of-type {
+        display: none;
+      }
+      svg:last-of-type {
+        display: inline-block;
+      }
+    }
+  }
 }

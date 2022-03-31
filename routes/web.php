@@ -5,6 +5,9 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DebateController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +28,9 @@ Route::get('/veranstaltungen/unser-bahnhof-winterthur', [EventController::class,
 Route::get('/veranstaltungen/stadtwerkstatt', [EventController::class, 'workshop'])->name('page.event.workshop');
 Route::get('/veranstaltungen/archiv', [EventController::class, 'archive'])->name('page.event.archive');
 Route::get('/debatten', [DebateController::class, 'index'])->name('page.debate');
+Route::get('/ueber-uns', [AboutController::class, 'index'])->name('page.about');
+Route::get('/mitgliedschaft', [MemberController::class, 'index'])->name('page.member');
+Route::get('/kontakt', [ContactController::class, 'index'])->name('page.contact');
 
 
 // Url based images

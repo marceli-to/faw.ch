@@ -12,7 +12,7 @@ $step: 2px;
 
 // Margin
 .mx-auto { margin-left: auto; margin-right: auto; }
- 
+
 @for $i from 1 through 50 { %my-#{$i}x, .my-#{$i}x { margin: $i * $step 0; } }
 @for $i from 1 through 50 { %md\:my-#{$i}x, .md\:my-#{$i}x { @include bp-md() { margin: $i * $step 0; } } }
 @for $i from 1 through 50 { %lg\:my-#{$i}x, .lg\:my-#{$i}x { @include bp-lg() { margin: $i * $step 0; } } }
@@ -36,6 +36,24 @@ $step: 2px;
 @for $i from 1 through 50 { %mr-#{$i}x, .mr-#{$i}x { margin-right: $i * $step; } }
 @for $i from 1 through 50 { %md\:mr-#{$i}x, .md\:mr-#{$i}x { @include bp-md() { margin-right: $i * $step; } } }
 @for $i from 1 through 50 { %lg\:mr-#{$i}x, .lg\:mr-#{$i}x { @include bp-lg() { margin-right: $i * $step; } } }
+
+.md\:my-0 { @include bp-md() { margin-top: 0; margin-bottom: 0; } }
+.lg\:my-0 { @include bp-lg() { margin-top: 0; margin-bottom: 0; } }
+
+.md\:mx-0 { @include bp-md() { margin-left: 0; margin-right: 0; } }
+.lg\:mx-0 { @include bp-lg() { margin-left: 0; margin-right: 0; } }
+
+.md\:mt-0 { @include bp-md() { margin-top: 0; } }
+.lg\:mt-0 { @include bp-lg() { margin-top: 0; } }
+
+.md\:mr-0 { @include bp-md() { margin-right: 0; } }
+.lg\:mr-0 { @include bp-lg() { margin-right: 0; } }
+
+.md\:mb-0 { @include bp-md() { margin-bottom: 0; } }
+.lg\:mb-0 { @include bp-lg() { margin-bottom: 0; } }
+
+.md\:ml-0 { @include bp-md() { margin-left: 0; } }
+.lg\:ml-0 { @include bp-lg() { margin-left: 0; } }
 
 // Padding
 .px-auto { padding-left: auto; padding-right: auto; }

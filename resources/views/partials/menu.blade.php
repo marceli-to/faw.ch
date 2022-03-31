@@ -19,9 +19,9 @@
       </li>
     </ul>
     <ul class="is-meta">
-      <li><a href="">Über uns</a></li>
-      <li><a href="">Mitgliedschaft</a></li>
-      <li><a href="">Kontakt</a></li>
+      <li><a href="{{ route('page.about') }}" class="{{ request()->routeIs('page.about') ? 'is-active' : '' }}" title="Über uns">Über uns</a></li>
+      <li><a href="{{ route('page.member') }}" class="{{ request()->routeIs('page.member') ? 'is-active' : '' }}" title="Mitgliedschaft">Mitgliedschaft</a></li>
+      <li><a href="{{ route('page.contact') }}" class="{{ request()->routeIs('page.contact') ? 'is-active' : '' }}" title="Kontakt">Kontakt</a></li>
       <li><a href="">Newsletter</a></li>
     </ul>
     <ul class="is-social">

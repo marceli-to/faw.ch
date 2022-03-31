@@ -4,11 +4,12 @@ var Utils = (function() {
 	
 	// selectors
 	var selectors = {
-    html:     'html',
-    body:     'body',
-    btnTouch: '[data-touch]',
-    btnMore:  '[data-more]',
-    btnLess:  '[data-less]',
+    html:      'html',
+    body:      'body',
+    btnTouch:  '[data-touch]',
+    btnMore:   '[data-more]',
+    btnLess:   '[data-less]',
+    btnToggle: '[data-toggle]',
   };
 
   var classes = {
@@ -35,6 +36,11 @@ var Utils = (function() {
       $(this).hide();
       $(this).prev('div').hide();
       $(this).next('div').show();
+    });
+
+    $(selectors.btnToggle).on('click', function(e) {
+      $(this).toggleClass(classes.active);
+      $(this).next('div').toggle();
     });
 
     $(selectors.btnLess).on('click', function(e) {

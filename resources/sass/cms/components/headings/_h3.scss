@@ -5,6 +5,7 @@
  */
 
 h3 {
+  color: $color-medium-grey;
   @include font-regular();
-  margin-bottom: 5px;
+  margin-bottom: 0;
 }

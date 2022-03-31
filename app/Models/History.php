@@ -1,0 +1,46 @@
+<?php
+namespace App\Models;
+use App\Models\Base;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class History extends Base
+{
+  use HasFactory;
+
+	protected $fillable = [
+    'title',
+    'text',
+    'publish'
+  ];
+
+  public function articles()
+  {
+    return $this->hasMany(HistoryArticle::class, 'history_id','id')->orderBy('order', 'ASC');
+  }
+
+  public function publishedArticles()
+  {
+    return $this->hasMany(HistoryArticle::class, 'history_id','id')->orderBy('order', 'ASC')->where('publish', 1);
+  }
+
+  public function files()
+  {
+    return $this->morphMany(File::class, 'fileable');
+  }
+
+  public function publishedFiles()
+  {
+    return $this->morphMany(File::class, 'fileable');
+  }
+
+  public function images()
+  {
+    return $this->morphMany(Image::class, 'imageable');
+  }
+
+  public function publishedImages()
+  {
+    return $this->morphMany(Image::class, 'imageable')->where('publish', 1);
+  }
+}

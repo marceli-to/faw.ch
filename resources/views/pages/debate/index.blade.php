@@ -22,7 +22,7 @@
     @if ($activity->publishedArticles)
       <div class="grid grid-cols-12">
         @foreach($activity->publishedArticles as $article)
-          <article class="text md:span-6 lg:span-4">
+          <article class="text">
             <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
             {!! $article->text !!}
             @if ($article->publishedFiles)

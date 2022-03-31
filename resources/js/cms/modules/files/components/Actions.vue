@@ -27,7 +27,6 @@
   </div>
 </template>
 <script>
-// Icons
 import { EditIcon, Trash2Icon, DownloadCloudIcon} from 'vue-feather-icons';
 
 export default {

@@ -7,6 +7,10 @@ import PartnerIndex from '@/views/pages/about/partner/Index.vue';
 import PartnerCreate from '@/views/pages/about/partner/partials/Create.vue';
 import PartnerEdit from '@/views/pages/about/partner/partials/Edit.vue';
 
+import HistoryIndex from '@/views/pages/about/history/Index.vue';
+import HistoryCreate from '@/views/pages/about/history/partials/Create.vue';
+import HistoryEdit from '@/views/pages/about/history/partials/Edit.vue';
+
 const routes = [
   {
     name: 'about',
@@ -43,6 +47,22 @@ const routes = [
     name: 'partner-edit',
     path: '/administration/about/partner/edit/:id',
     component: PartnerEdit,
+  },
+  
+  {
+    name: 'history',
+    path: '/administration/about/history',
+    component: HistoryIndex,
+  },
+  {
+    name: 'history-create',
+    path: '/administration/about/history/create',
+    component: HistoryCreate,
+  },
+  {
+    name: 'history-edit',
+    path: '/administration/about/history/edit/:id',
+    component: HistoryEdit,
   },
 ];
 

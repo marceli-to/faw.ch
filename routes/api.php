@@ -11,6 +11,8 @@ use App\Http\Controllers\Api\AnnualProgramController;
 use App\Http\Controllers\Api\AnnualProgramArticleController;
 use App\Http\Controllers\Api\ActivityController;
 use App\Http\Controllers\Api\ActivityArticleController;
+use App\Http\Controllers\Api\HistoryController;
+use App\Http\Controllers\Api\HistoryArticleController;
 use App\Http\Controllers\Api\BackerController;
 use App\Http\Controllers\Api\BackerTypeController;
 use App\Http\Controllers\Api\PartnerController;
@@ -147,6 +149,23 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::put('partner/{partner}', [PartnerController::class, 'update']);
   Route::get('partner/state/{partner}', [PartnerController::class, 'toggle']);
   Route::delete('partner/{partner}', [PartnerController::class, 'destroy']);
+
+  // History
+  Route::get('histories/{constraint?}', [HistoryController::class, 'get']);
+  Route::get('history/{history}', [HistoryController::class, 'find']);
+  Route::post('history', [HistoryController::class, 'store']);
+  Route::put('history/{history}', [HistoryController::class, 'update']);
+  Route::get('history/state/{history}', [HistoryController::class, 'toggle']);
+  Route::delete('history/{history}', [HistoryController::class, 'destroy']);
+
+  // History Articles
+  Route::get('history-articles/{history}/{constraint?}', [HistoryArticleController::class, 'get']);
+  Route::get('history-article/{article}', [HistoryArticleController::class, 'find']);
+  Route::post('history-article', [HistoryArticleController::class, 'store']);
+  Route::put('history-article/{article}', [HistoryArticleController::class, 'update']);
+  Route::get('history-article/state/{article}', [HistoryArticleController::class, 'toggle']);
+  Route::post('history-article/order', [HistoryArticleController::class, 'order']);
+  Route::delete('history-article/{article}', [HistoryArticleController::class, 'destroy']);
 
 });
 
