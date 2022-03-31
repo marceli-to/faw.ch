@@ -2,10 +2,10 @@
   <div>
     <ul class="is-main">
       <li>
-        <a href="">Veranstaltungen</a>
-        <ul>
+        <a href="javascript:;" class="{{ request()->routeIs('page.event.*') ? 'is-active' : '' }} js-menu-btn-toggle">Veranstaltungen</a>
+        <ul style="display: {{ request()->routeIs('page.event.*') ? 'block' : 'none' }}">
           <li><a href="{{ route('page.event.calendar') }}" class="{{ request()->routeIs('page.event.calendar') ? 'is-active' : '' }}" title="Kalender">Kalender</a></li>
-          <li><a href="{{ route('page.event.calendar') . '/#jahresprogramm' }}" class="{{ request()->routeIs('page.event.activities') ? 'is-active' : '' }}" title="Jahresprogramm">Jahresprogramm</a></li>
+          <li><a href="{{ route('page.event.activities') . '/#jahresprogramm' }}" class="{{ request()->routeIs('page.event.activities') ? 'is-active' : '' }}" title="Jahresprogramm">Jahresprogramm</a></li>
           <li><a href="{{ route('page.event.station') }}" class="{{ request()->routeIs('page.event.station') ? 'is-active' : '' }}" title="Unser Bahnhof Winterthur">Unser Bahnhof Winterthur</a></li>
           <li><a href="{{ route('page.event.workshop') }}" class="{{ request()->routeIs('page.event.workshop') ? 'is-active' : '' }}" title="Stadtwerkstatt">Stadtwerkstatt</a></li>
           <li><a href="{{ route('page.event.archive') }}" class="{{ request()->routeIs('page.event.archive') ? 'is-active' : '' }}" title="Archiv">Archiv</a></li>

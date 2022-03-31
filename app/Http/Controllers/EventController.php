@@ -34,7 +34,7 @@ class EventController extends BaseController
 
   public function activities()
   {
-    
+    return $this->calendar();
   }
 
   public function station()
