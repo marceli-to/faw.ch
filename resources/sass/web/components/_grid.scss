@@ -18,6 +18,20 @@
 }
 
 @for $i from 1 through 12 {
+  %sm\:grid-cols-#{$i},
+  .sm\:grid-cols-#{$i} {
+    display: grid;
+    grid-template-columns: repeat($i, minmax(0, 1fr));
+    grid-gap: $space-8x;
+    
+    @include bp-lg() {
+      grid-gap: $space-9x;
+    }
+
+  }
+}
+
+@for $i from 1 through 12 {
   %grid-cols-#{$i},
   .grid-cols-#{$i} {
 

@@ -48,4 +48,27 @@
     </div>
   </section>
 @endif
+
+@if ($board)
+  @if ($board->publishedImages)
+    <section class="content-visual">
+      <x-gallery :images="$board->publishedImages" limit="true" />
+    </section>
+  @endif
+  <section class="content">
+    <div>
+      <h1>{{ $board->title }}</h1>
+      @if ($board->publishedMembers)
+        <div class="grid grid-cols-12">
+          @foreach($board->publishedMembers as $member)
+            <article class="member">
+              <strong>{{ $member->name }}</strong><br>
+              {!! $member->text !!}
+            </article>
+          @endforeach
+        </div>
+      @endif
+    </div>
+  </section>
+@endif
 @endsection

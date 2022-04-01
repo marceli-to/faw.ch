@@ -7,7 +7,7 @@
     <article class="lead">
       {!! $text_intro !!}
     </article>
-    <div class="ratio-container is-3x2">
+    <div class="ratio-container is-1x2 sm:is-3x2">
       <iframe src="https://padlet.com/embed/g8h4epjqouxam9hj" frameborder="0" allow="camera;microphone;geolocation"></iframe>
     </div>
   </div>

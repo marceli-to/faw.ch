@@ -13,6 +13,8 @@ use App\Http\Controllers\Api\ActivityController;
 use App\Http\Controllers\Api\ActivityArticleController;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\HistoryArticleController;
+use App\Http\Controllers\Api\BoardController;
+use App\Http\Controllers\Api\BoardMemberController;
 use App\Http\Controllers\Api\BackerController;
 use App\Http\Controllers\Api\BackerTypeController;
 use App\Http\Controllers\Api\PartnerController;
@@ -166,6 +168,23 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('history-article/state/{article}', [HistoryArticleController::class, 'toggle']);
   Route::post('history-article/order', [HistoryArticleController::class, 'order']);
   Route::delete('history-article/{article}', [HistoryArticleController::class, 'destroy']);
+
+  // Board
+  Route::get('boards/{constraint?}', [BoardController::class, 'get']);
+  Route::get('board/{board}', [BoardController::class, 'find']);
+  Route::post('board', [BoardController::class, 'store']);
+  Route::put('board/{board}', [BoardController::class, 'update']);
+  Route::get('board/state/{board}', [BoardController::class, 'toggle']);
+  Route::delete('board/{board}', [BoardController::class, 'destroy']);
+
+  // Board Members
+  Route::get('board-members/{board}/{constraint?}', [BoardMemberController::class, 'get']);
+  Route::get('board-member/{member}', [BoardMemberController::class, 'find']);
+  Route::post('board-member', [BoardMemberController::class, 'store']);
+  Route::put('board-member/{member}', [BoardMemberController::class, 'update']);
+  Route::get('board-member/state/{member}', [BoardMemberController::class, 'toggle']);
+  Route::post('board-member/order', [BoardMemberController::class, 'order']);
+  Route::delete('board-member/{member}', [BoardMemberController::class, 'destroy']);
 
 });
 

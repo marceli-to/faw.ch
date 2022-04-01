@@ -12,6 +12,10 @@
   width: 100%;
   height: auto;
 
+  &.is-1x2 {
+    padding-bottom: 150%;
+  }
+
   &.is-3x2 {
     padding-bottom: 66.66666%;
   }
@@ -23,6 +27,13 @@
   &.is-16x9 {
     padding-bottom: 56.25%;
   }
+
+  @include bp-sm() {
+    &.sm\:is-3x2 {
+      padding-bottom: 66.66666%;
+    }
+  }
+
 }
 
 .ratio-container iframe,

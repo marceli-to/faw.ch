@@ -21,10 +21,19 @@ article.lead {
   }
 }
 
-article.text {
-  @extend %mb-12x;
+article.text,
+article.member {
   @extend %md\:span-6;
   @extend %lg\:span-4;
+}
+
+article.member {
+  @extend %mb-12x;
+  @extend %md\:mb-0;
+}
+
+article.text {
+  @extend %mb-12x;
 
   &:last-of-type {
     margin-bottom: 0;

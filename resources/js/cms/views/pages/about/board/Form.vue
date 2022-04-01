@@ -16,19 +16,19 @@
         <template v-if="$props.type == 'edit'">
           <div class="form-row sb-lg">
             <page-header>
-              <h3>Artikel</h3>
-              <a href="javascript:;" @click="$refs.historyArticleForm.show();" class="btn-add has-icon">
+              <h3>Mitglieder</h3>
+              <a href="javascript:;" @click="$refs.boardMemberForm.show();" class="btn-add has-icon">
                 <plus-icon size="16"></plus-icon>
                 <span>Hinzufügen</span>
               </a>
             </page-header>
-            <history-articles :articles="data.articles" :historyId="data.id"></history-articles>
+            <board-members :members="data.members" :boardId="data.id"></board-members>
           </div>
         </template>
         <template v-else>
           <div class="sb-lg"><strong>Artikel können erst nach dem Speichern hinzugefügt werden.</strong></div>
         </template>
-        <history-article-form :type="'create'" :historyId="data.id" ref="historyArticleForm"></history-article-form>
+        <board-member-form :type="'create'" :boardId="data.id" ref="boardMemberForm"></board-member-form>
       </div>
     </div>
     <div v-show="tabs.images.active">
@@ -37,9 +37,6 @@
         :imageRatioH="2"
         :images="data.images">
       </images>
-    </div>
-    <div v-show="tabs.files.active">
-      <files :files="data.files"></files>
     </div>
     <div v-show="tabs.settings.active">
       <div>
@@ -68,13 +65,12 @@ import ButtonBack from "@/components/ui/ButtonBack.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import Tabs from "@/components/ui/Tabs.vue";
-import tabsConfig from "@/views/pages/about/history/config/tabs.js";
+import tabsConfig from "@/views/pages/about/board/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
-import Files from "@/modules/files/Index.vue";
 import Images from "@/modules/images/Index.vue";
-import HistoryArticles from "@/views/pages/about/history/article/Index.vue";
-import HistoryArticleForm from "@/views/pages/about/history/article/Form.vue";
+import BoardMembers from "@/views/pages/about/board/member/Index.vue";
+import BoardMemberForm from "@/views/pages/about/board/member/Form.vue";
 
 export default {
   components: {
@@ -86,9 +82,8 @@ export default {
     Tabs,
     PageFooter,
     PageHeader,
-    HistoryArticles,
-    HistoryArticleForm,
-    Files,
+    BoardMembers,
+    BoardMemberForm,
     Images
   },
 
@@ -106,7 +101,8 @@ export default {
         id: null,
         title: null,
         publish: 1,
-        articles: [],
+        images: [],
+        members: [],
       },
 
       // Validation
@@ -116,9 +112,9 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/history',
-        store: '/api/history',
-        update: '/api/history',
+        get: '/api/board',
+        store: '/api/board',
+        update: '/api/board',
       },
 
       // States
@@ -149,12 +145,10 @@ export default {
 
   methods: {
 
-    // Submit form
     submit() {
       if (this.$props.type == "edit") {
         this.update();
       }
-
       if (this.$props.type == "create") {
         this.store();
       }
@@ -163,7 +157,7 @@ export default {
     store() {
       this.isLoading = true;
       this.axios.post(this.routes.store, this.data).then(response => {
-        this.$router.push({ name: "history"});
+        this.$router.push({ name: "boards"});
         this.$notify({ type: "success", text: this.messages.stored });
         this.isLoading = false;
       });
@@ -172,7 +166,7 @@ export default {
     update() {
       this.isLoading = true;
       this.axios.put(`${this.routes.update}/${this.$route.params.id}`, this.data).then(response => {
-        this.$router.push({ name: "history"});
+        this.$router.push({ name: "boards"});
         this.$notify({ type: "success", text: this.messages.updated });
         this.isLoading = false;
       });
@@ -182,8 +176,8 @@ export default {
   computed: {
     title() {
       return this.$props.type == "edit" 
-        ? "Geschichte bearbeiten" 
-        : "Geschichte hinzufügen";
+        ? "Vorstand bearbeiten" 
+        : "Vorstand hinzufügen";
     }
   }
 };

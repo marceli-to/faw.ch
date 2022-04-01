@@ -30,15 +30,15 @@
         </div>
       </div>
       <div class="form-group grid-cols-12">
-        <div class="form-group md:span-6">
+        <div class="md:span-6">
           <input type="text" name="address" placeholder="Adresse">
         </div>
-        <div class="form-group md:span-6">
-          <div class="grid-cols-12">
-            <div class="span-6 md:span-3">
+        <div class="md:span-6">
+          <div class="sm:grid-cols-12">
+            <div class="span-4 md:span-3">
               <input type="text" name="zip" placeholder="PLZ">
             </div>
-            <div class="span-6 md:span-9">
+            <div class="span-8 md:span-9">
               <input type="text" name="city" placeholder="Wohnort">
             </div>
           </div>

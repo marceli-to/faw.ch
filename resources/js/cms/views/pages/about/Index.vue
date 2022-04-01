@@ -22,13 +22,12 @@
           <p>Verwaltung der Geschichte</p>
         </router-link>
       </div>
-      <!--
       <div class="card">
-        <router-link :to="{name: 'teasers'}">
-          <h2>Teaser</h2>
-          <p>Verwaltung der Teaser</p>
+        <router-link :to="{name: 'boards'}">
+          <h2>Vorstand</h2>
+          <p>Verwaltung der Vorstandsmitglieder</p>
         </router-link>
-      </div> -->
+      </div>
     </div>
     <page-footer>
       <button-back :route="'dashboard'">Zurück</button-back>

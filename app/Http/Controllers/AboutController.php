@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\History;
+use App\Models\Board;
 use Illuminate\Http\Request;
 
 class AboutController extends BaseController
@@ -22,7 +23,8 @@ class AboutController extends BaseController
   public function index()
   {
     $history = History::published()->with('publishedImages', 'publishedFiles', 'publishedArticles')->get()->first();
-    return view($this->viewPath . 'index', ['history' => $history]);
+    $board   = Board::published()->with('publishedImages', 'publishedMembers')->get()->first();
+    return view($this->viewPath . 'index', ['history' => $history, 'board' => $board]);
   }
 
 }

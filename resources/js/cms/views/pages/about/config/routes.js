@@ -11,6 +11,10 @@ import HistoryIndex from '@/views/pages/about/history/Index.vue';
 import HistoryCreate from '@/views/pages/about/history/partials/Create.vue';
 import HistoryEdit from '@/views/pages/about/history/partials/Edit.vue';
 
+import BoardIndex from '@/views/pages/about/board/Index.vue';
+import BoardCreate from '@/views/pages/about/board/partials/Create.vue';
+import BoardEdit from '@/views/pages/about/board/partials/Edit.vue';
+
 const routes = [
   {
     name: 'about',
@@ -63,6 +67,22 @@ const routes = [
     name: 'history-edit',
     path: '/administration/about/history/edit/:id',
     component: HistoryEdit,
+  },
+
+  {
+    name: 'boards',
+    path: '/administration/about/boards',
+    component: BoardIndex,
+  },
+  {
+    name: 'board-create',
+    path: '/administration/about/board/create',
+    component: BoardCreate,
+  },
+  {
+    name: 'board-edit',
+    path: '/administration/about/board/edit/:id',
+    component: BoardEdit,
   },
 ];
 
