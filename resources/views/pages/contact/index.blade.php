@@ -26,10 +26,7 @@
       Bilder: Andreas Mader, Winterthur
     </x-toggle-text>
     <x-toggle-text title="Datenschutz" cssClass="mt-6x md:mt-10x text-max-width">
-      Inhalt: Forum Architektur Winterthur<br>
-      Konzept und Gestaltung: Bivgrafik GmbH, Zürich<br>
-      Programmierung: Marcel Stadelmann, marceli.to, Zürich<br>
-      Bilder: Andreas Mader, Winterthur
+      [Inhalt fehlt]
     </x-toggle-text>
   </div>
 </section>
