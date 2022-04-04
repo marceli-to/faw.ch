@@ -57,7 +57,7 @@ return array(
     'large' => 'Intervention\Image\Templates\Large',
     'cache' => 'App\Filters\Image\Template\Cache',
     'thumbnail' => 'App\Filters\Image\Template\Thumbnail',
-    'tiny' => 'App\Filters\Image\Template\tiny',
+    'tiny' => 'App\Filters\Image\Template\Tiny',
   ),
 
   /*
