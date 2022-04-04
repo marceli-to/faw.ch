@@ -18,6 +18,8 @@ use App\Http\Controllers\Api\BoardMemberController;
 use App\Http\Controllers\Api\BackerController;
 use App\Http\Controllers\Api\BackerTypeController;
 use App\Http\Controllers\Api\PartnerController;
+use App\Http\Controllers\Api\PageController;
+use App\Http\Controllers\Api\ArticleController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\LinkController;
@@ -185,6 +187,23 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('board-member/state/{member}', [BoardMemberController::class, 'toggle']);
   Route::post('board-member/order', [BoardMemberController::class, 'order']);
   Route::delete('board-member/{member}', [BoardMemberController::class, 'destroy']);
+
+  // Pages
+  Route::get('pages/{constraint?}', [PageController::class, 'get']);
+  Route::get('page/{page}', [PageController::class, 'find']);
+  Route::post('page', [PageController::class, 'store']);
+  Route::put('page/{page}', [PageController::class, 'update']);
+  Route::get('page/state/{page}', [PageController::class, 'toggle']);
+  Route::delete('page/{page}', [PageController::class, 'destroy']);
+
+  // Page Articles
+  Route::get('page-articles/{page}/{constraint?}', [ArticleController::class, 'get']);
+  Route::get('page-article/{article}', [ArticleController::class, 'find']);
+  Route::post('page-article', [ArticleController::class, 'store']);
+  Route::put('page-article/{article}', [ArticleController::class, 'update']);
+  Route::get('page-article/state/{article}', [ArticleController::class, 'toggle']);
+  Route::post('page-article/order', [ArticleController::class, 'order']);
+  Route::delete('page-article/{article}', [ArticleController::class, 'destroy']);
 
 });
 

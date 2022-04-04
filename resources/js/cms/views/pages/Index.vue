@@ -23,6 +23,12 @@
         </router-link>
       </div>
       <div class="card">
+        <router-link :to="{name: 'page'}">
+          <h2>Spezialseiten</h2>
+          <p>«Winterthur im Bild» und «Unser Bahnhof Winterthur»</p>
+        </router-link>
+      </div>
+      <div class="card">
         <router-link :to="{name: 'activities'}">
           <h2>Aktivitäten</h2>
           <p>Verwaltung der Aktivitäten</p>

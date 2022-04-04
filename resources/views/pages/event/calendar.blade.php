@@ -39,10 +39,10 @@
     </div>
   </div>
 </section>
-<section class="content-visual">
+<section class="content-visual" id="jahresprogramm">
   <x-gallery :images="$annual_program->publishedImages" limit="true" />
 </section>
-<section class="content" id="jahresprogramm">
+<section class="content">
   <div>
     <h1>Jahresprogramm</h1>
     <x-heading type="h2" title="{{ $annual_program->title }}" subtitle="{{ $annual_program->subtitle }}" />
