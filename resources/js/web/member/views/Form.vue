@@ -1,6 +1,6 @@
 <template>
 <div>
-  <form  @submit.prevent="register()">
+  <form @submit.prevent="register()">
     
     <div v-if="hasErrors" class="alert alert--danger">
       <h3>Bitte Eingaben prüfen!</h3>
@@ -153,6 +153,9 @@ export default {
         if (errorData.email) {
           this.errors.email = true;
         }
+
+        const form = document.querySelector('form');
+        form.scrollIntoView({ block: 'start', behavior: 'smooth' });
       });
     },
 
