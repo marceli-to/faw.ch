@@ -6,6 +6,8 @@
  */
 
 .alert {
+  @extend %my-12x;
+  @extend %md\:my-18x;
   max-width: 480px;
 
   &.alert--danger {

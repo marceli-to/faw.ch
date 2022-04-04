@@ -3,3 +3,7 @@
  * File: form/validation
  * -----------------------------------------------------------------------------
  */
+
+input.is-invalid {
+  border-bottom: 1px solid $color-danger;
+}

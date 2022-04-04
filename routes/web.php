@@ -30,6 +30,7 @@ Route::get('/veranstaltungen/archiv', [EventController::class, 'archive'])->name
 Route::get('/debatten', [DebateController::class, 'index'])->name('page.debate');
 Route::get('/ueber-uns', [AboutController::class, 'index'])->name('page.about');
 Route::get('/mitgliedschaft', [MemberController::class, 'index'])->name('page.member');
+Route::post('/mitglied-werden', [MemberController::class, 'register']);
 Route::get('/kontakt', [ContactController::class, 'index'])->name('page.contact');
 
 

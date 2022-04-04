@@ -6,8 +6,7 @@ mix.webpackConfig({
         alias: {
             //'vue$': 'vue/dist/vue.esm.js',
             '@': __dirname + '/resources/js/cms/',
-            '@register': __dirname + '/resources/js/web/register/',
-            '@newsletter': __dirname + '/resources/js/web/newsletter/',
+            '@member': __dirname + '/resources/js/web/member/',
         },
     },
 });
@@ -27,6 +26,9 @@ mix.webpackConfig({
 // Web
 mix.sass('resources/sass/web/app.scss', 'public/assets/css/app.css').options({processCssUrls: false}).version();
 mix.js('resources/js/web/app.js', 'public/assets/js/app.js').version();
+
+// Web - Member
+mix.js('resources/js/web/member/app.js', 'public/assets/js/member.js').version();
 
 // App
 mix.js('resources/js/cms/app.js', 'public/assets/js/cms/app.js').version();
