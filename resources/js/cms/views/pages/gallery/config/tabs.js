@@ -11,6 +11,12 @@ export default {
     active: false,
     error: false
   },
+  video: {
+    key: 'video',
+    label: 'Video',
+    active: false,
+    error: false
+  },
   settings: {
     key: 'settings',
     label: 'Einstellungen',

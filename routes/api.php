@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\LinkController;
+use App\Http\Controllers\Api\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,15 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::put('link/{link}', [LinkController::class, 'update']);
   Route::get('link/state/{link}', [LinkController::class, 'toggle']);
   Route::delete('link/{link}', [LinkController::class, 'destroy']);
+
+  // Videos
+  Route::get('videos', [VideoController::class, 'get']);
+  Route::post('video/order', [VideoController::class, 'order']);
+  Route::get('video/{video}', [VideoController::class, 'find']);
+  Route::post('video', [VideoController::class, 'store']);
+  Route::put('video/{video}', [VideoController::class, 'update']);
+  Route::get('video/state/{video}', [VideoController::class, 'toggle']);
+  Route::delete('video/{video}', [VideoController::class, 'destroy']);
 
   // Grid items
   Route::get('grid/items', [GridItemController::class, 'get']);

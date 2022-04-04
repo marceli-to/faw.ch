@@ -39,6 +39,9 @@
         :images="data.images">
       </images>
     </div>
+    <div v-show="tabs.video.active">
+      <videos :videos="data.videos"></videos>
+    </div>
     <div v-show="tabs.settings.active">
       <div>
         <div class="form-row">
@@ -69,6 +72,7 @@ import tabsConfig from "@/views/pages/gallery/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import Images from "@/modules/images/Index.vue";
+import Videos from "@/modules/videos/Index.vue";
 
 export default {
   components: {
@@ -80,6 +84,7 @@ export default {
     PageFooter,
     PageHeader,
     Images,
+    Videos
   },
 
   mixins: [ErrorHandling],
@@ -100,6 +105,7 @@ export default {
         link_text: null,
         publish: 1,
         images: [],
+        videos: [],
       },
 
       // Validation

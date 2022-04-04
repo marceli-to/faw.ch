@@ -24,9 +24,9 @@ class Gallery extends Model
     return $this->morphMany(Image::class, 'imageable');
   }
 
-  public function image()
+  public function videos()
   {
-    return $this->morphOne(Image::class, 'imageable');
+    return $this->morphMany(Video::class, 'videoable');
   }
 
 	public function articles()

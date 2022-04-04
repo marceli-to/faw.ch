@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Gallery;
 use App\Models\Image;
+use App\Models\Video;
 use App\Http\Requests\GalleryStoreRequest;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,7 @@ class GalleryController extends Controller
    */
   public function find(Gallery $gallery)
   {
-    $gallery = Gallery::with('images')->find($gallery->id);
+    $gallery = Gallery::with('images', 'videos')->find($gallery->id);
     return response()->json($gallery);
   }
 
@@ -47,6 +48,7 @@ class GalleryController extends Controller
     $gallery = Gallery::create($request->all());
     $gallery->save();
     $this->handleImages($gallery, $request->input('images'));
+    $this->handleVideos($gallery, $request->input('videos'));
     return response()->json(['pageId' => $gallery->id]);
   }
 
@@ -63,6 +65,7 @@ class GalleryController extends Controller
     $gallery->update($request->all());
     $gallery->save();
     $this->handleImages($gallery, $request->input('images'));
+    $this->handleVideos($gallery, $request->input('videos'));
     return response()->json('successfully updated');
   }
 
@@ -111,6 +114,29 @@ class GalleryController extends Controller
         $img->imageable_id = $gallery->id;
         $img->imageable_type = Gallery::class;
         $img->save();
+      }
+    }
+  }
+
+
+  /**
+   * Handle associated videos
+   *
+   * @param Gallery $gallery
+   * @param Array $videos
+   * @return void
+   */  
+
+  protected function handleVideos(Gallery $gallery, $videos = NULL)
+  {
+    if ($videos)
+    {
+      foreach($videos as $video)
+      {
+        $vid = Video::findOrFail($video['id']);
+        $vid->videoable_id = $gallery->id;
+        $vid->videoable_type = Gallery::class;
+        $vid->save();
       }
     }
   }
