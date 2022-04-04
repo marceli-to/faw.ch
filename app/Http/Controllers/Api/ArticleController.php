@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Article;
+use App\Models\ArticleGallery;
 use App\Models\Image;
 use App\Http\Requests\ArticleStoreRequest;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class ArticleController extends Controller
    */
   public function find(Article $article)
   {
-    $article = Article::with('images')->find($article->id);
+    $article = Article::with('images', 'galleries')->find($article->id);
     return response()->json($article);
   }
 
@@ -48,6 +49,7 @@ class ArticleController extends Controller
     $article = Article::create($request->all());
     $article->save();
     $this->handleImages($article, $request->input('images'));
+    $this->handleGalleries($article, $request->input('galleries'));
     return response()->json(['articleId' => $article->id]);
   }
 
@@ -64,6 +66,7 @@ class ArticleController extends Controller
     $article->update($request->all());
     $article->save();
     $this->handleImages($article, $request->input('images'));
+    $this->handleGalleries($article, $request->input('galleries'));
     return response()->json('successfully updated');
   }
 
@@ -130,6 +133,27 @@ class ArticleController extends Controller
         $img->imageable_type = Article::class;
         $img->save();
       }
+    }
+  }
+
+  /**
+   * Handle associated galleries
+   * 
+   * @param Article $article
+   * @param Array $galleries
+   * @return void
+   */
+
+  protected function handleGalleries(Article $article, $galleries)
+  {
+    $article->galleries()->detach();
+    foreach($galleries as $g)
+    { 
+      $record = new ArticleGallery([
+        'article_id' => $article->id,
+        'gallery_id' => $g['id'],
+      ]);
+      $record->save();
     }
   }
 }

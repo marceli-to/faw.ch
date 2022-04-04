@@ -11,4 +11,10 @@ export default {
     active: false,
     error: false
   },
+  galleries: {
+    key: 'galleries',
+    label: 'Mediengalerien',
+    active: false,
+    error: false
+  },
 };

@@ -34,6 +34,9 @@
             <div v-show="tabs.images.active">
               <images :images="data.images"></images>
             </div>
+            <div v-show="tabs.galleries.active">
+              <galleries :galleries="data.galleries" :articleId="data.id"></galleries>
+            </div>
           </div>
           <footer>
             <button-submit>Speichern</button-submit>
@@ -51,6 +54,7 @@ import tinyConfig from "@/config/tiny.js";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
 import Images from "@/modules/images/Index.vue";
+import Galleries from "@/modules/galleries/Index.vue";
 import Tabs from "@/components/ui/Tabs.vue";
 import tabsConfig from "@/views/pages/page/article/config/tabs.js";
 
@@ -62,6 +66,7 @@ export default {
     TinymceEditor,
     ButtonSubmit,
     Images,
+    Galleries,
     Tabs
   },
 
@@ -82,6 +87,7 @@ export default {
         subtitle: null,
         text: null,
         images: [],
+        galleries: [],
         publish: 1,
         page_id: this.$props.pageId
       },

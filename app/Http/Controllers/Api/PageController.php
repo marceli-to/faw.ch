@@ -32,7 +32,7 @@ class PageController extends Controller
    */
   public function find(Page $page)
   {
-    $page = Page::with('articles.images', 'images')->find($page->id);
+    $page = Page::with('articles.images', 'articles.galleries', 'images')->find($page->id);
     return response()->json($page);
   }
 
