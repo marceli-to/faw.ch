@@ -4,8 +4,8 @@
   <div v-if="isFetched" class="is-loaded">
     
     <page-header>
-      <h1>Aktivitäten</h1>
-      <router-link :to="{ name: 'activity-create'}" class="btn-add has-icon">
+      <h1>Mediengalerien</h1>
+      <router-link :to="{ name: 'gallery-create' }" class="btn-add has-icon">
         <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
@@ -23,7 +23,7 @@
         <list-actions 
           :id="d.id" 
           :record="d"
-          :routes="{edit: 'activity-edit'}">
+          :routes="{edit: 'gallery-edit'}">
         </list-actions>
       </div>
     </div>
@@ -37,11 +37,12 @@
 </div>
 </template>
 <script>
-import { PlusIcon, EditIcon, Trash2Icon, StarIcon } from 'vue-feather-icons';
-import ButtonBack from "@/components/ui/ButtonBack.vue";
+import { PlusIcon, EditIcon, Trash2Icon } from 'vue-feather-icons';
 import Helpers from "@/mixins/Helpers";
+import ButtonBack from "@/components/ui/ButtonBack.vue";
 import ListActions from "@/components/ui/ListActions.vue";
 import Separator from "@/components/ui/Separator.vue";
+import draggable from "vuedraggable";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 
@@ -52,11 +53,11 @@ export default {
     Separator,
     PlusIcon,
     EditIcon,
-    StarIcon,
     Trash2Icon,
     ButtonBack,
     PageFooter,
     PageHeader,
+    draggable
   },
 
   mixins: [Helpers],
@@ -68,10 +69,10 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/activities',
-        store: '/api/activity',
-        delete: '/api/activity',
-        toggle: '/api/activity/state',
+        get: '/api/galleries',
+        store: '/api/gallery',
+        delete: '/api/gallery',
+        toggle: '/api/gallery/state',
       },
 
       // States

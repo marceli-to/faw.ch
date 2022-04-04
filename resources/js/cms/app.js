@@ -47,6 +47,7 @@ import programRoutes from '@/views/pages/annual_program/config/routes';
 import activityRoutes from '@/views/pages/activity/config/routes';
 import pageRoutes from '@/views/pages/page/config/routes';
 import aboutRoutes from '@/views/pages/about/config/routes';
+import galleryRoutes from '@/views/pages/gallery/config/routes';
 
 const router = new VueRouter(
   { 
@@ -59,7 +60,8 @@ const router = new VueRouter(
       ...programRoutes,
       ...activityRoutes,
       ...aboutRoutes,
-      ...pageRoutes
+      ...pageRoutes,
+      ...galleryRoutes,
     ]
   }
 );

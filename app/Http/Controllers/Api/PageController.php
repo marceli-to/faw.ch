@@ -87,7 +87,7 @@ class PageController extends Controller
    */
   public function destroy(Page $page)
   {
-    $page = Page::with('articles')->find($page->id);
+    $page = Page::with('articles.images')->find($page->id);
     $page->articles()->delete();
     $page->articles()->images()->delete();
     $page->delete();

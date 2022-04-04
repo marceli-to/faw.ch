@@ -104,7 +104,7 @@ export default {
       });
     },
 
-    toggle(id,event) {
+    toggle(id) {
       this.isLoading = true;
       this.axios.get(`${this.routes.toggle}/${id}`).then(response => {
         const index = this.data.findIndex(x => x.id === id);
@@ -114,7 +114,7 @@ export default {
       });
     },
 
-    destroy(id, event) {
+    destroy(id) {
       if (confirm(this.messages.confirm)) {
         this.isLoading = true;
         this.axios.delete(`${this.routes.delete}/${id}`).then(response => {

@@ -40,6 +40,12 @@
           <p>Verwaltung von Über uns</p>
         </router-link>
       </div>
+      <div class="card">
+        <router-link :to="{name: 'galleries'}">
+          <h2>Mediengalerien</h2>
+          <p>Verwaltung der Mediengalerien</p>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

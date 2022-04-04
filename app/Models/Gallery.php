@@ -5,23 +5,19 @@ use App\Models\Base;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Base
+class Gallery extends Model
 {
-  use HasFactory;
-
-	protected $fillable = [
+  use HasFactory;	
+  
+  protected $fillable = [
     'title',
     'subtitle',
     'text',
+    'credits',
+    'link_text',
     'publish',
     'order',
-    'page_id',
   ];
-
-  public function page()
-  {
-    return $this->belongsTo(Page::class, 'page_id', 'id');
-  }
 
   public function images()
   {
@@ -33,9 +29,8 @@ class Article extends Base
     return $this->morphOne(Image::class, 'imageable');
   }
 
-	public function galleries()
+	public function articles()
 	{
-		return $this->belongsToMany(Gallery::class);
+		return $this->belongsToMany(Article::class);
 	}
-
 }

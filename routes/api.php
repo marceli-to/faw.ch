@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\BackerTypeController;
 use App\Http\Controllers\Api\PartnerController;
 use App\Http\Controllers\Api\PageController;
 use App\Http\Controllers\Api\ArticleController;
+use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\FileController;
 use App\Http\Controllers\Api\LinkController;
@@ -204,6 +205,14 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('page-article/state/{article}', [ArticleController::class, 'toggle']);
   Route::post('page-article/order', [ArticleController::class, 'order']);
   Route::delete('page-article/{article}', [ArticleController::class, 'destroy']);
+
+  // Galleries
+  Route::get('galleries/{constraint?}', [GalleryController::class, 'get']);
+  Route::get('gallery/{gallery}', [GalleryController::class, 'find']);
+  Route::post('gallery', [GalleryController::class, 'store']);
+  Route::put('gallery/{gallery}', [GalleryController::class, 'update']);
+  Route::get('gallery/state/{gallery}', [GalleryController::class, 'toggle']);
+  Route::delete('gallery/{gallery}', [GalleryController::class, 'destroy']);
 
 });
 
