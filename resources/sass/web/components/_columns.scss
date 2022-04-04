@@ -9,7 +9,7 @@
 .columns {
   @include bp-md() {
     columns: 2 auto;
-    column-gap: $space-12x;
+    column-gap: $space-9x;
   }
 }
 

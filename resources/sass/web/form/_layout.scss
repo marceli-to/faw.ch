@@ -5,9 +5,9 @@
  */
 
 .form-group {
-  @extend %mb-5x;
 
   > div {
-    @extend %mb-5x;
+    @extend %mb-14x;
+    @extend %lg\:mb-14x;
   }
 }

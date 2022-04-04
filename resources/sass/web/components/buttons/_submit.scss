@@ -5,16 +5,27 @@
  */
 
 .btn-submit {
-  &:before {
-    transform: translate(0,0);
+  @extend %btn;
+  @extend %md\:ml-15x;
+  color: $color-black;
+  @include font-bold();
+  padding: 0;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: transparent !important;
   }
 
-  &.is-loading {
-    &:before {
-      animation-fill-mode: both;
-      animation: loading 1s infinite;
-    }
-  }
+  // &:before {
+  //   transform: translate(0,0);
+  // }
+
+  // &.is-loading {
+  //   &:before {
+  //     animation-fill-mode: both;
+  //     animation: loading 1s infinite;
+  //   }
+  // }
 }
 
 @keyframes loading {

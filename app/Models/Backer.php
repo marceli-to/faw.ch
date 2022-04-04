@@ -19,4 +19,14 @@ class Backer extends Base
   {
     return $this->hasOne(BackerType::class, 'id', 'backer_type_id');
   }
+
+  /**
+   * Mutator for year
+   * @param Date $value
+   */
+
+  public function getFullAttribute()
+  {
+    return $this->name && $this->city ? $this->name . ', ' . $this->city : $this->name;
+  }
 }

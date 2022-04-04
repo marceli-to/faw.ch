@@ -18,9 +18,11 @@ class BackerController extends Controller
   {
     if ($constraint == 'publish')
     {
-      return new DataCollection(Backer::with('type')->published()->orderBy('name', 'DESC')->get());
+      return new DataCollection(Backer::with('type')->published()->orderBy('name', 'ASC')->get());
     }
-    return new DataCollection(Backer::orderBy('name', 'DESC')->get());
+    $backers = Backer::orderBy('name', 'ASC')->get();
+    $backersGrouped = $backers->groupBy('type.description');
+    return response()->json($backersGrouped->all());
   }
 
   /**

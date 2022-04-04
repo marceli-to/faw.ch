@@ -11,10 +11,11 @@
       </router-link>
     </page-header>
 
-    <div class="listing" v-if="data.length">
+    <div class="listing" v-if="data['Personen'].length">
+      <h3 class="mb-3x"><strong>Personen</strong></h3>
       <div
         :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
-        v-for="d in data"
+        v-for="d in data['Personen']"
         :key="d.id"
       >
         <div class="listing__item-body">
@@ -30,6 +31,28 @@
     <div v-else>
       <p class="no-records">{{messages.emptyData}}</p>
     </div>
+
+    <div class="listing mt-6x" v-if="data['Firmen'].length">
+      <h3 class="mb-3x"><strong>Firmen</strong></h3>
+      <div
+        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+        v-for="d in data['Firmen']"
+        :key="d.id"
+      >
+        <div class="listing__item-body">
+          {{d.name}}<separator v-if="d.city" /><span v-if="d.city">{{d.city}}</span>
+        </div>
+        <list-actions 
+          :id="d.id" 
+          :record="d"
+          :routes="{edit: 'backer-edit'}">
+        </list-actions>
+      </div>
+    </div>
+    <div v-else>
+      <p class="no-records">{{messages.emptyData}}</p>
+    </div>
+
     <page-footer>
       <button-back :route="'about'">Zurück</button-back>
     </page-footer>
@@ -92,7 +115,7 @@ export default {
 
     fetch() {
       this.axios.get(`${this.routes.get}`).then(response => {
-        this.data = response.data.data;
+        this.data = response.data;
         this.isFetched = true;
       });
     },
@@ -100,8 +123,16 @@ export default {
     toggle(id,event) {
       this.isLoading = true;
       this.axios.get(`${this.routes.toggle}/${id}`).then(response => {
-        const index = this.data.findIndex(x => x.id === id);
-        this.data[index].publish = response.data;
+        const index1 = this.data['Personen'].findIndex(x => x.id === id);
+        const index2 = this.data['Firmen'].findIndex(x => x.id === id);
+
+        if (index1 > -1) {
+          this.data['Personen'][index1].publish = response.data;
+        }
+        if (index2 > -1) {
+          this.data['Firmen'][index2].publish = response.data;
+        }
+        
         this.$notify({ type: "success", text: this.messages.updated });
         this.isLoading = false;
       });
