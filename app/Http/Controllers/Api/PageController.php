@@ -44,7 +44,13 @@ class PageController extends Controller
    */
   public function store(PageStoreRequest $request)
   {
-    $page = Page::create($request->all());
+    $page = Page::create([
+      'slug' => \AppHelper::slug($request->input('title')),
+      'title' => $request->input('title'),
+      'subtitle' => $request->input('text'),
+      'text' => $request->input('text'),
+      'publish' => $request->input('publish'),
+    ]);
     $page->save();
     $this->handleImages($page, $request->input('images'));
     return response()->json(['pageId' => $page->id]);
