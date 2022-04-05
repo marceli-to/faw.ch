@@ -9,6 +9,7 @@ class Page extends Base
   use HasFactory;
 
 	protected $fillable = [
+    'slug',
     'title',
     'subtitle',
     'text',
