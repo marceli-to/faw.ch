@@ -38,3 +38,34 @@ section.content-visual {
     }
   }
 }
+
+section.content-lightbox {
+  @extend %outer-block;
+  padding-bottom: $space-8x;
+  padding-top: $space-8x;
+  position: relative;
+
+  > div {
+    @extend %mx-auto;
+    max-width: $lightbox-max-width;
+  }
+
+  header {
+    @extend %mb-4x;
+    @extend %lg\:mb-6x;
+
+    h2 {
+      @extend %lg\:mb-0;
+    }
+    > div {
+      text-transform: uppercase;
+    }
+  }
+
+  footer {
+    margin-top: 2* $space-18x;
+    @include bp-lg() {
+      margin-top: 2 * $space-15x;
+    }
+  }
+}

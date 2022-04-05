@@ -1,12 +1,7 @@
 @include('layout.partials.head')
-<body class="auth">
+<body>
 <main role="main" class="site">
-  <div>
-    <section class="mx-auto">
-      @include('partials.logo')
-      @yield('content')
-    </section>
-  </div>
+  <div>@yield('content')</div>
 </main>
 <script src="{{ mix('assets/js/app.js') }}" type="text/javascript"></script>
 </body>

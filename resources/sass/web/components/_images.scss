@@ -28,6 +28,14 @@ figure.is-responsive {
   }
 }
 
+figure {
+  figcaption {
+    display: block;
+    padding-top: $space-4x;
+  }
+}
+
+
 .visual {
   height: calc(100vh - #{$header-height});
 

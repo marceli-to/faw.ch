@@ -34,10 +34,11 @@
               <div>
                 @foreach($article->galleries as $gallery)
                   <x-link-page 
-                    url="https://marceli.to" 
-                    target="_blank" 
-                    text="{{$gallery->link_text}}" 
-                    title="{{$gallery->title}}" 
+                    url="{{ route('page.gallery', ['page' => $page->slug, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
+                    target="_slef" 
+                    text="{{ $gallery->link_text }}" 
+                    title="{{ $gallery->title }}"
+                    id="{{ $gallery->slug }}"
                     cssClass="mb-2x" />
                 @endforeach
               </div>

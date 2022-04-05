@@ -9,6 +9,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\GalleryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,9 @@ Route::get('/logout', 'Auth\LoginController@logout');
 // Frontend
 Route::get('/', [HomeController::class, 'index'])->name('page.index');
 Route::get('/winterthur-im-bild', [PageController::class, 'wib'])->name('page.wib');
+
+Route::get('/{page:slug}/{gallery}/{gallery_slug?}', [GalleryController::class, 'show'])->name('page.gallery');
+
 
 Route::get('/veranstaltungen/kalender', [EventController::class, 'calendar'])->name('page.event.calendar');
 Route::get('/veranstaltungen/jahresprogramm', [EventController::class, 'activities'])->name('page.event.activities');

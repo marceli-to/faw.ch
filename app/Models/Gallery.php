@@ -25,6 +25,11 @@ class Gallery extends Model
     return $this->morphMany(Image::class, 'imageable');
   }
 
+  public function publishedImages()
+  {
+    return $this->morphMany(Image::class, 'imageable')->where('publish', 1);
+  }
+
   public function videos()
   {
     return $this->morphMany(Video::class, 'videoable');
