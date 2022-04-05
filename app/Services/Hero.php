@@ -14,7 +14,7 @@ class Hero
   public function get($slug = NULL, $random = FALSE)
   {
     $hero = HeroImage::where('slug', $slug)->with('publishedImages')->get()->first();
-    if ($hero && $hero->publishedImages)
+    if ($hero && $hero->publishedImages->count() > 0)
     {
       return $hero->publishedImages->random(1)->first();
     }
