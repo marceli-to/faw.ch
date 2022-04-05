@@ -39,68 +39,72 @@
     </div>
   </div>
 </section>
-<section class="content-visual" id="jahresprogramm">
-  <x-gallery :images="$annual_program->publishedImages" limit="true" />
-</section>
-<section class="content">
-  <div>
-    <h1>Jahresprogramm</h1>
-    <x-heading type="h2" title="{{ $annual_program->title }}" subtitle="{{ $annual_program->subtitle }}" />
+@if ($annual_program)
+  @if ($annual_program->publishedImages)
+  <section class="content-visual" id="jahresprogramm">
+    <x-gallery :images="$annual_program->publishedImages" limit="true" />
+  </section>
+  @endif
+  <section class="content">
+    <div>
+      <h1>Jahresprogramm</h1>
+      <x-heading type="h2" title="{{ $annual_program->title }}" subtitle="{{ $annual_program->subtitle }}" />
 
-    @if ($annual_program->text)
-      <article class="lead mobile-only">
-        <x-truncated-text preview="{!! Str::words($annual_program->text, 100, '...') !!}">
+      @if ($annual_program->text)
+        <article class="lead mobile-only">
+          <x-truncated-text preview="{!! Str::words($annual_program->text, 100, '...') !!}">
+            {!! $annual_program->text !!}
+          </x-truncated-text>
+        </article>
+        <article class="lead desktop-only">
           {!! $annual_program->text !!}
-        </x-truncated-text>
-      </article>
-      <article class="lead desktop-only">
-        {!! $annual_program->text !!}
-      </article>
-    @endif
+        </article>
+      @endif
 
-    @if ($annual_program->publishedArticles)
-      <div class="grid grid-cols-12">
-        @foreach($annual_program->publishedArticles as $article)
-          <article class="text">
-            <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-            <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
-              {!! $article->text !!}
-            </x-truncated-text>
-          </article>
-        @endforeach
-      </div>
-    @endif
-  </div>
-</section>
-@if ($annual_program->publishedArticlesSpecial)
-<section class="content">
-  <div>
-    <x-heading type="h2" title="Forum Spezial" subtitle="Weitere Veranstaltungen" class="mb-10x lg:mb-12x" />
-    @if ($annual_program->publishedArticlesSpecial)
-      <div class="grid grid-cols-12">
-        @foreach($annual_program->publishedArticlesSpecial as $article)
-          <article class="text">
-            <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-            <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
-              {!! $article->text !!}
-            </x-truncated-text>
-          </article>
-        @endforeach
-      </div>
-    @endif
-    <div class="grid grid-cols-12">
-      <article class="teaser line-thin">
-        @if ($annual_program->publishedFiles)
-          @foreach($annual_program->publishedFiles as $file)
-            <div>
-              <x-link-file :file="$file" />
-            </div>
+      @if ($annual_program->publishedArticles)
+        <div class="grid grid-cols-12">
+          @foreach($annual_program->publishedArticles as $article)
+            <article class="text">
+              <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
+              <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+                {!! $article->text !!}
+              </x-truncated-text>
+            </article>
           @endforeach
-        @endif
-        <x-link-page url="{{ route('page.event.archive') }}" target="_self" text="Archiv" title="Archiv" />
-      </article>
+        </div>
+      @endif
     </div>
-  </div>
-</section>
+  </section>
+  @if ($annual_program->publishedArticlesSpecial)
+  <section class="content">
+    <div>
+      <x-heading type="h2" title="Forum Spezial" subtitle="Weitere Veranstaltungen" class="mb-10x lg:mb-12x" />
+      @if ($annual_program->publishedArticlesSpecial)
+        <div class="grid grid-cols-12">
+          @foreach($annual_program->publishedArticlesSpecial as $article)
+            <article class="text">
+              <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
+              <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+                {!! $article->text !!}
+              </x-truncated-text>
+            </article>
+          @endforeach
+        </div>
+      @endif
+      <div class="grid grid-cols-12">
+        <article class="teaser line-thin">
+          @if ($annual_program->publishedFiles)
+            @foreach($annual_program->publishedFiles as $file)
+              <div>
+                <x-link-file :file="$file" />
+              </div>
+            @endforeach
+          @endif
+          <x-link-page url="{{ route('page.event.archive') }}" target="_self" text="Archiv" title="Archiv" />
+        </article>
+      </div>
+    </div>
+  </section>
+  @endif
 @endif
 @endsection
