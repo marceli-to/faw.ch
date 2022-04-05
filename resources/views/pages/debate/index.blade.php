@@ -12,42 +12,44 @@
     </div>
   </div>
 </section>
-<section class="content">
-  <div>
-    <h1>Aktivitäten</h1>
-    <x-heading type="h2" title="{{ $activity->title }}" />
-    <article class="lead">
-      {!! $activity->text !!}
-    </article>
-    @if ($activity->publishedArticles)
-      <div class="grid grid-cols-12">
-        @foreach($activity->publishedArticles as $article)
-          <article class="text">
-            <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-            {!! $article->text !!}
-            @if ($article->publishedFiles)
-              <div class="mt-7x">
-                @foreach($article->publishedFiles as $file)
-                  <div class="mb-2x lg:mb-3x">
-                    <x-link-file :file="$file" cssClass="is-grid" />
-                  </div>
-                @endforeach
-              </div>
-            @endif
-            @if ($article->publishedLinks)
-              <div>
-                @foreach($article->publishedLinks as $link)
-                  <div class="mb-2x lg:mb-3x">
-                    <x-link-page url="{{$link->url}}" target="{{$link->target}}" text="{{$link->title}}" title="{{$link->title}}" cssClass="is-grid" />
-                  </div>
-                @endforeach
-              </div>
-            @endif
-          </article>
+@if ($activity)
+  <section class="content">
+    <div>
+      <h1>Aktivitäten</h1>
+      <x-heading type="h2" title="{{ $activity->title }}" />
+      <article class="lead">
+        {!! $activity->text !!}
+      </article>
+      @if ($activity->publishedArticles)
+        <div class="grid grid-cols-12">
+          @foreach($activity->publishedArticles as $article)
+            <article class="text">
+              <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
+              {!! $article->text !!}
+              @if ($article->publishedFiles)
+                <div class="mt-7x">
+                  @foreach($article->publishedFiles as $file)
+                    <div class="mb-2x lg:mb-3x">
+                      <x-link-file :file="$file" cssClass="is-grid" />
+                    </div>
+                  @endforeach
+                </div>
+              @endif
+              @if ($article->publishedLinks)
+                <div>
+                  @foreach($article->publishedLinks as $link)
+                    <div class="mb-2x lg:mb-3x">
+                      <x-link-page url="{{$link->url}}" target="{{$link->target}}" text="{{$link->title}}" title="{{$link->title}}" cssClass="is-grid" />
+                    </div>
+                  @endforeach
+                </div>
+              @endif
+            </article>
 
-        @endforeach
-      </div>
-    @endif
-  </div>
-</section>
+          @endforeach
+        </div>
+      @endif
+    </div>
+  </section>
+@endif
 @endsection
