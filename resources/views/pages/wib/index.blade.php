@@ -1,11 +1,13 @@
 @extends('layout.web')
 @section('content')
 @if ($page)
-  <section class="content-visual is-hero">
-    <div>
-      <x-image :image="$page->publishedImage" maxWidth="2400" maxHeight="1600" ratio="3:2" wrapperClass="visual" />
-    </div>
-  </section>
+  @if ($page->publishedImage)
+    <section class="content-visual is-hero">
+      <div>
+        <x-image :image="$page->publishedImage" maxWidth="2400" maxHeight="1600" ratio="3:2" wrapperClass="visual" />
+      </div>
+    </section>
+  @endif
   <section class="content">
     <div>
       <h1>{{ $page->title }}</h1>
@@ -26,7 +28,9 @@
     <div>
       @foreach($page->publishedArticles as $article)
         <article class="page">
-          <x-image :image="$article->publishedImage" maxWidth="1200" maxHeight="800" ratio="3:2" wrapperClass="lg:span-6" />
+          @if ($article->publishedImage)
+            <x-image :image="$article->publishedImage" maxWidth="1200" maxHeight="800" ratio="3:2" wrapperClass="lg:span-6" />
+          @endif
           <div class="lg:span-6">
             <h2>{{$article->title}}</h2>
             {!! $article->text !!}
