@@ -8,6 +8,7 @@ use App\Http\Controllers\DebateController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 // Frontend
 Route::get('/', [HomeController::class, 'index'])->name('page.index');
+Route::get('/winterthur-im-bild', [PageController::class, 'wib'])->name('page.wib');
+
 Route::get('/veranstaltungen/kalender', [EventController::class, 'calendar'])->name('page.event.calendar');
 Route::get('/veranstaltungen/jahresprogramm', [EventController::class, 'activities'])->name('page.event.activities');
 Route::get('/veranstaltungen/unser-bahnhof-winterthur', [EventController::class, 'station'])->name('page.event.station');

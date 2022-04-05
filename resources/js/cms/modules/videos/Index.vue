@@ -24,9 +24,12 @@
         :key="d.id"
       >
         <div class="listing__item-body">
-          {{d.title}}
+          <div class="px-1x">
+            <div class="mb-2x"><strong>{{d.title}}</strong></div>
+            <div v-html="d.code" class="ratio-container is-16x9" style="min-width: 200px"></div>
+          </div>
         </div>
-        <div class="listing__item-action">
+        <div class="listing__item-action !items-start">
           <div>
             <a href="javascript:;" @click="edit(d)">
               <edit-icon size="18"></edit-icon>

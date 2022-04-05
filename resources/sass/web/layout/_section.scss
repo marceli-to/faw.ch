@@ -26,7 +26,7 @@ section.content-visual {
   @extend %mb-15x;
   @extend %lg\:mb-18x;
 
-  @include bp-md() {
+  @include bp-lg() {
     padding-left: $space-8x;
     padding-right: $space-8x;
   }

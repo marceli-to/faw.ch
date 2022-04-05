@@ -20,8 +20,23 @@ class Page extends Base
     return $this->hasMany(Article::class, 'page_id','id')->orderBy('order', 'ASC');
   }
 
+  public function publishedArticles()
+  {
+    return $this->hasMany(Article::class, 'page_id','id')->orderBy('order', 'ASC')->where('publish', 1);
+  }
+
   public function images()
   {
     return $this->morphMany(Image::class, 'imageable');
+  }
+
+  public function publishedImages()
+  {
+    return $this->morphMany(Image::class, 'imageable')->where('publish', 1);
+  }
+
+  public function publishedImage()
+  {
+    return $this->morphOne(Image::class, 'imageable')->where('publish', 1);
   }
 }

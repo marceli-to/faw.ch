@@ -28,9 +28,9 @@ class Article extends Base
     return $this->morphMany(Image::class, 'imageable');
   }
 
-  public function image()
+  public function publishedImage()
   {
-    return $this->morphOne(Image::class, 'imageable');
+    return $this->morphOne(Image::class, 'imageable')->where('publish', 1);
   }
 
 	public function galleries()

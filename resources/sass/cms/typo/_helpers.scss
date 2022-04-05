@@ -21,7 +21,7 @@
  */
 
 strong, b {
-	@include font-regular();
+	@include font-bold();
 }
 
 p {

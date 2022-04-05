@@ -12,10 +12,10 @@
         </ul>
       </li>
       <li>
-        <a href="{{ route('page.debate') }}" class="{{ request()->routeIs('page.debate') ? 'is-active' : '' }}">Debatten</a>
+        <a href="{{ route('page.debate') }}" class="{{ request()->routeIs('page.debate') ? 'is-active' : '' }}" title="Debatten">Debatten</a>
       </li>
       <li>
-        <a href="">Winterthur im Bild</a>
+        <a href="{{ route('page.wib') }}" class="{{ request()->routeIs('page.wib') ? 'is-active' : '' }}" title="Winterthur im Bild">Winterthur im Bild</a>
       </li>
     </ul>
     <ul class="is-meta">

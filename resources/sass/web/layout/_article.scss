@@ -9,7 +9,7 @@ article.card {
 }
 
 article.lead {
-  @extend %columns;
+  @extend %columns-lg;
   @extend %mb-12x;
   @extend %md\:mb-18x;
   @extend %lg\:mb-14x;
@@ -34,7 +34,7 @@ article.member {
 
 article.text {
   @extend %mb-12x;
-
+  
   &:last-of-type {
     margin-bottom: 0;
   }
@@ -46,4 +46,28 @@ article.text {
 
 article.teaser {
   @extend %card-small;
+}
+
+article.page {
+  @extend %mb-12x;
+  @extend %lg\:mb-15x;
+  @extend %lg\:grid-cols-12;
+  max-width: 505px;
+
+  @include bp-lg() {
+    max-width: none;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  figure {
+    @extend %mb-5x;
+    @extend %lg\:mb-0;
+  }
+
+  h2 {
+    @extend %lg\:mb-1x;
+  }
 }

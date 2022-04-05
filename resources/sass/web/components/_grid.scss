@@ -32,6 +32,18 @@
 }
 
 @for $i from 1 through 12 {
+  %lg\:grid-cols-#{$i},
+  .lg\:grid-cols-#{$i} {
+    @include bp-lg() {
+      display: grid;
+      grid-template-columns: repeat($i, minmax(0, 1fr));
+      grid-gap: $space-9x;
+    }
+  } 
+}
+
+
+@for $i from 1 through 12 {
   %grid-cols-#{$i},
   .grid-cols-#{$i} {
 

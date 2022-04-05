@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="mt-10x" v-else>
-      <p>{{messages.emptyData}}</p>
+      <p class="no-records">{{messages.emptyData}}</p>
     </div>
   </div>
 </div>

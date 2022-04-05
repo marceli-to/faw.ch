@@ -15,9 +15,13 @@
   flex-direction: column;
 }
 
-%items-start ,
+%items-start,
 .items-start {
   align-items: flex-start;
+}
+
+.\!items-start {
+  align-items: flex-start !important;
 }
 
 %items-end,
