@@ -45,7 +45,15 @@ class GalleryController extends Controller
    */
   public function store(GalleryStoreRequest $request)
   {
-    $gallery = Gallery::create($request->all());
+    $gallery = Gallery::create([
+      'slug' => \AppHelper::slug($request->input('title')),
+      'title' => $request->input('title'),
+      'subtitle' => $request->input('subtitle'),
+      'text' => $request->input('text'),
+      'credits' => $request->input('credits'),
+      'link_text' => $request->input('link_text'),
+      'publish' => $request->input('publish'),
+    ]);
     $gallery->save();
     $this->handleImages($gallery, $request->input('images'));
     $this->handleVideos($gallery, $request->input('videos'));
@@ -62,7 +70,8 @@ class GalleryController extends Controller
   public function update(Gallery $gallery, GalleryStoreRequest $request)
   {
     $gallery = Gallery::findOrFail($gallery->id);
-    $gallery->update($request->all());
+    $gallery->update($request->except(['slug']));
+    $gallery->slug = \AppHelper::slug($request->input('title'));
     $gallery->save();
     $this->handleImages($gallery, $request->input('images'));
     $this->handleVideos($gallery, $request->input('videos'));

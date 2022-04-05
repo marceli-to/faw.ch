@@ -18,7 +18,7 @@ class AlterEventsTableAddFields extends Migration
       $table->string('subtitle', 255)->nullable()->after('title');
       $table->text('text')->nullable()->after('subtitle');
       $table->date('date')->nullable()->after('text');
-      $table->time('time', 0)->after('date');
+      $table->time('time', 0)->nullable()->after('date');
       $table->tinyInteger('publish')->default(0)->after('time');
     });
   }
