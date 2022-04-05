@@ -12,7 +12,6 @@
         <span>Bearbeiten</span>
       </a>
     </page-header>
-    <!-- <p>Aus dem <router-link :to="{name: 'home-images'}">Bilderpool</router-link> wird beim Laden der Seite eines zufällig ausgewählt.</p> -->
     <div class="grid-items">
       <figure class="grid-item grid-item__hero">
         <img :src="getImageSrc(data.hero, 'cache')" height="300" width="300" v-if="data.hero">
