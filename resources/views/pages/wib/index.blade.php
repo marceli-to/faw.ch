@@ -39,7 +39,7 @@
                 @foreach($article->galleries as $gallery)
                   <x-link-page 
                     url="{{ route('page.gallery', ['page' => $page->slug, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
-                    target="_slef" 
+                    target="_self" 
                     text="{{ $gallery->link_text }}" 
                     title="{{ $gallery->title }}"
                     id="{{ $gallery->slug }}"
