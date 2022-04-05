@@ -27,7 +27,7 @@ class HeroImageController extends Controller
   public function getOne(HeroImage $heroImage)
   {
     $data = HeroImage::with('images')->find($heroImage->id);
-    if ($data->images)
+    if ($data->images && $data->images->coumt() > 0)
     {
       return response()->json($data->images[mt_rand(0, $data->images->count()-1)]);
     }
