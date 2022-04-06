@@ -222,6 +222,7 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::post('gallery', [GalleryController::class, 'store']);
   Route::put('gallery/{gallery}', [GalleryController::class, 'update']);
   Route::get('gallery/state/{gallery}', [GalleryController::class, 'toggle']);
+  Route::post('gallery/order', [GalleryController::class, 'order']);
   Route::delete('gallery/{gallery}', [GalleryController::class, 'destroy']);
 
 });

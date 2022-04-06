@@ -20,9 +20,9 @@ class GalleryController extends Controller
   {
     if ($constraint == 'publish')
     {
-      return new DataCollection(Gallery::published()->get());
+      return new DataCollection(Gallery::published()->orderBy('title')->get());
     }
-    return new DataCollection(Gallery::get());
+    return new DataCollection(Gallery::orderBy('title')->get());
   }
 
   /**
@@ -92,6 +92,25 @@ class GalleryController extends Controller
   }
 
   /**
+   * Update the order of the given grid item
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function order(Request $request)
+  {
+    $items = $request->get('items');
+    foreach($items as $item)
+    {
+      $i = Gallery::find($item['id']);
+      $i->order = $item['order'];
+      $i->save(); 
+    }
+    return response()->json('successfully updated');
+  }
+
+  /**
    * Remove a page
    *
    * @param  Gallery $gallery
@@ -126,7 +145,6 @@ class GalleryController extends Controller
       }
     }
   }
-
 
   /**
    * Handle associated videos

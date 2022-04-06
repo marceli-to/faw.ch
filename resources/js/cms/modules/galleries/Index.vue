@@ -22,9 +22,15 @@
     </div>
     <div class="mt-10x" v-if="data_galleries.length">
       <h3 class="mb-3x">Bereits hinzugefügt</h3>
-      <div class="listing">
+      <draggable 
+        :disabled="false"
+        v-model="data_galleries" 
+        @end="order(data_galleries)"
+        ghost-class="draggable-ghost"
+        draggable=".listing__item"
+        class="listing">
         <div
-          :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+          :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item is-draggable']"
           v-for="d in data_galleries"
           :key="d.id"
         >
@@ -39,7 +45,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </draggable>
     </div>
     <div class="mt-10x" v-else>
       <p class="no-records">{{messages.emptyData}}</p>
@@ -49,6 +55,7 @@
 </template>
 <script>
 import { PlusIcon, Trash2Icon } from 'vue-feather-icons';
+import draggable from 'vuedraggable';
 import Helpers from "@/mixins/Helpers";
 import LabelRequired from "@/components/ui/LabelRequired.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
@@ -62,6 +69,7 @@ export default {
     LabelRequired,
     ButtonSubmit,
     Separator,
+    draggable
   },
 
   mixins: [Helpers],
@@ -86,6 +94,7 @@ export default {
       // Routes
       routes: {
         get: '/api/galleries/published',
+        order: '/api/gallery/order',
       },
 
       // States
@@ -127,6 +136,23 @@ export default {
       if (index > -1) {
         this.data_galleries.splice(index, 1);
       }
+    },
+
+    order(data) {
+      let galleries = data.map(function(gallery, index) {
+        gallery.order = index;
+        return gallery;
+      });
+
+      if (this.debounce) return;
+      
+      this.debounce = setTimeout(function() {
+        this.debounce = false;
+        this.axios.post(`${this.routes.order}`, {items: galleries}).then((response) => {
+          this.$notify({type: 'success', text: this.messages.updated});
+        });
+      }.bind(this, galleries), 500);
+
     },
   }
 }

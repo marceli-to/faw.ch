@@ -37,13 +37,17 @@
     min-height: calc(100vh - 60px);
     max-height: 95vh;
     @include responsive-prop('padding', $space-sm);
-    position: relative;
+    @include responsive-prop('padding-bottom', $space-lg);
     overflow-y: auto;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
 
     @include bp-md() {
       min-height: calc(100vh - 80px);
+    }
+
+    &.has-form {
+      padding-bottom: 120px;
     }
   }
 
@@ -84,6 +88,7 @@
   }
 
   footer {
+    background-color: $color-white;
     border-top: 2px solid $color-light;
     bottom: 0;
     left: 0;

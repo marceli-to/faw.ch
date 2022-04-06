@@ -8,7 +8,7 @@
           <x-icon size="24"></x-icon>
         </a>
       </header>
-      <div class="widget-content">
+      <div class="widget-content has-form">
         <tabs :tabs="tabs" class="is-widget" :errors="errors"></tabs>
         <form @submit.prevent="submit">
           <div>

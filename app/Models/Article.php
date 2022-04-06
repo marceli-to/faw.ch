@@ -35,7 +35,7 @@ class Article extends Base
 
 	public function galleries()
 	{
-		return $this->belongsToMany(Gallery::class);
+		return $this->belongsToMany(Gallery::class)->orderBy('order');
 	}
 
 }
