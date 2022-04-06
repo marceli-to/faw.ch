@@ -70,8 +70,9 @@ var Menu = (function() {
   var _jumpTo = function(hash) {
     var el = document.getElementById(hash);
     _hide();
-    _activate(hash);
+    // _activate(hash);
     el.scrollIntoView({block: "start", behavior: "auto"});
+    //alert('d');
   };
 
   var _activate = function(hash) {

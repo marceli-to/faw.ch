@@ -27,7 +27,7 @@
   <section class="content">
     <div>
       @foreach($page->publishedArticles as $article)
-        <article class="page">
+        <article class="text-media">
           @if ($article->publishedImage)
             <x-image :image="$article->publishedImage" maxWidth="1200" maxHeight="800" ratio="3:2" wrapperClass="lg:span-6" />
           @endif
@@ -35,7 +35,7 @@
             <h2>{{$article->title}}</h2>
             {!! $article->text !!}
             @if ($article->galleries)
-              <div>
+              <div class="text-media__links">
                 @foreach($article->galleries as $gallery)
                   <x-link-page 
                     url="{{ route('page.gallery', ['page' => $page->slug, 'article' => $article->id, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 

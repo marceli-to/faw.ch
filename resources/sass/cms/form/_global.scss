@@ -52,6 +52,10 @@ button {
  
  textarea {
 	 height: 150px;
+
+   &.is-small {
+     height: 80px;
+   }
  }
  
  select {

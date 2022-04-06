@@ -15,6 +15,15 @@
           <x-image :image="$image" maxWidth="1500" maxHeight="1000" ratio="3:2" wrapperClass="{{ !$loop->last ? 'mb-12x' : '' }}" showCaption="true" />
         @endforeach
       @endif
+      @if ($gallery->publishedVideos)
+        @foreach($gallery->publishedVideos as $video)
+        <div class="{{ !$loop->last ? 'mb-12x' : '' }}">
+          <div class="ratio-container is-16x9">
+            {!! $video->code !!}
+          </div>
+        </div>
+        @endforeach
+      @endif
       @if ($gallery->credits)
         <footer>
           {!! nl2br($gallery->credits) !!}

@@ -20,7 +20,7 @@
               </div>
               <div class="form-row">
                 <label>Subtitel</label>
-                <input type="text" v-model="data.subtitle">
+                <textarea v-model="data.subtitle" class="is-small"></textarea>
               </div>
               <div class="form-row">
                 <label>Text</label>

@@ -1,7 +1,7 @@
 <nav class="lightbox {{ $class ?? $class }}">
   <ul>
     <li>
-      @if ($browse['prev'])
+      @if (isset($browse['prev']))
         <a 
           href="{{ route('page.gallery', 
             [
@@ -17,7 +17,7 @@
       @endif
     </li>
     <li>
-      @if ($browse['next'])
+      @if (isset($browse['next']))
         <a 
           href="{{ route('page.gallery', 
             [

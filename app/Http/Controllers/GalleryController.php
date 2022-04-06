@@ -28,18 +28,22 @@ class GalleryController extends BaseController
   {
     $page = Page::with('publishedArticles.galleries')->findOrFail($page->id);
     $article = Article::with('galleries', 'page')->findOrFail($article->id);
-    $gallery = Gallery::with('publishedImages')->findOrFail($gallery->id);
+    $gallery = Gallery::with('publishedImages', 'publishedVideos')->findOrFail($gallery->id);
     return view($this->viewPath . 'index', ['page' => $page, 'gallery' => $gallery, 'browse' => $this->getBrowse($page, $article, $gallery)]);
   }
 
   protected function getBrowse(Page $page, Article $article, Gallery $gallery)
   {
-    $keys     = [];
+    if ($article->galleries->count() <= 1)
+    {
+      return [];
+    }
+
+    $keys = [];
     foreach($article->galleries as $g)
     {
       $keys[] = (int) $g->id;
     }
-
     // Get current key
     $key = array_search($gallery->id, $keys);
 
@@ -63,53 +67,16 @@ class GalleryController extends BaseController
       'prev' => [
         'page' => $page,
         'article' => $article,
-        'gallery' => Gallery::findOrFail($prevId),
+        'gallery' => Gallery::find($prevId),
       ],
       'next' => [
         'page' => $page,
         'article' => $article,
-        'gallery' => Gallery::findOrFail($nextId),
+        'gallery' => Gallery::find($nextId),
       ]
     ];
     
     return $items;
   }
-
-
-    // // Build project nav
-    // $projects = $this->project->hasDetail()->orderBy('order', 'ASC')->get();
-    // $keys     = [];
-    // $items    = [];
-
-    // foreach($projects as $p)
-    // {
-    //   $keys[] = (int) $p->id;
-    // }
-
-    // // Get current key
-    // $key = array_search($id, $keys);
-
-    // if ($key == 0)
-    // {
-    //   $prevId = end($keys);
-    //   $nextId = isset($keys[$key+1]) ? $keys[$key+1] : NULL;
-    // }
-    // else if ($key == count($keys) - 1)
-    // {
-    //   $prevId = $keys[$key-1];
-    //   $nextId = $keys[0];
-    // }
-    // else
-    // {
-    //   $prevId = $keys[$key-1];
-    //   $nextId = $keys[$key+1];
-    // }
-
-    // $items = [
-    //   'prev' => $this->project->find($prevId),
-    //   'next' => $this->project->find($nextId),
-    // ];
-
-    // return $items;
 
 }

@@ -48,7 +48,7 @@ article.teaser {
   @extend %card-small;
 }
 
-article.page {
+article.text-media {
   @extend %mb-12x;
   @extend %lg\:mb-15x;
   @extend %lg\:grid-cols-12;
@@ -56,6 +56,11 @@ article.page {
 
   @include bp-lg() {
     max-width: none;
+  }
+
+  &.is-lg {
+    @extend %md\:mb-20x;
+    @extend %lg\:mb-30x;
   }
 
   &:last-of-type {
@@ -69,5 +74,14 @@ article.page {
 
   h2 {
     @extend %lg\:mb-1x;
+  }
+
+  p {
+    @extend %text-indent;
+  }
+
+  .text-media__links {
+    @extend %mt-10x;
+    @extend %md\:mt-12x;
   }
 }

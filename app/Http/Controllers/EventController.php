@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\Event;
 use App\Models\AnnualProgram;
+use App\Models\Page;
 use App\Services\AnnualPrograms;
 use Illuminate\Http\Request;
 
@@ -56,7 +57,15 @@ class EventController extends BaseController
 
   public function station()
   {
-    return view($this->viewPath . 'station');
+    $page = Page::with(
+      'publishedImage',
+      'publishedArticles.publishedImage',
+      'publishedArticles.galleries'
+    )
+    ->where('slug', 'unser-bahnhof-winterthur')
+    ->get()
+    ->first();
+    return view($this->viewPath . 'station', ['page' => $page]);
   }
 
   /**

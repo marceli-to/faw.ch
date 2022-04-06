@@ -35,6 +35,11 @@ class Gallery extends Model
     return $this->morphMany(Video::class, 'videoable');
   }
 
+  public function publishedVideos()
+  {
+    return $this->morphMany(Video::class, 'videoable')->where('publish', 1);
+  }
+
 	public function articles()
 	{
 		return $this->belongsToMany(Article::class);
