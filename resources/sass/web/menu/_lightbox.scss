@@ -17,6 +17,12 @@ nav.lightbox {
     justify-content: flex-end;
   }
 
+  &.is-bottom {
+    @extend %mt-16x;
+    @extend %lg\:mt-32x;
+    margin-bottom: 0 !important;
+  }
+
   ul {
     display: flex;
     justify-content: space-between;

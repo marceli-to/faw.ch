@@ -41,7 +41,6 @@ section.content-visual {
 
 section.content-lightbox {
   @extend %outer-block;
-  padding-bottom: $space-8x;
   padding-top: $space-8x;
   position: relative;
 
@@ -63,7 +62,12 @@ section.content-lightbox {
   }
 
   footer {
-    margin-top: 2* $space-18x;
+    margin-top: $space-24x;
+
+    @include bp-md() {
+      margin-top: 2 * $space-18x;
+    }
+
     @include bp-lg() {
       margin-top: 2 * $space-15x;
     }
