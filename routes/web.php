@@ -26,10 +26,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 // Frontend
 Route::get('/', [HomeController::class, 'index'])->name('page.index');
 Route::get('/winterthur-im-bild', [PageController::class, 'wib'])->name('page.wib');
-
-Route::get('/{page:slug}/{gallery}/{gallery_slug?}', [GalleryController::class, 'show'])->name('page.gallery');
-
-
 Route::get('/veranstaltungen/kalender', [EventController::class, 'calendar'])->name('page.event.calendar');
 Route::get('/veranstaltungen/jahresprogramm', [EventController::class, 'activities'])->name('page.event.activities');
 Route::get('/veranstaltungen/unser-bahnhof-winterthur', [EventController::class, 'station'])->name('page.event.station');
@@ -40,7 +36,7 @@ Route::get('/ueber-uns', [AboutController::class, 'index'])->name('page.about');
 Route::get('/mitgliedschaft', [MemberController::class, 'index'])->name('page.member');
 Route::post('/mitglied-werden', [MemberController::class, 'register']);
 Route::get('/kontakt', [ContactController::class, 'index'])->name('page.contact');
-
+Route::get('/{page:slug}/{gallery}/{gallery_slug?}', [GalleryController::class, 'show'])->name('page.gallery');
 
 // Url based images
 Route::get('/img/{template}/{filename}/{maxW?}/{maxH?}/{coords?}/{ratio?}', [ImageController::class, 'getResponse']);
