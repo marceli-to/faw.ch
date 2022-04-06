@@ -7,7 +7,8 @@ class AppHelper
   public static function slug($str = NULL)
   {
     $slug = '';
-    $slug = Str::slug(AppHelper::transliterate($str), '-');
+    $slug = str_replace(array('/'), array('-'), $str);
+    $slug = Str::slug(AppHelper::transliterate($slug), '-');
     return $slug;
   }
 

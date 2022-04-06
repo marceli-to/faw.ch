@@ -15,6 +15,11 @@ class EventController extends BaseController
     parent::__construct();
   }
 
+  /**
+   * Show page 'Veranstaltungen - Kalender'
+   * 
+   * @return \Illuminate\Http\Response
+   */
   public function calendar()
   {
     $events = [
@@ -32,20 +37,44 @@ class EventController extends BaseController
     return view($this->viewPath . 'calendar', ['events' => $events, 'annual_program' => $annual_program]);
   }
 
+  /**
+   * Show page 'Veranstaltungen - Jahresprogramm'
+   * 
+   * @return \Illuminate\Http\Response
+   */
+
   public function activities()
   {
     return $this->calendar();
   }
 
+  /**
+   * Show page 'Veranstaltungen - Unser Bahnhof Winterthur'
+   * 
+   * @return \Illuminate\Http\Response
+   */
+
   public function station()
   {
-    
+    return view($this->viewPath . 'station');
   }
+
+  /**
+   * Show page 'Veranstaltungen - Stadtwerkstatt'
+   * 
+   * @return \Illuminate\Http\Response
+   */
 
   public function workshop()
   {
-    
+    return view($this->viewPath . 'workshop');
   }
+
+  /**
+   * Show page 'Veranstaltungen - Archiv'
+   * 
+   * @return \Illuminate\Http\Response
+   */
 
   public function archive()
   {
@@ -55,7 +84,6 @@ class EventController extends BaseController
 
     // Get annual program files & group by periode
     $programFiles = (new AnnualPrograms())->filesByPeriode();
-
     return view($this->viewPath . 'archive', ['events' => $eventsGrouped->all(), 'programFiles' => $programFiles]);
   }
 }
