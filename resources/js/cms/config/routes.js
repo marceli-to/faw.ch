@@ -14,7 +14,7 @@ const routes = [
   // Dashboard
   {
     name: 'dashboard',
-    path: '/administration/dashboard',
+    path: '/administration/',
     component: Dashboard,
   },
 
