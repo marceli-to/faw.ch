@@ -17,6 +17,10 @@ nav.lightbox {
     justify-content: flex-end;
   }
 
+  @include bp-xxl() {
+    max-width: $lightbox-max-width-xxl;
+  }
+
   &.is-top {
     min-height: 35px;
     @include bp-lg() {
@@ -51,12 +55,16 @@ nav.lightbox {
 
     @include bp-lg() {
       height: 43px;
-      right: calc((100% - 950px) / 2);
+      right: calc((100% - #{$lightbox-max-width}) / 2);
       width: 43px;
     }
 
     @include bp-xl() {
-      right: calc(((100% - 1200px) / 2) + 20px);
+      right: calc(((100% - #{$page-max-width}) / 2) + 20px);
+    }
+
+    @include bp-xxl() {
+      right: calc(((100% - #{$page-max-width-xxl}) / 2) + 20px);
     }
   }
 

@@ -27,10 +27,11 @@ $url-svg:    '../img/svg/';
 /* Breakpoints
  * -------------------- */
 
-$bp-sm:  600px;
-$bp-md:  700px;
-$bp-lg: 1000px;
-$bp-xl: 1200px;
+$bp-sm:   600px;
+$bp-md:   700px;
+$bp-lg:  1000px;
+$bp-xl:  1200px;
+$bp-xxl: 1600px;
 
 $breakpoints: (
   sm: $bp-sm,
@@ -41,9 +42,13 @@ $breakpoints: (
 /* Site
  * -------------------- */
 
+// standard screen size
 $page-max-width:     1200px;
-$content-max-width:  1068px;
 $lightbox-max-width:  950px;
+
+// extra large screen size
+$page-max-width-xxl:     1440px;
+$lightbox-max-width-xxl:  1200px;
 
 /* Header
  * -------------------- */

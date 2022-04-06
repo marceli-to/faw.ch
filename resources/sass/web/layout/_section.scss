@@ -47,6 +47,10 @@ section.content-lightbox {
   > div {
     @extend %mx-auto;
     max-width: $lightbox-max-width;
+
+    @include bp-xxl() {
+      max-width: $lightbox-max-width-xxl;
+    }
   }
 
   header {
