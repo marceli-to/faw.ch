@@ -37,7 +37,7 @@ Route::get('/mitgliedschaft', [MemberController::class, 'index'])->name('page.me
 Route::post('/mitglied-werden', [MemberController::class, 'register']);
 Route::get('/kontakt', [ContactController::class, 'index'])->name('page.contact');
 
-Route::get('/{page:slug}/{gallery}/{gallery_slug?}', [GalleryController::class, 'show'])->name('page.gallery');
+Route::get('/galerie/{page:slug}/{article}/{gallery}/{gallery_slug?}', [GalleryController::class, 'show'])->name('page.gallery');
 
 // Url based images
 Route::get('/img/{template}/{filename}/{maxW?}/{maxH?}/{coords?}/{ratio?}', [ImageController::class, 'getResponse']);

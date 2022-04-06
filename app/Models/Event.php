@@ -138,7 +138,7 @@ class Event extends Base
   {
     if ($this->date)
     {
-      $break = 8;
+      $break = 9;
       $month = date('n', strtotime($this->date));
       $periode = [];
 

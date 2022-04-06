@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\Page;
+use App\Models\Article;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 
@@ -18,15 +19,97 @@ class GalleryController extends BaseController
    * Show a gallery
    * 
    * @param Page $page
+   * @param Article $article
    * @param Gallery $gallery
    * @return \Illuminate\Http\Response
    */
 
-  public function show(Page $page, Gallery $gallery, $gallerySlug = NULL)
+  public function show(Page $page, Article $article, Gallery $gallery, $gallerySlug = NULL)
   {
-    $page = Page::findOrFail($page->id);
+    $page = Page::with('publishedArticles.galleries')->findOrFail($page->id);
+    $article = Article::with('galleries', 'page')->findOrFail($article->id);
     $gallery = Gallery::with('publishedImages')->findOrFail($gallery->id);
-    return view($this->viewPath . 'index', ['page' => $page, 'gallery' => $gallery]);
+    return view($this->viewPath . 'index', ['page' => $page, 'gallery' => $gallery, 'browse' => $this->getBrowse($page, $article, $gallery)]);
   }
+
+  protected function getBrowse(Page $page, Article $article, Gallery $gallery)
+  {
+    $keys     = [];
+    foreach($article->galleries as $g)
+    {
+      $keys[] = (int) $g->id;
+    }
+
+    // Get current key
+    $key = array_search($gallery->id, $keys);
+
+    if ($key == 0)
+    {
+      $prevId = end($keys);
+      $nextId = isset($keys[$key+1]) ? $keys[$key+1] : NULL;
+    }
+    else if ($key == count($keys) - 1)
+    {
+      $prevId = $keys[$key-1];
+      $nextId = $keys[0];
+    }
+    else
+    {
+      $prevId = $keys[$key-1];
+      $nextId = $keys[$key+1];
+    }
+
+    $items = [
+      'prev' => [
+        'page' => $page,
+        'article' => $article,
+        'gallery' => Gallery::findOrFail($prevId),
+      ],
+      'next' => [
+        'page' => $page,
+        'article' => $article,
+        'gallery' => Gallery::findOrFail($nextId),
+      ]
+    ];
+    
+    return $items;
+  }
+
+
+    // // Build project nav
+    // $projects = $this->project->hasDetail()->orderBy('order', 'ASC')->get();
+    // $keys     = [];
+    // $items    = [];
+
+    // foreach($projects as $p)
+    // {
+    //   $keys[] = (int) $p->id;
+    // }
+
+    // // Get current key
+    // $key = array_search($id, $keys);
+
+    // if ($key == 0)
+    // {
+    //   $prevId = end($keys);
+    //   $nextId = isset($keys[$key+1]) ? $keys[$key+1] : NULL;
+    // }
+    // else if ($key == count($keys) - 1)
+    // {
+    //   $prevId = $keys[$key-1];
+    //   $nextId = $keys[0];
+    // }
+    // else
+    // {
+    //   $prevId = $keys[$key-1];
+    //   $nextId = $keys[$key+1];
+    // }
+
+    // $items = [
+    //   'prev' => $this->project->find($prevId),
+    //   'next' => $this->project->find($nextId),
+    // ];
+
+    // return $items;
 
 }

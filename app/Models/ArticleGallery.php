@@ -15,4 +15,14 @@ class ArticleGallery extends Model
 		'article_id',
 		'gallery_id',
   ];
+
+  public function article()
+  {
+    return $this->belongsToMany(Article::class);
+  }
+
+  public function gallery()
+  {
+    return $this->belongsToMany(Gallery::class);
+  }
 }

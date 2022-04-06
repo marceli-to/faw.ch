@@ -5,14 +5,18 @@
     <nav class="lightbox">
       <ul>
         <li>
-          <a href="">
-            <x-icon type="chevron-left-lightbox" />
-          </a>
+          @if ($browse['prev'])
+            <a href="{{ route('page.gallery', ['page' => $browse['prev']['page']->slug, 'article' => $browse['prev']['article']->id, 'gallery' => $browse['prev']['gallery']->id, 'gallery_slug' => $browse['prev']['gallery']->slug]) }}">
+              <x-icon type="chevron-left-lightbox" />
+            </a>
+          @endif
         </li>
         <li>
-          <a href="">
-            <x-icon type="chevron-right-lightbox" />
-          </a>
+          @if ($browse['next'])
+            <a href="{{ route('page.gallery', ['page' => $browse['next']['page']->slug, 'article' => $browse['next']['article']->id, 'gallery' => $browse['next']['gallery']->id, 'gallery_slug' => $browse['next']['gallery']->slug]) }}">
+              <x-icon type="chevron-right-lightbox" />
+            </a>
+          @endif
         </li>
       </ul>
       <a href="/{{ $page->slug }}/#{{$gallery->slug}}" class="btn-lightbox-close">

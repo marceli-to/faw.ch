@@ -38,7 +38,7 @@
               <div>
                 @foreach($article->galleries as $gallery)
                   <x-link-page 
-                    url="{{ route('page.gallery', ['page' => $page->slug, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
+                    url="{{ route('page.gallery', ['page' => $page->slug, 'article' => $article->id, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
                     target="_self" 
                     text="{{ $gallery->link_text }}" 
                     title="{{ $gallery->title }}"
