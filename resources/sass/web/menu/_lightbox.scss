@@ -17,6 +17,13 @@ nav.lightbox {
     justify-content: flex-end;
   }
 
+  &.is-top {
+    min-height: 35px;
+    @include bp-lg() {
+      min-height: 49px;
+    }
+  }
+
   &.is-bottom {
     @extend %mt-16x;
     @extend %lg\:mt-32x;

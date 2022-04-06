@@ -35,6 +35,14 @@
     }
   }
 
+  &.anchor--external {
+    align-items: unset;
+    display: flex;
+    transition: transform .1s ease-in;
+
+  }
+
+
   &.anchor--chevron {
     @extend %mt-2x;
    
@@ -67,4 +75,19 @@
       }
     }
   }
+}
+
+
+.anchor-external {
+  @extend %anchor;
+  @include background-default();
+  background-image: url($url-icons + 'arrow-right.svg');
+  background-size: 19px 15px;
+  background-position: top 1px left;
+  padding-left: 25px;
+  text-indent: 0 !important;
+}
+
+p + .anchor-external {
+  margin-top: $space-10x;
 }

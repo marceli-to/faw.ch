@@ -19,7 +19,7 @@
       {!! nl2br($event->abstract) !!}
     @endif
     <div class="mt-4x">
-      <x-link-page url="test" target="_self" text="Zur Veranstaltung" title="{{$event->title}}" />
+      <x-link-page url="{{ route('page.event.calendar') }}" target="_self" text="Zur Veranstaltung" title="{{$event->title}}" />
     </div>
   @else
     @if ($event->past && !$event->sticky)
