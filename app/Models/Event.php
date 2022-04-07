@@ -66,7 +66,7 @@ class Event extends Base
 
 	public function scopePast($query)
 	{
-		$constraint = date('Y-m-d', time() - 86400);
+		$constraint = date('Y-m-d', time());
 		return $query->where('date', '<', $constraint)->where('publish', 1);
 	}
 
@@ -221,7 +221,7 @@ class Event extends Base
    */
   public function past()
   {
-    return time() > strtotime($this->date);
+    return time() > strtotime($this->date) + 86400;
   }
 
   /**
