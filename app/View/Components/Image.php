@@ -15,7 +15,7 @@ class Image extends Component
   /**
    * Ratio
    *
-   * @var String
+   * @var Boolean
    */
   public $ratio;
 
@@ -29,17 +29,16 @@ class Image extends Component
   /**
    * Show caption
    *
-   * @var String
+   * @var Boolean
    */
   public $showCaption;
 
   /**
    * Maximum sizes for responsive images
    *
-   * @var String
+   * @var Array
    */
   public $maxSizes;
-
 
   /**
    * Create a new component instance.
