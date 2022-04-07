@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('seo_title', 'Archiv • Veranstaltungen')
+@section('seo_description', '')
 @section('content')
 <section class="content is-first">
   <div>

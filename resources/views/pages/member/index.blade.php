@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('seo_title', 'Mitgliedschaft')
+@section('seo_description', '')
 @section('content')
 <section class="content-visual is-hero">
   <div>
@@ -11,8 +13,6 @@
 @include('pages.member.partials.sponsors')
 @include('pages.member.partials.backers')
 @include('pages.member.partials.network')
-
-
 @endsection
 
 

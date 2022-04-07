@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('seo_title', 'Kontakt')
+@section('seo_description', '')
 @section('content')
 <section class="content-visual is-hero">
   <div>

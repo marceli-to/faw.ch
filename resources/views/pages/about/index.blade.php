@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('seo_title', 'Über uns')
+@section('seo_description', 'Das Forum und ihre Geschichte sowie unsere Vorstandsmitglieder')
 @section('content')
 <section class="content-visual is-hero">
   <div>
@@ -7,14 +9,12 @@
     </figure>
   </div>
 </section>
-
 <section class="content">
   <div>
     <h1>Das Forum</h1>
     <p>[Inhalt folgt]</p>
   </div>
 </section>
-
 @if ($history)
   @if ($history->publishedImages)
     <section class="content-visual">

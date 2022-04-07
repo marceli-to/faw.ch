@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('seo_title', 'Unser Bahnhof Winterthur • Veranstaltungen')
+@section('seo_description', '')
 @section('content')
 @if ($page)
   @if ($page->publishedImage)

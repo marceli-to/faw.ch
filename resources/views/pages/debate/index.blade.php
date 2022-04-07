@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('seo_title', 'Debatten')
+@section('seo_description', '')
 @section('content')
 @php $text_intro = 'Wir wollen deine Meinung wissen. Klick auf den Plusbutton unten rechts um deine Ideen zu teilen. Du kannst auch Beiträge kommentieren und Liken. Faccuptatus a imus dolupta teserro et fuga. Ut vidi ni occus alitibus mi num assectur tatius et optatiatati occabore, conecus con pa suntiorione nes inctist que aci corehenimpos eum corepere voluptat. Quidel est, consequid quo que namust pos iniam dit, conserum eruntent, velignime cusdandae qui ut laborehendi andaeptaquae aped quatem qui invel et voluptaeped modisqu odignim iliatur errum, odi repe ditiae lictemp elessit que as conecat ionsequia.';@endphp
 <section class="content is-first">

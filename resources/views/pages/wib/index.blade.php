@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('seo_title', 'Winterthur im Bild')
+@section('seo_description', '')
 @section('content')
 @if ($page)
   @if ($page->publishedImage)
