@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use App\Tasks\StorageCleanup;
 
 class PageController extends BaseController
 {
@@ -32,4 +33,8 @@ class PageController extends BaseController
     return view($this->viewPath . 'wib.index', ['page' => $page]);
   }
 
+  public function cleanup()
+  {
+    (new StorageCleanup())->run();
+  }
 }

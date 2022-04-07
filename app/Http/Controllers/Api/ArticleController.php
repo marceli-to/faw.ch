@@ -5,6 +5,7 @@ use App\Http\Resources\DataCollection;
 use App\Models\Article;
 use App\Models\ArticleGallery;
 use App\Models\Image;
+use App\Services\Media;
 use App\Http\Requests\ArticleStoreRequest;
 use Illuminate\Http\Request;
 
@@ -110,6 +111,8 @@ class ArticleController extends Controller
    */
   public function destroy(Article $article)
   {
+    $article = Article::with('images')->findOrFail($article->id);
+    $article->images()->delete();
     $article->delete();
     return response()->json('successfully deleted');
   }

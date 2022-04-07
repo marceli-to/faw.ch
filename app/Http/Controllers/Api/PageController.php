@@ -93,10 +93,7 @@ class PageController extends Controller
    */
   public function destroy(Page $page)
   {
-    $page = Page::with('articles.images')->find($page->id);
-    $page->articles()->delete();
-    $page->articles()->images()->delete();
-    $page->delete();
+    Page::destroy($page->id);
     return response()->json('successfully deleted');
   }
 
@@ -121,5 +118,4 @@ class PageController extends Controller
       }
     }
   }
-
 }

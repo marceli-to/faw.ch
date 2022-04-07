@@ -116,7 +116,7 @@ export default {
         title: null,
         text: null,
         subtitle: null,
-        images: null,
+        images: [],
         publish: 1,
         articles: [],
       },

@@ -23,6 +23,9 @@ use App\Http\Controllers\GalleryController;
 Auth::routes(['verify' => true, 'register' => false]);
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::get('/cleanup', [PageController::class, 'cleanup']);
+
+
 // Frontend
 Route::get('/', [HomeController::class, 'index'])->name('page.index');
 Route::get('/winterthur-im-bild', [PageController::class, 'wib'])->name('page.wib');

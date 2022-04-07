@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Event;
 use App\Events\MemberRegistration;
 use App\Listeners\MemberRegistrationNotification;
 use App\Listeners\SubscriberVerifyEmailNotification;
-
+use App\Models\Page;
+use App\Observers\PageObserver;
+use App\Models\Article;
+use App\Observers\ArticleObserver;
 class EventServiceProvider extends ServiceProvider
 {
   /**
@@ -34,5 +37,7 @@ class EventServiceProvider extends ServiceProvider
   public function boot()
   {
     parent::boot();
+    Page::observe(PageObserver::class);
+    Article::observe(ArticleObserver::class);
   }
 }
