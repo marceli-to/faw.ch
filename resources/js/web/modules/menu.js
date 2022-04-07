@@ -2,12 +2,14 @@ var Menu = (function() {
 	
 	// selectors
 	var selectors = {
-    html:           'html',
-    body:           'body',
-    header:         '.js-site-header',
-    menu:           '.js-menu',
-    menuBtn:        '.js-menu-btn',
-    menuBtnToggle:  '.js-menu-btn-toggle',
+    html:              'html',
+    body:              'body',
+    header:            '.js-site-header',
+    menu:              '.js-menu',
+    menuBtn:           '.js-menu-btn',
+    menuBtnToggle:     '.js-menu-btn-toggle',
+    menuBtnNewsletter: '.js-menu-btn-newsletter',
+
 	};
 
   // css classes
@@ -41,6 +43,10 @@ var Menu = (function() {
       _toggleSub($(this));
     });
 
+    $(selectors.body).on('click', selectors.menuBtnNewsletter, function(){
+      _toggleForm($(this));
+    });
+
     $(window).on('hashchange', function(e) {
       let hash = window.location.hash;
       if (hash) {
@@ -59,6 +65,15 @@ var Menu = (function() {
   var _toggleSub = function(btn) {
     btn.toggleClass(classes.active);
     btn.next('ul').toggle();
+  };
+
+  var _toggleForm = function(btn) {
+    btn.toggleClass(classes.active);
+    btn.next('div').toggle();
+    // const current = document.querySelector('.js-menu a.is-active:not(.js-menu-btn-newsletter)');
+    // if (current) {
+    //   current.classList.remove(classes.active);
+    // }
   };
 
   var _hide = function() {

@@ -12,20 +12,13 @@
   padding: 0;
   text-transform: uppercase;
 
+  &.is-newsletter {
+    margin-left: 0 !important;
+  }
+
   &:hover {
     background-color: transparent !important;
   }
-
-  // &:before {
-  //   transform: translate(0,0);
-  // }
-
-  // &.is-loading {
-  //   &:before {
-  //     animation-fill-mode: both;
-  //     animation: loading 1s infinite;
-  //   }
-  // }
 }
 
 @keyframes loading {

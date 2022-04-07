@@ -22,7 +22,22 @@
       <li><a href="{{ route('page.about') }}" class="{{ request()->routeIs('page.about') ? 'is-active' : '' }}" title="Über uns">Über uns</a></li>
       <li><a href="{{ route('page.member') }}" class="{{ request()->routeIs('page.member') ? 'is-active' : '' }}" title="Mitgliedschaft">Mitgliedschaft</a></li>
       <li><a href="{{ route('page.contact') }}" class="{{ request()->routeIs('page.contact') ? 'is-active' : '' }}" title="Kontakt">Kontakt</a></li>
-      <li><a href="">Newsletter</a></li>
+      <li>
+        <a href="javascript:;" class="js-menu-btn-newsletter">Newsletter</a>
+        <div class="my-8x lg:mb-16x" style="display: none">
+          <p>Tragen Sie Ihre E-Mail-Adresse in das Eingabefeld, Sie erhalten umgehend ein E-Mail mit einem Bestätigungslink. Klicken Sie auf den Link, um Ihre E-Mail Adresse zu aktivieren.</p>
+          <form method="POST" action="http://72082.seu1.cleverreach.com/f/72082-140653/wcs/" target="_blank">
+            <div>
+              <input type="email" name="email" placeholder="E-Mail" />
+            </div>
+            <div class="mt-6x lg:mt-8x">
+              <button type="submit" class="btn-submit is-newsletter">
+                Anmelden
+              </button>
+            </div>
+          </form>
+        </div>
+      </li>
     </ul>
     <ul class="is-social">
       <li>
