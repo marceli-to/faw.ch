@@ -32,9 +32,4 @@ class PageController extends BaseController
     ->first();
     return view($this->viewPath . 'wib.index', ['page' => $page]);
   }
-
-  public function cleanup()
-  {
-    (new StorageCleanup())->run();
-  }
 }
