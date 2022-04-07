@@ -70,10 +70,6 @@ var Menu = (function() {
   var _toggleForm = function(btn) {
     btn.toggleClass(classes.active);
     btn.next('div').toggle();
-    // const current = document.querySelector('.js-menu a.is-active:not(.js-menu-btn-newsletter)');
-    // if (current) {
-    //   current.classList.remove(classes.active);
-    // }
   };
 
   var _hide = function() {
