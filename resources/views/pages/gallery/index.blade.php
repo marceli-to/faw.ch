@@ -12,7 +12,13 @@
       </header>
       @if ($gallery->publishedImages)
         @foreach($gallery->publishedImages as $image)
-          <x-image :image="$image" maxWidth="1500" maxHeight="1000" ratio="3:2" wrapperClass="{{ !$loop->last ? 'mb-12x' : '' }}" showCaption="true" />
+          <x-image 
+            :maxSizes="[1200 => [1500,1000], 900 => [1200,800], 0 => [900,600]]" 
+            :image="$image" 
+            ratio="true" 
+            wrapperClass="{{ !$loop->last ? 'mb-12x' : '' }}"
+            showCaption="true"
+          />
         @endforeach
       @endif
       @if ($gallery->publishedVideos)

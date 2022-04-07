@@ -4,7 +4,12 @@
   @if ($page->publishedImage)
     <section class="content-visual is-hero">
       <div>
-        <x-image :image="$page->publishedImage" maxWidth="2400" maxHeight="1600" ratio="3:2" wrapperClass="visual" />
+        <x-image 
+          :maxSizes="[1200 => [1800,1200], 0 => [1200,800]]" 
+          :image="$page->publishedImage" 
+          ratio="true" 
+          wrapperClass="visual"
+        />
       </div>
     </section>
   @endif
@@ -30,7 +35,7 @@
         <h1>{{ $article->title }}</h1>
         <article class="text-media is-lg">
           @if ($article->publishedImage)
-            <x-image :image="$article->publishedImage" maxWidth="1200" maxHeight="800" ratio="3:2" wrapperClass="lg:span-6" />
+            <x-image :maxSizes="[0 => [900,600]]" :image="$article->publishedImage" ratio="true" wrapperClass="lg:span-6" />
           @endif
           <div class="lg:span-6">
             <h2>{!! nl2br($article->subtitle) !!}</h2>

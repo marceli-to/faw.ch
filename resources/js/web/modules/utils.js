@@ -49,7 +49,7 @@ var Utils = (function() {
       $(this).parent('div').prev('a').prev('div').show();
     });
 
-    // var lazyLoadInstance = new LazyLoad();
+    var lazyLoadInstance = new LazyLoad();
   };
 
 

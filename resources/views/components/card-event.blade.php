@@ -1,7 +1,7 @@
 <article class="card {{ $cssClass }}">
   @if (!$event->past || $event->sticky)
     @if ($event->image)
-    <x-image :image="$event->image" maxWidth="900" maxHeight="600" ratio="3:2" />
+      <x-image :maxSizes="[0 => [900,600]]" :image="$event->image" ratio="true" />
     @endif
   @endif
   @if ($event->subtitle)
@@ -26,7 +26,7 @@
       @if ($event->text)
         <x-truncated-text>
             @if ($event->image)
-              <x-image :image="$event->image" maxWidth="900" maxHeight="600" ratio="3:2" wrapperClass="mt-3x" />
+              <x-image :maxSizes="[0 => [900,600]]" :image="$event->image" ratio="true" />
             @endif
 
             {!! $event->text !!}

@@ -13,20 +13,6 @@ class Image extends Component
   public $image;
 
   /**
-   * Max width
-   *
-   * @var String
-   */
-  public $maxWidth;
-
-  /**
-   * Max height
-   *
-   * @var String
-   */
-  public $maxHeight;
-
-  /**
    * Ratio
    *
    * @var String
@@ -47,17 +33,23 @@ class Image extends Component
    */
   public $showCaption;
 
+  /**
+   * Maximum sizes for responsive images
+   *
+   * @var String
+   */
+  public $maxSizes;
+
 
   /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct($image = NULL, $maxWidth = 0, $maxHeight = 0, $ratio = NULL, $wrapperClass = NULL, $showCaption = FALSE)
+  public function __construct($image = NULL, $ratio = NULL, $wrapperClass = NULL, $showCaption = FALSE, $maxSizes = [])
   {
     $this->image = $image;
-    $this->maxWidth = $maxWidth;
-    $this->maxHeight = $maxHeight;
+    $this->maxSizes = $maxSizes;
     $this->ratio = $ratio;
     $this->wrapperClass = $wrapperClass;
     $this->showCaption = $showCaption;

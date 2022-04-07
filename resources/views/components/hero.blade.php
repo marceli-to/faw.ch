@@ -1,5 +1,10 @@
 <section class="content-visual is-hero">
   <div>
-    <x-image :image="$hero" maxWidth="2400" maxHeight="1600" ratio="3:2" wrapperClass="visual" />
+    <x-image 
+      :maxSizes="[1200 => [1800,1200], 0 => [1200,800]]" 
+      :image="$hero" 
+      ratio="true" 
+      wrapperClass="visual"
+    />
   </div>
 </section>

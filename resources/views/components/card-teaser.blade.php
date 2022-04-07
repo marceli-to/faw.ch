@@ -1,6 +1,10 @@
 <article class="card {{ $cssClass ?? ''}}">
   @if ($teaser->image)
-    <x-image :image="$teaser->image" maxWidth="900" maxHeight="600" ratio="3:2" />
+    <x-image 
+      :maxSizes="[0 => [900,600]]" 
+      :image="$teaser->image" 
+      ratio="true" 
+    />
   @endif
   @if ($teaser->title)
     <x-heading type="h2" title="{{ $teaser->title }}" subtitle="{{ $teaser->subtitle }}" />
