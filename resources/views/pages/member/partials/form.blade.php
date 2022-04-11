@@ -4,7 +4,7 @@ $text = '<p>Das Forum Architektur Winterthur setzt sich aus damals gegründet, u
 <section class="content">
   <div>
     <h1>Unterstützung für das Forum</h1>
-    <article class="lead mobile-only">
+    <article class="lead block md:hide">
       @if (Str::wordCount($text) > 100)
         <x-truncated-text preview="{!! Str::words($text, 100, '...') !!}">
           {!! $text !!}
@@ -13,7 +13,7 @@ $text = '<p>Das Forum Architektur Winterthur setzt sich aus damals gegründet, u
         {!! $text !!}
       @endif
     </article>
-    <article class="lead desktop-only">
+    <article class="lead hide !md:block">
       {!! $text !!}
     </article>
   </div>

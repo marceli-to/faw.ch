@@ -12,7 +12,7 @@
             ]
           )}}"
           title="{{ $browse['prev']['gallery']->title }}">
-          <x-icon type="chevron-left-lightbox" />
+          <x-icon type="chevron-left" />
         </a>
       @endif
     </li>
@@ -28,7 +28,7 @@
             ]
           )}}"
           title="{{ $browse['next']['gallery']->title }}">
-          <x-icon type="chevron-right-lightbox" />
+          <x-icon type="chevron-right" />
         </a>
       @endif
     </li>

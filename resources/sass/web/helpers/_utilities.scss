@@ -4,65 +4,31 @@
  * -----------------------------------------------------------------------------
  */
 
-.desktop-only {
-	display: none;
-	@include bp-lg() {
-		display: block;
-	}
-}
+// .desktop-only {
+// 	display: none;
+// 	@include bp-lg() {
+// 		display: block;
+// 	}
+// }
 
-.mobile-only {
-	display: block;
-	@include bp-lg() {
-		display: none;
-	}
-}
+// .mobile-only {
+// 	display: block;
+// 	@include bp-lg() {
+// 		display: none;
+// 	}
+// }
 
-.tablet-only {
-  display: none;
-	@include bp-md() {
-		display: block;
-	}
-}
-
-// Hide
-%hide,
-.hide {
-  display: none;
-}
-
-%sm\:hide,
-.sm\:hide {
-  @include bp-sm() {
-    display: none;
-  }
-}
-
-%md\:hide,
-.md\:hide {
-  @include bp-md() {
-    display: none;
-  }
-}
-
-%lg\:hide,
-.lg\:hide {
-  @include bp-lg() {
-    display: none;
-  }
-}
+// .tablet-only {
+//   display: none;
+// 	@include bp-md() {
+// 		display: block;
+// 	}
+// }
 
 // Block
 %block,
 .block {
   display: block;
-}
-
-%sm\:block,
-.sm\:block {
-  @include bp-sm() {
-    display: block;
-  }
 }
 
 %md\:block,
@@ -79,17 +45,30 @@
   }
 }
 
+%lg\:block,
+.lg\:block {
+  @include bp-lg() {
+    display: block;
+  }
+}
+
+%\!md\:block,
+.\!md\:block {
+  @include bp-md() {
+    display: block !important;
+  }
+}
+
+%\!lg\:block,
+.\!lg\:block {
+  @include bp-lg() {
+    display: block !important;
+  }
+}
 // Inline block
 %inline-block,
 .inline-block {
   display: inline-block;
-}
-
-%sm\:inline-block,
-.sm\:inline-block {
-  @include bp-sm() {
-    display: inline-block;
-  }
 }
 
 %md\:inline-block,
@@ -103,5 +82,53 @@
 .lg\:inline-block {
   @include bp-lg() {
     display: inline-block;
+  }
+}
+
+%\!md\:inline-block,
+.\!md\:inline-block {
+  @include bp-md() {
+    display: inline-block !important;
+  }
+}
+
+%\!lg\:inline-block,
+.\!lg\:inline-block {
+  @include bp-lg() {
+    display: inline-block !important;
+  }
+}
+
+// Hide
+%hide,
+.hide {
+  display: none;
+}
+
+%md\:hide,
+.md\:hide {
+  @include bp-md() {
+    display: none;
+  }
+}
+
+%lg\:hide,
+.lg\:hide {
+  @include bp-lg() {
+    display: none;
+  }
+}
+
+%\!md\:hide,
+.\!md\:hide {
+  @include bp-md() {
+    display: none !important;
+  }
+}
+
+%\!lg\:hide,
+.\!lg\:hide {
+  @include bp-lg() {
+    display: none !important;
   }
 }

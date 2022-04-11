@@ -19,7 +19,7 @@
     <div>
       <h1>{{ $page->title }}</h1>
       @if ($page->text)
-        <article class="lead mobile-only">
+        <article class="lead block md:hide">
           @if (Str::wordCount($page->text) > 55)
             <x-truncated-text preview="{!! Str::words($page->text, 55, '...') !!}">
               {!! $page->text !!}
@@ -28,7 +28,7 @@
             {!! $page->text !!}
           @endif
         </article>
-        <article class="lead desktop-only">
+        <article class="lead hide !md:block">
           {!! $page->text !!}
         </article>
       @endif
