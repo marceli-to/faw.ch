@@ -33,7 +33,7 @@
     <h2 class="mb-10x lg:mb-10x">Vergangene Veranstaltungen</h2>
     <div class="grid grid-cols-12">
       @foreach($events['past'] as $event)
-        <x-card-event :event="$event" cssClass="card-small md:span-6 lg:span-4" />
+        <x-card-event :event="$event" cssClass="card-small md:span-6 lg:span-4 {{ $loop->iteration > 3 ? 'tablet-only' : ''}}" />
       @endforeach
     </div>
     <div class="mt-10x md:mt-12x lg:mt-14x">
@@ -54,9 +54,13 @@
 
       @if ($annual_program->text)
         <article class="lead mobile-only">
-          <x-truncated-text preview="{!! Str::words($annual_program->text, 100, '...') !!}">
+          @if (Str::wordCount($annual_program->text) > 100)
+            <x-truncated-text preview="{!! Str::words($annual_program->text, 100, '...') !!}">
+              {!! $annual_program->text !!}
+            </x-truncated-text>
+          @else
             {!! $annual_program->text !!}
-          </x-truncated-text>
+          @endif
         </article>
         <article class="lead desktop-only">
           {!! $annual_program->text !!}
@@ -66,7 +70,20 @@
       @if ($annual_program->publishedArticles)
         <div class="grid grid-cols-12">
           @foreach($annual_program->publishedArticles as $article)
-            <article class="text">
+            <article class="text mobile-only collapsible is-article {{ $loop->last ? 'is-last' : '' }} {{ $loop->first ? 'is-expanded' : '' }} js-clpsbl">
+              <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">
+                <span>
+                  <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
+                </span>
+                <x-icon type="chevron-down" />
+                <x-icon type="chevron-up" />
+              </a>
+              <div class="js-clpsbl-body" style="display: {{ $loop->first ? 'grid' : 'none' }}">
+                {!! $article->text !!}
+              </div>
+            </article>
+
+            <article class="text desktop-only">
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
               <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
                 {!! $article->text !!}
@@ -86,9 +103,13 @@
           @foreach($annual_program->publishedArticlesSpecial as $article)
             <article class="text">
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-              <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+              @if (Str::wordCount($article->text) > 50)
+                <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+                  {!! $article->text !!}
+                </x-truncated-text>
+              @else
                 {!! $article->text !!}
-              </x-truncated-text>
+              @endif
             </article>
           @endforeach
         </div>

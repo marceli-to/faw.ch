@@ -2,7 +2,7 @@
 @section('seo_title', 'Über uns')
 @section('seo_description', 'Das Forum und ihre Geschichte sowie unsere Vorstandsmitglieder')
 @section('content')
-<section class="content-visual is-hero">
+<section class="content-visual">
   <div>
     <figure class="visual">
       <img src="/assets/media/dummy.jpg" width="1500" height="1000" title="">
@@ -29,9 +29,13 @@
           @foreach($history->publishedArticles as $article)
             <article class="text">
               <x-heading type="h2" title="{{ $article->title }}" class="mb-1x" />
-              <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+              @if (Str::wordCount($article->text) > 50)
+                <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+                  {!! $article->text !!}
+                </x-truncated-text>
+              @else
                 {!! $article->text !!}
-              </x-truncated-text>
+              @endif
             </article>
           @endforeach
         </div>
@@ -62,7 +66,7 @@
         <div class="grid grid-cols-12">
           @foreach($board->publishedMembers as $member)
             <article class="member">
-              <strong>{{ $member->name }}</strong><br>
+              <h3>{{ $member->name }}</h3>
               {!! $member->text !!}
             </article>
           @endforeach

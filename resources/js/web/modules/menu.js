@@ -63,7 +63,7 @@ var Menu = (function() {
   };
 
   var _toggleSub = function(btn) {
-    btn.toggleClass(classes.active);
+    //btn.toggleClass(classes.active);
     btn.next('ul').toggle();
   };
 

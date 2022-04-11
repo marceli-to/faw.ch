@@ -1,11 +1,11 @@
 @if ($type == 'burger')
-  <svg class="is-burger-mobile" xmlns="http://www.w3.org/2000/svg" width="39" height="22" viewBox="0 0 39 22"><path fill="currentColor" d="M0 0h39v2H0zM0 10.1h39v2H0zM0 19.9h39v2H0z"/></svg>
-  <svg class="is-burger-desktop" xmlns="http://www.w3.org/2000/svg" width="48" height="27" viewBox="0 0 48 27"><path fill="currentColor" d="M0 0h48v2H0zM0 12.2h48v2H0zM0 24.4h48v2H0z"/></svg>
+  <svg class="burger-sm" xmlns="http://www.w3.org/2000/svg" width="39" height="22" viewBox="0 0 39 22"><path fill="currentColor" d="M0 0h39v2H0zM0 10.1h39v2H0zM0 19.9h39v2H0z"/></svg>
+  <svg class="burger-lg" xmlns="http://www.w3.org/2000/svg" width="48" height="27" viewBox="0 0 48 27"><path fill="currentColor" d="M0 0h48v2H0zM0 12.2h48v2H0zM0 24.4h48v2H0z"/></svg>
 @endif
 
 @if ($type == 'cross')
-  <svg class="is-cross-mobile" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><path fill="currentColor" d="M29.1 1.4L27.7 0 14.6 13.2 1.4 0 0 1.4l13.2 13.2L0 27.7l1.4 1.4L14.6 16l13.1 13.1 1.4-1.4L16 14.6z"/></svg>
-  <svg class="is-cross-desktop" xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"><path fill="currentColor" d="M42.5 1.4L41.1 0 21.2 19.8 1.4 0 0 1.4l19.8 19.8L0 41.1l1.4 1.4 19.8-19.8 19.9 19.8 1.4-1.4-19.8-19.9z"/></svg>
+  <svg class="cross-sm" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><path fill="currentColor" d="M29.1 1.4L27.7 0 14.6 13.2 1.4 0 0 1.4l13.2 13.2L0 27.7l1.4 1.4L14.6 16l13.1 13.1 1.4-1.4L16 14.6z"/></svg>
+  <svg class="cross-lg " xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"><path fill="currentColor" d="M42.5 1.4L41.1 0 21.2 19.8 1.4 0 0 1.4l19.8 19.8L0 41.1l1.4 1.4 19.8-19.8 19.9 19.8 1.4-1.4-19.8-19.9z"/></svg>
 @endif
 
 @if ($type == 'arrow-right')
@@ -28,6 +28,10 @@
 @if ($type == 'chevron-right')
   <svg class="mobile-only" xmlns="http://www.w3.org/2000/svg" width="16" height="29" viewBox="0 0 16 29"><path fill="currentColor" d="M1.4 29.1L0 27.7l13.1-13.1L0 1.4 1.4 0 16 14.6z"/></svg>
   <svg class="desktop-only" xmlns="http://www.w3.org/2000/svg" width="23" height="43" viewBox="0 0 23 43"><path fill="currentColor" d="M1.4 42.4L0 41.1l19.8-19.9L0 1.4 1.4 0l21.2 21.2z"/></svg>
+@endif
+
+@if ($type == 'chevron-down-lg')
+  <svg xmlns="http://www.w3.org/2000/svg" width="43" height="23" viewBox="0 0 43 23"><path fill="currentColor" d="M42.4 1.4L41.1 0 21.2 19.8 1.4 0 0 1.4l21.2 21.2z"/></svg>
 @endif
 
 @if ($type == 'dash')
@@ -56,7 +60,6 @@
   <svg class="lightbox-mobile" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"><path fill="currentColor" d="M29.1 1.4L27.7 0 14.6 13.2 1.4 0 0 1.4l13.2 13.2L0 27.7l1.4 1.4L14.6 16l13.1 13.1 1.4-1.4L16 14.6z"/></svg>
   <svg class="lightbox-desktop" xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43"><path fill="currentColor" d="M42.5 1.4L41.1 0 21.2 19.8 1.4 0 0 1.4l19.8 19.8L0 41.1l1.4 1.4 19.8-19.8 19.9 19.8 1.4-1.4-19.8-19.9z"/></svg>
 @endif
-
 
 @if ($type == 'chevron-left-lightbox')
   <svg class="lightbox-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="29" viewBox="0 0 16 29"><path fill="currentColor" d="M14.6 29.1L0 14.6 14.6 0 16 1.4 2.8 14.6 16 27.7z"/></svg>

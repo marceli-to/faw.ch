@@ -10,6 +10,7 @@ var Utils = (function() {
     btnMore:   '[data-more]',
     btnLess:   '[data-less]',
     btnToggle: '[data-toggle]',
+    btnScrollTo: '[data-scroll-to]',
   };
 
   var classes = {
@@ -32,10 +33,9 @@ var Utils = (function() {
       $(this).removeClass(classes.touched);
     });
 
-    $(selectors.btnMore).on('click', function(e) {
-      $(this).hide();
-      $(this).prev('div').hide();
-      $(this).next('div').show();
+    $(selectors.btnScrollTo).on('click', function(e) {
+      var distance = $('.' + $(this).data('scrollTo')).offset().top - 20;
+      $.scrollTo(distance, 0);
     });
 
     $(selectors.btnToggle).on('click', function(e) {
@@ -43,11 +43,30 @@ var Utils = (function() {
       $(this).next('div').toggle();
     });
 
+    $(selectors.btnMore).on('click', function(e) {
+      $(this).hide();
+      $(this).prev('div').hide();
+      $(this).next('div').show();
+    });
+
     $(selectors.btnLess).on('click', function(e) {
       $(this).parent('div').hide();
       $(this).parent('div').prev('a').show();
       $(this).parent('div').prev('a').prev('div').show();
     });
+
+    // $(selectors.btnMore).on('click', function(e) {
+    //   $('a[data-more]').hide();
+    //   $('a[data-less]').show();
+    //   $(this).find('.js-hidden').show();
+    // });
+
+    // $(selectors.btnLess).on('click', function(e) {
+    //   $(this).parent('div').hide();
+    //   $(this).parent('div').prev('a').show();
+    //   $(this).parent('div').prev('a').prev('div').show();
+    // });
+
 
     var lazyLoadInstance = new LazyLoad();
   };

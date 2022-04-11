@@ -40,7 +40,7 @@ nav.lightbox {
     max-width: 64px;
     width: 100%;
 
-    @include bp-xl() {
+    @include bp-lg() {
       max-width: 86px;
     }
   }

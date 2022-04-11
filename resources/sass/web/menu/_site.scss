@@ -5,9 +5,10 @@
  */
 
 nav.site {
-  @extend %pb-15x;
-  @extend %px-15x;
+  @extend %pb-16x;
+  @extend %px-16x;
   @extend %md\:pl-22x;
+  @extend %lg\:pl-30x;
   background-color: $color-white;
   height: 100%;
   left: 0;

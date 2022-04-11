@@ -4,10 +4,10 @@
 @section('content')
 <section class="content is-first">
   <div>
-    <h1>Archiv</h1>
+    <h1 class="mb-20x lg:mb-22x">Archiv</h1>
     @if ($events)
       @foreach($events as $periode => $eventsYear)
-        <div class="collapsible {{ $loop->last ? 'is-last' : '' }} {{ $loop->first ? 'is-expanded' : '' }} js-clpsbl">
+        <div class="collapsible is-list-item {{ $loop->last ? 'is-last' : '' }} {{ $loop->first ? 'is-expanded' : '' }} js-clpsbl">
           <h2>
             <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">
               <span>{{$periode}}</span>

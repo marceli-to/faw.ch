@@ -17,3 +17,91 @@
 		display: none;
 	}
 }
+
+.tablet-only {
+  display: none;
+	@include bp-md() {
+		display: block;
+	}
+}
+
+// Hide
+%hide,
+.hide {
+  display: none;
+}
+
+%sm\:hide,
+.sm\:hide {
+  @include bp-sm() {
+    display: none;
+  }
+}
+
+%md\:hide,
+.md\:hide {
+  @include bp-md() {
+    display: none;
+  }
+}
+
+%lg\:hide,
+.lg\:hide {
+  @include bp-lg() {
+    display: none;
+  }
+}
+
+// Block
+%block,
+.block {
+  display: block;
+}
+
+%sm\:block,
+.sm\:block {
+  @include bp-sm() {
+    display: block;
+  }
+}
+
+%md\:block,
+.md\:block {
+  @include bp-md() {
+    display: block;
+  }
+}
+
+%lg\:block,
+.lg\:block {
+  @include bp-lg() {
+    display: block;
+  }
+}
+
+// Inline block
+%inline-block,
+.inline-block {
+  display: inline-block;
+}
+
+%sm\:inline-block,
+.sm\:inline-block {
+  @include bp-sm() {
+    display: inline-block;
+  }
+}
+
+%md\:inline-block,
+.md\:inline-block {
+  @include bp-md() {
+    display: inline-block;
+  }
+}
+
+%lg\:inline-block,
+.lg\:inline-block {
+  @include bp-lg() {
+    display: inline-block;
+  }
+}

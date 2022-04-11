@@ -4,7 +4,7 @@
 @section('content')
 @if ($page)
   @if ($page->publishedImage)
-    <section class="content-visual is-hero">
+    <section class="content-visual">
       <div>
         <x-image 
           :maxSizes="[1200 => [1800,1200], 0 => [1200,800]]" 
@@ -20,9 +20,13 @@
       <h1>{{ $page->title }}</h1>
       @if ($page->text)
         <article class="lead mobile-only">
-          <x-truncated-text preview="{!! Str::words($page->text, 55, '...') !!}">
+          @if (Str::wordCount($page->text) > 55)
+            <x-truncated-text preview="{!! Str::words($page->text, 55, '...') !!}">
+              {!! $page->text !!}
+            </x-truncated-text>
+          @else
             {!! $page->text !!}
-          </x-truncated-text>
+          @endif
         </article>
         <article class="lead desktop-only">
           {!! $page->text !!}

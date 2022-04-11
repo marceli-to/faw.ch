@@ -37,23 +37,31 @@ figure {
 
 
 .visual {
-  height: calc(100vh - #{$header-height});
 
-  @include bp-md {
-    height: auto
+  img {
+    @extend %is-responsive;
   }
+  
+  &.is-full-height {
+    height: calc(100vh - #{$header-height});
 
-  img, 
-  svg {
-    display: block;
-    height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-    width: 100%;
-
-    @include bp-md() {
-      height: auto;
-      object-fit: unset;
+    @include bp-md {
+      height: auto
+    }
+  
+    img, 
+    svg {
+      display: block;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      width: 100%;
+  
+      @include bp-md() {
+        height: auto;
+        object-fit: unset;
+      }
     }
   }
+  
 }

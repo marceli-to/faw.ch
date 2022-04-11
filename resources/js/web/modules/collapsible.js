@@ -27,7 +27,7 @@ var Collapsible = (function() {
     var wrapper = el.parents(selectors.wrapper);
     if (!wrapper.hasClass(classes.expanded)) {
       var distance = wrapper.offset().top - 20;
-      $.scrollTo(distance, 400);
+      $.scrollTo(distance, 0);
     }
     wrapper.toggleClass(classes.expanded);
     wrapper.find(selectors.content).toggle();

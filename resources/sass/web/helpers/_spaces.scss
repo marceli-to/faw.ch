@@ -50,6 +50,7 @@ $step: 2px;
 .md\:mr-0 { @include bp-md() { margin-right: 0; } }
 .lg\:mr-0 { @include bp-lg() { margin-right: 0; } }
 
+%mb-0, .mb-0 { margin-bottom: 0; }
 %md\:mb-0, .md\:mb-0 { @include bp-md() { margin-bottom: 0; } }
 %lg\:mb-0, .lg\:mb-0 { @include bp-lg() { margin-bottom: 0; } }
 

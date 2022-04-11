@@ -41,7 +41,6 @@
       @endif
     @else
       @if ($event->text)
-        
         @if (Str::of($event->text)->wordCount() > 25)
           <x-truncated-text preview="{!! Str::words($event->text, 25, '...') !!}">
             {!! $event->text !!}

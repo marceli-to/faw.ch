@@ -33,46 +33,42 @@
     top: 18px;
   }
 
-  .is-cross-mobile,
-  .is-cross-desktop,
-  .is-burger-desktop {
-    display: none;
-  }
-
-  .is-burger-mobile {
+  .burger-sm {
     display: inline-block;
-  }
-
-  @include bp-lg() {
-    .is-burger-mobile {
+    @include bp-lg() {
       display: none;
     }
-    .is-burger-desktop {
+  }
+
+  .burger-lg {
+    display: none;
+    @include bp-lg() {
       display: inline-block;
     }
   }
 
+  .cross-sm,
+  .cross-lg {
+    display: none;
+  }
+
   &.is-active {
-    .is-burger-mobile,
-    .is-burger-desktop,
-    .is-cross-mobile,
-    .is-cross-desktop {
+    .burger-sm,
+    .burger-lg {
       display: none;
     }
 
-    .is-cross-mobile {
+    .cross-sm {
       display: inline-block;
     }
 
     @include bp-lg() {
-      .is-cross-mobile {
+      .cross-sm {
         display: none;
       }
-      .is-cross-desktop {
+      .cross-lg {
         display: inline-block;
       }
     }
-
   }
-
 }

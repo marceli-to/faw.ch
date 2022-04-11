@@ -30,6 +30,12 @@ article.member {
 article.member {
   @extend %mb-12x;
   @extend %md\:mb-0;
+
+  h3 {
+    @extend %md\:mb-0;
+    @include font-size($fs-md);
+    text-transform: none;
+  }
 }
 
 article.text {
@@ -49,8 +55,7 @@ article.teaser {
 }
 
 article.text-media {
-  @extend %mb-12x;
-  @extend %lg\:mb-15x;
+  @extend %mb-15x;
   @extend %lg\:grid-cols-12;
   max-width: 505px;
 
@@ -81,7 +86,6 @@ article.text-media {
   }
 
   .text-media__links {
-    @extend %mt-10x;
-    @extend %md\:mt-12x;
+    @extend %mt-4x;
   }
 }

@@ -5,13 +5,30 @@
  */
 
 .collapsible {
-  @extend %mb-10x;
-  @extend %md\:mb-12x;
-  border-bottom: 2px solid $color-black;
+
+  &.is-article {
+    @extend %mb-0;
+
+    &.is-expanded {
+      @extend %mb-12x;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.is-list-item {
+    @extend %mb-10x;
+    @extend %md\:mb-12x;
+    border-bottom: 2px solid $color-black;
+
+    &.is-expanded {
+      border-bottom: 2px solid transparent;
+      margin-bottom: 0 !important;
+    }    
+  }
 
   &.is-expanded {
-    border-bottom: 2px solid transparent;
-    margin-bottom: 0 !important;
 
     .btn-collapsible {
       svg {
@@ -48,8 +65,8 @@
     display: flex;
 
     span {
-      display: block;
-      width: 110px;
+      display: inline-block;
+      padding-right: $space-6x;
     }
 
     svg {

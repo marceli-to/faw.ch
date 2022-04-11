@@ -25,18 +25,19 @@ section.content-visual {
   @extend %visual-block;
   @extend %mb-15x;
   @extend %lg\:mb-18x;
-
+  position: relative;
   @include bp-lg() {
     padding-left: $space-8x;
     padding-right: $space-8x;
   }
 
-  &.is-hero {
-    @include bp-md() {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
+  // &.is-hero {
+  //   @include bp-md() {
+  //     padding-left: 0;
+  //     padding-right: 0;
+  //   }
+  // }
+
 }
 
 section.content-lightbox {

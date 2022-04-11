@@ -1,4 +1,4 @@
-<section class="content-visual is-hero">
+<section class="content-visual">
   <div>
     <x-image 
       :maxSizes="[1200 => [1800,1200], 0 => [1200,800]]" 

@@ -2,7 +2,7 @@
 @section('seo_title', 'Stadtwerkstatt • Veranstaltungen')
 @section('seo_description', '')
 @section('content')
-<section class="content-visual is-hero">
+<section class="content-visual">
   <div>
     <figure class="visual">
       <img src="/assets/media/dummy.jpg" width="1500" height="1000" title="">
