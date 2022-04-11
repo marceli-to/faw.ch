@@ -30,7 +30,7 @@
             <div>
               <input type="email" name="email" placeholder="E-Mail" />
             </div>
-            <div class="mt-6x lg:mt-8x">
+            <div class="mt-8x lg:mt-12x">
               <button type="submit" class="btn-submit is-newsletter">
                 Anmelden
               </button>
