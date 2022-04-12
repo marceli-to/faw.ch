@@ -5,7 +5,7 @@ use Intervention\Image\Filters\FilterInterface;
 
 class Cache implements FilterInterface
 {
-  protected $maxSize = NULL;
+  protected $maxSize;
   protected $coords = FALSE;
   protected $hasCrop = FALSE;
   protected $cropWidth = NULL;
@@ -17,9 +17,9 @@ class Cache implements FilterInterface
 
   public function __construct($maxSize = NULL, $coords = FALSE, $ratio = NULL)
   {
-    $this->maxSize   = $maxSize;
+    $this->maxSize   = $maxSize ? $maxSize : 1500;
     $this->coords    = $coords;
-    $this->ratio     = $ratio;
+    $this->ratio     = $ratio ? $ratio : '3x2';
   }
 
   public function applyFilter(Image $image)
