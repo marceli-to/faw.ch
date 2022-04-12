@@ -38,9 +38,10 @@
     </div>
     <div v-show="tabs.image.active">
       <images 
-        :imageRatioW="3" 
-        :imageRatioH="2"
-        :images="data.images">
+        :imageRatioW="4" 
+        :imageRatioH="2.9"
+        :images="data.images"
+        :allowRatioSwitch="true">
       </images>
     </div>
     <div v-show="tabs.video.active">

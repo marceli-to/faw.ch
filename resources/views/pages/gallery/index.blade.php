@@ -13,9 +13,11 @@
       @if ($gallery->publishedImages)
         @foreach($gallery->publishedImages as $image)
           <x-image 
-            :maxSizes="[1200 => [1500,1000], 900 => [1200,800], 0 => [900,600]]" 
+            :maxSizes="[1200 => 1500, 900 => 1200, 0 => 900]" 
+            width="1200"
+            height="870"
             :image="$image" 
-            ratio="true" 
+            ratio="4x2.9" 
             wrapperClass="{{ !$loop->last ? 'mb-12x' : '' }}"
             showCaption="true"
           />

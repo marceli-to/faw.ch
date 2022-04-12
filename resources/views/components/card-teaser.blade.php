@@ -5,9 +5,11 @@
     <a href="{{ $teaser->link->url }}" target="{{ $teaser->link->target }}">
       @if ($teaser->image)
         <x-image 
-          :maxSizes="[0 => [900,600]]" 
+          :maxSizes="[0 => 900]" 
+          width="900" 
+          height="600" 
           :image="$teaser->image" 
-          ratio="true" 
+          ratio="3x2" 
         />
       @endif
       @if ($teaser->title)
@@ -30,9 +32,11 @@
 
     @if ($teaser->image)
       <x-image 
-        :maxSizes="[0 => [900,600]]" 
+        :maxSizes="[0 => 900]" 
+        width="900" 
+        height="600" 
         :image="$teaser->image" 
-        ratio="true" 
+        ratio="3x2" 
       />
     @endif
 

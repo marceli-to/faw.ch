@@ -7,8 +7,7 @@ use Config;
 
 class ImageController extends ImageCacheController
 {
-  protected $maxWidth;
-  protected $maxHeight;
+  protected $maxSize;
   protected $coords;
   protected $ratio;
   
@@ -21,12 +20,11 @@ class ImageController extends ImageCacheController
    * @return Illuminate\Http\Response
    */
 
-  public function getResponse($template, $filename, $maxWidth = NULL, $maxHeight = NULL, $coords = NULL, $ratio = FALSE)
+  public function getResponse($template, $filename, $maxSize = NULL, $coords = NULL, $ratio = FALSE)
   {
-    $this->maxWidth  = $maxWidth;
-    $this->maxHeight = $maxHeight;
-    $this->coords    = $coords;
-    $this->ratio     = $ratio;
+    $this->maxSize  = $maxSize;
+    $this->coords   = $coords;
+    $this->ratio    = $ratio;
 
     switch (strtolower($template)) {
       case 'original':
@@ -57,7 +55,7 @@ class ImageController extends ImageCacheController
 
     // filter template found
     case class_exists($template):
-      return new $template($this->maxWidth, $this->maxHeight, $this->coords, $this->ratio);
+      return new $template($this->maxSize, $this->coords, $this->ratio);
 
     default:
       // template not found

@@ -15,7 +15,7 @@ class Image extends Component
   /**
    * Ratio
    *
-   * @var Boolean
+   * @var String
    */
   public $ratio;
 
@@ -41,17 +41,33 @@ class Image extends Component
   public $maxSizes;
 
   /**
+   * Width of the image
+   *
+   * @var String
+   */
+  public $width; 
+
+  /**
+   * Height of the image
+   *
+   * @var String
+   */
+  public $height; 
+
+  /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct($image = NULL, $ratio = NULL, $wrapperClass = NULL, $showCaption = FALSE, $maxSizes = [])
+  public function __construct($image = NULL, $ratio = NULL, $wrapperClass = NULL, $showCaption = FALSE, $maxSizes = [], $width = NULL, $height = NULL)
   {
     $this->image = $image;
     $this->maxSizes = $maxSizes;
     $this->ratio = $ratio;
     $this->wrapperClass = $wrapperClass;
     $this->showCaption = $showCaption;
+    $this->width = $width;
+    $this->height = $height;
   }
 
   /**

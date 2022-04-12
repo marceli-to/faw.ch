@@ -40,7 +40,7 @@ Route::get('/kontakt', [ContactController::class, 'index'])->name('page.contact'
 Route::get('/galerie/{page:slug}/{article}/{gallery}/{gallery_slug?}', [GalleryController::class, 'show'])->name('page.gallery');
 
 // Url based images
-Route::get('/img/{template}/{filename}/{maxW?}/{maxH?}/{coords?}/{ratio?}', [ImageController::class, 'getResponse']);
+Route::get('/img/{template}/{filename}/{maxSize?}/{coords?}/{ratio?}', [ImageController::class, 'getResponse']);
 
 /*
 |--------------------------------------------------------------------------

@@ -4,12 +4,12 @@
     <picture>
       @foreach($maxSizes as $minWidth => $maxSize)
         @if ($minWidth > 0)
-          <source media="(min-width: {{ $minWidth }}px)" data-srcset="/img/cache/{{ $image->name }}/{{ $maxSize[0] }}/{{ $maxSize[1] }}/{{ $image->coords }}/{{ $ratio }}">
+          <source media="(min-width: {{ $minWidth }}px)" data-srcset="/img/cache/{{ $image->name }}/{{ $maxSize}}/{{ $image->coords }}/{{ $ratio }}">
         @else
           <img 
-            data-src="/img/cache/{{ $image->name }}/{{ $maxSize[0] }}/{{ $maxSize[1] }}/{{ $image->coords }}/{{ $ratio }}" 
-            width="{{ $maxSize[0] }}" 
-            height="{{ $maxSize[1] }}"
+            data-src="/img/cache/{{ $image->name }}/{{ $maxSize }}/{{ $image->coords }}/{{ $ratio }}" 
+            width="{{ $width }}" 
+            height="{{ $height }}"
             title="{{ $image->title }}"
             class="is-responsive lazy">
         @endif

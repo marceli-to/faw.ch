@@ -7,9 +7,11 @@
     <section class="content-visual">
       <div>
         <x-image 
-          :maxSizes="[1200 => [1800,1200], 0 => [1200,800]]" 
+          :maxSizes="[1200 => 1800, 0 => 1200]" 
+          width="1200"
+          height="800"
           :image="$page->publishedImage" 
-          ratio="true" 
+          ratio="3x2" 
           wrapperClass="visual"
         />
       </div>
@@ -41,7 +43,7 @@
         <h1>{{ $article->title }}</h1>
         <article class="text-media is-lg">
           @if ($article->publishedImage)
-            <x-image :maxSizes="[0 => [900,600]]" :image="$article->publishedImage" ratio="true" wrapperClass="lg:span-6" />
+            <x-image :maxSizes="[0 => 900]" width="900" height="600" :image="$article->publishedImage" ratio="3x2" wrapperClass="lg:span-6" />
           @endif
           <div class="lg:span-6">
             <h2>{!! nl2br($article->subtitle) !!}</h2>

@@ -62,13 +62,21 @@
       </div>
       <div class="upload-overlay-cropper__wrapper" v-if="!isLoading">
         <div :class="'is-' + overlayItem.orientation">
+          <div class="cropper-formats" v-if="allowRatioSwitch">
+            <div>
+              <a href="javascript:;" @click.prevent="changeRatio(2.9,4)" class="btn-cropper-format is-3-4">Hoch</a>
+            </div>
+            <div>
+              <a href="javascript:;" @click.prevent="changeRatio(4,2.9)" class="btn-cropper-format is-4-3">Quer</a>
+            </div>
+          </div>
           <div class="cropper-info">{{ cropW }} x {{ cropH }}px</div>
           <cropper
             :src="cropImage"
             :defaultPosition="defaultPosition"
             :defaultSize="defaultSize"
             :stencilProps="{
-              aspectRatio: this.ratioW/this.ratioH,
+              aspectRatio: this.ratio.w/this.ratio.h,
               linesClassnames: {
                 default: 'line',
               },
@@ -157,7 +165,7 @@ import { XIcon,DownloadIcon } from 'vue-feather-icons';
 import ImageActions from "@/modules/images/components/Actions.vue";
 import ImageEdit from "@/modules/images/mixins/edit";
 import ImageCrop from "@/modules/images/mixins/crop";
-import ImageUtils from "@/modules/images//mixins/utils";
+import ImageUtils from "@/modules/images/mixins/utils";
 
 export default {
   
@@ -191,6 +199,11 @@ export default {
     ratioH: {
       type: Number,
       default: 2
+    },
+
+    allowRatioSwitch: {
+      type: Boolean,
+      default: false,
     }
   },
 
@@ -225,9 +238,25 @@ export default {
     this.imageData = this.$props.images;
     this.ratio.w = this.$props.ratioW;
     this.ratio.h = this.$props.ratioH;
+
+    console.log(this.$props.ratioW);
+    console.log(this.$props.allowRatioSwitch);
   },
 
   methods: {
+
+    changeRatio(w,h) {
+      this.ratio.w = w;
+      this.ratio.h = h;
+      this.resetCropper();
+    },
+
+    resetCropper() {
+      let image = this.overlayItem;
+      this.hideCropper();
+      this.showCropper(image, true)
+    },
+
 
     update() {
       this.axios.put(`${this.routes.update}/${this.overlayItem.id}`, this.overlayItem).then((response) => {

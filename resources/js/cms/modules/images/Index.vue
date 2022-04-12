@@ -16,6 +16,7 @@
         :imagePreviewRoute="'cache'"
         :ratioW="this.$props.imageRatioW"
         :ratioH="this.$props.imageRatioH"
+        :allowRatioSwitch="this.$props.allowRatioSwitch"
       ></image-edit>
     </div>
   </div>
@@ -44,6 +45,11 @@ export default {
     imageRatioH: {
       type: Number,
       default: 2
+    },
+
+    allowRatioSwitch: {
+      type: Boolean,
+      default: false,
     },
 
     typeId: null,

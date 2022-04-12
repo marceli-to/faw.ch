@@ -1,7 +1,7 @@
 <article class="card is-home md:span-6">
   <a href="{{ route('page.event.calendar') }}" title="Zur Veranstaltung • {{$event->title}}">
     @if ($event->image)
-      <x-image :maxSizes="[0 => [900,600]]" :image="$event->image" ratio="true" />
+      <x-image :maxSizes="[0 => 900]" width="900" height="600" :image="$event->image" ratio="3x2" />
     @endif
     @if ($event->subtitle)
       <span class="card__topic">{{$event->subtitle}}</span>
