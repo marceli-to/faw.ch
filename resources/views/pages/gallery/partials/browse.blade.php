@@ -5,7 +5,7 @@
         @if ($browse['prev']['gallery']->hover_text)
           {{ $browse['prev']['gallery']->hover_text }}
         @else
-          {{ $browse['prev']['gallery']->link_ext }}
+          {{ $browse['prev']['gallery']->link_text }}
         @endif
       @endif
     </div>
@@ -14,7 +14,7 @@
         @if ($browse['next']['gallery']->hover_text)
           {{ $browse['next']['gallery']->hover_text }}
         @else
-          {{ $browse['next']['gallery']->link_ext }}
+          {{ $browse['next']['gallery']->link_text }}
         @endif
       @endif
     </div>
