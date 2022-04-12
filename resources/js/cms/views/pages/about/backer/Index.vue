@@ -11,7 +11,7 @@
       </router-link>
     </page-header>
 
-    <div class="listing" v-if="data['Personen'].length">
+    <div class="listing" v-if="data['Personen'] && data['Personen'].length">
       <h3 class="mb-3x"><strong>Personen</strong></h3>
       <div
         :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
@@ -32,7 +32,7 @@
       <p class="no-records">{{messages.emptyData}}</p>
     </div>
 
-    <div class="listing mt-6x" v-if="data['Firmen'].length">
+    <div class="listing mt-6x" v-if="data['Firmen'] && data['Firmen'].length">
       <h3 class="mb-3x"><strong>Firmen</strong></h3>
       <div
         :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
