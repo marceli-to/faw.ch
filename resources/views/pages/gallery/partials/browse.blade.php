@@ -1,4 +1,24 @@
 <nav class="lightbox {{ $class ?? $class }}">
+  <div class="lightbox__hover">
+    <div data-hover-prev style="display: none">
+      @if (isset($browse['prev']))
+        @if ($browse['prev']['gallery']->hover_text)
+          {{ $browse['prev']['gallery']->hover_text }}
+        @else
+          {{ $browse['prev']['gallery']->link_ext }}
+        @endif
+      @endif
+    </div>
+    <div data-hover-next style="display: none">
+      @if (isset($browse['next']))
+        @if ($browse['next']['gallery']->hover_text)
+          {{ $browse['next']['gallery']->hover_text }}
+        @else
+          {{ $browse['next']['gallery']->link_ext }}
+        @endif
+      @endif
+    </div>
+  </div>
   <ul>
     <li>
       @if (isset($browse['prev']))
@@ -11,7 +31,8 @@
               'gallery_slug' => $browse['prev']['gallery']->slug
             ]
           )}}"
-          title="{{ $browse['prev']['gallery']->title }}">
+          title="{{ $browse['prev']['gallery']->title }}"
+          data-hover="data-hover-prev">
           <x-icon type="chevron-left" />
         </a>
       @endif
@@ -27,7 +48,8 @@
               'gallery_slug' => $browse['next']['gallery']->slug
             ]
           )}}"
-          title="{{ $browse['next']['gallery']->title }}">
+          title="{{ $browse['next']['gallery']->title }}"
+          data-hover="data-hover-next">
           <x-icon type="chevron-right" />
         </a>
       @endif

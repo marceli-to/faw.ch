@@ -16,6 +16,7 @@ class Gallery extends Model
     'text',
     'credits',
     'link_text',
+    'hover_text',
     'publish',
     'order',
   ];

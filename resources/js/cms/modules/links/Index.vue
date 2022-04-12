@@ -26,7 +26,7 @@
         <button-submit class="is-tiny">Speichern</button-submit>
       </div>
     </form>
-    <div>
+    <div class="listing">
       <div
         :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
         v-for="d in data"

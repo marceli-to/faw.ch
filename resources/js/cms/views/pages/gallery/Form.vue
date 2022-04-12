@@ -19,6 +19,10 @@
           <label-required />
         </div>
         <div class="form-row">
+          <label>Mouseovertext (Lightbox Navigation)</label>
+          <input type="text" v-model="data.hover_text">
+        </div>
+        <div class="form-row">
           <label>Subtitel</label>
           <input type="text" v-model="data.subtitle">
         </div>
@@ -103,6 +107,7 @@ export default {
         text: null,
         credits: null,
         link_text: null,
+        hover_text: null,
         publish: 1,
         images: [],
         videos: [],

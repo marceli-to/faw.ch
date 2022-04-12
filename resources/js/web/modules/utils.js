@@ -15,6 +15,7 @@ var Utils = (function() {
 
   var classes = {
     active: 'is-active',
+    visible: 'is-visible',
     touched: 'is-touched',
   };
 
@@ -53,6 +54,13 @@ var Utils = (function() {
       $(this).parent('div').hide();
       $(this).parent('div').prev('a').show();
       $(this).parent('div').prev('a').prev('div').show();
+    });
+
+    $('[data-hover]').on('mouseover', function(){
+      $('['+ $(this).data("hover")+']').show();
+    });
+    $('[data-hover]').on('mouseout', function(){
+      $('['+ $(this).data("hover")+']').hide();
     });
 
     // $(selectors.btnMore).on('click', function(e) {

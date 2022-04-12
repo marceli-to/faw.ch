@@ -12,9 +12,5 @@
   position: absolute;
   top: calc(100% - 45px);
   width: 43px;
-
-  @include bp-md() {
-    display: none;
-  }
-  
+ 
 }

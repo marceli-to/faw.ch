@@ -12,6 +12,7 @@ nav.lightbox {
   display: flex;
   justify-content: flex-start;
   max-width: $lightbox-max-width;
+  position: relative;
 
   @include bp-xl() {
     justify-content: flex-end;
@@ -45,6 +46,10 @@ nav.lightbox {
     }
   }
 
+  li {
+    position: relative;
+  }
+
   a.btn-lightbox-close {
     display: block;
     height: 29px;
@@ -68,22 +73,27 @@ nav.lightbox {
     }
   }
 
-  // icons
-  .lightbox-mobile {
-    display: inline-block;
-  }
-
-  .lightbox-desktop {
+  .lightbox__hover {
     display: none;
-  }
+    @include font-size($fs-md);
+    line-height: 1 !important;
+    position: absolute;
 
-  @include bp-lg() {
-    .lightbox-mobile {
-      display: none;
+    @include bp-md() {
+      display: block;
+      left: 85px;
+      top: 8px;
     }
 
-    .lightbox-desktop {
-      display: inline-block;
+    @include bp-lg() {
+      left: 106px;
+      top: 14px;
+    }
+
+    @include bp-xl() {
+      left: auto;
+      right: 116px;
+      top: 14px;
     }
   }
 }

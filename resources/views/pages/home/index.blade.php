@@ -21,7 +21,7 @@
       @if ($grid_items['events'])
         @foreach($grid_items['events'] as $item)
           @if ($item->event)
-            <x-card-event :event="$item->event" preview="TRUE" cssClass="is-home md:span-6" />
+            <x-card-event-teaser :event="$item->event" />
           @endif
         @endforeach
       @endif
@@ -29,7 +29,7 @@
     <div class="grid grid-home grid-cols-12">
       @if ($grid_items['teasers'])
         @foreach($grid_items['teasers'] as $item)
-          <x-card-teaser :teaser="$item->teaser" cssClass="is-home md:span-6 lg:span-4" />
+          <x-card-teaser :teaser="$item->teaser" />
         @endforeach
       @endif
     </div>
