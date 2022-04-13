@@ -29,8 +29,8 @@
           @foreach($history->publishedArticles as $article)
             <article class="text">
               <x-heading type="h2" title="{{ $article->title }}" class="mb-1x" />
-              @if (Str::wordCount($article->text) > 50)
-                <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+              @if (Str::wordCount($article->text) > 60)
+                <x-truncated-text preview="{!! Str::words($article->text, 60, '...') !!}">
                   {!! $article->text !!}
                 </x-truncated-text>
               @else
