@@ -1,4 +1,5 @@
 import LazyLoad from '../vendor/lazyload';
+import vhCheck from '../vendor/vhcheck';
 
 var Utils = (function() {
 	
@@ -22,6 +23,8 @@ var Utils = (function() {
   // Init
   var _initialize = function() {
     _bind();
+    const vhc = vhCheck();
+    console.log(vhc);
   };
 
   // Bind events

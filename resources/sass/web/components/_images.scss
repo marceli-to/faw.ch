@@ -44,8 +44,7 @@ figure {
   
   &.is-full-height {
     height: calc(100vh - #{$header-height});
-    min-height: -webkit-fill-available;
-
+    height: calc(100vh - var(--vh-offset, 0px) - #{$header-height});
     @include bp-md {
       height: auto;
       min-height: auto;
