@@ -24,7 +24,6 @@ var Utils = (function() {
   var _initialize = function() {
     _bind();
     const vhc = vhCheck();
-    console.log(vhc);
   };
 
   // Bind events
