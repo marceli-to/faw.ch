@@ -36,7 +36,8 @@ $bp-xxl: 1600px;
 $breakpoints: (
   sm: $bp-sm,
   md: $bp-md,
-  lg: $bp-lg
+  lg: $bp-lg,
+  xl: $bp-xxl,
 );
 
 /* Site
@@ -53,9 +54,10 @@ $lightbox-max-width-xxl:  1200px;
 /* Header
  * -------------------- */
 
-$header-height:    58px;
-$header-height-lg: 82px;
- 
+$header-height:     58px;
+$header-height-lg:  82px;
+$header-height-xxl: 89px;
+
 /* Grids
  * -------------------- */
 

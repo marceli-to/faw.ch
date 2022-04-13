@@ -64,10 +64,10 @@
         <div :class="'is-' + overlayItem.orientation">
           <div class="cropper-formats" v-if="allowRatioSwitch">
             <div>
-              <a href="javascript:;" @click.prevent="changeRatio(2.9,4)" class="btn-cropper-format is-3-4">Hoch</a>
+              <a href="javascript:;" @click.prevent="changeRatio(2.8,4)" class="btn-cropper-format is-3-4">Hoch</a>
             </div>
             <div>
-              <a href="javascript:;" @click.prevent="changeRatio(4,2.9)" class="btn-cropper-format is-4-3">Quer</a>
+              <a href="javascript:;" @click.prevent="changeRatio(4,2.8)" class="btn-cropper-format is-4-3">Quer</a>
             </div>
           </div>
           <div class="cropper-info">{{ cropW }} x {{ cropH }}px</div>
@@ -238,9 +238,6 @@ export default {
     this.imageData = this.$props.images;
     this.ratio.w = this.$props.ratioW;
     this.ratio.h = this.$props.ratioH;
-
-    console.log(this.$props.ratioW);
-    console.log(this.$props.allowRatioSwitch);
   },
 
   methods: {

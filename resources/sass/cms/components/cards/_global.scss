@@ -27,11 +27,16 @@
 .card {
   border: 2px solid $color-light;
   color: $color-primary;
+  margin-top: $space-8x;
   @include responsive-prop('padding-left', $space-xs);
   @include responsive-prop('padding-right', $space-xs);
   @include responsive-prop('padding-bottom', $space-sm);
   @include responsive-prop('padding-top', $space-xs);
   transition: border .12s ease-in;
+
+  @include bp-sm() {
+    margin-top: 0;
+  }
   
   &:hover {
     border: 2px solid $color-primary;

@@ -15,9 +15,9 @@
           <x-image 
             :maxSizes="[1200 => 1500, 900 => 1200, 0 => 900]" 
             width="1200"
-            height="870"
+            height="840"
             :image="$image" 
-            ratio="4x2.9" 
+            ratio="4x2.8" 
             wrapperClass="{{ !$loop->last ? 'mb-12x' : '' }}"
             showCaption="true"
           />

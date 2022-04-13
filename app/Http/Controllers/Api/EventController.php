@@ -22,7 +22,21 @@ class EventController extends Controller
     {
       return new DataCollection(Event::with('image')->published()->orderBy('date', 'DESC')->orderBy('created_at')->get());
     }
-    return new DataCollection(Event::orderBy('sticky', 'DESC')->orderBy('date', 'DESC')->get());
+
+    if ($constraint == 'current')
+    {
+      return new DataCollection(Event::with('image')->upcomingOrSticky()->orderBy('date', 'DESC')->orderBy('created_at')->get());
+    }
+
+    $events_sticky = Event::orderBy('date', 'DESC')->where('sticky', 1)->get();
+    $events = Event::orderBy('date', 'DESC')->where('sticky', 0)->get();
+    $events = $events->groupBy('year');
+    $events = $events->all();
+    return response()->json([
+      'sticky' => $events_sticky,
+      'nonSticky' => $events
+    ]);
+    // return new DataCollection(Event::orderBy('sticky', 'DESC')->orderBy('date', 'DESC')->get());
   }
 
   /**

@@ -6,7 +6,11 @@
     @if ($event->subtitle)
       <span class="card__topic">{{$event->subtitle}}</span>
     @endif
-    <x-heading type="h2" title="{{ $event->date ? DateHelper::format($event->dateTime) : '' }}" subtitle="{{ $event->title }}" />
+    @if ($event->sticky)
+      <x-heading type="h2" title="{{ $event->title }}" />
+    @else
+      <x-heading type="h2" title="{{ $event->date ? DateHelper::format($event->dateTime) : '' }}" subtitle="{{ $event->title }}" />
+    @endif
     @if ($event->abstract)
       {!! nl2br($event->abstract) !!}
     @endif

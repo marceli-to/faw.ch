@@ -2,25 +2,8 @@
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
   <div v-if="isFetched" class="is-loaded">
-    <div class="listing">
-      <div
-        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
-        v-for="d in data"
-        :key="d.id"
-      >
-        <div class="listing__item-body">
-          {{d.title}}
-        </div>
-        <div class="listing__item-action">
-          <div>
-            <a href="javascript:;" @click="add(d)">
-              <plus-icon size="18"></plus-icon>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mt-10x" v-if="data_galleries.length">
+
+    <div class="mb-10x" v-if="data_galleries.length">
       <h3 class="mb-3x">Bereits hinzugefügt</h3>
       <draggable 
         :disabled="false"
@@ -47,8 +30,27 @@
         </div>
       </draggable>
     </div>
-    <div class="mt-10x" v-else>
+    <div class="mb-10x" v-else>
       <p class="no-records">{{messages.emptyData}}</p>
+    </div>
+
+    <div class="listing">
+      <div
+        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+        v-for="d in data"
+        :key="d.id"
+      >
+        <div class="listing__item-body">
+          {{d.title}}
+        </div>
+        <div class="listing__item-action">
+          <div>
+            <a href="javascript:;" @click="add(d)">
+              <plus-icon size="18"></plus-icon>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

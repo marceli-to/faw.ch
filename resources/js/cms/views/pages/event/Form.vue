@@ -14,11 +14,11 @@
           <label-required />
         </div>
         <div class="form-row">
-          <label>Subtitel</label>
+          <label>Rubrik</label>
           <input type="text" v-model="data.subtitle">
         </div>
         <div class="form-row">
-          <label>Abstract</label>
+          <label>Vorschautext Startseite</label>
           <textarea v-model="data.abstract"></textarea>
         </div>
         <div class="form-row">

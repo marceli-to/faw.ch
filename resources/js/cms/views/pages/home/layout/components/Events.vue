@@ -50,7 +50,7 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/events/publish'
+        get: '/api/events/current'
       },
 
       // States

@@ -1,6 +1,6 @@
 <{{ $type}} {{ $attributes }}>
-  {{ $title }}
+  {!! $title !!}
   @if($subtitle)
-    <br><x-icon type="dash" />{{ $subtitle }}
+    <br><x-icon type="dash" />{!! $subtitle !!}
   @endif
 </{{ $type }}>

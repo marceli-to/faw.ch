@@ -13,7 +13,7 @@
       <div class="card">
         <router-link :to="{name: 'events'}">
           <h2>Veranstaltungen</h2>
-          <p>Verwaltung der Veranstaltungen</p>
+          <p>Verwaltung von Kalender und Archiv</p>
         </router-link>
       </div>
       <div class="card">
@@ -22,6 +22,20 @@
           <p>Verwaltung des Jahresprogramms</p>
         </router-link>
       </div>
+
+      <div class="card">
+        <router-link :to="{name: 'activities'}">
+          <h2>Debatten</h2>
+          <p>Verwaltung der Aktivitäten</p>
+        </router-link>
+      </div>
+      <div class="card">
+        <router-link :to="{name: 'about'}">
+          <h2>Über uns / Mitgliedschaft</h2>
+          <p>Verwaltung von Über uns</p>
+        </router-link>
+      </div>
+      <div></div>
       <div class="card">
         <router-link :to="{name: 'page'}">
           <h2>Spezialseiten</h2>
@@ -29,21 +43,9 @@
         </router-link>
       </div>
       <div class="card">
-        <router-link :to="{name: 'activities'}">
-          <h2>Aktivitäten</h2>
-          <p>Verwaltung der Aktivitäten</p>
-        </router-link>
-      </div>
-      <div class="card">
-        <router-link :to="{name: 'about'}">
-          <h2>Über uns</h2>
-          <p>Verwaltung von Über uns</p>
-        </router-link>
-      </div>
-      <div class="card">
         <router-link :to="{name: 'galleries'}">
           <h2>Mediengalerien</h2>
-          <p>Verwaltung der Mediengalerien</p>
+          <p>Verwaltung aller Bildstrecken</p>
         </router-link>
       </div>
     </div>

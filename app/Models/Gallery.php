@@ -23,12 +23,12 @@ class Gallery extends Model
 
   public function images()
   {
-    return $this->morphMany(Image::class, 'imageable');
+    return $this->morphMany(Image::class, 'imageable')->orderBy('order');
   }
 
   public function publishedImages()
   {
-    return $this->morphMany(Image::class, 'imageable')->where('publish', 1);
+    return $this->morphMany(Image::class, 'imageable')->where('publish', 1)->orderBy('order');
   }
 
   public function videos()

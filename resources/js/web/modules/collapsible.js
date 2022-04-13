@@ -25,10 +25,10 @@ var Collapsible = (function() {
 
   var _toggle = function(el) {
     var wrapper = el.parents(selectors.wrapper);
-    if (!wrapper.hasClass(classes.expanded)) {
-      var distance = wrapper.offset().top - 20;
-      $.scrollTo(distance, 0);
-    }
+    // if (!wrapper.hasClass(classes.expanded)) {
+    //   var distance = wrapper.offset().top - 20;
+    //   $.scrollTo(distance, 0);
+    // }
     wrapper.toggleClass(classes.expanded);
     wrapper.find(selectors.content).toggle();
   };

@@ -11,10 +11,10 @@
       </router-link>
     </page-header>
 
-    <div class="listing" v-if="data.length">
+    <div class="listing" v-if="data.sticky.length">
       <div
         :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
-        v-for="d in data"
+        v-for="d in data.sticky"
         :key="d.id"
       >
         <div class="listing__item-body">
@@ -30,8 +30,26 @@
         </list-actions>
       </div>
     </div>
-    <div v-else>
-      <p class="no-records">{{messages.emptyData}}</p>
+
+    <div v-if="data.nonSticky">
+
+      <div class="listing mt-5x" v-for="(data, index) in data.nonSticky" :key="index">
+        <h2 class="mb-2x">{{index}}</h2>
+        <div
+          :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+          v-for="d in data"
+          :key="d.id"
+        >
+          <div class="listing__item-body">
+            <span v-if="d.date">{{d.date}}<separator /></span>{{d.title}}
+          </div>
+          <list-actions 
+            :id="d.id" 
+            :record="d"
+            :routes="{edit: 'event-edit'}">
+          </list-actions>
+        </div>
+      </div>
     </div>
     <page-footer>
       <button-back :route="'dashboard'">Zurück</button-back>
@@ -69,7 +87,10 @@ export default {
   data() {
     return {
 
-      data: [],
+      data: {
+        sticky: null,
+        nonSticky: null,
+      },
 
       // Routes
       routes: {
@@ -100,7 +121,8 @@ export default {
 
     fetch() {
       this.axios.get(`${this.routes.get}`).then(response => {
-        this.data = response.data.data;
+        this.data.sticky = response.data.sticky;
+        this.data.nonSticky = response.data.nonSticky;
         this.isFetched = true;
       });
     },
@@ -124,6 +146,6 @@ export default {
         });
       }
     },
-  }
+  },
 }
 </script>

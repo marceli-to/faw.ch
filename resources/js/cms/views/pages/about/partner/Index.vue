@@ -4,7 +4,7 @@
   <div v-if="isFetched" class="is-loaded">
     
     <page-header>
-      <h1>Partner</h1>
+      <h1>Netzwerkpartner</h1>
       <router-link :to="{ name: 'partner-create' }" class="btn-add has-icon">
         <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>

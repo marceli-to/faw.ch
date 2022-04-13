@@ -5,18 +5,6 @@
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
-        <router-link :to="{name: 'backers'}">
-          <h2>Gönner</h2>
-          <p>Verwaltung der Gönner</p>
-        </router-link>
-      </div>
-      <div class="card">
-        <router-link :to="{name: 'partners'}">
-          <h2>Netzwerk</h2>
-          <p>Verwaltung der Netzwerkpartner</p>
-        </router-link>
-      </div>
-      <div class="card">
         <router-link :to="{name: 'history'}">
           <h2>Geschichte</h2>
           <p>Verwaltung der Geschichte</p>
@@ -26,6 +14,18 @@
         <router-link :to="{name: 'boards'}">
           <h2>Vorstand</h2>
           <p>Verwaltung der Vorstandsmitglieder</p>
+        </router-link>
+      </div>
+      <div class="card">
+        <router-link :to="{name: 'backers'}">
+          <h2>Gönner</h2>
+          <p>Verwaltung der Gönner</p>
+        </router-link>
+      </div>
+      <div class="card">
+        <router-link :to="{name: 'partners'}">
+          <h2>Netzwerk</h2>
+          <p>Verwaltung der Netzwerkpartner</p>
         </router-link>
       </div>
     </div>

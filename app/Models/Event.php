@@ -61,6 +61,16 @@ class Event extends Base
 	}
 
 	/**
+   * Scope for upcoming or sticky events
+   */
+
+	public function scopeUpcomingOrSticky($query)
+	{
+		$constraint = date('Y-m-d', time());
+		return $query->where('date', '>=', $constraint)->where('publish', 1)->orWhere('sticky', 1);
+	}
+
+	/**
    * Scope for past events
    */
 

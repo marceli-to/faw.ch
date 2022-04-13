@@ -8,27 +8,27 @@
     <tabs :tabs="tabs" :errors="errors"></tabs>
     <div v-show="tabs.data.active">
       <div>
-        <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
-          <label>Titel *</label>
-          <input type="text" v-model="data.title">
-          <label-required />
-        </div>
         <div :class="[this.errors.link_text ? 'has-error' : '', 'form-row']">
           <label>Linktext *</label>
           <input type="text" v-model="data.link_text">
           <label-required />
         </div>
-        <div class="form-row">
-          <label>Mouseovertext (Lightbox Navigation)</label>
-          <input type="text" v-model="data.hover_text">
+        <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
+          <label>Titel *</label>
+          <input type="text" v-model="data.title">
+          <label-required />
         </div>
         <div class="form-row">
           <label>Subtitel</label>
           <input type="text" v-model="data.subtitle">
         </div>
         <div class="form-row">
-          <label>Text</label>
+          <label>Subtitel 2. Zeile</label>
           <textarea v-model="data.text"></textarea>
+        </div>
+        <div class="form-row">
+          <label>Mouseovertext (Lightbox Navigation)</label>
+          <input type="text" v-model="data.hover_text">
         </div>
         <div class="form-row">
           <label>Credits</label>
@@ -39,7 +39,7 @@
     <div v-show="tabs.image.active">
       <images 
         :imageRatioW="4" 
-        :imageRatioH="2.9"
+        :imageRatioH="2.8"
         :images="data.images"
         :allowRatioSwitch="true">
       </images>

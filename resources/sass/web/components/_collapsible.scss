@@ -23,8 +23,14 @@
     border-bottom: 2px solid $color-black;
 
     &.is-expanded {
+      @extend %pb-8x;
+      @extend %md\:pb-10x;
+      @extend %lg\:pb-12x;
       border-bottom: 2px solid transparent;
       margin-bottom: 0 !important;
+      &:last-of-type {
+        padding-bottom: 0 !important;
+      }
     }    
   }
 
@@ -69,14 +75,22 @@
       padding-right: $space-6x;
     }
 
-    svg {
+    > svg {
       @extend %mt-3x;
+      @extend %xxl\:mt-4x;
       
       &:first-of-type {
         display: inline-block;
       }
       &:last-of-type {
         display: none;
+      }
+    }
+
+    &.has-subtitle {
+      align-items: center;
+      > svg {
+        @extend %mt-10x;
       }
     }
   }

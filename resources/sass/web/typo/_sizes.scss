@@ -10,6 +10,7 @@ $fs-xs: (
   sm:   (12px,1.16),
   md:   (12px,1.16),
   lg:   (12px,1.16),
+  xl:   (14px,1.16),
 );
 
 $fs-sm: (
@@ -17,6 +18,7 @@ $fs-sm: (
   sm:   (15px,1.33),
   md:   (15px,1.33),
   lg:   (15px,1.33),
+  xl:   (17px,1.33),
 );
 
 $fs-md: (
@@ -24,6 +26,7 @@ $fs-md: (
   sm:   (18px,1.22),
   md:   (18px,1.22),
   lg:   (18px,1.22),
+  xl:   (20px,1.33),
 );
 
 $fs-lg: (
@@ -31,6 +34,7 @@ $fs-lg: (
   sm:   (32px,1.16),
   md:   (32px,1.16),
   lg:   (42px,1.16),
+  xl:   (46px,1.16),
 );
 
 $fs-nav-sm: (
@@ -38,13 +42,7 @@ $fs-nav-sm: (
   sm:   (18px,1),
   md:   (15px,1),
   lg:   (15px,1),
-);
-
-$fs-nav-lg: (
-  null: (28px,1),
-  sm:   (28px,1),
-  md:   (22px,1),
-  lg:   (22px,1),
+  xl:   (17px,1),
 );
 
 $fs-nav-md: (
@@ -52,8 +50,16 @@ $fs-nav-md: (
   sm:   (22px,1),
   md:   (18px,1),
   lg:   (18px,1),
+  xl:   (20px,1),
 );
 
+$fs-nav-lg: (
+  null: (28px,1),
+  sm:   (28px,1),
+  md:   (22px,1),
+  lg:   (22px,1),
+  xl:   (24px,1),
+);
 
 // Auth / Buttons
 $fs-btn: (
@@ -61,4 +67,5 @@ $fs-btn: (
   sm:   (15px,1.33),
   md:   (15px,1.33),
   lg:   (15px,1.33),
+  xl:   (15px,1.33),
 );

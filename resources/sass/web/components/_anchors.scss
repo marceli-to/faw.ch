@@ -32,6 +32,7 @@
     transition: transform .1s ease-in;
     svg {
       @extend %mr-3x;
+      @extend %xxl\:mt-1x;
     }
   }
 
@@ -39,13 +40,11 @@
     align-items: unset;
     display: flex;
     transition: transform .1s ease-in;
-
   }
 
 
   &.anchor--chevron {
     @extend %mt-2x;
-   
     svg {
       @extend %ml-3x; 
     }
@@ -89,5 +88,5 @@
 }
 
 p + .anchor-external {
-  margin-top: $space-10x;
+  @extend %mt-4x;
 }
