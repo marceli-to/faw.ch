@@ -105,10 +105,10 @@
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
               @if (Str::wordCount($article->text) > 60)
                 <x-truncated-text preview="{!! Str::words($article->text, 60, '...') !!}">
-                  {!! $article->text !!}
+                  {!! $article->text !!} a
                 </x-truncated-text>
               @else
-                {!! $article->text !!}
+                {!! $article->text !!} b
               @endif
             </article>
           @endforeach
