@@ -85,9 +85,13 @@
 
             <article class="text hide !md:block">
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-              <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
+              @if (Str::wordCount($article->text) > 60)
+                <x-truncated-text preview="{!! Str::words($article->text, 55, '...') !!}">
+                  {!! $article->text !!}
+                </x-truncated-text>
+              @else
                 {!! $article->text !!}
-              </x-truncated-text>
+              @endif
             </article>
           @endforeach
         </div>
@@ -104,13 +108,11 @@
             <article class="text">
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
               @if (Str::wordCount($article->text) > 60)
-               {{Str::wordCount($article->text)}}
                 <x-truncated-text preview="{!! Str::words($article->text, 55, '...') !!}">
-                  {!! $article->text !!} a
+                  {!! $article->text !!}
                 </x-truncated-text>
               @else
-              {{Str::wordCount($article->text)}}
-                {!! $article->text !!} b
+                {!! $article->text !!}
               @endif
             </article>
           @endforeach
