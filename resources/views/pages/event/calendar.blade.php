@@ -103,11 +103,13 @@
           @foreach($annual_program->publishedArticlesSpecial as $article)
             <article class="text">
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-              @if (Str::wordCount($article->text) >= 65)
-                <x-truncated-text preview="{!! Str::words($article->text, 60, '...') !!}">
+              @if (Str::wordCount($article->text) > 60)
+               {{Str::wordCount($article->text)}}
+                <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
                   {!! $article->text !!} a
                 </x-truncated-text>
               @else
+              {{Str::wordCount($article->text)}}
                 {!! $article->text !!} b
               @endif
             </article>
