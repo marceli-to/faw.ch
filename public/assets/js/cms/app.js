@@ -56003,7 +56003,7 @@ var render = function() {
                                 [_vm._v("Löschen")]
                               ),
                               _vm._v(" "),
-                              item.event
+                              item.event && item.event.image
                                 ? _c("figure", [
                                     item.event.image
                                       ? _c("img", {

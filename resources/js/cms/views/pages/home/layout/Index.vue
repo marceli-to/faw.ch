@@ -36,7 +36,7 @@
           v-for="item in data.grid.events"
           :key="item.id">
           <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
-          <figure v-if="item.event">
+          <figure v-if="item.event && item.event.image">
             <img :src="getImageSrc(item.event.image, 'cache')" height="300" width="200" v-if="item.event.image">
             <img src="/assets/img/cms/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
             <h2>{{item.event.title}}</h2>
