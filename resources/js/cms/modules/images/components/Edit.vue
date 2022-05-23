@@ -62,12 +62,15 @@
       </div>
       <div class="upload-overlay-cropper__wrapper" v-if="!isLoading">
         <div :class="'is-' + overlayItem.orientation">
-          <div class="cropper-formats" v-if="allowRatioSwitch">
+          <div class="cropper-formats">
             <div>
-              <a href="javascript:;" @click.prevent="changeRatio(2.8,4)" class="btn-cropper-format is-3-4">Hoch</a>
+              <a href="javascript:;" @click.prevent="changeRatio(2.8,4)" class="btn-cropper-format is-3-4">Hoch 3x4</a>
             </div>
             <div>
-              <a href="javascript:;" @click.prevent="changeRatio(4,2.8)" class="btn-cropper-format is-4-3">Quer</a>
+              <a href="javascript:;" @click.prevent="changeRatio(4,2.8)" class="btn-cropper-format is-4-3">Quer 4x3</a>
+            </div>
+            <div>
+              <a href="javascript:;" @click.prevent="changeRatio(3,2)" class="btn-cropper-format is-4-3">Quer 3x2</a>
             </div>
           </div>
           <div class="cropper-info">{{ cropW }} x {{ cropH }}px</div>
@@ -203,7 +206,7 @@ export default {
 
     allowRatioSwitch: {
       type: Boolean,
-      default: false,
+      default: true,
     }
   },
 
