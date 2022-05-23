@@ -56003,35 +56003,40 @@ var render = function() {
                                 [_vm._v("Löschen")]
                               ),
                               _vm._v(" "),
-                              _c("figure", [
-                                item.event.image
-                                  ? _c("img", {
-                                      attrs: {
-                                        src: _vm.getImageSrc(
-                                          item.event.image,
-                                          "cache"
-                                        ),
-                                        height: "300",
-                                        width: "200"
+                              item.event
+                                ? _c("figure", [
+                                    item.event.image
+                                      ? _c("img", {
+                                          attrs: {
+                                            src: _vm.getImageSrc(
+                                              item.event.image,
+                                              "cache"
+                                            ),
+                                            height: "300",
+                                            width: "200"
+                                          }
+                                        })
+                                      : _c("img", {
+                                          staticClass: "aspect-3:2",
+                                          attrs: {
+                                            src:
+                                              "/assets/img/cms/placeholder.png",
+                                            width: "300",
+                                            height: "200"
+                                          }
+                                        }),
+                                    _vm._v(" "),
+                                    _c("h2", [
+                                      _vm._v(_vm._s(item.event.title))
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", {
+                                      domProps: {
+                                        innerHTML: _vm._s(item.event.abstract)
                                       }
                                     })
-                                  : _c("img", {
-                                      staticClass: "aspect-3:2",
-                                      attrs: {
-                                        src: "/assets/img/cms/placeholder.png",
-                                        width: "300",
-                                        height: "200"
-                                      }
-                                    }),
-                                _vm._v(" "),
-                                _c("h2", [_vm._v(_vm._s(item.event.title))]),
-                                _vm._v(" "),
-                                _c("p", {
-                                  domProps: {
-                                    innerHTML: _vm._s(item.event.abstract)
-                                  }
-                                })
-                              ])
+                                  ])
+                                : _vm._e()
                             ]
                           )
                         }),
