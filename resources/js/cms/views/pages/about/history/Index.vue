@@ -31,7 +31,7 @@
       <p class="no-records">{{messages.emptyData}}</p>
     </div>
     <page-footer>
-      <button-back :route="'dashboard'">Zurück</button-back>
+      <button-back :route="'about'">Zurück</button-back>
     </page-footer>
   </div>
 </div>
