@@ -20,6 +20,9 @@
   <section class="content">
     <div>
       <h1>{{ $page->title }}</h1>
+      @if ( $page->subtitle)
+        <h2>{{ $page->subtitle }}</h2>
+      @endif
       @if ($page->text)
         <article class="lead block md:hide">
           @if (Str::wordCount($page->text) > 60)
