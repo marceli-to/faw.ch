@@ -13,6 +13,10 @@
   top: calc(100% - 45px);
   width: 43px;
 
+  @include bp-sm() {
+    display: none;
+  }
+
   @include bp-lg() {
     left: calc(50% - 38px);
   }
