@@ -34,10 +34,10 @@
     <div v-if="data.nonSticky">
 
       <div class="listing mt-5x" v-for="(data, index) in data.nonSticky" :key="index">
-        <h2 class="mb-2x">{{index}}</h2>
+        <h2 class="mb-2x">{{data.year}}</h2>
         <div
           :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
-          v-for="d in data"
+          v-for="d in data.events"
           :key="d.id"
         >
           <div class="listing__item-body">

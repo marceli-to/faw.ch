@@ -29,14 +29,28 @@ class EventController extends Controller
     }
 
     $events_sticky = Event::orderBy('date', 'DESC')->where('sticky', 1)->get();
+    
+    // Get non sticky events
     $events = Event::orderBy('date', 'DESC')->where('sticky', 0)->get();
+
+    // Group events by year
     $events = $events->groupBy('year');
     $events = $events->all();
+
+    // Create output array
+    $events_nonSticky = [];
+    foreach($events as $key => $event)
+    {
+      $events_nonSticky[] = [
+        'year' => $key,
+        'events' => $event
+      ];
+    }
+
     return response()->json([
       'sticky' => $events_sticky,
-      'nonSticky' => $events
+      'nonSticky' => $events_nonSticky
     ]);
-    // return new DataCollection(Event::orderBy('sticky', 'DESC')->orderBy('date', 'DESC')->get());
   }
 
   /**
