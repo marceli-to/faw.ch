@@ -11,9 +11,17 @@
       </router-link>
     </page-header>
 
-    <div class="listing" v-if="data.length">
+    <draggable 
+      :disabled="false"
+      v-model="data" 
+      @end="order(data)"
+      ghost-class="draggable-ghost"
+      draggable=".listing__item"
+      class="listing"
+      v-if="data.length">
+
       <div
-        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item is-draggable']"
         v-for="d in data"
         :key="d.id"
       >
@@ -26,7 +34,7 @@
           :routes="{edit: 'gallery-edit'}">
         </list-actions>
       </div>
-    </div>
+    </draggable>
     <div v-else>
       <p class="no-records">{{messages.emptyData}}</p>
     </div>
@@ -73,6 +81,7 @@ export default {
         store: '/api/gallery',
         delete: '/api/gallery',
         toggle: '/api/gallery/state',
+        order: '/api/gallery/order',
       },
 
       // States
@@ -120,6 +129,20 @@ export default {
         });
       }
     },
+
+    order(data) {
+      let galleries = data.map(function(gallery, index) {
+        gallery.order = index;
+        return gallery;
+      });
+      if (this.debounce) return;
+      this.debounce = setTimeout(function() {
+        this.debounce = false;
+        this.axios.post(`${this.routes.order}`, {items: galleries}).then((response) => {
+          this.$notify({type: 'success', text: this.messages.updated});
+        });
+      }.bind(this, galleries), 500);
+    }, 
   }
 }
 </script>

@@ -20,9 +20,9 @@ class GalleryController extends Controller
   {
     if ($constraint == 'publish')
     {
-      return new DataCollection(Gallery::published()->orderBy('title')->get());
+      return new DataCollection(Gallery::published()->orderBy('order')->orderBy('title')->get());
     }
-    return new DataCollection(Gallery::orderBy('title')->get());
+    return new DataCollection(Gallery::orderBy('order')->orderBy('title')->get());
   }
 
   /**
