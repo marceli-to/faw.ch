@@ -54,6 +54,10 @@ article.text {
 
 article.teaser {
   @extend %card-small;
+
+  .anchor {
+    @include font-size($fs-xs);
+  }
 }
 
 article.text-media {
