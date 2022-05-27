@@ -13,6 +13,7 @@ article.lead {
   @extend %mb-12x;
   @extend %md\:mb-18x;
   @extend %lg\:mb-14x;
+  @extend %word-break;
   @include font-bold();
   @include font-size($fs-md);
 
@@ -40,6 +41,7 @@ article.member {
 
 article.text {
   @extend %mb-12x;
+  @extend %word-break;
   
   &:last-of-type {
     margin-bottom: 0;
