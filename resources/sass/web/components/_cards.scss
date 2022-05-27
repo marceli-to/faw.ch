@@ -56,6 +56,10 @@
   @extend %pt-4x;
   @extend %md\:span-6;
   @extend %lg\:span-4;
+
+  p {
+    @extend %text-indent;
+  }
 }
 
 .card__topic {
