@@ -18,8 +18,8 @@
   }
 
   &.is-list-item {
-    @extend %mb-12x;
-    @extend %md\:mb-14x;
+    @extend %mb-14x;
+    @extend %md\:mb-16x;
     border-bottom: 2px solid $color-black;
 
     &.is-expanded {
