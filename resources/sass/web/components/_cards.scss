@@ -57,7 +57,7 @@
   @extend %md\:span-6;
   @extend %lg\:span-4;
 
-  p {
+  p:not(:last-of-type) {
     @extend %text-indent;
   }
 }
