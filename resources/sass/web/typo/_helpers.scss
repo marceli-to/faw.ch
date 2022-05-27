@@ -25,6 +25,11 @@
   }
 }
 
+%prevent-text-indent,
+.prevent-text-indent {
+  text-indent: 0 !important;
+}
+
 .cap { text-transform: capitalize; }
 .align-center { text-align: center; }
 .align-justify { text-align: justify; }
