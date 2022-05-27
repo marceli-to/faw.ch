@@ -2,7 +2,7 @@
 @section('seo_title', 'Debatten')
 @section('seo_description', '')
 @section('content')
-@php $text_intro = 'Wir wollen deine Meinung wissen. Klick auf den Plusbutton unten rechts um deine Ideen zu teilen. Du kannst auch Beiträge kommentieren und Liken. Faccuptatus a imus dolupta teserro et fuga. Ut vidi ni occus alitibus mi num assectur tatius et optatiatati occabore, conecus con pa suntiorione nes inctist que aci corehenimpos eum corepere voluptat. Quidel est, consequid quo que namust pos iniam dit, conserum eruntent, velignime cusdandae qui ut laborehendi andaeptaquae aped quatem qui invel et voluptaeped modisqu odignim iliatur errum, odi repe ditiae lictemp elessit que as conecat ionsequia.';@endphp
+@php $text_intro = 'Wir möchten das Wissen und die Ansprüche der Winterthurer:innen an ihre Stadt sichtbar machen und die Debatte über die gebaute Form der Stadt pflegen. Teile deine Sicht der Dinge mit uns und der Öffentlichkeit!<br>Klick auf den Plus-Button unten rechts, um deine Ideen und Fragen zu teilen. Du kannst auch Beiträge kommentieren und liken.';@endphp
 <section class="content is-first">
   <div>
     <h1>Teile Deine Ideen</h1>

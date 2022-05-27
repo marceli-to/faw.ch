@@ -5,7 +5,14 @@
 <section class="content-visual">
   <div>
     <figure class="visual">
-      <img src="/assets/media/dummy.jpg" width="1500" height="1000" title="">
+      <picture>
+        <source 
+          media="(min-width: 1200px)" 
+          data-srcset="/assets/media/faw_ueber-uns-lg.jpg">
+        <img 
+          data-src="/assets/media/faw_ueber-uns-sm.jpg" 
+          width="1200" height="800" title="" class="is-responsive lazy">
+      </picture>
     </figure>
   </div>
 </section>
