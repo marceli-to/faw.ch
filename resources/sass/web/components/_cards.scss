@@ -71,6 +71,7 @@
 .card__topic {
   @extend %uppercase;
   @extend %mb-1x;
+  @extend %letter-spacing;
   display: block;
   @include font-size($fs-xs);
   @include font-bold();

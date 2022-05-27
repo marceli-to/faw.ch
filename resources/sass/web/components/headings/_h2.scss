@@ -8,9 +8,9 @@ h2 {
   @extend %uppercase;
   @extend %mb-1x;
   @extend %lg\:mb-6x;
+  @extend %letter-spacing;
   @include font-size($fs-md);
   @include font-bold();
-  letter-spacing: .03em;
   max-width: 560px;
   position: relative;
 }

@@ -30,6 +30,11 @@
   text-indent: 0 !important;
 }
 
+%letter-spacing,
+.letter-spacing {
+  letter-spacing: .03em;
+}
+
 .cap { text-transform: capitalize; }
 .align-center { text-align: center; }
 .align-justify { text-align: justify; }

@@ -7,8 +7,8 @@
 h3 {
   @extend %uppercase;
   @extend %mb-1x;
+  @extend %letter-spacing;
   @include font-size($fs-md);
   @include font-bold();
-  letter-spacing: .03em;
   position: relative;
 }
