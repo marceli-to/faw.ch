@@ -9,5 +9,6 @@ h3 {
   @extend %mb-1x;
   @include font-size($fs-md);
   @include font-bold();
+  letter-spacing: .03em;
   position: relative;
 }
