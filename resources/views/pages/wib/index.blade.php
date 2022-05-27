@@ -52,7 +52,7 @@
             {!! $article->text !!}
             @if ($article->galleries)
               <div class="text-media__links {{ $article->galleries->count() >= 6 ? 'columns-3' : '' }}">
-                @foreach($article->galleries as $gallery)
+                @foreach($article->galleries->sortBy('order') as $gallery)
                   <x-link-page 
                     url="{{ route('page.gallery', ['page' => $page->slug, 'article' => $article->id, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
                     target="_self" 

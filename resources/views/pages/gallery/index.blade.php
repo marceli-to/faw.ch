@@ -25,11 +25,12 @@
       @endif
       @if ($gallery->publishedVideos)
         @foreach($gallery->publishedVideos as $video)
-        <div class="{{ !$loop->last ? 'mb-12x' : '' }}">
-          <div class="ratio-container is-16x9">
-            {!! $video->code !!}
+          <h2>{{$video->title}}</h2>
+          <div class="{{ !$loop->last ? 'mb-12x' : '' }}">
+            <div class="ratio-container is-16x9">
+              {!! $video->code !!}
+            </div>
           </div>
-        </div>
         @endforeach
       @endif
       @if ($gallery->credits)
