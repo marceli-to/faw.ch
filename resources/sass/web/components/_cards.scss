@@ -57,9 +57,9 @@
   @extend %md\:span-6;
   @extend %lg\:span-4;
 
-  p:not(:last-of-type) {
-    @extend %text-indent;
-  }
+  // p:not(:last-of-type) {
+  //   @extend %text-indent;
+  // }
 }
 
 .card__topic {
