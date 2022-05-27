@@ -7,6 +7,8 @@
 %card,
 .card {
   @extend %mb-12x;
+  @extend %word-break;
+  
   @include bp-md() {
     margin-bottom: 0;
   }
