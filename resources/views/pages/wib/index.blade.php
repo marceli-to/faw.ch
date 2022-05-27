@@ -51,7 +51,7 @@
             <h2>{{$article->title}}</h2>
             {!! $article->text !!}
             @if ($article->galleries)
-              <div class="text-media__links">
+              <div class="text-media__links {{ $article->galleries->count() > 4 }} columns-3">
                 @foreach($article->galleries as $gallery)
                   <x-link-page 
                     url="{{ route('page.gallery', ['page' => $page->slug, 'article' => $article->id, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
