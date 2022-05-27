@@ -51,7 +51,7 @@
         <div class="form-group">
           <div class="flex items-start">
             <input type="radio" id="junior_member" name="member_type" required value="jungmitglied" v-model="form.type">
-            <label for="junior_member">Ich trete dem Forum Architektur Winterthur als Jungmitglied (für Studierende und Personen in Ausbildung) bei und sende die Ausbildungsbestätigung an info@forum-architektur.ch. Der Mitgliederbeitrag für das laufende Vereinsjahr* von CHF 30.- wird in den nächsten Tagen auf das Postcheck-Konto 84-4044-1 überwiesen.</label>
+            <label for="junior_member">Ich trete dem Forum Architektur Winterthur als Jungmitglied (für Studierende und Personen in Ausbildung) bei und sende die Ausbildungsbestätigung an info@forum-architektur.ch. Der Mitgliederbeitrag für das laufende Vereinsjahr* von CHF 30.– wird in den nächsten Tagen auf das Postcheck-Konto 84-4044-1 überwiesen.</label>
           </div>
         </div>
       </div>
