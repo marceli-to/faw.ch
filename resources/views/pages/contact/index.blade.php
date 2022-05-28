@@ -1,6 +1,7 @@
 @extends('layout.web')
 @section('seo_title', 'Kontakt')
 @section('seo_description', '')
+@section('og_image', url('/') . '/assets/media/faw_kontakt-lg.jpg')
 @section('content')
 <section class="content-visual">
   <div>

@@ -1,6 +1,7 @@
 @extends('layout.web')
 @section('seo_title', 'Über uns')
 @section('seo_description', 'Das Forum und ihre Geschichte sowie unsere Vorstandsmitglieder')
+@section('og_image', url('/') . '/assets/media/faw_ueber-uns-lg.jpg')
 @section('content')
 <section class="content-visual">
   <div>

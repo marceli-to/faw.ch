@@ -1,6 +1,7 @@
 @extends('layout.web')
 @section('seo_title', 'Stadtwerkstatt • Veranstaltungen')
 @section('seo_description', '')
+@section('og_image', url('/') . '/assets/media/faw_stadtwerkstatt-lg.jpg')
 @section('content')
 <section class="content-visual">
   <div>

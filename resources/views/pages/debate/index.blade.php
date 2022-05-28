@@ -1,6 +1,6 @@
 @extends('layout.web')
 @section('seo_title', 'Debatten')
-@section('seo_description', '')
+@section('seo_description', 'Wir möchten das Wissen und die Ansprüche der Winterthurer:innen an ihre Stadt sichtbar machen und die Debatte über die gebaute Form der Stadt pflegen. Teile deine Sicht der Dinge mit uns und der Öffentlichkeit')
 @section('content')
 @php $text_intro = 'Wir möchten das Wissen und die Ansprüche der Winterthurer:innen an ihre Stadt sichtbar machen und die Debatte über die gebaute Form der Stadt pflegen. Teile deine Sicht der Dinge mit uns und der Öffentlichkeit!<br>Klick auf den Plus-Button unten rechts, um deine Ideen und Fragen zu teilen. Du kannst auch Beiträge kommentieren und liken.';@endphp
 <section class="content is-first">
