@@ -12,18 +12,11 @@
   <div class="lg:span-6">
     <x-heading 
       type="h2" 
-      title="Stadtwerkstatt 2" 
-      subtitle="Freiraum erleben und nutzen"
+      title="Stadtwerkstatt 4" 
+      subtitle="Klima empfinden und vorausschauen"
     />
-    <p>«Wer hat Angst vor dem öffentlichen Raum?» — «Privatisierung und Eventisierung verwandeln öffentliche Räume in «Fake-Open-Spaces!» — «Freiraum ist Stadtraum!» — «Warum setzen wir vielen bestehenden Freiraum-Konzepte in Winterthur nicht endlich um?». Das waren einige Fragen und Aussagen, die in der Diskussion mit Günther Vogt (Landschaftsarchitekt), Christian Schmid (Soziologe), Stefan Kurath (Urbanist) und Jens Andersen (Stadtbaumeister) in der Stadtwerkstatt 2 aufs Tapet kamen. Der Aufmarsch des Publikums war gross. Auch am darauffolgenden Samstag kamen viele: über 60 Stadtwerkstätterinnen und Stadtwerkstätter spazierten durch Winterthur, begutachteten Freiräume und fassten ihre Beobachtungen in Form von Skizzen, Plänen und Modellen zusammen. Das wimmelbuchartige Stadtmodell der Künstler Dominik Heim und Ron Temperli war für alle wiederum eine Inspirationsquelle.</p>
-    {{-- <div class="text-media__links">
-      <x-link-page 
-        url="{{ route('page.gallery', ['page' => $page->slug, 'article' => $article->id, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
-        target="_self" 
-        text="{{ $gallery->link_text }}" 
-        title="{{ $gallery->title }}"
-        id="{{ $gallery->slug }}"
-        cssClass="mb-2x" />
-    </div> --}}
+    <p>«Die Stadtklimaforschung ist noch nicht angekommen in der Architektur» — «Rettung durch Technik? Rettung durch Architektur!» — «Mehr Grün in der Stadt!» — «Räume, die klimatisch angenehm sind, sind auch sozial gute Räume». Das sind einige der Aussagen, die Jens Andersen (Stadtbaumeister), Astrid Staufer (Architektin und Co-Leiterin Institut für Konstruktives Entwerfen ZHAW), Silke Drautz (Abteilung Stadtklimatologie Stuttgart) und Sascha Roesler (Prof. Accademia d architettura Univerisità della Svizzera italiana) in ihren Inputreferaten und der anschliessenden Diskussion am Donnerstag lieferten. Mit geschärften Sinnen spazierten dann Stadtwerkstätterinnen und — stätter am heissen Samstagvormittag durch Winterthur, um die klimatischen Aufenthaltsqualitäten zu erkunden.</p>
+    <div class="text-media__links">
+    </div>
   </div>
 </article>
