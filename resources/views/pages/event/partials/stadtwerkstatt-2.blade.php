@@ -97,7 +97,7 @@
       <article class="text">
         <x-heading 
           type="h3" 
-          title="Spaziergang 2: KIRCHE SEEN &mdash;  BAHNHOF HEGI" 
+          title="Spaziergang 2: KIRCHE SEEN &mdash; BAHNHOF HEGI" 
         />
         <ul class="list mt-0">
           <li>Zwei markante Zonen werden sichtbar: es gibt den vernetzten, räumlich gehaltenen Teil (Seen) und den unvernetzten, räumlich ungefassten Teil (Bahnhof Hegi Süd).</li>

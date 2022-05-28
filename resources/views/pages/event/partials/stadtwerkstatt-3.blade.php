@@ -24,7 +24,7 @@
       <h3>Ergebnisse und Erkenntnisse</h3>
     </header>
     <?php
-    $text = '<p>«Eine lebensfreundliche Stadt braucht viel Mobilität» — «Du sollst für lebendige Stadträume sorgen!» — «Der motorisierte Individualverkehr muss als Teil des öffentlichen Verkehrs gedacht werden, erst recht, wenn die Autos in Zukunft selbstfahrend sind.» — «Die Digitalisierung gibt den Verkehrsplanern neue Instrumente in die Hand.» Die Aussagen in der hitzigen Diskussion mit Thomas Sauter-Servaes (Leiter Studiengang Verkehrssysteme ZHAW), Fritz Kobi (Verkehrsexperte), Andreas Sonder-egger (Mitglied Gruppe Krokodil/IKE ZHAW) und Mark Würth (Amt für Stadtentwicklung Stadt Winterthur) waren vielfältig. Ausgerüstet mit diesen Behauptungen zogen am Samstag 45 Stadtwerkstätterinnen und -werkstätter zu Fuss, auf dem Velo, im Spezial-Ringbus und mit den öffentlichen Verkehrsmitteln los, den Strassenraum in Winterthur zu erkunden. Die Beobachtungen der sechs Reisegruppen wurden zu folgenden Erkenntnissen zusammengefasst:</p>
+    $text = '<p>«Eine lebensfreundliche Stadt braucht viel Mobilität» &mdash; «Du sollst für lebendige Stadträume sorgen!» &mdash; «Der motorisierte Individualverkehr muss als Teil des öffentlichen Verkehrs gedacht werden, erst recht, wenn die Autos in Zukunft selbstfahrend sind.» &mdash; «Die Digitalisierung gibt den Verkehrsplanern neue Instrumente in die Hand.» Die Aussagen in der hitzigen Diskussion mit Thomas Sauter-Servaes (Leiter Studiengang Verkehrssysteme ZHAW), Fritz Kobi (Verkehrsexperte), Andreas Sonder-egger (Mitglied Gruppe Krokodil/IKE ZHAW) und Mark Würth (Amt für Stadtentwicklung Stadt Winterthur) waren vielfältig. Ausgerüstet mit diesen Behauptungen zogen am Samstag 45 Stadtwerkstätterinnen und -werkstätter zu Fuss, auf dem Velo, im Spezial-Ringbus und mit den öffentlichen Verkehrsmitteln los, den Strassenraum in Winterthur zu erkunden. Die Beobachtungen der sechs Reisegruppen wurden zu folgenden Erkenntnissen zusammengefasst:</p>
               <ul class="list mt-10x">
                 <li>Es braucht den politischen Willen und Mut, verkehrspolitische Grundsätze zu formulieren.</li>
                 <li>Wer an Strassenflächen denkt, muss immer vom Menschen ausgehen — nicht von den Autos.</li>
@@ -98,7 +98,7 @@
         <ul class="list mt-0">
           <li>Ein Ringbus bringt im Alltag nichts.</li>
           <li>Die Gestaltung des Strassenraumes ist unbemüht. Mehr Zusammenarbeit der Ämter und der Einbezug von vorhandenen Konzepten sind bitter nötig.</li>
-          <li>«Schöne Strassen» — mit Langsamverkehr, attraktiven Aufenthaltsqualitäten und einem angenehmen Klima — sind Idealvorstellungen, die umgesetzt werden sollen.</li>
+          <li>«Schöne Strassen» &mdash; mit Langsamverkehr, attraktiven Aufenthaltsqualitäten und einem angenehmen Klima &mdash; sind Idealvorstellungen, die umgesetzt werden sollen.</li>
           <li>Auch die Stadtbusse stecken im Stau. Darum: Schaffen wir die Stadtbusse ab und ersetzen sie durch eine Stadtbahn als primäre Erschliessung.</li>
           <li>Als Ergänzung zur Stadtbahn gibt’s den «Ubershuttel», der die Feinverteilung in den Quartieren gewährleistet. </li>
         </ul>
@@ -111,7 +111,7 @@
         <ul class="list mt-0">
           <li>Der Ausweichverkehr in den Quartieren ist zu Pendlerzeiten deutlich zu spüren.</li>
           <li>Die Spange Jägerstrasse/Tössfeldstrasse ist ein Problem. Schnellfahrende Autos bedrängen den Langsamverkehr. Tempo 30 tut Not.</li>
-          <li>Generell Tempo 30 — auch auf den Einfallsachsen — bietet den Bussen und den Velos mehr Platz und vermindert den Lärm.</li>
+          <li>Generell Tempo 30 &mdash; auch auf den Einfallsachsen &mdash; bietet den Bussen und den Velos mehr Platz und vermindert den Lärm.</li>
           <li>Warum sind die Privatgrundstücke entlang der Strassen oft so billig bepflanzt?</li>
         </ul>
       </article>
@@ -130,7 +130,7 @@
       <article class="text">
         <x-heading 
           type="h3" 
-          title="TOUR 5: ZU FUSS UM DIE ALTSTADT TECHNIKUMSTRASSE — STADTHAUSSTRASSE — BAHNHOF" 
+          title="TOUR 5: ZU FUSS UM DIE ALTSTADT TECHNIKUMSTRASSE &mdash; STADTHAUSSTRASSE &mdash; BAHNHOF" 
         />
         <ul class="list mt-0">
           <li>Ist die Altstadt eine Insel oder eine Enklave?</li>

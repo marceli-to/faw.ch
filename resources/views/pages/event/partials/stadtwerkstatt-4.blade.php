@@ -24,12 +24,12 @@
       <h3>Ergebnisse und Erkenntnisse</h3>
     </header>
     <?php
-    $text = '<p>«Die Stadtklimaforschung ist noch nicht angekommen in der Architektur» — «Rettung durch Technik? Rettung durch Architektur!» — «Mehr Grün in der Stadt!» — «Räume, die klimatisch angenehm sind, sind auch sozial gute Räume». Das sind einige der Aussagen, die Jens Andersen (Stadtbaumeister), Astrid Staufer (Architektin und Co-Leiterin Institut für Konstruktives Entwerfen ZHAW), Silke Drautz (Abteilung Stadtklimatologie Stuttgart) und Sascha Roesler (Prof. Accademia d architettura Univerisità della Svizzera italiana) in ihren Inputreferaten und der anschliessenden Diskussion am Donnerstag lieferten. Mit geschärften Sinnen spazierten dann Stadtwerkstätterinnen und — stätter am heissen Samstagvormittag durch Winterthur, um die klimatischen Aufenthaltsqualitäten zu erkunden. So sieht die Zusammenfassung der Empfindungen und Erkenntnisse der drei Reisegruppen aus:</p>
+    $text = '<p>«Die Stadtklimaforschung ist noch nicht angekommen in der Architektur» &mdash; «Rettung durch Technik? Rettung durch Architektur!» &mdash; «Mehr Grün in der Stadt!» &mdash; «Räume, die klimatisch angenehm sind, sind auch sozial gute Räume». Das sind einige der Aussagen, die Jens Andersen (Stadtbaumeister), Astrid Staufer (Architektin und Co-Leiterin Institut für Konstruktives Entwerfen ZHAW), Silke Drautz (Abteilung Stadtklimatologie Stuttgart) und Sascha Roesler (Prof. Accademia d architettura Univerisità della Svizzera italiana) in ihren Inputreferaten und der anschliessenden Diskussion am Donnerstag lieferten. Mit geschärften Sinnen spazierten dann Stadtwerkstätterinnen und &mdash; stätter am heissen Samstagvormittag durch Winterthur, um die klimatischen Aufenthaltsqualitäten zu erkunden. So sieht die Zusammenfassung der Empfindungen und Erkenntnisse der drei Reisegruppen aus:</p>
               <ul class="list mt-10x">
                 <li>Verdichtung ist auch unter dem Aspekt des Stadtklimas zu betrachten.</li>
                 <li>Frischluftkorridore müssen definiert, gesichert und gepflegt werden.</li>
                 <li>Grosse alte Bäume prägen nicht nur einen Ort, sie sind auch prima Klimaanlagen.</li>
-                <li>Für jeden neuen Parkplatz gibt’s — irgendwo in der Stadt —  zwei Bäume, am besten gleich daneben, mit ausreichend durchlässigem Boden und Platz.</li>
+                <li>Für jeden neuen Parkplatz gibt’s &mdash; irgendwo in der Stadt &mdash; zwei Bäume, am besten gleich daneben, mit ausreichend durchlässigem Boden und Platz.</li>
                 <li>Neue Bäume werden mit Vorteil nicht einzeln sondern in ganzen Korridoren gruppiert.</li>
                 <li>Die Winterthurer Stadtplanung und –entwicklung ist zwingend mit dem Faktor Klima zu ergänzen.</li>
                 <li>Die Perfektionsspirale der Verwaltung schadet auch dem Stadtklima. Darum braucht es eine Amtsstelle, die übergeordnet verbindet, agiert und optimiert.</li>
@@ -83,7 +83,7 @@
       <article class="text">
         <x-heading 
           type="h3" 
-          title="ROUTE 1: KLINIK SCHLOSSTAL — ENTLANG DER TÖSS — NÄGELSEE — ZÜRCHERSTRASSE" 
+          title="ROUTE 1: KLINIK SCHLOSSTAL &mdash; ENTLANG DER TÖSS &mdash; NÄGELSEE &mdash; ZÜRCHERSTRASSE" 
         />
         <ul class="list mt-0">
           <li>Der Spaziergang entlang der Töss gefällt: das Mikroklima passt, der Weg ist fast durchgehend, Öffentlichkeit ist möglich.</li>
@@ -97,21 +97,21 @@
       <article class="text">
         <x-heading 
           type="h3" 
-          title="ROUTE 2: BAHNHOF SEEN — GRÜZEFELD — GEISELWEID" 
+          title="ROUTE 2: BAHNHOF SEEN &mdash; GRÜZEFELD &mdash; GEISELWEID" 
         />
         <ul class="list mt-0">
           <li>Die weitläufigen Asphaltflächen sind für die Autos und nicht für die Menschen gemacht. Sogar grüne Resträume fehlen hier.</li>
           <li>Lassen sich die versiegelten Flächen streifenweise aufbrechen und durch einen vegetativen Belag ersetzen? Zumindest auf den Trottoirs! </li>
           <li>Für die grossen Hitzegebiete sollten «Rettungsinseln» geschaffen werden, welche Aufenthaltsqualitäten haben und dadurch auch zu sozialen Räumen werden.</li>
           <li>Angesichts der glatten Fassaden denkt man an die Vorteile der traditionellen Architektur mit anständigen, schattenspendenden Vor- und Rücksprüngen.</li>
-          <li>Für jeden neuen Parkplatz gibt’s — irgendwo in der Stadt — zwei Bäume, am besten gleich daneben und mit ausreichend durchlässigem Boden und Platz.</li>
+          <li>Für jeden neuen Parkplatz gibt’s &mdash; irgendwo in der Stadt &mdash; zwei Bäume, am besten gleich daneben und mit ausreichend durchlässigem Boden und Platz.</li>
           <li>Das grosse Grüzefeld hat das Zeug zum Park. Wieso ist der schlafende Riese noch nicht geweckt worden?</li>
         </ul>
       </article>
       <article class="text">
         <x-heading 
           type="h3" 
-          title="ROUTE 3: KANTONSSCHULE LEE — INNERES LIND — TEUCHEL WEIHER — SULZERREAL" 
+          title="ROUTE 3: KANTONSSCHULE LEE &mdash; INNERES LIND &mdash; TEUCHEL WEIHER &mdash; SULZERREAL" 
         />
         <ul class="list mt-0">
           <li>Quartiere mit kleinteiligen Strukturen und viel Grün sind wichtige Freiluftkorridore. Diesen gilt es Sorge zu tragen <li>erst recht beim Verdichten!</li>
