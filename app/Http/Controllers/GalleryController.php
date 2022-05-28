@@ -29,7 +29,20 @@ class GalleryController extends BaseController
     $page = Page::with('publishedArticles.galleries')->findOrFail($page->id);
     $article = Article::with('galleries', 'page')->findOrFail($article->id);
     $gallery = Gallery::with('publishedImages', 'publishedVideos')->findOrFail($gallery->id);
-    return view($this->viewPath . 'index', ['page' => $page, 'gallery' => $gallery, 'browse' => $this->getBrowse($page, $article, $gallery)]);
+    return view($this->viewPath . 'show', ['page' => $page, 'gallery' => $gallery, 'browse' => $this->getBrowse($page, $article, $gallery)]);
+  }
+
+  /**
+   * Show a single gallery for static content
+   * 
+   * @param Gallery $gallery
+   * @return \Illuminate\Http\Response
+   */
+
+  public function single(Gallery $gallery, $gallerySlug = NULL)
+  {
+    $gallery = Gallery::with('publishedImages', 'publishedVideos')->findOrFail($gallery->id);
+    return view($this->viewPath . 'show', ['gallery' => $gallery]);
   }
 
   protected function getBrowse(Page $page, Article $article, Gallery $gallery)

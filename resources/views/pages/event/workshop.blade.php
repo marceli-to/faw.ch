@@ -41,6 +41,18 @@
   <div>
     @include('pages.event.partials.teaser_sws1')
     @include('pages.event.partials.teaser_sws2')
+    @include('pages.event.partials.teaser_sws3')
+    @include('pages.event.partials.teaser_sws4')
+    @include('pages.event.partials.teaser_sws_impressionen')
   </div>
 </section>
+<section class="content">
+  <div>
+    @include('pages.event.partials.teaser_sws_ausstellung')
+    @include('pages.event.partials.teaser_sws_stadtmodell')
+    @include('pages.event.partials.teaser_sws_illustrationen')
+  </div>
+</section>
+
+
 @endsection
