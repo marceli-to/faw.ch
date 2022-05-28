@@ -12,10 +12,9 @@
   <div class="lg:span-6">
     <x-heading 
       type="h2" 
-      title="Stadtwerkstatt 2" 
-      subtitle="Freiraum erleben und nutzen"
+      title="Impressionen" 
     />
-    <p>«Wer hat Angst vor dem öffentlichen Raum?» — «Privatisierung und Eventisierung verwandeln öffentliche Räume in «Fake-Open-Spaces!» — «Freiraum ist Stadtraum!» — «Warum setzen wir vielen bestehenden Freiraum-Konzepte in Winterthur nicht endlich um?». Das waren einige Fragen und Aussagen, die in der Diskussion mit Günther Vogt (Landschaftsarchitekt), Christian Schmid (Soziologe), Stefan Kurath (Urbanist) und Jens Andersen (Stadtbaumeister) in der Stadtwerkstatt 2 aufs Tapet kamen. Der Aufmarsch des Publikums war gross. Auch am darauffolgenden Samstag kamen viele: über 60 Stadtwerkstätterinnen und Stadtwerkstätter spazierten durch Winterthur, begutachteten Freiräume und fassten ihre Beobachtungen in Form von Skizzen, Plänen und Modellen zusammen. Das wimmelbuchartige Stadtmodell der Künstler Dominik Heim und Ron Temperli war für alle wiederum eine Inspirationsquelle.</p>
+    <p>An den vier zweitägigen Veranstaltungen wurde intensiv skizziert, geklebt, entworfen, debattiert und festgehalten: Wenn wir verdichten, müssen die Freiräume aufgewertet und die Strassen auch als Freiräume gedacht werden. Beim Verdichten ist eine kluge Vernetzung und Zusammenarbeit aller Akteure gefragt, die Eigenheiten der Quartiere sind wesentlich und das Thema Stadtklima muss präsent sein. Die Debatte, der lebhafte Austausch von Fach- und Erfahrungswissen hat die vielen Facetten der heutigen und zukünftigen Stadt ausgeleuchtet.</p>
     <div class="text-media__links">
       <x-link-gallery page="stadtwerkstatt" :id="22" />
     </div>

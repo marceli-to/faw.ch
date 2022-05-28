@@ -37,7 +37,7 @@ class LinkGallery extends Component
    */
   public function __construct($page = NULL, $id = NULL)
   {
-    $this->gallery = Gallery::findOrFail($id);
+    $this->gallery = Gallery::find($id);
     $this->page    = $page;
   }
 
