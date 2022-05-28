@@ -35,14 +35,15 @@ class GalleryController extends BaseController
   /**
    * Show a single gallery for static content
    * 
+   * @param String $slug
    * @param Gallery $gallery
    * @return \Illuminate\Http\Response
    */
 
-  public function single(Gallery $gallery, $gallerySlug = NULL)
+  public function single($slug = NULL, Gallery $gallery, $gallerySlug = NULL)
   {
     $gallery = Gallery::with('publishedImages', 'publishedVideos')->findOrFail($gallery->id);
-    return view($this->viewPath . 'show', ['gallery' => $gallery]);
+    return view($this->viewPath . 'single', ['page' => $slug, 'gallery' => $gallery]);
   }
 
   protected function getBrowse(Page $page, Article $article, Gallery $gallery)
