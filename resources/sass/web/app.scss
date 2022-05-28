@@ -44,6 +44,7 @@
 @import 'components/headings/h1';
 @import 'components/headings/h2';
 @import 'components/headings/h3';
+@import 'components/lists';
 @import 'components/logo';
 @import 'components/grid';
 @import 'components/hr';
@@ -75,5 +76,5 @@
 
 // Views
 @import 'views/auth';
-
+@import 'views/workshop';
 

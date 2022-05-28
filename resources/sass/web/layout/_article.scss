@@ -22,6 +22,16 @@ article.lead {
   }
 }
 
+article.text-columns {
+  @extend %columns-lg;
+  @extend %word-break;
+
+  p {
+    @extend %text-indent;
+  }
+}
+
+
 article.text,
 article.member {
   @extend %md\:span-6;
@@ -54,6 +64,14 @@ article.text {
 
 article.teaser {
   @extend %card-small;
+}
+
+article.video {
+  @extend %md\:span-6;
+  @extend %mb-12x;
+  h3 {
+    @extend %mb-4x;
+  }
 }
 
 article.text-media {

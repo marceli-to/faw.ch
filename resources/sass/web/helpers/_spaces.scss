@@ -14,6 +14,11 @@ $step: 2px;
 %mx-auto,
 .mx-auto { margin-left: auto; margin-right: auto; }
 
+.mt-0 { margin-top: 0;}
+.mb-0 { margin-bottom: 0;}
+.ml-0 { margin-left: 0;}
+.mr-0 { margin-right: 0;}
+
 @for $i from 1 through 50 { %my-#{$i}x, .my-#{$i}x { margin: $i * $step 0; } }
 @for $i from 1 through 50 { %md\:my-#{$i}x, .md\:my-#{$i}x { @include bp-md() { margin: $i * $step 0; } } }
 @for $i from 1 through 50 { %lg\:my-#{$i}x, .lg\:my-#{$i}x { @include bp-lg() { margin: $i * $step 0; } } }
@@ -26,8 +31,6 @@ $step: 2px;
 @for $i from 1 through 50 { %md\:mt-#{$i}x, .md\:mt-#{$i}x { @include bp-md() { margin-top: $i * $step; } } }
 @for $i from 1 through 50 { %lg\:mt-#{$i}x, .lg\:mt-#{$i}x { @include bp-lg() { margin-top: $i * $step; } } }
 @for $i from 1 through 50 { %xxl\:mt-#{$i}x, .xxl\:mt-#{$i}x { @include bp-xxl() { margin-top: $i * $step; } } }
-
-
 
 @for $i from 1 through 50 { %mb-#{$i}x, .mb-#{$i}x { margin-bottom: $i * $step; } }
 @for $i from 1 through 50 { %md\:mb-#{$i}x, .md\:mb-#{$i}x { @include bp-md() { margin-bottom: $i * $step; } } }

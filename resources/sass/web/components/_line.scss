@@ -1,4 +1,4 @@
-/**→
+/**
  * -----------------------------------------------------------------------------
  * File: components/line
  * -----------------------------------------------------------------------------
@@ -12,4 +12,8 @@
 %line-thin,
 .line-thin {
   border-top: 1px solid $color-black !important;
+}
+
+.no-line {
+  border-top: none !important;
 }

@@ -53,6 +53,4 @@
     @include('pages.event.partials.teaser_sws_illustrationen')
   </div>
 </section>
-
-
 @endsection

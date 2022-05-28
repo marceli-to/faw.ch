@@ -131,18 +131,6 @@
               {!! $article->text !!}
             @endif
           </article>
-
-
-            {{-- <article class="text">
-              <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-              @if (Str::wordCount($article->text) > 60)
-                <x-truncated-text preview="{!! Str::words($article->text, 55, '...') !!}">
-                  {!! $article->text !!}
-                </x-truncated-text>
-              @else
-                {!! $article->text !!}
-              @endif
-            </article> --}}
           @endforeach
         </div>
       @endif
