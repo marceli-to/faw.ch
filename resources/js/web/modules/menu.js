@@ -81,12 +81,11 @@ var Menu = (function() {
     var el = document.getElementById(hash);
     _hide();
     window.scrollTo({
-      top: el.offsetTop - 50,
+      top: el.offsetTop - 150,
       left: 0,
       behavior: 'smooth'
     });
     // el.scrollIntoView({block: "start", behavior: "auto"});
-
     // _activate(hash);
   };
 
