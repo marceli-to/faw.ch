@@ -45,6 +45,7 @@ article.member {
   h3 {
     @extend %md\:mb-0;
     @include font-size($fs-md);
+    letter-spacing: normal;
     text-transform: none;
   }
 }
