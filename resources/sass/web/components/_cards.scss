@@ -58,14 +58,6 @@
   @extend %pt-4x;
   @extend %md\:span-6;
   @extend %lg\:span-4;
-
-  p:not(:last-of-type) {
-    @extend %text-indent;
-  }
-
-  p + p.prevent-text-indent {
-    @extend %mt-10x;
-  }
 }
 
 .card__topic {
