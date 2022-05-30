@@ -64,9 +64,16 @@
       @extend %uppercase;
       @extend %mb-1x;
       @extend %letter-spacing;
-      display: block;
+      align-items: center;
+      display: flex;
       @include font-size($fs-xs);
       @include font-bold();
+
+      span {
+        display: block;
+        padding-top: 2px;
+      }
+
     }
   }
 }
