@@ -67,7 +67,7 @@
       <x-gallery :images="$board->publishedImages" limit="true" />
     </section>
   @endif
-  <section class="content">
+  <section class="content" name="{{ \Str::slug($board->title) }}">
     <div>
       <h1>{{ $board->title }}</h1>
       @if ($board->publishedMembers)
