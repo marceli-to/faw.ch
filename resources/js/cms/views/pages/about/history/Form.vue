@@ -54,7 +54,7 @@
       </div>
     </div>
     <page-footer>
-      <button-back :route="'activities'">Zurück</button-back>
+      <button-back :route="'history'">Zurück</button-back>
       <button-submit>Speichern</button-submit>
     </page-footer>
   </form>
