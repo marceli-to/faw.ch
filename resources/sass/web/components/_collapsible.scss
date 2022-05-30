@@ -18,14 +18,14 @@
   }
 
   &.is-list-item {
-    @extend %mb-14x;
-    @extend %md\:mb-16x;
+    @extend %mb-10x;
+    @extend %md\:mb-12x;
     border-bottom: 2px solid $color-black;
 
     &.is-expanded {
-      @extend %pb-8x;
-      @extend %md\:pb-10x;
-      @extend %lg\:pb-12x;
+      @extend %pb-12x;
+      @extend %md\:pb-14x;
+      @extend %lg\:pb-18x;
       border-bottom: 2px solid transparent;
       margin-bottom: 0 !important;
       &:last-of-type {
