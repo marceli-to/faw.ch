@@ -20,7 +20,7 @@
               <x-card-event :event="$event" cssClass="card-small md:span-6 lg:span-4" />
             @endforeach
             @if (array_key_exists($periode, $programFiles))
-              <article class="card-small">
+              <article class="card-small is-download">
                 @foreach($programFiles[$periode] as $file)
                   <a href="/storage/uploads/{{ $file->name }}" class="anchor anchor--file" target="_blank" title="{{ $file->caption ?? 'Einladungskarte' }}">
                     <x-icon type="file" />
