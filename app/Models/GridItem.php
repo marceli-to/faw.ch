@@ -17,7 +17,7 @@ class GridItem extends Base
   public function event()
   {
 		$constraint = date('Y-m-d', time());
-    return $this->hasOne(Event::class, 'id', 'event_id')->where('date', '>=', $constraint)->orWhere('sticky', 1);
+    return $this->hasOne(Event::class, 'id', 'event_id')->where('date', '>=', $constraint)->orWhere('sticky', 1)->orWhere('placeholder', 1);
   }
 
   public function teaser()

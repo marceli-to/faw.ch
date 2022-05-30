@@ -63,7 +63,6 @@ var Menu = (function() {
   };
 
   var _toggleSub = function(btn) {
-    //btn.toggleClass(classes.active);
     btn.next('ul').toggle();
   };
 
@@ -81,9 +80,14 @@ var Menu = (function() {
   var _jumpTo = function(hash) {
     var el = document.getElementById(hash);
     _hide();
+    window.scrollTo({
+      top: el.offsetTop - 50,
+      left: 0,
+      behavior: 'smooth'
+    });
+    // el.scrollIntoView({block: "start", behavior: "auto"});
+
     // _activate(hash);
-    el.scrollIntoView({block: "start", behavior: "auto"});
-    //alert('d');
   };
 
   var _activate = function(hash) {

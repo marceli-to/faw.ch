@@ -16,7 +16,8 @@ class Event extends Base
     'date',
 		'time',
     'publish',
-    'sticky'
+    'sticky',
+    'placeholder',
 	];
 
   protected $appends = [
@@ -64,10 +65,10 @@ class Event extends Base
    * Scope for upcoming or sticky events
    */
 
-	public function scopeUpcomingOrSticky($query)
+	public function scopeUpcomingOrStickyOrPlaceholder($query)
 	{
 		$constraint = date('Y-m-d', time());
-		return $query->where('date', '>=', $constraint)->where('publish', 1)->orWhere('sticky', 1);
+		return $query->where('date', '>=', $constraint)->where('publish', 1)->orWhere('sticky', 1)->orWhere('placeholder', 1);
 	}
 
 	/**
@@ -87,6 +88,15 @@ class Event extends Base
 	public function scopeSticky($query)
 	{
 		return $query->where('sticky', 1)->where('publish', 1);
+	}
+
+	/**
+   * Scope for placeholder events
+   */
+
+	public function scopePlaceholder($query)
+	{
+		return $query->where('placeholder', 1)->where('publish', 1);
 	}
 
 	/**

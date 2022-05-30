@@ -75,6 +75,14 @@
         </div>
         <div class="form-row">
           <radio-button 
+            :label="'Platzhalter Jahresprogramm?'"
+            v-bind:placeholder.sync="data.placeholder"
+            :model="data.placeholder"
+            :name="'placeholder'">
+          </radio-button>
+        </div>
+        <div class="form-row">
+          <radio-button 
             :label="'Publizieren?'"
             v-bind:publish.sync="data.publish"
             :model="data.publish"
@@ -142,6 +150,7 @@ export default {
         time: null,
         publish: 1,
         sticky: 0,
+        placeholder: 0,
         images: [],
         files: [],
       },

@@ -25,13 +25,14 @@ class EventController extends Controller
 
     if ($constraint == 'current')
     {
-      return new DataCollection(Event::with('image')->upcomingOrSticky()->orderBy('date', 'DESC')->orderBy('created_at')->get());
+      return new DataCollection(Event::with('image')->upcomingOrStickyOrPlaceholder()->orderBy('date', 'DESC')->orderBy('created_at')->get());
     }
 
     $events_sticky = Event::orderBy('date', 'DESC')->where('sticky', 1)->get();
-    
+    $events_placeholder = Event::orderBy('date', 'DESC')->where('placeholder', 1)->get();
+
     // Get non sticky events
-    $events = Event::orderBy('date', 'DESC')->where('sticky', 0)->get();
+    $events = Event::orderBy('date', 'DESC')->where('sticky', 0)->where('placeholder', 0)->get();
 
     // Group events by year
     $events = $events->groupBy('year');
@@ -49,6 +50,7 @@ class EventController extends Controller
 
     return response()->json([
       'sticky' => $events_sticky,
+      'placeholder' => $events_placeholder,
       'nonSticky' => $events_nonSticky
     ]);
   }

@@ -23,11 +23,6 @@
     width: 48px;
   }
 
-  @include bp-xl() {
-    right: calc(((100% - #{$page-max-width}) / 2) + 18px);
-    top: 18px;
-  }
-
   @include bp-xxl() {
     right: calc(((100% - #{$page-max-width-xxl}) / 2) + 18px);
     top: 18px;

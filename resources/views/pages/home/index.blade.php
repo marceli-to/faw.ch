@@ -19,15 +19,15 @@
 @endif
 <section class="content">
   <div>
-    <div class="grid grid-home grid-cols-12">
-      @if ($grid_items['events'])
+    @if ($grid_items['events']->count())
+      <div class="grid grid-home grid-cols-12">
         @foreach($grid_items['events'] as $item)
           @if ($item->event)
             <x-card-event-teaser :event="$item->event" />
           @endif
         @endforeach
-      @endif
-    </div>
+      </div>
+    @endif
     <div class="grid grid-home grid-cols-12">
       @if ($grid_items['teasers'])
         @foreach($grid_items['teasers'] as $item)

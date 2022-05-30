@@ -17,7 +17,7 @@
     </figure>
   </div>
 </section>
-<section class="content">
+<section class="content" id="das-forum">
   <div>
     <h1>Das Forum</h1>
     <p>[Inhalt folgt]</p>
@@ -29,7 +29,7 @@
       <x-gallery :images="$history->publishedImages" limit="true" />
     </section>
   @endif
-  <section class="content">
+  <section class="content" id="{{ \Str::slug($history->title) }}">
     <div>
       <h1>{{ $history->title }}</h1>
       @if ($history->publishedArticles)

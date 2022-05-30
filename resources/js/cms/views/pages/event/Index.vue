@@ -12,6 +12,7 @@
     </page-header>
 
     <div class="listing" v-if="data.sticky.length">
+      <h2 class="mb-2x">Platzhalter Sticky</h2>
       <div
         :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
         v-for="d in data.sticky"
@@ -21,6 +22,24 @@
           <span class="feather-icon is-sticky" v-if="d.sticky">
             <star-icon size="16"></star-icon>
           </span>
+          <span v-if="d.date">{{d.date}}<separator /></span>{{d.title}}
+        </div>
+        <list-actions 
+          :id="d.id" 
+          :record="d"
+          :routes="{edit: 'event-edit'}">
+        </list-actions>
+      </div>
+    </div>
+
+    <div class="listing" v-if="data.placeholder.length">
+      <h2 class="mb-2x">Platzhalter Jahresprogramm</h2>
+      <div
+        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+        v-for="d in data.placeholder"
+        :key="d.id"
+      >
+        <div class="listing__item-body">
           <span v-if="d.date">{{d.date}}<separator /></span>{{d.title}}
         </div>
         <list-actions 
@@ -89,6 +108,7 @@ export default {
 
       data: {
         sticky: null,
+        placeholder: null,
         nonSticky: null,
       },
 
@@ -122,6 +142,7 @@ export default {
     fetch() {
       this.axios.get(`${this.routes.get}`).then(response => {
         this.data.sticky = response.data.sticky;
+        this.data.placeholder = response.data.placeholder;
         this.data.nonSticky = response.data.nonSticky;
         this.isFetched = true;
       });
@@ -130,8 +151,20 @@ export default {
     toggle(id) {
       this.isLoading = true;
       this.axios.get(`${this.routes.toggle}/${id}`).then(response => {
-        const index = this.data.findIndex(x => x.id === id);
-        this.data[index].publish = response.data;
+        let idxSticky = this.data.sticky.findIndex(x => x.id === id);
+        let idxPlaceholder = this.data.placeholder.findIndex(x => x.id === id);
+        let idxNonSticky = this.data.nonSticky.findIndex(x => x.id === id);
+
+        if (idxSticky > -1) {
+          this.data.sticky[idxSticky].publish = response.data;
+        }
+        if (idxPlaceholder > -1) {
+          this.data.placeholder[idxPlaceholder].publish = response.data;
+        }
+        if (idxNonSticky > -1) {
+          this.data.nonSticky[idxNonSticky].publish = response.data;
+        }
+       
         this.$notify({ type: "success", text: this.messages.updated });
         this.isLoading = false;
       });
