@@ -24,7 +24,7 @@
                 @foreach($programFiles[$periode] as $file)
                   <a href="/storage/uploads/{{ $file->name }}" class="anchor anchor--file" target="_blank" title="{{ $file->caption ?? 'Einladungskarte' }}">
                     <x-icon type="file" />
-                    <span class="text-bold text-uc">{{ $file->caption ?? 'Einladungskarte' }}</span>
+                   {{ $file->caption ?? 'Einladungskarte' }}
                   </a>
                 @endforeach
               </article>
