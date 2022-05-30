@@ -41,12 +41,12 @@
     </ul>
     <ul class="is-social">
       <li>
-        <a href="" title="Forum Architektur Winterthur auf Facebook">
+        <a href="https://www.facebook.com/forumarchitekturwinterthur" target="_blank" title="Forum Architektur Winterthur auf Facebook">
           <x-icon type="facebook" />
         </a>
       </li>
       <li>
-        <a href="" title="Forum Architektur Winterthur auf Instagram">
+        <a href="http://www.instagram.com/forumarchitekturwinterthur" target="_blank" title="Forum Architektur Winterthur auf Instagram">
           <x-icon type="instagram" />
         </a>
       </li>
