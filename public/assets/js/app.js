@@ -11158,7 +11158,6 @@ var Menu = function () {
 
   var _jumpTo = function _jumpTo(hash) {
     var el = document.getElementById(hash);
-    console.log(el.offsetTop);
 
     _hide();
 

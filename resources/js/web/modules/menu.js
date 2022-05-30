@@ -79,7 +79,6 @@ var Menu = (function() {
 
   var _jumpTo = function(hash) {
     var el = document.getElementById(hash);
-    console.log(el.offsetTop);
     _hide();
     window.scrollTo({
       top: el.offsetTop - 150,
