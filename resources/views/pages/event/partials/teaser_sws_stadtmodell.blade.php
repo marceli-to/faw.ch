@@ -15,6 +15,7 @@
     <p>Dominik Heim, geboren 1974, lebt und arbeitet als freischaffender Künstler mit Schwerpunkt Malerei in Winterthur. Ron Temperli, geboren 1975, lebt und arbeitet als freischaffender Künstler mit Schwerpunkt Malerei und Installation in Winterthur.</p>
     <div class="text-media__links">
       <x-link-gallery page="stadtwerkstatt" :id="17" />
+      <x-link-gallery page="stadtwerkstatt" :id="21" />
     </div>
   </div>
 </article>

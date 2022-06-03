@@ -17,6 +17,7 @@
     <p>An den vier zweitägigen Veranstaltungen wurde intensiv skizziert, geklebt, entworfen, debattiert und festgehalten: Wenn wir verdichten, müssen die Freiräume aufgewertet und die Strassen auch als Freiräume gedacht werden. Beim Verdichten ist eine kluge Vernetzung und Zusammenarbeit aller Akteure gefragt, die Eigenheiten der Quartiere sind wesentlich und das Thema Stadtklima muss präsent sein. Die Debatte, der lebhafte Austausch von Fach- und Erfahrungswissen hat die vielen Facetten der heutigen und zukünftigen Stadt ausgeleuchtet.</p>
     <div class="text-media__links">
       <x-link-gallery page="stadtwerkstatt" :id="22" />
+      <x-link-gallery page="stadtwerkstatt" :id="23" />
     </div>
   </div>
 </article>
