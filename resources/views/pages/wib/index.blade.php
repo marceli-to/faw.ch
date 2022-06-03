@@ -60,6 +60,7 @@
                     title="{{ $gallery->title ? $gallery->title : '' }}"
                     data-id="{{ $page->slug }}"
                     cssClass="mb-2x" />
+                    {{ $page->slug }}
                 @endforeach
               </div>
             @endif
