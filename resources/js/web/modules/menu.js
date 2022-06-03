@@ -78,13 +78,17 @@ var Menu = (function() {
   };
 
   var _jumpTo = function(hash) {
-    var el = document.getElementById(hash);
+    var el = document.querySelector(`[data-id="${hash}"]`);
     _hide();
-    window.scrollTo({
-      top: el.offsetTop - 150,
-      left: 0,
-      behavior: 'smooth'
-    });
+
+    setTimeout(function(){
+      window.scrollTo({
+        top: el.offsetTop - 100,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, 500);
+
     // el.scrollIntoView({block: "start", behavior: "auto"});
     // _activate(hash);
   };

@@ -43,7 +43,7 @@
 </section>
 @if ($annual_program)
   @if ($annual_program->publishedImages)
-  <section class="content-visual" id="jahresprogramm">
+  <section class="content-visual" data-id="jahresprogramm">
     <x-gallery :images="$annual_program->publishedImages" limit="true" />
   </section>
   @endif
