@@ -58,6 +58,7 @@
                     target="_self" 
                     text="{{ $gallery->link_text }}" 
                     title="{{ $gallery->title ? $gallery->title : '' }}"
+                    hash="{{$gallery->slug}}"
                     cssClass="mb-2x" />
                 @endforeach
               </div>
