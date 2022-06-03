@@ -11,7 +11,7 @@
       @extend %mb-2x;
       @extend %letter-spacing;
       display: block;
-      @include font-size($fs-xs);
+      @include font-size($fs-md);
       @include font-bold();
     }
     

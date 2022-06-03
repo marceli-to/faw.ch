@@ -74,13 +74,20 @@ class EventController extends BaseController
    * @return \Illuminate\Http\Response
    */
 
-  public function workshop($slug = NULL)
+  public function workshop()
   {
-    if ($slug)
-    {
-      return view($this->viewPath . 'partials.' . $slug);
-    }
     return view($this->viewPath . 'workshop');
+  }
+
+ /**
+   * Show page 'Veranstaltungen - Stadtwerkstatt'
+   * 
+   * @return \Illuminate\Http\Response
+   */
+
+  public function workshopDetail($slug = NULL)
+  {
+    return view($this->viewPath . 'partials.' . $slug, ['page' => 'stadtwerkstatt', 'slug' => $slug]);
   }
 
   /**

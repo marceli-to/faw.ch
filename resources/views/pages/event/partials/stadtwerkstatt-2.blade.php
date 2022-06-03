@@ -56,7 +56,7 @@
   <div>
     <x-heading 
       type="h2" 
-      title="Viele Schätze – eine reglementierte Leere — ein Eulachpark an der Schützenwiese:" 
+      title="Viele Schätze — eine reglementierte Leere — ein Eulachpark an der Schützenwiese:" 
       subtitle="Sechs Spaziergänge durch Winterthur"
     />
 

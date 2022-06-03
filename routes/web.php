@@ -29,7 +29,8 @@ Route::get('/winterthur-im-bild', [PageController::class, 'wib'])->name('page.wi
 Route::get('/veranstaltungen/kalender', [EventController::class, 'calendar'])->name('page.event.calendar');
 Route::get('/veranstaltungen/jahresprogramm', [EventController::class, 'activities'])->name('page.event.activities');
 Route::get('/unser-bahnhof-winterthur', [EventController::class, 'station'])->name('page.event.station');
-Route::get('/stadtwerkstatt/{slug?}', [EventController::class, 'workshop'])->name('page.event.workshop');
+Route::get('/stadtwerkstatt', [EventController::class, 'workshop'])->name('page.event.workshop');
+Route::get('/stadtwerkstatt/{slug?}', [EventController::class, 'workshopDetail'])->name('page.event.workshop.show');
 Route::get('/veranstaltungen/archiv', [EventController::class, 'archive'])->name('page.event.archive');
 Route::get('/debatten', [DebateController::class, 'index'])->name('page.debate');
 Route::get('/ueber-uns', [AboutController::class, 'index'])->name('page.about');
