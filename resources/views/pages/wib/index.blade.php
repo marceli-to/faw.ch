@@ -58,7 +58,7 @@
                     target="_self" 
                     text="{{ $gallery->link_text }}" 
                     title="{{ $gallery->title }}"
-                    id="{{ $gallery->slug }}"
+                    data-id="{{ $gallery->slug }}"
                     cssClass="mb-2x" />
                 @endforeach
               </div>
