@@ -58,6 +58,7 @@
                     target="_self" 
                     text="{{ $gallery->link_text }}" 
                     title="{{ $gallery->title ? $gallery->title : '' }}"
+                    data-id="{{ $page->slug }}"
                     cssClass="mb-2x" />
                 @endforeach
               </div>
