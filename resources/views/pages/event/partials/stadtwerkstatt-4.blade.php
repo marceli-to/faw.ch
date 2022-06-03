@@ -140,19 +140,19 @@
   <div>
     <div class="grid grid-cols-12">
       <article class="video">
-        <h3>Spaziergang Schlosstal – Tössfeld</h3>
+        <h3>Spaziergang Schlosstal — Tössfeld</h3>
         <div class="ratio-container is-16x9">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/Gt1f1VbuYlc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </article>
       <article class="video">
-        <h3>Spaziergang Grüze – Neuhegi</h3>
+        <h3>Spaziergang Grüze — Neuhegi</h3>
         <div class="ratio-container is-16x9">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/UfBDEOX0rc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </article>
       <article class="video">
-        <h3>Spaziergang Rychenberg – Sulzerareal</h3>
+        <h3>Spaziergang Rychenberg — Sulzerareal</h3>
         <div class="ratio-container is-16x9">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/eDnbReqFgrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>

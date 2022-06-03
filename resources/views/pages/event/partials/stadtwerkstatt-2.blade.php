@@ -56,7 +56,7 @@
   <div>
     <x-heading 
       type="h2" 
-      title="Viele Schätze – eine reglementierte Leere – ein Eulachpark an der Schützenwiese:" 
+      title="Viele Schätze – eine reglementierte Leere — ein Eulachpark an der Schützenwiese:" 
       subtitle="Sechs Spaziergänge durch Winterthur"
     />
 
@@ -180,7 +180,7 @@
         </div>
       </article>
       <article class="video">
-        <h3>Spaziergang Seen – Hegi</h3>
+        <h3>Spaziergang Seen — Hegi</h3>
         <div class="ratio-container is-16x9">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/M-EkQdJ2vrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -198,13 +198,13 @@
         </div>
       </article>
       <article class="video">
-        <h3>Spaziergang Dättnau – Vogelsang</h3>
+        <h3>Spaziergang Dättnau — Vogelsang</h3>
         <div class="ratio-container is-16x9">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/1eT63ABQDQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </article>
       <article class="video">
-        <h3>Spaziergang Breite – Mattenbach</h3>
+        <h3>Spaziergang Breite — Mattenbach</h3>
         <div class="ratio-container is-16x9">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/Q09Et1Kib68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
