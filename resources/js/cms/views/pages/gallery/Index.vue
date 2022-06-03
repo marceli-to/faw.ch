@@ -26,7 +26,7 @@
         :key="d.id"
       >
         <div class="listing__item-body">
-          {{d.title}}
+          {{ d.title ? d.title : '' }} {{ !d.title && d.link_text ? d.link_text : '' }}
         </div>
         <list-actions 
           :id="d.id" 

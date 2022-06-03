@@ -58,7 +58,7 @@
                     url="{{ route('page.gallery', ['page' => $page->slug, 'article' => $article->id, 'gallery' => $gallery->id, 'gallery_slug' => $gallery->slug]) }}" 
                     target="_self" 
                     text="{{ $gallery->link_text }}" 
-                    title="{{ $gallery->title }}"
+                    title="{{ $gallery->title ? $gallery->title : '' }}"
                     id="{{ $gallery->slug }}"
                     cssClass="mb-2x" />
                 @endforeach

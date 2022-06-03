@@ -13,10 +13,9 @@
           <input type="text" v-model="data.link_text">
           <label-required />
         </div>
-        <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
-          <label>Titel *</label>
+        <div class="form-row">
+          <label>Titel</label>
           <input type="text" v-model="data.title">
-          <label-required />
         </div>
         <div class="form-row">
           <label>Subtitel</label>

@@ -7,7 +7,7 @@
   @if ($gallery)
     <div>
       <header>
-        <x-heading type="h2" title="{{ $gallery->title }}" subtitle="{{ $gallery->subtitle }}" />
+        <x-heading type="h2" title="{{ $gallery->title ? $gallery->title : '' }}" subtitle="{{ $gallery->subtitle }}" />
         <div class="uc">{{ $gallery->text }}</div>
       </header>
       @if ($gallery->publishedImages)

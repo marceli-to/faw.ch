@@ -22,7 +22,6 @@ class GalleryStoreRequest extends FormRequest
   public function rules()
   {
     return [
-      'title' => 'required',
       'link_text' => 'required',
     ];
   }
@@ -35,10 +34,6 @@ class GalleryStoreRequest extends FormRequest
   public function messages()
   {
     return [
-      'title.required' => [
-        'field' => 'title',
-        'error' => 'Titel wird benötigt!'
-      ],
       'link_text.required' => [
         'field' => 'link_text',
         'error' => 'Linktext wird benötigt!'
