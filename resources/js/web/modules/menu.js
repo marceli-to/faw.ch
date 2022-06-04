@@ -85,10 +85,6 @@ var Menu = (function() {
       left: 0,
       behavior: 'smooth'
     });
-    // setTimeout(function(){
-    // }, 500);
-    // el.scrollIntoView({block: "start", behavior: "auto"});
-    // _activate(hash);
   };
 
   var _activate = function(hash) {
