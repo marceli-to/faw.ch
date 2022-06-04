@@ -80,15 +80,13 @@ var Menu = (function() {
   var _jumpTo = function(hash) {
     var el = document.querySelector(`[data-id="${hash}"]`);
     _hide();
-
-    setTimeout(function(){
-      window.scrollTo({
-        top: el.offsetTop - 100,
-        left: 0,
-        behavior: 'smooth'
-      });
-    }, 500);
-
+    window.scrollTo({
+      top: el.offsetTop - 100,
+      left: 0,
+      behavior: 'smooth'
+    });
+    // setTimeout(function(){
+    // }, 500);
     // el.scrollIntoView({block: "start", behavior: "auto"});
     // _activate(hash);
   };
