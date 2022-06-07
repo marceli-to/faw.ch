@@ -13,4 +13,8 @@ h2 {
   @include font-bold();
   max-width: 560px;
   position: relative;
+
+  @include bp-xl() {
+    max-width: 700px;
+  }
 }

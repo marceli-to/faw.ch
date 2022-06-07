@@ -46,6 +46,10 @@ section.content-lightbox {
     }
   }
 
+  h2 {
+    max-width: none !important;
+  }
+
   header {
     @extend %mb-4x;
     @extend %lg\:mb-6x;
@@ -53,6 +57,7 @@ section.content-lightbox {
     h2 {
       @extend %lg\:mb-0;
     }
+
     > div {
       text-transform: uppercase;
     }
