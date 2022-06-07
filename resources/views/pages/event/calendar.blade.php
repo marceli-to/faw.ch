@@ -21,8 +21,8 @@
       <div class="grid grid-cols-12">
         <article class="teaser">
           <h3>Weitere Veranstaltungen in Winterthur</h3>
-          <x-link-page url="https://marceli.to" target="_blank" text="baukulturwinterthur.ch" title="baukulturwinterthur.ch" />
-          <x-link-page url="https://marceli.to" target="_blank" text="unser-bahnhof-winterthur.ch" title="unser-bahnhof-winterthur.ch" />
+          <x-link-page url="https://baukulturwinterthur.ch" target="_blank" text="baukulturwinterthur.ch" title="baukulturwinterthur.ch" />
+          <x-link-page url="https://unser-bahnhof-winterthur.ch/" target="_blank" text="unser-bahnhof-winterthur.ch" title="unser-bahnhof-winterthur.ch" />
         </article>
       </div>
     @endif
