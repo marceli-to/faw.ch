@@ -66,6 +66,10 @@ $step: 2px;
 // Padding
 .px-auto { padding-left: auto; padding-right: auto; }
 
+@for $i from 1 through 50 { %p-#{$i}x, .p-#{$i}x { padding: $i * $step; } }
+@for $i from 1 through 50 { %md\:p-#{$i}x, .md\:p-#{$i}x { @include bp-md() { padding: $i * $step; } } }
+@for $i from 1 through 50 { %lg\:p-#{$i}x, .lg\:p-#{$i}x { @include bp-lg() { padding: $i * $step; } } }
+
 @for $i from 1 through 50 { %py-#{$i}x, .py-#{$i}x { padding: $i * $step 0; } }
 @for $i from 1 through 50 { %md\:py-#{$i}x, .md\:py-#{$i}x { @include bp-md() { padding: $i * $step 0; } } }
 @for $i from 1 through 50 { %lg\:py-#{$i}x, .lg\:py-#{$i}x { @include bp-lg() { padding: $i * $step 0; } } }

@@ -86,3 +86,77 @@
   @include font-size($fs-xs);
   @include font-bold();
 }
+
+.card-sponsor {
+  @extend %md\:span-6;
+  @extend %lg\:span-4;
+  @extend %p-6x;
+  @extend %md\:p-10x;
+  @extend %md\:p-12x;
+
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0 !important;
+
+  > a {
+    display: block;
+    height: auto;
+    max-width: 70%;
+    width: 100%;
+  }
+
+  img {
+    @extend %is-responsive;
+    
+    &.max-w-50 {
+      max-width: 50%;
+    }
+
+    &.max-w-60 {
+      max-width: 60%;
+    }
+
+    &.max-w-65 {
+      max-width: 65%;
+    }
+
+    &.max-w-70 {
+      max-width: 70%;
+    }
+
+    &.max-w-75 {
+      max-width: 75%;
+    }
+
+    &.max-w-80 {
+      max-width: 80%;
+    }
+
+    &.max-w-85 {
+      max-width: 85%;
+    }
+
+    &.max-w-90 {
+      max-width: 90%;
+    }
+  }
+}
+
+.card-sponsor {
+  aspect-ratio: 3 / 1;
+}
+
+@supports not (aspect-ratio: 3 / 1) {
+  .card-sponsor::before {
+    float: left;
+    padding-top: 33.3333333%;
+    content: "";
+  }
+
+  .card-sponsor::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
