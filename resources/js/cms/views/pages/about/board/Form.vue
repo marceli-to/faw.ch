@@ -13,6 +13,14 @@
           <input type="text" v-model="data.title">
           <label-required />
         </div>
+        <div class="form-row">
+          <label>Lead</label>
+          <tinymce-editor
+            :api-key="tinyApiKey"
+            :init="tinyConfig"
+            v-model="data.text"
+          ></tinymce-editor>
+        </div>
         <template v-if="$props.type == 'edit'">
           <div class="form-row sb-lg">
             <page-header>
@@ -59,6 +67,8 @@
 </template>
 <script>
 import { PlusIcon } from 'vue-feather-icons';
+import TinymceEditor from "@tinymce/tinymce-vue";
+import tinyConfig from "@/config/tiny.js";
 import ErrorHandling from "@/mixins/ErrorHandling";
 import RadioButton from "@/components/ui/RadioButton.vue";
 import ButtonBack from "@/components/ui/ButtonBack.vue";
@@ -84,7 +94,8 @@ export default {
     PageHeader,
     BoardMembers,
     BoardMemberForm,
-    Images
+    Images,
+    TinymceEditor
   },
 
   mixins: [ErrorHandling],
@@ -100,6 +111,7 @@ export default {
       data: {
         id: null,
         title: null,
+        text: null,
         publish: 1,
         images: [],
         members: [],
@@ -130,6 +142,10 @@ export default {
 
       // Tabs config
       tabs: tabsConfig,
+
+      // TinyMCE
+      tinyConfig: tinyConfig,
+      tinyApiKey: 'vuaywur9klvlt3excnrd9xki1a5lj25v18b2j0d0nu5tbwro',
     };
   },
 

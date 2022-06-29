@@ -10,6 +10,7 @@ class Board extends Base
 
 	protected $fillable = [
     'title',
+    'text',
     'publish'
   ];
 

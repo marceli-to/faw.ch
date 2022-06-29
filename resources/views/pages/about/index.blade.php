@@ -70,6 +70,22 @@
   <section class="content" data-id="{{ \Str::slug($board->title) }}">
     <div>
       <h1>{{ $board->title }}</h1>
+
+      @if ($board->text)
+        <article class="lead block md:hide">
+          @if (Str::wordCount($board->text) > 60)
+            <x-truncated-text preview="{!! Str::words($board->text, 60, '...') !!}">
+              {!! $board->text !!}
+            </x-truncated-text>
+          @else
+            {!! $board->text !!}
+          @endif
+        </article>
+        <article class="lead hide !md:block">
+          {!! $board->text !!}
+        </article>
+      @endif
+
       @if ($board->publishedMembers)
         <div class="grid grid-cols-12">
           @foreach($board->publishedMembers as $member)
