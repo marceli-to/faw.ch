@@ -48,14 +48,14 @@
       </div>
     </div>
   </draggable>
-  <history-article-form :type="'edit'" ref="historyArticleForm"></history-article-form>
+  <forum-article-form :type="'edit'" ref="forumArticleForm"></forum-article-form>
 </div>
 </template>
 <script>
 import { EyeIcon, EyeOffIcon, EditIcon, Trash2Icon } from 'vue-feather-icons';
 import Helpers from "@/mixins/Helpers";
 import Separator from "@/components/ui/Separator.vue";
-import HistoryArticleForm from "@/views/pages/about/history/article/Form.vue";
+import ForumArticleForm from "@/views/pages/about/forum/article/Form.vue";
 import draggable from "vuedraggable";
 
 export default {
@@ -66,12 +66,12 @@ export default {
     EditIcon,
     Trash2Icon,
     Separator,
-    HistoryArticleForm,
+    ForumArticleForm,
     draggable
   },
 
   props: {
-    historyId: null,
+    forumId: null,
 
     articles: {
       type: Array,
@@ -91,9 +91,9 @@ export default {
 
       // Routes
       routes: {
-        toggle: '/api/history-article/state',
-        delete: '/api/history-article',
-        order: '/api/history-article/order',
+        toggle: '/api/forum-article/state',
+        delete: '/api/forum-article',
+        order: '/api/forum-article/order',
       },
 
       // States
@@ -117,7 +117,7 @@ export default {
   methods: {
 
     edit(article) {
-      this.$refs.historyArticleForm.show(article);
+      this.$refs.forumArticleForm.show(article);
     },
 
     toggle(id) {

@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
-use App\Models\History;
+use App\Models\Forum;
 use App\Models\Board;
 use Illuminate\Http\Request;
 
@@ -22,9 +22,9 @@ class AboutController extends BaseController
 
   public function index()
   {
-    $history = History::published()->with('publishedImages', 'publishedFiles', 'publishedArticles')->get()->first();
+    $forum = Forum::published()->with('publishedImages', 'publishedFiles', 'publishedArticles')->get()->first();
     $board   = Board::published()->with('publishedImages', 'publishedMembers')->get()->first();
-    return view($this->viewPath . 'index', ['history' => $history, 'board' => $board]);
+    return view($this->viewPath . 'index', ['forum' => $forum, 'board' => $board]);
   }
 
 }

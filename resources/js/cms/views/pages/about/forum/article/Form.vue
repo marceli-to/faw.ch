@@ -54,7 +54,7 @@ export default {
 
   props: {
     type: String,
-    historyId: null,
+    forumId: null,
   },
 
   data() {
@@ -66,7 +66,7 @@ export default {
         title: null,
         text: null,
         publish: 1,
-        history_id: this.$props.historyId
+        forum_id: this.$props.forumId
       },
 
       // Validation
@@ -76,9 +76,9 @@ export default {
 
       // Routes
       routes: {
-        get: '/api/history-article',
-        store: '/api/history-article',
-        update: '/api/history-article',
+        get: '/api/forum-article',
+        store: '/api/forum-article',
+        update: '/api/forum-article',
       },
 
       // States
@@ -160,7 +160,7 @@ export default {
         title: null,
         text: null,
         publish: 1,
-        history_id: this.$props.historyId
+        forum_id: this.$props.forumId
       };
       this.errors.title = false;
     }

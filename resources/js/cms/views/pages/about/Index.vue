@@ -5,9 +5,9 @@
     </page-header>
     <div class="content content--wide cards">
       <div class="card">
-        <router-link :to="{name: 'history'}">
-          <h2>Geschichte</h2>
-          <p>Verwaltung der Geschichte</p>
+        <router-link :to="{name: 'forum'}">
+          <h2>Das Forum</h2>
+          <p>Verwaltung des Forums</p>
         </router-link>
       </div>
       <div class="card">

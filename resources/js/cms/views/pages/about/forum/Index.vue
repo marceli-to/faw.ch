@@ -4,8 +4,8 @@
   <div v-if="isFetched" class="is-loaded">
     
     <page-header>
-      <h1>Geschichte</h1>
-      <router-link :to="{ name: 'history-create'}" class="btn-add has-icon">
+      <h1>Forum</h1>
+      <router-link :to="{ name: 'forum-create'}" class="btn-add has-icon">
         <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
@@ -23,7 +23,7 @@
         <list-actions 
           :id="d.id" 
           :record="d"
-          :routes="{edit: 'history-edit'}">
+          :routes="{edit: 'forum-edit'}">
         </list-actions>
       </div>
     </div>
@@ -68,9 +68,9 @@ export default {
       // Routes
       routes: {
         get: '/api/histories',
-        store: '/api/history',
-        delete: '/api/history',
-        toggle: '/api/history/state',
+        store: '/api/forum',
+        delete: '/api/forum',
+        toggle: '/api/forum/state',
       },
 
       // States

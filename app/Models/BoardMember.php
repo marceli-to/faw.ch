@@ -18,6 +18,6 @@ class BoardMember extends Base
 
   public function board()
   {
-    return $this->belongsTo(History::class, 'board_id', 'id');
+    return $this->belongsTo(Board::class, 'board_id', 'id');
   }
 }

@@ -4,7 +4,7 @@ use App\Models\Base;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HistoryArticle extends Base
+class ForumArticle extends Base
 {
   use HasFactory;
 
@@ -13,11 +13,11 @@ class HistoryArticle extends Base
     'text',
     'publish',
     'order',
-    'history_id'
+    'forum_id'
   ];
 
-  public function history()
+  public function forum()
   {
-    return $this->belongsTo(History::class, 'history_id', 'id');
+    return $this->belongsTo(Forum::class, 'forum_id', 'id');
   }
 }

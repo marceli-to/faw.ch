@@ -59,8 +59,5 @@
     <a href="/{{ $page->slug }}/#{{$gallery->slug}}" class="btn-lightbox-close" title="Zurück">
       <x-icon type="cross-lightbox" />
     </a>
-    {{-- <a href="javascript:history.back();" class="btn-lightbox-close" title="Zurück">
-      <x-icon type="cross-lightbox" />
-    </a> --}}
   @endif
 </nav>

@@ -1,6 +1,6 @@
 @extends('layout.web')
 @section('seo_title', 'Über uns')
-@section('seo_description', 'Das Forum und ihre Geschichte sowie unsere Vorstandsmitglieder')
+@section('seo_description', 'Das Forum und unsere Vorstandsmitglieder')
 @section('og_image', url('/') . '/assets/media/faw_ueber-uns-lg.jpg')
 @section('content')
 <section class="content-visual">
@@ -17,28 +17,22 @@
     </figure>
   </div>
 </section>
-<section class="content" data-id="das-forum">
-  <div>
-    <h1>Das Forum</h1>
-    <p>[Inhalt folgt]</p>
-  </div>
-</section>
-@if ($history)
-  @if ($history->publishedImages)
+@if ($forum)
+  @if ($forum->publishedImages)
     <section class="content-visual">
-      <x-gallery :images="$history->publishedImages" limit="true" />
+      <x-gallery :images="$forum->publishedImages" limit="true" />
     </section>
   @endif
-  <section class="content" data-id="{{ \Str::slug($history->title) }}">
+  <section class="content" data-id="{{ \Str::slug($forum->title) }}">
     <div>
-      <h1>{{ $history->title }}</h1>
-      @if ($history->publishedArticles)
+      <h1>{{ $forum->title }}</h1>
+      @if ($forum->publishedArticles)
         <div class="grid grid-cols-12">
-          @foreach($history->publishedArticles as $article)
+          @foreach($forum->publishedArticles as $article)
             <article class="text">
               <x-heading type="h2" title="{{ $article->title }}" class="mb-1x" />
-              @if (Str::wordCount($article->text) > 60)
-                <x-truncated-text preview="{!! Str::words($article->text, 60, '...') !!}">
+              @if (Str::wordCount($article->text) > 50)
+                <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
                   {!! $article->text !!}
                 </x-truncated-text>
               @else
@@ -48,10 +42,10 @@
           @endforeach
         </div>
       @endif
-      @if ($history->publishedFiles)
+      @if ($forum->publishedFiles)
         <x-toggle-text title="Download Jahresberichte" cssClass="mt-6x" class="mt-8x md:mt-0">
           <div class="columns-3" style="max-width: 640px">
-            @foreach($history->publishedFiles as $file)
+            @foreach($forum->publishedFiles as $file)
               <div><x-link-file :file="$file" /></div>
             @endforeach
           </div>

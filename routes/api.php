@@ -11,8 +11,8 @@ use App\Http\Controllers\Api\AnnualProgramController;
 use App\Http\Controllers\Api\AnnualProgramArticleController;
 use App\Http\Controllers\Api\ActivityController;
 use App\Http\Controllers\Api\ActivityArticleController;
-use App\Http\Controllers\Api\HistoryController;
-use App\Http\Controllers\Api\HistoryArticleController;
+use App\Http\Controllers\Api\ForumController;
+use App\Http\Controllers\Api\ForumArticleController;
 use App\Http\Controllers\Api\BoardController;
 use App\Http\Controllers\Api\BoardMemberController;
 use App\Http\Controllers\Api\BackerController;
@@ -165,22 +165,22 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('partner/state/{partner}', [PartnerController::class, 'toggle']);
   Route::delete('partner/{partner}', [PartnerController::class, 'destroy']);
 
-  // History
-  Route::get('histories/{constraint?}', [HistoryController::class, 'get']);
-  Route::get('history/{history}', [HistoryController::class, 'find']);
-  Route::post('history', [HistoryController::class, 'store']);
-  Route::put('history/{history}', [HistoryController::class, 'update']);
-  Route::get('history/state/{history}', [HistoryController::class, 'toggle']);
-  Route::delete('history/{history}', [HistoryController::class, 'destroy']);
+  // Forum
+  Route::get('histories/{constraint?}', [ForumController::class, 'get']);
+  Route::get('forum/{forum}', [ForumController::class, 'find']);
+  Route::post('forum', [ForumController::class, 'store']);
+  Route::put('forum/{forum}', [ForumController::class, 'update']);
+  Route::get('forum/state/{forum}', [ForumController::class, 'toggle']);
+  Route::delete('forum/{forum}', [ForumController::class, 'destroy']);
 
-  // History Articles
-  Route::get('history-articles/{history}/{constraint?}', [HistoryArticleController::class, 'get']);
-  Route::get('history-article/{article}', [HistoryArticleController::class, 'find']);
-  Route::post('history-article', [HistoryArticleController::class, 'store']);
-  Route::put('history-article/{article}', [HistoryArticleController::class, 'update']);
-  Route::get('history-article/state/{article}', [HistoryArticleController::class, 'toggle']);
-  Route::post('history-article/order', [HistoryArticleController::class, 'order']);
-  Route::delete('history-article/{article}', [HistoryArticleController::class, 'destroy']);
+  // Forum Articles
+  Route::get('forum-articles/{forum}/{constraint?}', [ForumArticleController::class, 'get']);
+  Route::get('forum-article/{article}', [ForumArticleController::class, 'find']);
+  Route::post('forum-article', [ForumArticleController::class, 'store']);
+  Route::put('forum-article/{article}', [ForumArticleController::class, 'update']);
+  Route::get('forum-article/state/{article}', [ForumArticleController::class, 'toggle']);
+  Route::post('forum-article/order', [ForumArticleController::class, 'order']);
+  Route::delete('forum-article/{article}', [ForumArticleController::class, 'destroy']);
 
   // Board
   Route::get('boards/{constraint?}', [BoardController::class, 'get']);

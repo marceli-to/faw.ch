@@ -4,7 +4,7 @@ use App\Models\Base;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class History extends Base
+class Forum extends Base
 {
   use HasFactory;
 
@@ -16,12 +16,12 @@ class History extends Base
 
   public function articles()
   {
-    return $this->hasMany(HistoryArticle::class, 'history_id','id')->orderBy('order', 'ASC');
+    return $this->hasMany(ForumArticle::class, 'forum_id','id')->orderBy('order', 'ASC');
   }
 
   public function publishedArticles()
   {
-    return $this->hasMany(HistoryArticle::class, 'history_id','id')->orderBy('order', 'ASC')->where('publish', 1);
+    return $this->hasMany(ForumArticle::class, 'forum_id','id')->orderBy('order', 'ASC')->where('publish', 1);
   }
 
   public function files()

@@ -71,7 +71,7 @@ export default {
   },
 
   props: {
-    historyId: null,
+    forumId: null,
 
     members: {
       type: Array,
