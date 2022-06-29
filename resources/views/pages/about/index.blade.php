@@ -27,16 +27,7 @@
     <div>
       <h1>{{ $forum->title }}</h1>
       @if ($forum->text)
-        <article class="lead block md:hide">
-          @if (Str::wordCount($forum->text) > 60)
-            <x-truncated-text preview="{!! Str::words($forum->text, 60, '...') !!}">
-              {!! $forum->text !!}
-            </x-truncated-text>
-          @else
-            {!! $forum->text !!}
-          @endif
-        </article>
-        <article class="lead hide !md:block">
+        <article class="lead">
           {!! $forum->text !!}
         </article>
       @endif

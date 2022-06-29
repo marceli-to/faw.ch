@@ -22,7 +22,7 @@ class ActivityStoreRequest extends FormRequest
   public function rules()
   {
     return [
-      'title' => 'required',
+      'text' => 'required',
     ];
   }
 
@@ -34,9 +34,9 @@ class ActivityStoreRequest extends FormRequest
   public function messages()
   {
     return [
-      'title.required' => [
-        'field' => 'title',
-        'error' => 'Titel wird benötigt!'
+      'text.required' => [
+        'field' => 'text',
+        'error' => 'Lead wird benötigt!'
       ],
     ];
   }

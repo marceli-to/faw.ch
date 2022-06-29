@@ -8,12 +8,11 @@
     <tabs :tabs="tabs" :errors="errors"></tabs>
     <div v-show="tabs.data.active">
       <div>
-        <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
-          <label>Titel *</label>
-          <input type="text" v-model="data.title">
-          <label-required />
-        </div>
         <div class="form-row">
+          <label>Titel</label>
+          <input type="text" v-model="data.title">
+        </div>
+        <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
           <label>Lead</label>
           <tinymce-editor
             :api-key="tinyApiKey"
@@ -21,7 +20,6 @@
             v-model="data.text"
           ></tinymce-editor>
         </div>
-
         <template v-if="$props.type == 'edit'">
           <div class="form-row sb-lg">
             <page-header>
@@ -109,7 +107,7 @@ export default {
 
       // Validation
       errors: {
-        title: false,
+        text: false,
       },
 
       // Routes
