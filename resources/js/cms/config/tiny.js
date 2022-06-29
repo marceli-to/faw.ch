@@ -16,6 +16,7 @@ export default {
     items: [
       { title: 'Titel (bold, versal)', inline: 'span', classes : 'text-bold text-uc text-xs' },
       { title: 'Lauftext medium', inline: 'span', classes : 'text-md' },
+      { title: 'Liste', inline: 'ul', classes : 'list' },
       { title: 'Link (extern)', block: 'p', classes : 'anchor-external' },
       { title: 'Ohne Texteinzug', block: 'p', classes : 'prevent-text-indent' },
       { title: 'Überschrift 1', block : 'h1'},
