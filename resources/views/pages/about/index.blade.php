@@ -26,6 +26,20 @@
   <section class="content" data-id="{{ \Str::slug($forum->title) }}">
     <div>
       <h1>{{ $forum->title }}</h1>
+      @if ($forum->text)
+        <article class="lead block md:hide">
+          @if (Str::wordCount($forum->text) > 60)
+            <x-truncated-text preview="{!! Str::words($forum->text, 60, '...') !!}">
+              {!! $forum->text !!}
+            </x-truncated-text>
+          @else
+            {!! $forum->text !!}
+          @endif
+        </article>
+        <article class="lead hide !md:block">
+          {!! $forum->text !!}
+        </article>
+      @endif
       @if ($forum->publishedArticles)
         <div class="grid grid-cols-12">
           @foreach($forum->publishedArticles as $article)
@@ -42,6 +56,9 @@
           @endforeach
         </div>
       @endif
+      <div class="text-media__links">
+        <x-link-gallery page="das-forum" :id="18" />
+      </div>
       @if ($forum->publishedFiles)
         <x-toggle-text title="Download Jahresberichte" cssClass="mt-6x" class="mt-8x md:mt-0">
           <div class="columns-3" style="max-width: 640px">
@@ -64,7 +81,6 @@
   <section class="content" data-id="{{ \Str::slug($board->title) }}">
     <div>
       <h1>{{ $board->title }}</h1>
-
       @if ($board->text)
         <article class="lead block md:hide">
           @if (Str::wordCount($board->text) > 60)
