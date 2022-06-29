@@ -27,7 +27,16 @@
     <div>
       <h1>{{ $forum->title }}</h1>
       @if ($forum->text)
-        <article class="lead">
+        <article class="lead block md:hide">
+          @if (Str::wordCount($forum->text) > 60)
+            <x-truncated-text preview="{!! Str::words($forum->text, 60, '...') !!}">
+              {!! $forum->text !!}
+            </x-truncated-text>
+          @else
+            {!! $forum->text !!}
+          @endif
+        </article>
+        <article class="lead hide !md:block">
           {!! $forum->text !!}
         </article>
       @endif
@@ -36,13 +45,7 @@
           @foreach($forum->publishedArticles as $article)
             <article class="text">
               <x-heading type="h2" title="{{ $article->title }}" class="mb-1x" />
-              @if (Str::wordCount($article->text) > 50)
-                <x-truncated-text preview="{!! Str::words($article->text, 50, '...') !!}">
-                  {!! $article->text !!}
-                </x-truncated-text>
-              @else
                 {!! $article->text !!}
-              @endif
             </article>
           @endforeach
         </div>
