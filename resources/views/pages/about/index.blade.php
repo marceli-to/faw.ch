@@ -57,7 +57,7 @@
         </div>
       @endif
       <div class="text-media__links">
-        <x-link-gallery page="das-forum" :id="18" />
+        <x-link-gallery page="ueber-uns" :id="18" />
       </div>
       @if ($forum->publishedFiles)
         <x-toggle-text title="Download Jahresberichte" cssClass="mt-6x" class="mt-8x md:mt-0">
