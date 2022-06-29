@@ -31,7 +31,7 @@ class Forum extends Base
 
   public function publishedFiles()
   {
-    return $this->morphMany(File::class, 'fileable');
+    return $this->morphMany(File::class, 'fileable')->orderBy('order', 'ASC');
   }
 
   public function images()
