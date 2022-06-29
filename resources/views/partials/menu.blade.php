@@ -26,7 +26,7 @@
         <a href="javascript:;" class="js-menu-btn-newsletter">Newsletter</a>
         <div class="my-8x lg:mb-16x" style="display: none">
           <p>Tragen Sie Ihre E-Mail-Adresse in das Eingabefeld und Sie erhalten umgehend eine E-Mail mit einem Bestätigungslink. Klicken Sie auf den Link, um Ihre E-Mail Adresse zu aktivieren.</p>
-          <form method="POST" action="http://72082.seu1.cleverreach.com/f/72082-140653/wcs/" target="_blank">
+          <form method="POST" action="https://72082.seu1.cleverreach.com/f/72082-140653/wcs/" target="_blank">
             <div>
               <input type="email" name="email" placeholder="E-Mail" />
             </div>
