@@ -18,7 +18,7 @@
         :key="d.id"
       >
         <div class="listing__item-body">
-          {{d.title}}
+          {{d.title ? d.title : 'Aktivitäten'}}
         </div>
         <list-actions 
           :id="d.id" 
