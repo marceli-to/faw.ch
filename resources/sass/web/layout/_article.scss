@@ -58,6 +58,10 @@ article.text {
     margin-bottom: 0;
   }
 
+  h2 {
+    word-break: normal !important;
+  }
+
   p {
     @extend %text-indent;
   }
