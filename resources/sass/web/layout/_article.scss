@@ -59,7 +59,8 @@ article.text {
   }
 
   h2 {
-    word-break: normal !important;
+    word-break: normal;
+    hyphens: none;
   }
 
   p {
