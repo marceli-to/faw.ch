@@ -30,7 +30,7 @@
 </section>
 <section class="content">
   <div>
-    <h2 class="mb-10x lg:mb-10x">Vergangene Veranstaltungen</h2>
+    <h2 class="mb-5x">Vergangene Veranstaltungen</h2>
     <div class="grid grid-cols-12">
       @foreach($events['past'] as $event)
         <x-card-event :event="$event" cssClass="card-small md:span-6 lg:span-4 {{ $loop->iteration > 3 ? 'hide !md:block' : ''}}" />

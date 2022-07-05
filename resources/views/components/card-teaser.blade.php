@@ -20,12 +20,12 @@
         <div>{{nl2br($teaser->text)}}</div>
       @endif
 
-      <div class="mt-4x">
+      {{-- <div class="mt-4x">
         <span class="anchor anchor--arrow">
           <x-icon type="arrow-right" />
           <span>{{$teaser->link->title}}</span>
         </a>
-      </div>
+      </div> --}}
     </a>
 
   @else
