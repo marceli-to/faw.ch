@@ -102,7 +102,9 @@
   @if ($annual_program->publishedArticlesSpecial)
   <section class="content">
     <div>
-      <x-heading type="h2" title="Forum Spezial" subtitle="Weitere Veranstaltungen" class="mb-10x lg:mb-12x" />
+      <article class="teaser">
+        <x-heading type="h2" title="Forum Spezial" subtitle="Weitere Veranstaltungen" class="mb-10x lg:mb-12x" />
+      </article>
       @if ($annual_program->publishedArticlesSpecial)
         <div class="grid grid-cols-12">
           @foreach($annual_program->publishedArticlesSpecial as $article)
