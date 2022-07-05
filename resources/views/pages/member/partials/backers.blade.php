@@ -1,7 +1,7 @@
 @if ($backers)
 <section class="content">
   <div>
-    <h1>Gönner*Innen</h1>
+    <h1>Gönner:Innen</h1>
     <div class="columns">
       @if (isset($backers['Personen']))
         <h2 class="lg:mb-0">Personen</h2>
