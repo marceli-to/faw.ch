@@ -29,7 +29,7 @@
       @if ($forum->text)
         <article class="lead block md:hide">
           @if (Str::wordCount($forum->text) > 60)
-            <x-truncated-text preview="{!! Str::words($forum->text, 60, '...') !!}">
+            <x-truncated-text preview="{!! Str::words($forum->text, 60, ' ...') !!}">
               {!! $forum->text !!}
             </x-truncated-text>
           @else
@@ -78,7 +78,7 @@
       @if ($board->text)
         <article class="lead block md:hide">
           @if (Str::wordCount($board->text) > 60)
-            <x-truncated-text preview="{!! Str::words($board->text, 60, '...') !!}">
+            <x-truncated-text preview="{!! Str::words($board->text, 60, ' ...') !!}">
               {!! $board->text !!}
             </x-truncated-text>
           @else

@@ -26,7 +26,7 @@
       @if ($page->text)
         <article class="lead block md:hide">
           @if (Str::wordCount($page->text) > 60)
-            <x-truncated-text preview="{!! Str::words($page->text, 60, '...') !!}">
+            <x-truncated-text preview="{!! Str::words($page->text, 60, ' ...') !!}">
               {!! $page->text !!}
             </x-truncated-text>
           @else

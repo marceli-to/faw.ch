@@ -40,7 +40,7 @@
     ?>
     <article class="lead block md:hide">
       @if (Str::wordCount($text) > 60)
-        <x-truncated-text preview="{!! Str::words($text, 60, '...') !!}">
+        <x-truncated-text preview="{!! Str::words($text, 60, ' ...') !!}">
           {!! $text !!}
         </x-truncated-text>
       @else
@@ -67,7 +67,7 @@
     ?>
     <article class="text-columns block md:hide">
       @if (Str::wordCount($text) > 60)
-        <x-truncated-text preview="{!! Str::words($text, 60, '...') !!}">
+        <x-truncated-text preview="{!! Str::words($text, 60, ' ...') !!}">
           {!! $text !!}
         </x-truncated-text>
       @else

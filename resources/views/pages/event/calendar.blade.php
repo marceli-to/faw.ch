@@ -54,7 +54,7 @@
       @if ($annual_program->text)
         <article class="lead block md:hide">
           @if (Str::wordCount($annual_program->text) > 100)
-            <x-truncated-text preview="{!! Str::words($annual_program->text, 100, '...') !!}">
+            <x-truncated-text preview="{!! Str::words($annual_program->text, 100, ' ...') !!}">
               {!! $annual_program->text !!}
             </x-truncated-text>
           @else
@@ -72,7 +72,7 @@
             <article class="text !md:block">
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
               @if (Str::wordCount($article->text) > 60)
-                <x-truncated-text preview="{!! Str::words($article->text, 55, '...') !!}">
+                <x-truncated-text preview="{!! Str::words($article->text, 55, ' ...') !!}">
                   {!! $article->text !!}
                 </x-truncated-text>
               @else
@@ -113,7 +113,7 @@
           <article class="text hide !md:block">
             <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
             @if (Str::wordCount($article->text) > 60)
-              <x-truncated-text preview="{!! Str::words($article->text, 55, '...') !!}">
+              <x-truncated-text preview="{!! Str::words($article->text, 55, ' ...') !!}">
                 {!! $article->text !!}
               </x-truncated-text>
             @else

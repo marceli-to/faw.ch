@@ -25,7 +25,7 @@
     <h2>Wenn Fachleute, Laien und Kunstschaffende sich um die Stadt der Zukunft kümmern.</h2>
     <article class="lead block md:hide">
       @if (Str::wordCount($lead) > 60)
-        <x-truncated-text preview="{!! Str::words($lead, 60, '...') !!}">
+        <x-truncated-text preview="{!! Str::words($lead, 60, ' ...') !!}">
           {!! $lead !!}
         </x-truncated-text>
       @else
