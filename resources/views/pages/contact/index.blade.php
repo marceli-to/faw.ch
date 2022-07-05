@@ -34,6 +34,7 @@
       Bilder: Andreas Wolfensberger, Andreas Mader, Winterthur<br>
       Konzept und Gestaltung: <a href="https://bivgrafik.ch" target="_blank" title="bivgrafik.ch">Bivgrafik – Visuelle Gestaltung, Zürich</a><br>
       Programmierung: <a href="https://marceli.to" target="_blank" title="marceli.to">Marcel Stadelmann, marceli.to, Zürich</a><br>
+      &copy; {{date('Y', time())}}
     </x-toggle-text>
     <x-toggle-text title="Datenschutz" cssClass="mt-6x md:mt-10x text-max-width">
       [Inhalt fehlt]
