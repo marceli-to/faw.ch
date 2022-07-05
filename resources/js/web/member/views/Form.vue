@@ -59,7 +59,7 @@
         <div class="form-group">
           <div class="flex items-start">
             <input type="radio" id="backer" name="member_type" required value="goenner" v-model="form.type">
-            <label for="backer">Ich trete dem Forum Architektur Winterthur als Gönnerin oder Gönner bei. Der Gönnerbeitrag für das laufende Vereinsjahr von CHF 600.– wird in den nächsten Tagen auf das Postcheck-Konto 84-4044-1 überwiesen.</label>
+            <label for="backer">Ich trete dem Forum Architektur Winterthur als Gönner:in bei. Der Beitrag für das laufende Vereinsjahr von CHF 600.– wird in den nächsten Tagen auf das Postcheck-Konto 84-4044-1 überwiesen.</label>
           </div>
         </div>
         <div class="form-group">
