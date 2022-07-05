@@ -69,21 +69,7 @@
       @if ($annual_program->publishedArticles)
         <div class="grid grid-cols-12">
           @foreach($annual_program->publishedArticles as $article)
-
-            <article class="text block !md:hide collapsible is-article {{ $loop->last ? 'is-last' : '' }} {{ $loop->first ? 'is-expanded' : '' }} js-clpsbl">
-              <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">
-                <span>
-                  <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-                </span>
-                <x-icon type="chevron-down" />
-                <x-icon type="chevron-up" />
-              </a>
-              <div class="js-clpsbl-body" style="display: {{ $loop->first ? 'grid' : 'none' }}">
-                {!! $article->text !!}
-              </div>
-            </article>
-
-            <article class="text hide !md:block">
+            <article class="text !md:block">
               <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
               @if (Str::wordCount($article->text) > 60)
                 <x-truncated-text preview="{!! Str::words($article->text, 55, '...') !!}">
