@@ -30,7 +30,7 @@
       <x-link-page url="http://www.instagram.com/forumarchitekturwinterthur" target="_blank" title="FForum Architektur Winterthur auf Instagram" text="Instagram" cssClass="mt-1x" />
     </p>
     <x-toggle-text title="Impressum" cssClass="mt-6x md:mt-10x mb-10x md:mb-20x" class="mt-20x md:mt-25x lg:mt-30x">
-      Texte: Forum Architektur Winterthur<br>
+      Redaktion und Text: Forum Architektur Winterthur<br>
       Bilder: Andreas Wolfensberger, Andreas Mader, Winterthur<br>
       Konzept und Gestaltung: <a href="https://bivgrafik.ch" target="_blank" title="bivgrafik.ch">Bivgrafik – Visuelle Gestaltung, Zürich</a><br>
       Programmierung: <a href="https://marceli.to" target="_blank" title="marceli.to">Marcel Stadelmann, marceli.to, Zürich</a><br>
