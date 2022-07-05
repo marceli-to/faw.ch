@@ -65,7 +65,7 @@
         <div class="form-group">
           <div class="flex items-start">
             <input type="radio" id="sponsor" name="member_type" required value="sponsor" v-model="form.type">
-            <label for="sponsor">Wir sind interessiert das Forum Architektur Winterthur als Sponsor mit jährlich CHF 2'750.– zu unterstützen. Bitte nehmen Sie mit uns Kontakt auf.</label>
+            <label for="sponsor">Formular Text 4 anpassen: Ich bin interessiert das Forum Architektur Winterthur als Sponsor:in mit jährlich CHF 2'750.– zu unterstützen. Bitte nehmt mit mir Kontakt auf.</label>
           </div>
         </div>
       </div>
