@@ -6,7 +6,6 @@
 
 .btn-submit {
   @extend %btn;
-  @extend %md\:ml-15x;
   color: $color-black;
   @include font-bold();
   padding: 0;
