@@ -81,7 +81,7 @@ var Menu = (function() {
     var el = document.querySelector(`[data-id="${hash}"]`);
     _hide();
     window.scrollTo({
-      top: el.offsetTop - 60,
+      top: el.offsetTop - 70,
       left: 0,
       behavior: 'smooth'
     });
