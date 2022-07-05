@@ -11,7 +11,6 @@
       @if ($event->abstract)
         {!! nl2br($event->abstract) !!}
       @endif
-
       <div class="mt-4x">
         <span class="anchor anchor--arrow">
           <x-icon type="arrow-right" />
@@ -35,15 +34,12 @@
       @if ($event->abstract)
         {!! nl2br($event->abstract) !!}
       @endif
-
-      @if (!$event->sticky)
-        <div class="mt-4x">
-          <span class="anchor anchor--arrow">
-            <x-icon type="arrow-right" />
-            <span>Zur Veranstaltung</span>
-          </a>
-        </div>
-      @endif
+      <div class="mt-4x">
+        <span class="anchor anchor--arrow">
+          <x-icon type="arrow-right" />
+          <span>Zur Veranstaltung</span>
+        </a>
+      </div>
     </a>
   @endif
 
