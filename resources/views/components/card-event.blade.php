@@ -34,8 +34,8 @@
     @endif
   @else
     @if ($event->text)
-      @if (Str::of($event->text)->wordCount() > 25)
-        <x-truncated-text preview="{!! Str::words($event->text, 25, '...') !!}">
+      @if (Str::of($event->text)->wordCount() > 30)
+        <x-truncated-text preview="{!! Str::words($event->text, 30, '...') !!}">
           {!! $event->text !!}
           @if ($event->files)
             @foreach($event->files as $file)
