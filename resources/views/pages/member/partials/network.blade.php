@@ -3,7 +3,7 @@
   <div>
     <h1>Netzwerk</h1>
     @foreach($partners as $partner)
-      <div class="mb-8x md:mb-10x">
+      <div>
         @if ($partner->url)
           <a href="{{ $partner->url }}" target="_blank" title="Webseite {{ $partner->name }}">{{ $partner->name }}</a>
         @else
