@@ -89,7 +89,7 @@ class PartnerController extends Controller
     foreach($items as $item)
     {
       $i = Partner::find($item['id']);
-      $i->order = $item['order'];
+      $i->sort = $item['order'];
       $i->save(); 
     }
     return response()->json('successfully updated');
