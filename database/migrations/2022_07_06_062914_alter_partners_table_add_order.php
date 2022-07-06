@@ -14,7 +14,7 @@ class AlterPartnersTableAddOrder extends Migration
     public function up()
     {
       Schema::table('partners', function (Blueprint $table) {
-        $table->tinyInteger('order')->default(-1)->after('url');
+        $table->tinyInteger('sort')->default(-1)->after('url');
       });
     }
 

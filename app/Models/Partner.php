@@ -11,7 +11,7 @@ class Partner extends Base
 	protected $fillable = [
     'name',
     'url',
-    'order',
+    'sort',
     'publish',
 	];
 

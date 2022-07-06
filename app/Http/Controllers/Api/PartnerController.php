@@ -18,9 +18,9 @@ class PartnerController extends Controller
   {
     if ($constraint == 'publish')
     {
-      return new DataCollection(Partner::published()->orderBy('order')->orderBy('name', 'ASC')->get());
+      return new DataCollection(Partner::published()->orderBy('sort')->orderBy('name', 'ASC')->get());
     }
-    return new DataCollection(Partner::orderBy('order')->orderBy('name', 'ASC')->get());
+    return new DataCollection(Partner::orderBy('sort')->orderBy('name', 'ASC')->get());
   }
 
   /**

@@ -30,7 +30,7 @@ class MemberController extends BaseController
     $backersGrouped = $backers->groupBy('type.description');
 
     // Get partners
-    $partners = Partner::published()->orderBy('name', 'ASC')->get();
+    $partners = Partner::published()->orderBy('sort', 'ASC')->orderBy('name', 'ASC')->get();
     return view($this->viewPath . 'index', ['backers' => $backersGrouped->all(), 'partners' => $partners]);
   }
 
