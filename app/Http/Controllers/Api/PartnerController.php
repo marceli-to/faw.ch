@@ -18,9 +18,9 @@ class PartnerController extends Controller
   {
     if ($constraint == 'publish')
     {
-      return new DataCollection(Partner::published()->orderBy('name', 'DESC')->get());
+      return new DataCollection(Partner::published()->orderBy('order')->orderBy('name', 'ASC')->get());
     }
-    return new DataCollection(Partner::orderBy('name', 'DESC')->get());
+    return new DataCollection(Partner::orderBy('order')->orderBy('name', 'ASC')->get());
   }
 
   /**
@@ -74,6 +74,25 @@ class PartnerController extends Controller
     $partner->publish = $partner->publish == 0 ? 1 : 0;
     $partner->save();
     return response()->json($partner->publish);
+  }
+
+  /**
+   * Update the order of the given grid item
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function order(Request $request)
+  {
+    $items = $request->get('items');
+    foreach($items as $item)
+    {
+      $i = Partner::find($item['id']);
+      $i->order = $item['order'];
+      $i->save(); 
+    }
+    return response()->json('successfully updated');
   }
 
   /**

@@ -163,6 +163,7 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::post('partner', [PartnerController::class, 'store']);
   Route::put('partner/{partner}', [PartnerController::class, 'update']);
   Route::get('partner/state/{partner}', [PartnerController::class, 'toggle']);
+  Route::post('partner/order', [PartnerController::class, 'order']);
   Route::delete('partner/{partner}', [PartnerController::class, 'destroy']);
 
   // Forum

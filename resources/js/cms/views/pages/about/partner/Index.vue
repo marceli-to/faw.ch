@@ -11,9 +11,18 @@
       </router-link>
     </page-header>
 
-    <div class="listing" v-if="data.length">
+    <draggable 
+      :disabled="false"
+      v-model="data" 
+      @end="order(data)"
+      ghost-class="draggable-ghost"
+      draggable=".listing__item"
+      class="listing"
+      v-if="data.length">
+
+
       <div
-        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item']"
+        :class="[d.publish == 0 ? 'is-disabled' : '', 'listing__item is-draggable']"
         v-for="d in data"
         :key="d.id"
       >
@@ -26,7 +35,7 @@
           :routes="{edit: 'partner-edit'}">
         </list-actions>
       </div>
-    </div>
+    </draggable>
     <div v-else>
       <p class="no-records">{{messages.emptyData}}</p>
     </div>
@@ -41,6 +50,7 @@ import { PlusIcon } from 'vue-feather-icons';
 import ButtonBack from "@/components/ui/ButtonBack.vue";
 import Helpers from "@/mixins/Helpers";
 import ListActions from "@/components/ui/ListActions.vue";
+import draggable from "vuedraggable";
 import Separator from "@/components/ui/Separator.vue";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
@@ -53,7 +63,8 @@ export default {
     PlusIcon,
     ButtonBack,
     PageFooter,
-    PageHeader
+    PageHeader,
+    draggable
   },
 
   mixins: [Helpers],
@@ -69,6 +80,7 @@ export default {
         store: '/api/partner',
         delete: '/api/partner',
         toggle: '/api/partner/state',
+        order: '/api/partner/order',
       },
 
       // States
@@ -116,6 +128,20 @@ export default {
         });
       }
     },
+
+    order(data) {
+      let partners = data.map(function(partner, index) {
+        partner.order = index;
+        return partner;
+      });
+      if (this.debounce) return;
+      this.debounce = setTimeout(function() {
+        this.debounce = false;
+        this.axios.post(`${this.routes.order}`, {items: partners}).then((response) => {
+          this.$notify({type: 'success', text: this.messages.updated});
+        });
+      }.bind(this, partners), 500);
+    }, 
   }
 }
 </script>
