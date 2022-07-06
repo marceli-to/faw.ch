@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterImagesTableAddOrder extends Migration
+class AlterPartnersTableAddOrder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterImagesTableAddOrder extends Migration
      */
     public function up()
     {
-      Schema::table('images', function (Blueprint $table) {
-        $table->tinyInteger('order')->default(-1)->after('coords_y');
+      Schema::table('partners', function (Blueprint $table) {
+        $table->tinyInteger('order')->default(-1)->after('url');
       });
     }
 
