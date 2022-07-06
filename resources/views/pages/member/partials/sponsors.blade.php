@@ -1,4 +1,4 @@
-<section class="content">
+<section class="content lg:mt-44x">
   <div>
     <h1>Sponsor:Innen</h1>
     <div class="grid grid-cols-12">
