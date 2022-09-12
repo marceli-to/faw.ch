@@ -31,7 +31,8 @@
         <list-actions 
           :id="d.id" 
           :record="d"
-          :routes="{edit: 'gallery-edit'}">
+          :routes="{edit: 'gallery-edit'}"
+          :hasDraggable="true">
         </list-actions>
       </div>
     </draggable>

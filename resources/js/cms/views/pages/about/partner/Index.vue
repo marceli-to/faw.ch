@@ -32,7 +32,8 @@
         <list-actions 
           :id="d.id" 
           :record="d"
-          :routes="{edit: 'partner-edit'}">
+          :routes="{edit: 'partner-edit'}"
+          :hasDraggable="true">
         </list-actions>
       </div>
     </draggable>

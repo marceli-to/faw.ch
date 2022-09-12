@@ -19,7 +19,7 @@
         <div class="select-wrapper">
           <label>Typ</label>
           <select name="backer_type" v-model="data.backer_type_id">
-            <option v-for="type in types" :key="type.id" :value="type.id">{{type.description}}</option>
+            <option v-for="t in types" :key="t.id" :value="t.id">{{t.description}}</option>
           </select>
         </div>
       </div>
