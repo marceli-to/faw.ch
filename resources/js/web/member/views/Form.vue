@@ -45,13 +45,13 @@
         <div class="form-group">
           <div class="flex items-start">
             <input type="radio" id="member" name="member_type" required value="mitglied" v-model="form.type">
-            <label for="member">Ich trete dem Forum Architektur Winterthur als Mitglied bei. Der Mitgliederbeitrag für das laufende Vereinsjahr von CHF 60.– wird in den nächsten Tagen auf das Postcheck-Konto 84-4044-1 überwiesen.</label>
+            <label for="member">Ich trete dem Forum Architektur Winterthur als Mitglied bei. Der Mitgliederbeitrag für das laufende Vereinsjahr von CHF 60.– wird in den nächsten Tagen auf das PostFinance Konto CH85 0900 0000 8400 4044 1 überwiesen.</label>
           </div>
         </div>
         <div class="form-group">
           <div class="flex items-start">
             <input type="radio" id="junior_member" name="member_type" required value="jungmitglied" v-model="form.type">
-            <label for="junior_member">Ich trete dem Forum Architektur Winterthur als Jungmitglied (für Studierende und Personen in Ausbildung) bei und sende die Ausbildungsbestätigung an info@forum-architektur.ch. Der Mitgliederbeitrag für das laufende Vereinsjahr* von CHF 30.– wird in den nächsten Tagen auf das Postcheck-Konto 84-4044-1 überwiesen.</label>
+            <label for="junior_member">Ich trete dem Forum Architektur Winterthur als Jungmitglied (für Studierende und Personen in Ausbildung) bei und sende die Ausbildungsbestätigung an info@forum-architektur.ch. Der Mitgliederbeitrag für das laufende Vereinsjahr von CHF 30.– wird in den nächsten Tagen auf das PostFinance Konto CH85 0900 0000 8400 4044 1 überwiesen.</label>
           </div>
         </div>
       </div>
@@ -59,13 +59,13 @@
         <div class="form-group">
           <div class="flex items-start">
             <input type="radio" id="backer" name="member_type" required value="goenner" v-model="form.type">
-            <label for="backer">Ich trete dem Forum Architektur Winterthur als Gönner:in bei. Der Beitrag für das laufende Vereinsjahr von CHF 600.– wird in den nächsten Tagen auf das Postcheck-Konto 84-4044-1 überwiesen.</label>
+            <label for="backer">Ich trete dem Forum Architektur Winterthur als Gönner:in bei. Der Beitrag für das laufende Vereinsjahr von CHF 600.– wird in den nächsten Tagen auf das PostFinance Konto CH85 0900 0000 8400 4044 1 überwiesen.</label>
           </div>
         </div>
         <div class="form-group">
           <div class="flex items-start">
             <input type="radio" id="sponsor" name="member_type" required value="sponsor" v-model="form.type">
-            <label for="sponsor">Formular Text 4 anpassen: Ich bin interessiert das Forum Architektur Winterthur als Sponsor:in mit jährlich CHF 2'750.– zu unterstützen. Bitte nehmt mit mir Kontakt auf.</label>
+            <label for="sponsor">Ich bin interessiert das Forum Architektur Winterthur als Sponsor:in mit jährlich CHF 2'750.– zu unterstützen. Bitte nehmt mit mir Kontakt auf.</label>
           </div>
         </div>
       </div>

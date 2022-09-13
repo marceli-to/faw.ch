@@ -76,7 +76,6 @@
   }
 }
 
-
 .anchor-external {
   @extend %anchor;
   @include background-default();
@@ -89,4 +88,15 @@
 
 p + .anchor-external {
   @extend %mt-4x;
+}
+
+%link,
+.link {
+  text-decoration: underline;
+  // text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }

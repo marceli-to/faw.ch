@@ -25,7 +25,7 @@
       <h3>Ergebnisse und Erkenntnisse</h3>
     </header>
     <?php
-    $text = '<p>«Eine lebensfreundliche Stadt braucht viel Mobilität» &mdash; «Du sollst für lebendige Stadträume sorgen!» &mdash; «Der motorisierte Individualverkehr muss als Teil des öffentlichen Verkehrs gedacht werden, erst recht, wenn die Autos in Zukunft selbstfahrend sind.» &mdash; «Die Digitalisierung gibt den Verkehrsplanern neue Instrumente in die Hand.» Die Aussagen in der hitzigen Diskussion mit Thomas Sauter-Servaes (Leiter Studiengang Verkehrssysteme ZHAW), Fritz Kobi (Verkehrsexperte), Andreas Sonder-egger (Mitglied Gruppe Krokodil/IKE ZHAW) und Mark Würth (Amt für Stadtentwicklung Stadt Winterthur) waren vielfältig. Ausgerüstet mit diesen Behauptungen zogen am Samstag 45 Stadtwerkstätterinnen und -werkstätter zu Fuss, auf dem Velo, im Spezial-Ringbus und mit den öffentlichen Verkehrsmitteln los, den Strassenraum in Winterthur zu erkunden. Die Beobachtungen der sechs Reisegruppen wurden zu folgenden Erkenntnissen zusammengefasst:</p>
+    $text = '<p>«Eine lebensfreundliche Stadt braucht viel Mobilität» &mdash; «Du sollst für lebendige Stadträume sorgen!» &mdash; «Der motorisierte Individualverkehr muss als Teil des öffentlichen Verkehrs gedacht werden, erst recht, wenn die Autos in Zukunft selbstfahrend sind.» &mdash; «Die Digitalisierung gibt den Verkehrsplanern neue Instrumente in die Hand.» Die Aussagen in der hitzigen Diskussion mit Thomas Sauter-Servaes (Leiter Studiengang Verkehrssysteme ZHAW), Fritz Kobi (Verkehrsexperte), Andreas Sonderegger (Mitglied Gruppe Krokodil/IKE ZHAW) und Mark Würth (Amt für Stadtentwicklung Stadt Winterthur) waren vielfältig. Ausgerüstet mit diesen Behauptungen zogen am Samstag 45 Stadtwerkstätterinnen und -werkstätter zu Fuss, auf dem Velo, im Spezial-Ringbus und mit den öffentlichen Verkehrsmitteln los, den Strassenraum in Winterthur zu erkunden. Die Beobachtungen der sechs Reisegruppen wurden zu folgenden Erkenntnissen zusammengefasst:</p>
               <ul class="list mt-10x">
                 <li>Es braucht den politischen Willen und Mut, verkehrspolitische Grundsätze zu formulieren.</li>
                 <li>Wer an Strassenflächen denkt, muss immer vom Menschen ausgehen — nicht von den Autos.</li>
@@ -122,7 +122,7 @@
           title="TOUR 4: MIT DEM VELO VOM STADTHAUS ÜBER DEN EULACHPARK INS FORUM ARCHITEKTUR" 
         />
         <ul class="list mt-0">
-          <li>Der Mischverkehr in der Altstadt ist angenehm. Hier geben die Fussgänge-rinnen und Fussgänger das Tempo vor, hier regelt die Vernunft den Verkehr.</li> 
+          <li>Der Mischverkehr in der Altstadt ist angenehm. Hier geben die Fussgängerinnen und Fussgänger das Tempo vor, hier regelt die Vernunft den Verkehr.</li> 
           <li>Die Hauptrouten sind für Velos grundsätzlich in Ordnung. Allerdings sind Querungen schwierig. Hier braucht es dringend Lösungen!</li>
           <li>Mehr Veloparkplätze sind mittelfristig nötig.</li>
           <li>Auf Veloschnellrouten sind getrennte Wege erstrebenswert: Für den Langsamverkehr (10–20 km/h) und die E-Bikes (20–45 km/h) </li>

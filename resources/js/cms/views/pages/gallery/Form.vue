@@ -31,7 +31,11 @@
         </div>
         <div class="form-row">
           <label>Credits</label>
-          <textarea v-model="data.credits"></textarea>
+          <tinymce-editor
+            :api-key="tinyApiKey"
+            :init="tinyConfig"
+            v-model="data.credits"
+          ></tinymce-editor>
         </div>
       </div>
     </div>
@@ -67,6 +71,8 @@
 </template>
 <script>
 import ErrorHandling from "@/mixins/ErrorHandling";
+import TinymceEditor from "@tinymce/tinymce-vue";
+import tinyConfig from "@/config/tiny.js";
 import RadioButton from "@/components/ui/RadioButton.vue";
 import ButtonBack from "@/components/ui/ButtonBack.vue";
 import ButtonSubmit from "@/components/ui/ButtonSubmit.vue";
@@ -85,6 +91,7 @@ export default {
     ButtonSubmit,
     LabelRequired,
     Tabs,
+    TinymceEditor,
     PageFooter,
     PageHeader,
     Images,
@@ -139,6 +146,11 @@ export default {
 
       // Tabs config
       tabs: tabsConfig,
+
+      // TinyMCE
+      tinyConfig: tinyConfig,
+      tinyApiKey: 'vuaywur9klvlt3excnrd9xki1a5lj25v18b2j0d0nu5tbwro',
+      
     };
   },
 

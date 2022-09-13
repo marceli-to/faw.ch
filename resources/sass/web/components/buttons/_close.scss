@@ -29,7 +29,7 @@ a.btn-lightbox-close {
 
   &.is-workshop {
     @include bp-xl() {
-      right: calc(((100% - #{$page-max-width-xxl}) / 2) + 20px);
+      right: calc(((100% - #{$page-max-width}) / 2) + 20px);
     }
   
     @include bp-xxl() {

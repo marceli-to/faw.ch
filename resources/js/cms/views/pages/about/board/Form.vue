@@ -1,7 +1,7 @@
 <template>
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
-  <form @submit.prevent="submit" v-if="isFetched">
+  <form @submit.prevent="submit" v-if="isFetched && isFetchedFormer">
     <header class="content-header">
       <h1>{{title}}</h1>
     </header>
@@ -21,6 +21,7 @@
             v-model="data.text"
           ></tinymce-editor>
         </div>
+
         <template v-if="$props.type == 'edit'">
           <div class="form-row sb-lg">
             <page-header>
@@ -34,9 +35,26 @@
           </div>
         </template>
         <template v-else>
-          <div class="sb-lg"><strong>Artikel können erst nach dem Speichern hinzugefügt werden.</strong></div>
+          <div class="sb-lg"><strong>Mitglieder können erst nach dem Speichern hinzugefügt werden.</strong></div>
         </template>
         <board-member-form :type="'create'" :boardId="data.id" ref="boardMemberForm"></board-member-form>
+
+        <template v-if="$props.type == 'edit'">
+          <div class="form-row sb-lg">
+            <page-header>
+              <h3>Ehemalige</h3>
+              <a href="javascript:;" @click="$refs.formerBoardMemberForm.show();" class="btn-add has-icon">
+                <plus-icon size="16"></plus-icon>
+                <span>Hinzufügen</span>
+              </a>
+            </page-header>
+            <former-board-members :formerMembers="formerMembers" @formerMemberDestroyed="fetch();" @formerMemberUpdate="fetch()"></former-board-members>
+          </div>
+        </template>
+        <template v-else>
+          <div class="sb-lg"><strong>Ehemalige Mitglieder können erst nach dem Speichern hinzugefügt werden.</strong></div>
+        </template>
+        <former-board-member-form :type="'create'" ref="formerBoardMemberForm" @formerMemberCreated="fetch()" @formerMemberUpdate="fetch()"></former-board-member-form>
       </div>
     </div>
     <div v-show="tabs.images.active">
@@ -81,6 +99,8 @@ import PageHeader from "@/components/ui/PageHeader.vue";
 import Images from "@/modules/images/Index.vue";
 import BoardMembers from "@/views/pages/about/board/member/Index.vue";
 import BoardMemberForm from "@/views/pages/about/board/member/Form.vue";
+import FormerBoardMembers from "@/views/pages/about/board/former/Index.vue";
+import FormerBoardMemberForm from "@/views/pages/about/board/former/Form.vue";
 
 export default {
   components: {
@@ -94,6 +114,8 @@ export default {
     PageHeader,
     BoardMembers,
     BoardMemberForm,
+    FormerBoardMembers,
+    FormerBoardMemberForm,
     Images,
     TinymceEditor
   },
@@ -116,6 +138,9 @@ export default {
         images: [],
         members: [],
       },
+      
+      formerMembers: [],
+
 
       // Validation
       errors: {
@@ -125,6 +150,7 @@ export default {
       // Routes
       routes: {
         get: '/api/board',
+        getFormer: '/api/former-board-members',
         store: '/api/board',
         update: '/api/board',
       },
@@ -132,6 +158,7 @@ export default {
       // States
       isLoading: false,
       isFetched: true,
+      isFetchedFormer: true,
 
       // Messages
       messages: {
@@ -151,15 +178,25 @@ export default {
 
   created() {
     if (this.$props.type == "edit") {
+      this.fetch();
+    }
+  },
+
+  methods: {
+
+    fetch() {
       this.isFetched = false;
       this.axios.get(`${this.routes.get}/${this.$route.params.id}`).then(response => {
         this.data = response.data;
         this.isFetched = true;
       });
-    }
-  },
 
-  methods: {
+      this.isFetchedFormer = false;
+      this.axios.get(`${this.routes.getFormer}`).then(response => {
+        this.formerMembers = response.data;
+        this.isFetchedFormer = true;
+      });
+    },
 
     submit() {
       if (this.$props.type == "edit") {

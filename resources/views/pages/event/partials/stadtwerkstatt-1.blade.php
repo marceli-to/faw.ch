@@ -25,7 +25,7 @@
       <h3>Ergebnisse und Erkenntnisse</h3>
     </header>
     <?php
-    $text = '<p>Die Diskussion mit Brigit Wehrli (Stadtsoziologin), Ute Schneider (Architektin/Stadtplanerin), Regula Iseli (ZHAW) und Jens Andersen (Stadtbaumeister) hat rund 100 Gäste an die erste Stadtwerkstatt gelockt. Über 30 Interessierte begaben sich am darauffolgenden Samstag durch Winterthur spazierend auf eine räumliche Spurensuche und fassten ihre Beobachtungen in Form von Skizzen, Plänen und Modellen zusammen. Eine wichtige Gedankenstütze bildete dabei das gigantische Stadtmodell der Künstler Dominik Heim und Rom Temperli.</p><ul class="list mt-10x">
+    $text = '<p>Die Diskussion mit Brigit Wehrli (Stadtsoziologin), Ute Schneider (Architektin/Stadtplanerin), Regula Iseli (ZHAW) und Jens Andersen (Stadtbaumeister) hat rund 100 Gäste an die erste Stadtwerkstatt gelockt. Über 30 Interessierte begaben sich am darauffolgenden Samstag durch Winterthur spazierend auf eine räumliche Spurensuche und fassten ihre Beobachtungen in Form von Skizzen, Plänen und Modellen zusammen. Eine wichtige Gedankenstütze bildete dabei das gigantische Stadtmodell der Künstler Dominik Heim und Ron Temperli.</p><ul class="list mt-10x">
   <li>Die Idee der bipolaren Stadt ist unzutreffend. Es gibt in Winterthur vielleicht zwei Hauptzentren — die Altstadt und das heranwachsende Neuhegi —, sicher aber viele Subzentren/Quartiere.</li>
   <li>Die Quartiere respektive die Dorfkerne haben Charakter und spezifische Eigenschaften.</li>
   <li>Die Quartiere — mit Kern, Wohngebieten und der Verzahnung mit der Landschaft — sind das Rückgrat der Stadt. Dieses  Rückgrat gilt es zu stärken und deren Ränder bewusst zu behandeln.</li>
@@ -133,7 +133,7 @@
           <li>Grenzen sind in Hegi ein wichtiges Thema. Zu Elsau hin sind keine mehr erkennbar.</li>
           <li>Homogene Wohnsiedlungen — wie die Siedlung «Gern» — könnten überall stehen.</li>
           <li>Im alten Dorfkern freut man sich über die Dichte, ist dann aber enttäuscht, weil alles menschleer und entseelt wirkt. Ist der schöne Dorfkern nur Kulisse?</li>
-          <li>Aufatmen im neuen Eulachpark: Wohl-tuend grosszügig und offen. Hier ist endlich Wasser spür- und hörbar! Die offene Eulach belebt.</li>
+          <li>Aufatmen im neuen Eulachpark: Wohltuend grosszügig und offen. Hier ist endlich Wasser spür- und hörbar! Die offene Eulach belebt.</li>
         </ul>
       </article>
       

@@ -17,6 +17,8 @@ use App\Http\Controllers\Api\BoardController;
 use App\Http\Controllers\Api\BoardMemberController;
 use App\Http\Controllers\Api\BackerController;
 use App\Http\Controllers\Api\BackerTypeController;
+use App\Http\Controllers\Api\FormerBoardMemberController;
+use App\Http\Controllers\Api\FormerBoardMemberTypeController;
 use App\Http\Controllers\Api\PartnerController;
 use App\Http\Controllers\Api\PageController;
 use App\Http\Controllers\Api\ArticleController;
@@ -156,6 +158,18 @@ Route::middleware('auth:sanctum')->group(function() {
 
   // Backer types
   Route::get('backer-types', [BackerTypeController::class, 'get']);
+
+  // FormerBoardMember
+  Route::get('former-board-members', [FormerBoardMemberController::class, 'get']);
+  Route::get('former-board-member/{formerBoardMember}', [FormerBoardMemberController::class, 'find']);
+  Route::post('former-board-member', [FormerBoardMemberController::class, 'store']);
+  Route::put('former-board-member/{formerBoardMember}', [FormerBoardMemberController::class, 'update']);
+  Route::get('former-board-member/state/{formerBoardMember}', [FormerBoardMemberController::class, 'toggle']);
+  Route::delete('former-board-member/{formerBoardMember}', [FormerBoardMemberController::class, 'destroy']);
+  Route::post('former-board-member/order', [FormerBoardMemberController::class, 'order']);
+
+  // FormerBoardMember types
+  Route::get('former-board-member-types', [FormerBoardMemberTypeController::class, 'get']);
 
   // Partner
   Route::get('partners/{constraint?}', [PartnerController::class, 'get']);

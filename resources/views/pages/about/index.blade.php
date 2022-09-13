@@ -50,7 +50,7 @@
           @endforeach
         </div>
       @endif
-      <div class="text-media__links">
+      <div class="text-media__links mt-12x md:mt-0">
         <x-link-gallery page="ueber-uns" :id="18" />
       </div>
       @if ($forum->publishedFiles)
@@ -100,6 +100,20 @@
           @endforeach
         </div>
       @endif
+
+      <x-toggle-text title="Ehemalige" cssClass="mt-6x md:mt-10x mb-10x md:mb-20x" class="mt-20x md:mt-25x lg:mt-30x">
+        <div class="columns">
+          @foreach($former as $group)
+           <h3>{{$group[0]->type->description}}</h3>
+           <div class="mb-4x md:mb-8x lg:mb-12x">
+            @foreach($group as $f)
+              <div>{{ $f->description }}</div>
+            @endforeach
+           </div>
+          @endforeach
+        </div>
+      </x-toggle-text>
+
     </div>
   </section>
 @endif

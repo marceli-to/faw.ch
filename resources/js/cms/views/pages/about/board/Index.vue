@@ -63,6 +63,8 @@ export default {
 
       data: [],
 
+      dataFormer: [],
+
       // Routes
       routes: {
         get: '/api/boards',

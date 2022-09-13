@@ -63,6 +63,10 @@ article.text {
     hyphens: none;
   }
 
+  a:not(.anchor) {
+    @extend %link;
+  }
+
   p {
     @extend %text-indent;
   }
@@ -83,6 +87,7 @@ article.video {
 article.text-media {
   @extend %mb-15x;
   @extend %lg\:grid-cols-12;
+  @extend %word-break;
   max-width: 505px;
 
   @include bp-lg() {
@@ -109,6 +114,10 @@ article.text-media {
 
   p {
     @extend %text-indent;
+  }
+
+  a:not(.anchor) {
+    @extend %link;
   }
 
   .text-media__links {

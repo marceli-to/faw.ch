@@ -73,5 +73,9 @@ section.content-lightbox {
     @include bp-lg() {
       margin-top: 2 * $space-15x;
     }
+
+    a {
+      @extend %link;
+    }
   }
 }

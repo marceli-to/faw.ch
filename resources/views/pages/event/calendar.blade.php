@@ -19,9 +19,13 @@
         @endif
       </div>
       <div class="grid grid-cols-12">
-        <article class="teaser">
+        <article class="teaser mb-12x md:mb-0">
           <h3>Weitere Veranstaltungen in Winterthur</h3>
           <x-link-page url="https://baukulturwinterthur.ch" target="_blank" text="baukulturwinterthur.ch" title="baukulturwinterthur.ch" />
+        </article>
+        <article class="teaser">
+          <h3>Dynamischer Veranstaltungskalender</h3>
+          <x-link-page url="https://calendar.google.com/calendar/ical/b7s6a1m2lq5rr1jlvrl174cufk%40group.calendar.google.com/public/basic.ics" target="_blank" text="Dynamischer Veranstaltungskalender" title="Dynamischer Veranstaltungskalender" />
         </article>
       </div>
     @endif
@@ -79,7 +83,6 @@
                 {!! $article->text !!}
               @endif
             </article>
-
           @endforeach
         </div>
       @endif
@@ -96,30 +99,16 @@
       @if ($annual_program->publishedArticlesSpecial)
         <div class="grid grid-cols-12">
           @foreach($annual_program->publishedArticlesSpecial as $article)
-
-          <article class="text block !md:hide collapsible is-article {{ $loop->last ? 'is-last' : '' }} {{ $loop->first ? 'is-expanded' : '' }} js-clpsbl">
-            <a href="javascript:;" class="btn-collapsible {{ $article->subtitle ? 'has-subtitle' : '' }} js-clpsbl-btn">
-              <span>
-                <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-              </span>
-              <x-icon type="chevron-down" />
-              <x-icon type="chevron-up" />
-            </a>
-            <div class="js-clpsbl-body" style="display: {{ $loop->first ? 'grid' : 'none' }}">
-              {!! $article->text !!}
-            </div>
-          </article>
-
-          <article class="text hide !md:block">
-            <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
-            @if (Str::wordCount($article->text) > 60)
-              <x-truncated-text preview="{!! Str::words($article->text, 55, ' ...') !!}">
+            <article class="text !md:block">
+              <x-heading type="h3" title="{{ $article->title }}" subtitle="{{ $article->subtitle }}" />
+              @if (Str::wordCount($article->text) > 60)
+                <x-truncated-text preview="{!! Str::words($article->text, 55, ' ...') !!}">
+                  {!! $article->text !!}
+                </x-truncated-text>
+              @else
                 {!! $article->text !!}
-              </x-truncated-text>
-            @else
-              {!! $article->text !!}
-            @endif
-          </article>
+              @endif
+            </article>
           @endforeach
         </div>
       @endif

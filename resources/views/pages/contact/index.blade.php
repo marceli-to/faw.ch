@@ -21,7 +21,7 @@
   <div>
     <h1>Kontakt</h1>
     <h2 class="lg:mb-1x">Kontaktadresse</h2>
-    <p>Forum Architektur Winterthur<br>8400 Winterthur<br><a href="mailto:info@forum-architektur.ch" title="E-Mail">info@forum-architektur.ch</a></p>
+    <p>Forum Architektur Winterthur<br>8400 Winterthur<br><a href="mailto:info@forum-architektur.ch" class="link" title="E-Mail">info@forum-architektur.ch</a></p>
     <h2 class="lg:mb-1x">Veranstaltungslokal</h2>
     <p>Forum Architektur Winterthur<br>Zürcherstrasse 43<br>8400 Winterthur<br><x-link-page url="https://goo.gl/maps/6rZKKtMir3xMhzVL9" target="_blank" title="Google Maps" text="Google Maps" cssClass="mt-1x" /></p>
     <h2 class="lg:mb-1x">Social Media</h2>
@@ -31,9 +31,9 @@
     </p>
     <x-toggle-text title="Impressum" cssClass="mt-6x md:mt-10x mb-10x md:mb-20x" class="mt-20x md:mt-25x lg:mt-30x">
       Redaktion und Text: Forum Architektur Winterthur<br>
-      Bilder: Andreas Wolfensberger, Andreas Mader, Winterthur<br>
-      Konzept und Gestaltung: <a href="https://bivgrafik.ch" target="_blank" title="bivgrafik.ch">Bivgrafik – Visuelle Gestaltung, Zürich</a><br>
-      Programmierung: <a href="https://marceli.to" target="_blank" title="marceli.to">Marcel Stadelmann, marceli.to, Zürich</a><br>
+      Bilder: Andreas Wolfensberger, <a href="https://andreasmader.ch" target="_blank" title="andreasmader.ch" class="link">Andreas Mader</a>, Winterthur<br>
+      Konzept und Gestaltung: <a href="https://bivgrafik.ch" target="_blank" title="bivgrafik.ch" class="link">Bivgrafik – Visuelle Gestaltung, Zürich</a><br>
+      Programmierung: <a href="https://marceli.to" target="_blank" title="marceli.to" class="link">Marcel Stadelmann, marceli.to, Zürich</a><br>
       &copy; {{date('Y', time())}}
     </x-toggle-text>
     <x-toggle-text title="Datenschutz" cssClass="mt-6x md:mt-10x text-max-width">
