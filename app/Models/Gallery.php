@@ -12,6 +12,7 @@ class Gallery extends Model
   protected $fillable = [
     'slug',
     'title',
+    'backend_title',
     'subtitle',
     'text',
     'credits',
