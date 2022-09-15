@@ -18,6 +18,10 @@
           <input type="text" v-model="data.title">
         </div>
         <div class="form-row">
+          <label>Listentitel (nur Backend)</label>
+          <input type="text" v-model="data.backend_title">
+        </div>
+        <div class="form-row">
           <label>Subtitel</label>
           <input type="text" v-model="data.subtitle">
         </div>
@@ -110,6 +114,7 @@ export default {
       // Model
       data: {
         title: null,
+        backend_title: null,
         subtitle: null,
         text: null,
         credits: null,
