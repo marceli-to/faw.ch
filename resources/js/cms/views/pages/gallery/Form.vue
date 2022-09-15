@@ -18,7 +18,7 @@
           <input type="text" v-model="data.title">
         </div>
         <div class="form-row">
-          <label>Listentitel (nur Backend)</label>
+          <label>Titel (nur Backend)</label>
           <input type="text" v-model="data.backend_title">
         </div>
         <div class="form-row">
