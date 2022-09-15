@@ -31,7 +31,7 @@
     </p>
     <x-toggle-text title="Impressum" cssClass="mt-6x md:mt-10x mb-10x md:mb-20x" class="mt-20x md:mt-25x lg:mt-30x">
       Redaktion und Text: Forum Architektur Winterthur<br>
-      Bilder: Andreas Wolfensberger, <a href="https://andreasmader.ch" target="_blank" title="andreasmader.ch" class="link">Andreas Mader</a>, Winterthur<br>
+      Bilder: <a href="https://andreasmader.ch" target="_blank" title="andreasmader.ch" class="link">Andreas Mader</a>, Winterthur; Andreas Wolfensberger, Winterthur<br>
       Konzept und Gestaltung: <a href="https://bivgrafik.ch" target="_blank" title="bivgrafik.ch" class="link">Bivgrafik – Visuelle Gestaltung, Zürich</a><br>
       Programmierung: <a href="https://marceli.to" target="_blank" title="marceli.to" class="link">Marcel Stadelmann, marceli.to, Zürich</a><br>
       &copy; {{date('Y', time())}}
