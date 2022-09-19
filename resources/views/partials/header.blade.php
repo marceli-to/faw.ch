@@ -7,10 +7,10 @@
     </div>
   @else
     <div>
-      <a href="{{ route('page.index') }}" class="logo">
+      <a href="{{ route('page.index') }}" class="logo" title="Homepage">
         <x-icon type="logo" />
       </a>
-      <a href="javascript:;" class="btn-menu js-menu-btn">
+      <a href="javascript:;" class="btn-menu js-menu-btn" title="Menü öffnen/schliessen">
         <x-icon type="burger" />
         <x-icon type="cross" />
       </a>
