@@ -11,6 +11,7 @@
             width="{{ $width }}" 
             height="{{ $height }}"
             title="{{ $image->title }}"
+            alt="{{ $image->title }}"
             class="is-responsive lazy">
         @endif
       @endforeach

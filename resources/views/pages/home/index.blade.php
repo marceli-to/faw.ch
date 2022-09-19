@@ -12,7 +12,7 @@
         wrapperClass="visual is-full-height"
       />
     </div>
-    <a href="javascript:;" class="btn-visual" data-scroll-to="content">
+    <a href="javascript:;" class="btn-visual" data-scroll-to="content" title="Scrollen">
       <x-icon type="chevron-down-lg" />
     </a>
   </section>

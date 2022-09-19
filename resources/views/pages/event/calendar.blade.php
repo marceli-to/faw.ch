@@ -19,11 +19,11 @@
         @endif
       </div>
       <div class="grid grid-cols-12">
-        <article class="teaser">
-          <h3>Dynamischer Veranstaltungskalender</h3>
-          <x-link-page url="https://calendar.google.com/calendar/ical/b7s6a1m2lq5rr1jlvrl174cufk%40group.calendar.google.com/public/basic.ics" target="_blank" text="Dynamischer Veranstaltungskalender" title="Dynamischer Veranstaltungskalender" />
-        </article>
         <article class="teaser mb-12x md:mb-0">
+          <h3>Dynamischer Veranstaltungskalender</h3>
+          <x-link-page url="https://calendar.google.com/calendar/ical/b7s6a1m2lq5rr1jlvrl174cufk%40group.calendar.google.com/public/basic.ics" target="_blank" text="Jetzt abonnieren" title="Jetzt abonnieren" />
+        </article>
+        <article class="teaser">
           <h3>Weitere Veranstaltungen in Winterthur</h3>
           <x-link-page url="https://baukulturwinterthur.ch" target="_blank" text="baukulturwinterthur.ch" title="baukulturwinterthur.ch" />
         </article>
