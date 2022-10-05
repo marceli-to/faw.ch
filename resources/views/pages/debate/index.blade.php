@@ -1,8 +1,8 @@
 @extends('layout.web')
 @section('seo_title', 'Debatten')
-@section('seo_description', 'Wir möchten das Wissen und die Ansprüche der Winterthurer:innen an ihre Stadt sichtbar machen und die Debatte über die gebaute Form der Stadt pflegen. Teile deine Sicht der Dinge mit uns und der Öffentlichkeit')
+@section('seo_description', 'Wir möchten das Wissen und die Ansprüche der Winterthurerinnen und Winterthurer an ihre Stadt sichtbar machen und die Debatte über die gebaute Form der Stadt pflegen. Teile deine Sicht der Dinge mit uns und der Öffentlichkeit')
 @section('content')
-@php $text_intro = 'Wir möchten das Wissen und die Ansprüche der Winterthurer:innen an ihre Stadt sichtbar machen und die Debatte über die gebaute Form der Stadt pflegen. Ja, Städtebau ist eine öffentliche Angelegenheit! Als Vermittler zwischen Fachwelt und der Bevölkerung haben wir ein offenes Ohr für Themen, die wir noch nicht erkannt haben. Deshalb freuen wir uns auf deine Beteiligung an den Debatten. Teile deine Sicht der Dinge mit uns und der Öffentlichkeit! Klick auf den Plus-Button unten rechts, um deine Ideen und Fragen zu teilen. Du kannst auch Beiträge kommentieren und liken.';@endphp
+@php $text_intro = 'Wir möchten das Wissen und die Ansprüche der Winterthurerinnen und Winterthurer an ihre Stadt sichtbar machen und die Debatte über die gebaute Form der Stadt pflegen. Ja, Städtebau ist eine öffentliche Angelegenheit! Als Vermittler zwischen Fachwelt und der Bevölkerung haben wir ein offenes Ohr für Themen, die wir noch nicht erkannt haben. Deshalb freuen wir uns auf deine Beteiligung an den Debatten. Teile deine Sicht der Dinge mit uns und der Öffentlichkeit! Klick auf den Plus-Button unten rechts, um deine Ideen und Fragen zu teilen. Du kannst auch Beiträge kommentieren und liken.';@endphp
 <section class="content is-first">
   <div>
     <h1>Teile Deine Ideen</h1>
