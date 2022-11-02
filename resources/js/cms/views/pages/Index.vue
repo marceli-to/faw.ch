@@ -39,7 +39,7 @@
       <div class="card">
         <router-link :to="{name: 'page'}">
           <h2>Spezialseiten</h2>
-          <p>«Winterthur im Bild» und «Unser Bahnhof Winterthur»</p>
+          <p>«Winterthur im Bild», «Unser Bahnhof Winterthur» oder «Ausstellungen»</p>
         </router-link>
       </div>
       <div class="card">
