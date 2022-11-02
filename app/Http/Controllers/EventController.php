@@ -69,6 +69,25 @@ class EventController extends BaseController
   }
 
   /**
+   * Show page 'Veranstaltungen - Ausstellungen'
+   * 
+   * @return \Illuminate\Http\Response
+   */
+
+  public function exhibitions()
+  {
+    $page = Page::with(
+      'publishedImage',
+      'publishedArticles.publishedImage',
+      'publishedArticles.galleries'
+    )
+    ->where('slug', 'ausstellungen')
+    ->get()
+    ->first();
+    return view($this->viewPath . 'exhibitions', ['page' => $page]);
+  }
+
+  /**
    * Show page 'Veranstaltungen - Stadtwerkstätten'
    * 
    * @return \Illuminate\Http\Response
@@ -89,6 +108,7 @@ class EventController extends BaseController
   {
     return view($this->viewPath . 'partials.' . $slug, ['page' => 'stadtwerkstatt', 'slug' => $slug]);
   }
+
 
   /**
    * Show page 'Veranstaltungen - Archiv'
