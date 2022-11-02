@@ -69,7 +69,7 @@ class EventController extends BaseController
   }
 
   /**
-   * Show page 'Veranstaltungen - Stadtwerkstatt'
+   * Show page 'Veranstaltungen - Stadtwerkstätten'
    * 
    * @return \Illuminate\Http\Response
    */
