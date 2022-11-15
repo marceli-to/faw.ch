@@ -106,7 +106,7 @@ class EventController extends BaseController
 
   public function workshopDetail($slug = NULL)
   {
-    return view($this->viewPath . 'partials.' . $slug, ['page' => 'stadtwerkstatt', 'slug' => $slug]);
+    return view($this->viewPath . 'partials.' . $slug, ['page' => 'stadtwerkstaetten', 'slug' => $slug]);
   }
 
 
