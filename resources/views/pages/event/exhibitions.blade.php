@@ -43,7 +43,7 @@
   <section class="content">
     <div>
       @foreach($page->publishedArticles as $article)
-        <article class="text-media is-lg">
+        <article class="text-media">
           @if ($article->publishedImage)
             <x-image :maxSizes="[0 => 900]" width="900" height="600" :image="$article->publishedImage" ratio="3x2" wrapperClass="lg:span-6" />
           @endif
