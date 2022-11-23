@@ -8,6 +8,7 @@
           <li><a href="{{ route('page.event.activities') . '/#jahresprogramm' }}" class="{{ request()->routeIs('page.event.activities') ? 'is-active' : '' }}" title="Jahresprogramm">Jahresprogramm</a></li>
           <li><a href="{{ route('page.event.station') }}" class="{{ request()->routeIs('page.event.station') ? 'is-active' : '' }}" title="Unser Bahnhof Winterthur">Unser Bahnhof Winterthur</a></li>
           <li><a href="{{ route('page.event.workshop') }}" class="{{ request()->routeIs('page.event.workshop') ? 'is-active' : '' }}" title="Stadtwerkstätten">Stadtwerkstätten</a></li>
+          <li><a href="{{ route('page.event.exhibitions') }}" class="{{ request()->routeIs('page.event.exhibitions') ? 'is-active' : '' }}" title="Ausstellungen">Ausstellungen</a></li>
           <li><a href="{{ route('page.event.archive') }}" class="{{ request()->routeIs('page.event.archive') ? 'is-active' : '' }}" title="Archiv">Archiv</a></li>
         </ul>
       </li>
