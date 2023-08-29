@@ -16,8 +16,8 @@
       <x-card-sponsor logo="hyposound.png" title="" uri="https://hyposound.ch" class="max-w-90" />
       <x-card-sponsor logo="keller.png" title="" uri="https://keller-unternehmungen.ch/de-ch/keller-unternehmungen.html" class="max-w-65" />
       <x-card-sponsor logo="implenia.svg" title="" uri="https://implenia.com" class="max-w-80" />
-      <x-card-sponsor logo="landolt.svg" title="" uri="https://www.landolt-maler.ch" class="max-w-90" />
       <x-card-sponsor logo="landolt-gruppe.svg" title="" uri="https://www.landolt-bau.ch/" class="" />
+      <x-card-sponsor logo="landolt.svg" title="" uri="https://www.landolt-maler.ch" class="max-w-90" />
       <x-card-sponsor logo="handwerk-am-bau.png" title="" uri="https://www.schweizerag.com/" class="max-w-80" />
       <x-card-sponsor logo="staehli.png" title="" uri="http://www.staehli-haustechnik.ch/home" class="max-w-90" />
       <x-card-sponsor logo="swica.svg" title="" uri="https://www.swica.ch" class="max-w-70" />
