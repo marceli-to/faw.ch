@@ -9,6 +9,7 @@
       <x-card-sponsor logo="de-donno.png" title="" uri="http://www.gipser-dedonno.ch" class="max-w-75" />
       <x-card-sponsor logo="elibag.svg" title="" uri="https://www.elibag.ch" class="max-w-60" />
       <x-card-sponsor logo="russo.svg" title="https://gipser-russo.ch" uri="" class="max-w-85" />
+      <x-card-sponsor logo="gebw.svg" title="" uri="https://www.gebw.ch/" class="max-w-70" />
       <x-card-sponsor logo="gwg.png" title="" uri="https://gwg.ch" class="max-w-60" />
       <x-card-sponsor logo="hwg.svg" title="" uri="https://www.hgw-wohnen.ch/" class="max-w-70" />
       <x-card-sponsor logo="hofmann-gruppe.svg" title="" uri="https://hofmanngruppe.ch" class="max-w-90" />
