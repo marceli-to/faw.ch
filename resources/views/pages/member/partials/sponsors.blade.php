@@ -2,7 +2,6 @@
   <div>
     <h1>Sponsor:Innen</h1>
     <div class="grid grid-cols-12">
-      <x-card-sponsor logo="afebwiw.svg" title="" uri="https://www.gebw.ch" class="max-w-90" />
       <x-card-sponsor logo="axa-winterthur.svg" title="" uri="https://www.axa.ch/de/privatkunden.html" class="max-w-70" />
       <x-card-sponsor logo="brunner-parkett.svg" title="" uri="https://www.brunnersewi.ch" class="max-w-90"/>
       <x-card-sponsor logo="bwt.svg" title="" uri="https://www.bwt.ch" class="max-w-70" />
