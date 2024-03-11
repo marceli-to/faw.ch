@@ -106,7 +106,7 @@
           @foreach($former as $group)
            <h3>{{$group[0]->type->description}}</h3>
            <div class="mb-4x md:mb-8x lg:mb-12x">
-            @foreach($group as $f)
+            @foreach($group->sortBy('order') as $f)
               <div>{{ $f->description }}</div>
             @endforeach
            </div>
