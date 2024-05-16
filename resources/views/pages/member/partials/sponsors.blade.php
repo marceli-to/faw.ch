@@ -12,7 +12,7 @@
       <x-card-sponsor logo="gwg.png" title="" uri="https://gwg.ch" class="max-w-60" />
       <x-card-sponsor logo="hwg.svg" title="" uri="https://www.hgw-wohnen.ch/" class="max-w-70" />
       <x-card-sponsor logo="hofmann-gruppe.svg" title="" uri="https://hofmanngruppe.ch" class="max-w-90" />
-      <x-card-sponsor logo="hug-baustoffe.jpg" title="" uri="https://www.hug-baustoffe.ch/"  class="max-w-40" />
+      <x-card-sponsor logo="hug-baustoffe.jpg" title="" uri="https://www.hug-baustoffe.ch/"  class="max-w-30" />
       <x-card-sponsor logo="hyposound.png" title="" uri="https://hyposound.ch" class="max-w-90" />
       <x-card-sponsor logo="keller.png" title="" uri="https://keller-unternehmungen.ch/de-ch/keller-unternehmungen.html" class="max-w-65" />
       <x-card-sponsor logo="implenia.svg" title="" uri="https://implenia.com" class="max-w-80" />
