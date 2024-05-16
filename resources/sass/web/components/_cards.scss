@@ -108,6 +108,14 @@
 
   img {
     @extend %is-responsive;
+
+    &.max-w-30 {
+      max-width: 30%;
+    }
+
+    &.max-w-40 {
+      max-width: 40%;
+    }
     
     &.max-w-50 {
       max-width: 50%;
