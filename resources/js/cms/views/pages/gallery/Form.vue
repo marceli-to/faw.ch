@@ -36,7 +36,6 @@
         <div class="form-row">
           <label>Credits</label>
           <tinymce-editor
-            :api-key="tinyApiKey"
             :init="tinyConfig"
             v-model="data.credits"
           ></tinymce-editor>
@@ -154,7 +153,6 @@ export default {
 
       // TinyMCE
       tinyConfig: tinyConfig,
-      tinyApiKey: 'vuaywur9klvlt3excnrd9xki1a5lj25v18b2j0d0nu5tbwro',
       
     };
   },
