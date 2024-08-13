@@ -23,7 +23,7 @@
       <x-card-sponsor logo="swica.svg" title="" uri="https://www.swica.ch" class="max-w-70" />
       <x-card-sponsor logo="thomas-rickli.svg" title="" uri="https://thomasrickli.ch" class="max-w-75" />
       <x-card-sponsor logo="truninger.png" title="" uri="https://www.truninger-plot24.ch" class="max-w-70" />
-      <x-card-sponsor logo="tuffli-baurecht.png" title="" uri="https://www.tufflibaurecht.ch" class="max-w-70" />
+      {{-- <x-card-sponsor logo="tuffli-baurecht.png" title="" uri="https://www.tufflibaurecht.ch" class="max-w-70" /> --}}
     </div>
   </div>
 </section>
