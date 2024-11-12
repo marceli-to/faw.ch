@@ -6,7 +6,7 @@
       <x-card-sponsor logo="brunner-parkett.svg" title="" uri="https://www.brunnersewi.ch" class="max-w-90"/>
       <x-card-sponsor logo="bwt.svg" title="" uri="https://www.bwt.ch" class="max-w-70" />
       <x-card-sponsor logo="de-donno.png" title="" uri="http://www.gipser-dedonno.ch" class="max-w-75" />
-      <x-card-sponsor logo="farbwelt-landolt.svg" title="" uri="https://www.landolt-maler.ch" class="max-w-40" />
+      <x-card-sponsor logo="farbwelt-landolt.svg" title="" uri="https://farbwelt.ch/" class="max-w-40" />
       <x-card-sponsor logo="elibag.svg" title="" uri="https://www.elibag.ch" class="max-w-60" />
       <x-card-sponsor logo="russo.svg" title="https://gipser-russo.ch" uri="" class="max-w-85" />
       <x-card-sponsor logo="gebw.svg" title="" uri="https://www.gebw.ch/" class="max-w-70" />
