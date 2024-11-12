@@ -6,6 +6,7 @@
       <x-card-sponsor logo="brunner-parkett.svg" title="" uri="https://www.brunnersewi.ch" class="max-w-90"/>
       <x-card-sponsor logo="bwt.svg" title="" uri="https://www.bwt.ch" class="max-w-70" />
       <x-card-sponsor logo="de-donno.png" title="" uri="http://www.gipser-dedonno.ch" class="max-w-75" />
+      <x-card-sponsor logo="farbwelt-landolt.svg" title="" uri="https://www.landolt-maler.ch" class="max-w-40" />
       <x-card-sponsor logo="elibag.svg" title="" uri="https://www.elibag.ch" class="max-w-60" />
       <x-card-sponsor logo="russo.svg" title="https://gipser-russo.ch" uri="" class="max-w-85" />
       <x-card-sponsor logo="gebw.svg" title="" uri="https://www.gebw.ch/" class="max-w-70" />
@@ -17,13 +18,11 @@
       <x-card-sponsor logo="keller.png" title="" uri="https://keller-unternehmungen.ch/de-ch/keller-unternehmungen.html" class="max-w-65" />
       <x-card-sponsor logo="implenia.svg" title="" uri="https://implenia.com" class="max-w-80" />
       <x-card-sponsor logo="landolt-gruppe.svg" title="" uri="https://www.landolt-bau.ch/" class="" />
-      <x-card-sponsor logo="landolt.svg" title="" uri="https://www.landolt-maler.ch" class="max-w-90" />
       <x-card-sponsor logo="handwerk-am-bau.png" title="" uri="https://www.schweizerag.com/" class="max-w-80" />
       <x-card-sponsor logo="staehli.png" title="" uri="http://www.staehli-haustechnik.ch/home" class="max-w-90" />
       <x-card-sponsor logo="swica.svg" title="" uri="https://www.swica.ch" class="max-w-70" />
       <x-card-sponsor logo="thomas-rickli.svg" title="" uri="https://thomasrickli.ch" class="max-w-75" />
       <x-card-sponsor logo="truninger.png" title="" uri="https://www.truninger-plot24.ch" class="max-w-70" />
-      {{-- <x-card-sponsor logo="tuffli-baurecht.png" title="" uri="https://www.tufflibaurecht.ch" class="max-w-70" /> --}}
     </div>
   </div>
 </section>
