@@ -41,10 +41,20 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+    
+    /**
+     * Flush the exception handling state.
+     *
+     * @return void
+     */
+    public function flushState(): void
+    {
+        parent::flushState();
     }
 }
