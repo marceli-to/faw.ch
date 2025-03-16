@@ -1,16 +1,19 @@
 require('@/bootstrap');
 
-// Vue
-window.Vue = require('vue');
+// Import Vue properly
+import Vue from 'vue';
+window.Vue = Vue;
+
+// Axios, Vue-Axios
+import axios from 'axios';
+window.axios = axios;
+
+// Then set up Vue-Axios
+import VueAxios from 'vue-axios';
+Vue.use(VueAxios, axios);
 
 // Axios Interceptors
 require('vue-axios-interceptors');
-
-// Axios, Vue-Axios
-import VueAxios from 'vue-axios';
-import axios from 'axios';
-window.axios = require('axios');
-Vue.use(VueAxios, axios);
 
 // Filters
 require('@/mixins/Filters');

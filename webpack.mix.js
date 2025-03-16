@@ -1,5 +1,11 @@
 const mix = require('laravel-mix');
 
+// Set the public path
+mix.setPublicPath('public');
+
+// Configure Vue
+mix.vue({ version: 2 });
+
 mix.webpackConfig({
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -33,4 +39,3 @@ mix.js('resources/js/web/member/app.js', 'public/assets/js/member.js').version()
 // App
 mix.js('resources/js/cms/app.js', 'public/assets/js/cms/app.js').version();
 mix.sass('resources/sass/cms/app.scss', 'public/assets/css/cms/app.css').options({processCssUrls: false}).version();
-

@@ -1,5 +1,14 @@
 /*!
- * Vue.js v2.6.11
- * (c) 2014-2019 Evan You
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * Vue.js v2.7.16
+ * (c) 2014-2023 Evan You
  * Released under the MIT License.
  */
+
+/*! Axios v1.8.3 Copyright (c) 2025 Matt Zabriskie and contributors */
