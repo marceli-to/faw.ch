@@ -14,7 +14,7 @@
     </page-header>
     <div class="grid-items">
       <figure class="grid-item grid-item__hero">
-        <img :src="getImageSrc(data.hero, 'cache')" height="300" width="300" v-if="data.hero">
+        <img :src="getImageSrc(data.hero, 'crop')" height="300" width="300" v-if="data.hero">
       </figure>
       <page-header>
         <h2>Veranstaltungen</h2>
@@ -37,7 +37,7 @@
           :key="item.id">
           <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
           <figure v-if="item.event && item.event.image">
-            <img :src="getImageSrc(item.event.image, 'cache')" height="300" width="200" v-if="item.event.image">
+            <img :src="getImageSrc(item.event.image, 'crop')" height="300" width="200" v-if="item.event.image">
             <img src="/assets/img/cms/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
             <h2>{{item.event.title}}</h2>
             <p v-html="item.event.abstract"></p>
@@ -65,7 +65,7 @@
           :key="item.id">
           <a href="javascript:;" @click.prevent="destroy(item.id)" class="btn-delete">Löschen</a>
           <figure>
-            <img :src="getImageSrc(item.teaser.image, 'cache')" height="300" width="200" v-if="item.teaser.image">
+            <img :src="getImageSrc(item.teaser.image, 'crop')" height="300" width="200" v-if="item.teaser.image">
             <img src="/assets/img/cms/placeholder.png" class="aspect-3:2" width="300" height="200" v-else>
             <h2>{{item.teaser.title}}</h2>
             <p v-html="item.teaser.text"></p>

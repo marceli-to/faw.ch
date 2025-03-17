@@ -161,7 +161,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+        Intervention\Image\Laravel\ServiceProvider::class,
+        MarceliTo\ImageCache\ImageCacheServiceProvider::class,
         
         /*
          * Package Service Providers...
@@ -230,6 +231,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'AppHelper' => App\Helpers\AppHelper::class,
         'DateHelper' => App\Helpers\DateHelper::class,
+        'ImageCache' => MarceliTo\ImageCache\Facades\ImageCache::class,
     ],
 
 ];

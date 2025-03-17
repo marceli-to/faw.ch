@@ -13,7 +13,7 @@
     <div class="form-row">
       <image-edit 
         :images="data"
-        :imagePreviewRoute="'cache'"
+        :imagePreviewRoute="'crop'"
         :ratioW="this.$props.imageRatioW"
         :ratioH="this.$props.imageRatioH"
         :allowRatioSwitch="this.$props.allowRatioSwitch"
