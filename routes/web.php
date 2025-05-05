@@ -1,7 +1,6 @@
 <?php
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ImageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DebateController;
@@ -41,9 +40,6 @@ Route::get('/kontakt', [ContactController::class, 'index'])->name('page.contact'
 
 Route::get('/galerie/{slug?}/{gallery}/{gallery_slug?}', [GalleryController::class, 'single'])->name('page.gallery.single');
 Route::get('/galerie/{page:slug}/{article}/{gallery}/{gallery_slug?}', [GalleryController::class, 'show'])->name('page.gallery');
-
-// Url based images
-Route::get('/img/{template}/{filename}/{maxSize?}/{coords?}/{ratio?}', [ImageController::class, 'getResponse']);
 
 /*
 |--------------------------------------------------------------------------
