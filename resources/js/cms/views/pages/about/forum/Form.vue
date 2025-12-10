@@ -20,6 +20,14 @@
             v-model="data.text"
           ></tinymce-editor>
         </div>
+        <div class="form-row">
+          <label>Statuten</label>
+          <single-file-upload
+            :file.sync="data.file"
+            :restrictions="'pdf | max. 32 MB'"
+            :acceptedFiles="'.pdf'"
+          ></single-file-upload>
+        </div>
         <template v-if="$props.type == 'edit'">
           <div class="form-row sb-lg">
             <page-header>
@@ -81,6 +89,7 @@ import tabsConfig from "@/views/pages/about/forum/config/tabs.js";
 import PageFooter from "@/components/ui/PageFooter.vue";
 import PageHeader from "@/components/ui/PageHeader.vue";
 import Files from "@/modules/files/Index.vue";
+import SingleFileUpload from "@/modules/files/components/SingleUpload.vue";
 import Images from "@/modules/images/Index.vue";
 import ForumArticles from "@/views/pages/about/forum/article/Index.vue";
 import ForumArticleForm from "@/views/pages/about/forum/article/Form.vue";
@@ -98,6 +107,7 @@ export default {
     ForumArticles,
     ForumArticleForm,
     Files,
+    SingleFileUpload,
     Images,
     TinymceEditor
   },
@@ -116,6 +126,7 @@ export default {
         id: null,
         title: null,
         text: null,
+        file: null,
         publish: 1,
         articles: [],
       },

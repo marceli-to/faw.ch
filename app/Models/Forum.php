@@ -11,6 +11,7 @@ class Forum extends Base
 	protected $fillable = [
     'title',
     'text',
+    'file',
     'publish'
   ];
 

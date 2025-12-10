@@ -53,6 +53,14 @@
       <div class="text-media__links mt-12x md:mt-0">
         <x-link-gallery page="ueber-uns" :id="18" />
       </div>
+      @if ($forum->file)
+        <div>
+          <a href="/storage/uploads/{{ $forum->file }}" class="anchor anchor--file" target="_blank" title="Statuten">
+            <x-icon type="file" />
+            <span>Statuten</span>
+          </a>
+        </div>
+      @endif
       @if ($forum->publishedFiles)
         <x-toggle-text title="Download Jahresberichte" cssClass="mt-6x" class="mt-8x md:mt-0">
           <div class="columns-3" style="max-width: 640px">
