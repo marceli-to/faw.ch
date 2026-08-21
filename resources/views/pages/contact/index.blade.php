@@ -23,7 +23,7 @@
     <h2 class="lg:mb-1x">Kontaktadresse</h2>
     <p>Forum Architektur Winterthur<br>8400 Winterthur<br><a href="mailto:info@forum-architektur.ch" class="link" title="E-Mail">info@forum-architektur.ch</a></p>
     <h2 class="lg:mb-1x">Veranstaltungslokal</h2>
-    <p>Forum Architektur Winterthur<br>Zürcherstrasse 43<br>8400 Winterthur<br><x-link-page url="https://goo.gl/maps/6rZKKtMir3xMhzVL9" target="_blank" title="Google Maps" text="Google Maps" cssClass="mt-1x" /></p>
+    <p>Baukulturhaus<br>Zürcherstrasse 43<br>8400 Winterthur<br><x-link-page url="https://goo.gl/maps/6rZKKtMir3xMhzVL9" target="_blank" title="Google Maps" text="Google Maps" cssClass="mt-1x" /></p>
     <h2 class="lg:mb-1x">Social Media</h2>
     <p>
       <x-link-page url="https://www.facebook.com/forumarchitekturwinterthur" target="_blank" title="Forum Architektur Winterthur auf Facebook" text="Facebook" />
